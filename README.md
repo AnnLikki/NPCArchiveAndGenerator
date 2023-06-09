@@ -6,6 +6,9 @@ Despite the fact that the program is called "NPC Archive & Generator", there is 
 # Description
 This program is an interactive archive of NPCs (non-player characters). It allows you to store and edit the data of the characters of table top role-playing games (TTRPGs), providing a structured and detailed user interface for recording their data. Also, the program provides an interactive archive of races that these non-player characters may represent.
 
+![image](https://github.com/AnnLikki/NPCArchiveAndGenerator/assets/46577377/295e5e83-f7ef-4b3a-ab8b-d0153e2355b6)
+
+
 # Functionality
 1. View the archive of characters.
 2. Creating, editing and deleting characters from the archive.
