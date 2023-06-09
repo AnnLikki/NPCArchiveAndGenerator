@@ -1,0 +1,144 @@
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\NPCGenerator.exe
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\NPCGenerator.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\NPCGenerator.exe.config
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\NPCGenerator.exe
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\NPCGenerator.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\UI.csproj.AssemblyReference.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\UI.csproj.SuggestedBindingRedirects.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\NPCCard.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\MainWindow.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\RacesArchiveUC.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\NPCsArchiveUC.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\NPCCard.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\App.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\NPCGenerator_MarkupCompile.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\NPCGenerator_MarkupCompile.lref
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\MainWindow.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\RacesArchiveUC.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\NPCsArchiveUC.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\NPCGenerator.g.resources
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\NPCGenerator.Properties.Resources.resources
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\UI.csproj.GenerateResource.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\UI.csproj.CoreCompileInputs.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\Archive.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\Archive.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\UI.csproj.CopyComplete
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\RaceCard.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\obj\Debug\RaceCard.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\FileManager.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Text.Json.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Memory.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.ValueTuple.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Buffers.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\FileManager.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\FileManager.dll.config
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Text.Json.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Memory.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.ValueTuple.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Buffers.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\NPCGenerator\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\NPCGenerator.exe.config
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\NPCGenerator.exe
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\NPCGenerator.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\FileManager.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Text.Json.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Memory.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.ValueTuple.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Buffers.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\FileManager.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\FileManager.dll.config
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Text.Json.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Memory.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.ValueTuple.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Buffers.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\UI.csproj.AssemblyReference.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\UI.csproj.SuggestedBindingRedirects.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\RaceCard.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\RacesArchiveUC.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\NPCsArchiveUC.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\NPCCard.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\MainWindow.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\RaceCard.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\RacesArchiveUC.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\NPCsArchiveUC.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\NPCCard.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\App.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\NPCGenerator_MarkupCompile.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\NPCGenerator_MarkupCompile.lref
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\MainWindow.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\NPCGenerator.g.resources
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\NPCGenerator.Properties.Resources.resources
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\UI.csproj.GenerateResource.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\UI.csproj.CoreCompileInputs.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\UI.csproj.CopyComplete
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\NPCGenerator.exe
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\obj\Debug\NPCGenerator.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\Archives.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\NPCGenerator\bin\Debug\Archives.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\NPCGenerator.exe.config
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\NPCGenerator.exe
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\NPCGenerator.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\Archives.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\FileManager.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Text.Json.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Memory.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.ValueTuple.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Buffers.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\Archives.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\FileManager.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\FileManager.dll.config
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Text.Json.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Memory.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.ValueTuple.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Buffers.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\UI.csproj.AssemblyReference.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\UI.csproj.SuggestedBindingRedirects.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\RaceCard.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\RacesArchiveUC.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCsArchiveUC.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCCard.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\MainWindow.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\RaceCard.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\RacesArchiveUC.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCsArchiveUC.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCCard.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\App.g.cs
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCGenerator_MarkupCompile.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCGenerator_MarkupCompile.lref
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\MainWindow.baml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCGenerator.g.resources
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCGenerator.Properties.Resources.resources
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\UI.csproj.GenerateResource.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\UI.csproj.CoreCompileInputs.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\UI.csproj.CopyComplete
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCGenerator.exe
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCGenerator.pdb

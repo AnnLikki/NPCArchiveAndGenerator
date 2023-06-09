@@ -1,0 +1,84 @@
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\FileManager.dll.config
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\FileManager.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\FileManager.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\Archive.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Buffers.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Memory.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Text.Json.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.ValueTuple.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\Archive.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Buffers.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Memory.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Text.Json.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\bin\Debug\System.ValueTuple.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\obj\Debug\FileManager.csproj.AssemblyReference.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\obj\Debug\FileManager.csproj.CoreCompileInputs.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\obj\Debug\FileManager.csproj.CopyComplete
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\obj\Debug\FileManager.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\FileManager\obj\Debug\FileManager.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\FileManager.dll.config
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\FileManager.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\FileManager.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Buffers.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Memory.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Text.Json.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.ValueTuple.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Buffers.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Memory.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Text.Json.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\System.ValueTuple.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\obj\Debug\FileManager.csproj.AssemblyReference.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\obj\Debug\FileManager.csproj.CoreCompileInputs.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\obj\Debug\FileManager.csproj.CopyComplete
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\obj\Debug\FileManager.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\obj\Debug\FileManager.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\Archives.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\FileManager\bin\Debug\Archives.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\FileManager.dll.config
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\FileManager.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\FileManager.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\Archives.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Buffers.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Memory.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Text.Json.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.ValueTuple.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\Archives.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Buffers.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Memory.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Text.Json.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\bin\Debug\System.ValueTuple.xml
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\obj\Debug\FileManager.csproj.AssemblyReference.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\obj\Debug\FileManager.csproj.CoreCompileInputs.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\obj\Debug\FileManager.csproj.CopyComplete
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\obj\Debug\FileManager.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\FileManager\obj\Debug\FileManager.pdb

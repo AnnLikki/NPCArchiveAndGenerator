@@ -1,0 +1,12 @@
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\Archive\obj\Debug\Archives.csproj.AssemblyReference.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\Archive\obj\Debug\Archives.csproj.CoreCompileInputs.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\Archive\bin\Debug\Archive.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\Archive\bin\Debug\Archive.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\Archive\obj\Debug\Archive.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator\Archive\obj\Debug\Archive.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\Archive\obj\Debug\Archives.csproj.AssemblyReference.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\Archive\obj\Debug\Archives.csproj.CoreCompileInputs.cache
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\Archive\bin\Debug\Archives.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\Archive\bin\Debug\Archives.pdb
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\Archive\obj\Debug\Archives.dll
+C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCGenerator — копия\Archive\obj\Debug\Archives.pdb
