@@ -33,7 +33,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Name}" Margin="5"/>
-                                    <TextBlock Text="{Binding Description}" Margin="5"/>
+                                    <TextBlock Text="{Binding Description}" Margin="5" MaxHeight="15"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

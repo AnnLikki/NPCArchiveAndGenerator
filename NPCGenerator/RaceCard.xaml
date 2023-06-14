@@ -48,7 +48,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="descTB" Margin="2,0,0,2" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled"/>
+            <TextBox x:Name="descTB" Margin="2,0,0,2" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" AcceptsTab="True" AutoWordSelection="True"/>
         </Grid>
 
         <Grid Grid.Row="4" Margin="2">
