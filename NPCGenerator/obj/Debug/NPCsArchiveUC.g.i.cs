@@ -91,7 +91,7 @@ namespace NPCGenerator {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/NPCGenerator;component/npcsarchiveuc.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/NPCArchiveAndGenerator;component/npcsarchiveuc.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\NPCsArchiveUC.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

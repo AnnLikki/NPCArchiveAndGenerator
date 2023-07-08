@@ -11,7 +11,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        
+
         <ContentControl x:Name="centerContainer" Grid.Row="0"/>
 
         <Grid x:Name="bottomPnl" Grid.Row="1" Background="SteelBlue">
@@ -22,13 +22,13 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="saveBtn" Grid.Column="0" Width="30" Height="30" Margin="5" Click="saveBtn_Click">
-                <Image Source="/NPCGenerator;component/Images/save.png"/>
+                <Image Source="/Images/save.png"/>
             </Button>
             <Button x:Name="exportBtn" Grid.Column="1" Width="30" Height="30" Margin="5" Click="exportBtn_Click">
-                <Image Source="/NPCGenerator;component/Images/export.png"/>
+                <Image Source="/Images/export.png"/>
             </Button>
             <Button x:Name="importBtn" Grid.Column="2" Width="30" Height="30" Margin="5" Click="importBtn_Click">
-                <Image Source="/NPCGenerator;component/Images/import.png"/>
+                <Image Source="/Images/import.png"/>
             </Button>
             <WrapPanel x:Name="bottomWrpPnl" Grid.Column="0" Grid.ColumnSpan="4" Height="30" HorizontalAlignment="Center">
                 <Button x:Name="NPCsArchiveBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="NPCs Archive" Click="NPCsArchiveBtn_Click"/>
