@@ -1,5 +1,4 @@
 ﻿using Archives;
-using System;
 using System.Windows.Controls;
 
 namespace NPCGenerator
@@ -50,7 +49,7 @@ namespace NPCGenerator
         {
             if (NPCDataGrid.SelectedItem is NPC selectedNPC)
             {
-                NPCCard card = new NPCCard(selectedNPC);
+                NPCCard card = new NPCCard(selectedNPC, NPCDataGrid);
                 NPCView.Content = card;
             }
             else
@@ -60,7 +59,7 @@ namespace NPCGenerator
 
         }
 
-       
+
         private void filterTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             updateFilterable();

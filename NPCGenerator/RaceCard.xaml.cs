@@ -1,4 +1,5 @@
 ﻿using Archives;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace NPCGenerator
@@ -8,9 +9,12 @@ namespace NPCGenerator
     public partial class RaceCard : UserControl
     {
         Race race;
-        public RaceCard(Race race)
+        DataGrid grid;
+
+        public RaceCard(Race race, DataGrid grid)
         {
             InitializeComponent();
+            this.grid = grid;
             this.race = race;
 
             // Filling all the fields with race's data.
@@ -32,6 +36,18 @@ namespace NPCGenerator
         private void deleteBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             ArchiveHandler.archiveRace.Remove(race);
+        }
+
+        private void openExternallyBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void closeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            race.updateInfoNotifyably(nameTB.Text, descTB.Text, int.Parse(maturityTB.Text), int.Parse(expectancyTB.Text));
+
+            grid.SelectedItem = null;
         }
 
     }

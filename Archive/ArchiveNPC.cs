@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Archives
@@ -42,7 +40,7 @@ namespace Archives
                 {
                     name.Add(npc);
                 }
-                else if(npc.Race != null && npc.Race.Name.ToLower().Contains(keyword.ToLower()))
+                else if (npc.Race != null && npc.Race.Name.ToLower().Contains(keyword.ToLower()))
                 {
                     race.Add(npc);
                 }
@@ -53,7 +51,7 @@ namespace Archives
                 else if (npc.Occupation.ToLower().Contains(keyword.ToLower()))
                 {
                     occup.Add(npc);
-                } 
+                }
                 else if (npc.Gender.ToString().ToLower().Contains(keyword.ToLower()) ||
                     npc.AgeChrono.ToString().ToLower().Contains(keyword.ToLower()) ||
                     npc.Character.ToString().ToLower().Contains(keyword.ToLower()) ||
@@ -83,7 +81,7 @@ namespace Archives
             foreach (NPC i in notes) fin.Add(i);
 
             return fin;
-            
+
         }
 
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Archives
@@ -36,7 +35,7 @@ namespace Archives
 
         public ArchiveRace filterByKey(string keyword)
         {
-            
+
             if (keyword.Count() == 0)
             {
                 ArchiveRace fin1 = new ArchiveRace();
@@ -55,7 +54,7 @@ namespace Archives
                 {
                     desc.Add(race);
                 }
-                
+
             }
 
             ArchiveRace fin = new ArchiveRace();

@@ -190,3 +190,5 @@ C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\UI
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\UI.csproj.CopyComplete
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCGenerator.exe
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCGenerator.pdb
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCCardWindow.g.cs
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCCardWindow.baml

@@ -51,7 +51,7 @@ namespace NPCGenerator
         {
             if (RaceDataGrid.SelectedItem is Race selectedRace)
             {
-                RaceCard card = new RaceCard(selectedRace);
+                RaceCard card = new RaceCard(selectedRace, RaceDataGrid);
                 RaceView.Content = card;
             }
             else

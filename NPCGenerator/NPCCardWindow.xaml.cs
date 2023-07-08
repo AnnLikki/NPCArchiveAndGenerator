@@ -6,17 +6,14 @@ using System.Windows.Input;
 
 namespace NPCGenerator
 {
-    // NPC Card is a User Control that is placed next to the NPC archive
-    // when sertain NPC is seleted. Allows to view and change NPC's data.
-    public partial class NPCCard : UserControl
+
+    public partial class NPCCardWindow : Window
     {
         NPC npc;
-        DataGrid grid;
 
-        public NPCCard(NPC npc, DataGrid grid)
+        public NPCCardWindow(NPC npc)
         {
             InitializeComponent();
-            this.grid = grid;
 
             //ComboBox with race options taken from global race archive.
             raceCmb.ItemsSource = ArchiveHandler.archiveRace;
@@ -94,33 +91,7 @@ namespace NPCGenerator
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
             ArchiveHandler.absoluteArchiveNPC.Remove(npc);
-        }
-
-        private void openExternallyBtn_Click(object sender, RoutedEventArgs e)
-        {
-            npc.updateInfoNotifyably(
-            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, int.Parse(ageChronoTB.Text), int.Parse(ageBioTB.Text),
-            occupationTB.Text, placeTB.Text, charaterTB.Text, backstoryTB.Text, heightTB.Text,
-            physiqueTB.Text, skincolourTB.Text, hairTB.Text, faceTB.Text, eyesTB.Text, clothesTB.Text, featuresTB.Text,
-            int.Parse(strTB.Text), int.Parse(dexTB.Text), int.Parse(conTB.Text), int.Parse(intTB.Text), int.Parse(wisTB.Text), int.Parse(chaTB.Text),
-            notesTB.Text);
-
-            NPCCardWindow npcCardWindow = new NPCCardWindow(npc);
-            npcCardWindow.Show();
-
-            grid.SelectedItem = null;
-        }
-
-        private void closeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            npc.updateInfoNotifyably(
-            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, int.Parse(ageChronoTB.Text), int.Parse(ageBioTB.Text),
-            occupationTB.Text, placeTB.Text, charaterTB.Text, backstoryTB.Text, heightTB.Text,
-            physiqueTB.Text, skincolourTB.Text, hairTB.Text, faceTB.Text, eyesTB.Text, clothesTB.Text, featuresTB.Text,
-            int.Parse(strTB.Text), int.Parse(dexTB.Text), int.Parse(conTB.Text), int.Parse(intTB.Text), int.Parse(wisTB.Text), int.Parse(chaTB.Text),
-            notesTB.Text);
-
-            grid.SelectedItem = null;
+            Close();
         }
 
         // Two next methods are tied to chronological and biological (human)
@@ -170,4 +141,5 @@ namespace NPCGenerator
 
 
     }
+
 }
