@@ -35,7 +35,7 @@ namespace FileManager
                 if (!File.Exists(path))
                     using (File.Create(path)) { }
                 string jsonData = "NPC ARCHIVE\n" +
-                    JsonSerializer.Serialize(ArchiveHandler.archiveNPC);
+                    JsonSerializer.Serialize(ArchiveHandler.absoluteArchiveNPC);
                 File.WriteAllText(path, jsonData);
 
             }
@@ -53,7 +53,7 @@ namespace FileManager
                 if (File.ReadAllLines(path)[0] == "NPC ARCHIVE")
                 {
                     string jsonData = File.ReadAllText(path).Replace("NPC ARCHIVE", "");
-                    ArchiveHandler.archiveNPC = JsonSerializer.Deserialize<ArchiveNPC>(jsonData);
+                    ArchiveHandler.absoluteArchiveNPC = JsonSerializer.Deserialize<ArchiveNPC>(jsonData);
                 }
                 else
                     throw new FormatException("No correct format descriptor found.");

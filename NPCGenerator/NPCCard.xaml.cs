@@ -91,7 +91,7 @@ namespace NPCGenerator
         // this NPC Card.
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            ArchiveHandler.archiveNPC.Remove(npc);
+            ArchiveHandler.absoluteArchiveNPC.Remove(npc);
         }
 
         // Two next methods are tied to chronological and biological (human)

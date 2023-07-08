@@ -12,11 +12,27 @@ namespace NPCGenerator
     // displayes race's data.
     public partial class RacesArchiveUC : UserControl
     {
+        ArchiveRace displayedArchiveRace;
         public RacesArchiveUC()
         {
             InitializeComponent();
-            // Binding the DataGrid the global race archive.
-            RaceDataGrid.ItemsSource = ArchiveHandler.archiveRace;
+
+            // Binding the DataGrid the filterable races archive.
+            updateFilterable();
+
+            ArchiveHandler.archiveRace.CollectionChanged += ArchiveRace_CollectionChanged;
+
+        }
+
+        private void ArchiveRace_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            updateFilterable();
+        }
+
+        void updateFilterable()
+        {
+            displayedArchiveRace = ArchiveHandler.archiveRace.filterByKey(filterTB.Text);
+            RaceDataGrid.ItemsSource = displayedArchiveRace;
         }
 
         // A new race is created, added to the archive and selected,
@@ -44,9 +60,15 @@ namespace NPCGenerator
             }
         }
 
-        // Filters and searching are yet to be implemented.
-        // I plan to implement this feature in the future.
+        private void filterTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            updateFilterable();
+        }
 
+        private void clearFilterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            filterTB.Clear();
+        }
 
     }
 

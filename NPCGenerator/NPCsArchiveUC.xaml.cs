@@ -1,4 +1,5 @@
 ﻿using Archives;
+using System;
 using System.Windows.Controls;
 
 namespace NPCGenerator
@@ -11,11 +12,27 @@ namespace NPCGenerator
     // displayes NPC's data.
     public partial class NPCsArchiveUC : UserControl
     {
+        ArchiveNPC displayedArchiveNPC;
         public NPCsArchiveUC()
         {
             InitializeComponent();
-            // Binding the DataGrid the global NPC archive.
-            NPCDataGrid.ItemsSource = ArchiveHandler.archiveNPC;
+
+            // Binding the DataGrid the filterable NPC archive.
+            updateFilterable();
+
+            ArchiveHandler.absoluteArchiveNPC.CollectionChanged += AbsoluteArchiveNPC_CollectionChanged;
+
+        }
+
+        private void AbsoluteArchiveNPC_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            updateFilterable();
+        }
+
+        void updateFilterable()
+        {
+            displayedArchiveNPC = ArchiveHandler.absoluteArchiveNPC.filterByKey(filterTB.Text);
+            NPCDataGrid.ItemsSource = displayedArchiveNPC;
         }
 
         // A new NPC is created, added to the archive and selected,
@@ -23,7 +40,7 @@ namespace NPCGenerator
         private void addNPCBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             NPC newNPC = new NPC();
-            ArchiveHandler.archiveNPC.Add(newNPC);
+            ArchiveHandler.absoluteArchiveNPC.Add(newNPC);
             NPCDataGrid.SelectedItem = newNPC;
         }
 
@@ -43,11 +60,15 @@ namespace NPCGenerator
 
         }
 
-        // Filters and searching are yet to be implemented.
-        // I plan to implement this feature in the future.
+       
         private void filterTB_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+            updateFilterable();
+        }
+
+        private void clearFilterBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            filterTB.Clear();
         }
     }
 }
