@@ -74,10 +74,10 @@ namespace NPCGenerator
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             npc.updateInfoNotifyably(
-            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, int.Parse(ageChronoTB.Text), int.Parse(ageBioTB.Text),
+            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, ParseCarefully(ageChronoTB.Text), ParseCarefully(ageBioTB.Text),
             occupationTB.Text, placeTB.Text, charaterTB.Text, backstoryTB.Text, heightTB.Text,
             physiqueTB.Text, skincolourTB.Text, hairTB.Text, faceTB.Text, eyesTB.Text, clothesTB.Text, featuresTB.Text,
-            int.Parse(strTB.Text), int.Parse(dexTB.Text), int.Parse(conTB.Text), int.Parse(intTB.Text), int.Parse(wisTB.Text), int.Parse(chaTB.Text),
+            ParseCarefully(strTB.Text), ParseCarefully(dexTB.Text), ParseCarefully(conTB.Text), ParseCarefully(intTB.Text), ParseCarefully(wisTB.Text), ParseCarefully(chaTB.Text),
             notesTB.Text);
             strModLbl.Content = (NPC.calcMod(npc.Str) >= 0) ? "+" + NPC.calcMod(npc.Str).ToString() : NPC.calcMod(npc.Str).ToString();
             dexModLbl.Content = (NPC.calcMod(npc.Dex) >= 0) ? "+" + NPC.calcMod(npc.Dex).ToString() : NPC.calcMod(npc.Dex).ToString();
@@ -99,10 +99,10 @@ namespace NPCGenerator
         private void openExternallyBtn_Click(object sender, RoutedEventArgs e)
         {
             npc.updateInfoNotifyably(
-            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, int.Parse(ageChronoTB.Text), int.Parse(ageBioTB.Text),
+            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, ParseCarefully(ageChronoTB.Text), ParseCarefully(ageBioTB.Text),
             occupationTB.Text, placeTB.Text, charaterTB.Text, backstoryTB.Text, heightTB.Text,
             physiqueTB.Text, skincolourTB.Text, hairTB.Text, faceTB.Text, eyesTB.Text, clothesTB.Text, featuresTB.Text,
-            int.Parse(strTB.Text), int.Parse(dexTB.Text), int.Parse(conTB.Text), int.Parse(intTB.Text), int.Parse(wisTB.Text), int.Parse(chaTB.Text),
+            ParseCarefully(strTB.Text), ParseCarefully(dexTB.Text), ParseCarefully(conTB.Text), ParseCarefully(intTB.Text), ParseCarefully(wisTB.Text), ParseCarefully(chaTB.Text),
             notesTB.Text);
 
             NPCCardWindow npcCardWindow = new NPCCardWindow(npc);
@@ -114,10 +114,10 @@ namespace NPCGenerator
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
             npc.updateInfoNotifyably(
-            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, int.Parse(ageChronoTB.Text), int.Parse(ageBioTB.Text),
+            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, ParseCarefully(ageChronoTB.Text), ParseCarefully(ageBioTB.Text),
             occupationTB.Text, placeTB.Text, charaterTB.Text, backstoryTB.Text, heightTB.Text,
             physiqueTB.Text, skincolourTB.Text, hairTB.Text, faceTB.Text, eyesTB.Text, clothesTB.Text, featuresTB.Text,
-            int.Parse(strTB.Text), int.Parse(dexTB.Text), int.Parse(conTB.Text), int.Parse(intTB.Text), int.Parse(wisTB.Text), int.Parse(chaTB.Text),
+            ParseCarefully(strTB.Text), ParseCarefully(dexTB.Text), ParseCarefully(conTB.Text), ParseCarefully(intTB.Text), ParseCarefully(wisTB.Text), ParseCarefully(chaTB.Text),
             notesTB.Text);
 
             grid.SelectedItem = null;
@@ -134,26 +134,26 @@ namespace NPCGenerator
         {
             if (ageBioTB.IsFocused)
                 if ((Race)raceCmb.SelectedValue != null)
-                    if (ageBioTB.Text.Length == 0 || int.Parse(ageBioTB.Text) <= 0)
+                    if (ageBioTB.Text.Length == 0 || ParseCarefully(ageBioTB.Text) <= 0)
                         ageChronoTB.Text = "0";
                     else
-                        if (int.Parse(ageBioTB.Text) <= ArchiveRace.baseRace.AgeMaturity)
-                        ageChronoTB.Text = ((int)Math.Round((double)(int.Parse(ageBioTB.Text) * ((Race)raceCmb.SelectedValue).AgeMaturity) / ArchiveRace.baseRace.AgeMaturity)).ToString();
+                        if (ParseCarefully(ageBioTB.Text) <= ArchiveRace.baseRace.AgeMaturity)
+                        ageChronoTB.Text = ((int)Math.Round((double)(ParseCarefully(ageBioTB.Text) * ((Race)raceCmb.SelectedValue).AgeMaturity) / ArchiveRace.baseRace.AgeMaturity)).ToString();
                     else
-                        ageChronoTB.Text = ((int)Math.Round((double)((int.Parse(ageBioTB.Text) - ArchiveRace.baseRace.AgeMaturity) * (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) / (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) + ((Race)raceCmb.SelectedValue).AgeMaturity).ToString();
+                        ageChronoTB.Text = ((int)Math.Round((double)((ParseCarefully(ageBioTB.Text) - ArchiveRace.baseRace.AgeMaturity) * (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) / (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) + ((Race)raceCmb.SelectedValue).AgeMaturity).ToString();
         }
 
         private void ageChronoTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (ageChronoTB.IsFocused)
                 if ((Race)raceCmb.SelectedValue != null)
-                    if (ageChronoTB.Text.Length == 0 || int.Parse(ageChronoTB.Text) <= 0)
+                    if (ageChronoTB.Text.Length == 0 || ParseCarefully(ageChronoTB.Text) <= 0)
                         ageBioTB.Text = "0";
                     else
-                        if (int.Parse(ageChronoTB.Text) <= ((Race)raceCmb.SelectedValue).AgeMaturity)
-                        ageBioTB.Text = ((int)Math.Round((double)(int.Parse(ageChronoTB.Text) * ArchiveRace.baseRace.AgeMaturity) / ((Race)raceCmb.SelectedValue).AgeMaturity)).ToString();
+                        if (ParseCarefully(ageChronoTB.Text) <= ((Race)raceCmb.SelectedValue).AgeMaturity)
+                        ageBioTB.Text = ((int)Math.Round((double)(ParseCarefully(ageChronoTB.Text) * ArchiveRace.baseRace.AgeMaturity) / ((Race)raceCmb.SelectedValue).AgeMaturity)).ToString();
                     else
-                        ageBioTB.Text = ((int)Math.Round((double)((int.Parse(ageChronoTB.Text) - ((Race)raceCmb.SelectedValue).AgeMaturity) * (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) / (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) + ArchiveRace.baseRace.AgeMaturity).ToString();
+                        ageBioTB.Text = ((int)Math.Round((double)((ParseCarefully(ageChronoTB.Text) - ((Race)raceCmb.SelectedValue).AgeMaturity) * (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) / (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) + ArchiveRace.baseRace.AgeMaturity).ToString();
         }
 
         // These methods check input text to Age TextBoxes so the user
@@ -167,7 +167,12 @@ namespace NPCGenerator
         {
             return int.TryParse(input, out _);
         }
-
+        private int ParseCarefully(string s)
+        {
+            int result;
+            int.TryParse(s, out result);
+            return result;
+        }
 
     }
 }

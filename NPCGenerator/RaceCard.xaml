@@ -65,7 +65,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Content="Age of maturity" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-            <TextBox x:Name="maturityTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled"/>
+            <TextBox x:Name="maturityTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled" PreviewTextInput="numeric_PreviewTextInput"/>
         </Grid>
 
         <Grid Grid.Row="5" Margin="2">
@@ -74,7 +74,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Content="Life expectancy" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-            <TextBox x:Name="expectancyTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled"/>
+            <TextBox x:Name="expectancyTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled" PreviewTextInput="numeric_PreviewTextInput"/>
         </Grid>
     </Grid>
 </UserControl>

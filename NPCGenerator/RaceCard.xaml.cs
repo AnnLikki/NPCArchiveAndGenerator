@@ -1,6 +1,7 @@
 ﻿using Archives;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace NPCGenerator
 {
@@ -27,7 +28,7 @@ namespace NPCGenerator
         // Save button updates the race's data and notifies the DataGrid to update.
         private void saveBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            race.updateInfoNotifyably(nameTB.Text, descTB.Text, int.Parse(maturityTB.Text), int.Parse(expectancyTB.Text));
+            race.updateInfoNotifyably(nameTB.Text, descTB.Text, ParseCarefully(maturityTB.Text), ParseCarefully(expectancyTB.Text));
         }
 
         // Delete button deletes the race from the global archive,
@@ -40,14 +41,32 @@ namespace NPCGenerator
 
         private void openExternallyBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
-            race.updateInfoNotifyably(nameTB.Text, descTB.Text, int.Parse(maturityTB.Text), int.Parse(expectancyTB.Text));
+            race.updateInfoNotifyably(nameTB.Text, descTB.Text, ParseCarefully(maturityTB.Text), ParseCarefully(expectancyTB.Text));
 
             grid.SelectedItem = null;
+        }
+
+        // These methods check input text to Age TextBoxes so the user
+        // can not input nothig except numbers in them.
+        private void numeric_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!IsNumericInput(e.Text))
+                e.Handled = true;
+        }
+        private bool IsNumericInput(string input)
+        {
+            return int.TryParse(input, out _);
+        }
+        private int ParseCarefully(string s)
+        {
+            int result;
+            int.TryParse(s, out result);
+            return result;
         }
 
     }
