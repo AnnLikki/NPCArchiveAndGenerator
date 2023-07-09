@@ -142,6 +142,9 @@ C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭ
 C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\UI.csproj.CopyComplete
 C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCGenerator.exe
 C:\Users\likki\Documents\Университет\2 курс 2 семестр\НЭТ\!проект\NPCArchive&Generator\NPCGenerator\obj\Debug\NPCGenerator.pdb
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\bin\Debug\NPCArchiveAndGenerator.exe.config
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\bin\Debug\NPCArchiveAndGenerator.exe
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\bin\Debug\NPCArchiveAndGenerator.pdb
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\bin\Debug\Archives.dll
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\bin\Debug\FileManager.dll
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\bin\Debug\System.Text.Json.dll
@@ -177,17 +180,14 @@ C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\Ra
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCsArchiveUC.g.cs
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCCard.g.cs
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\App.g.cs
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCArchiveAndGenerator_MarkupCompile.cache
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCArchiveAndGenerator_MarkupCompile.lref
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\MainWindow.baml
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCCardWindow.baml
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCArchiveAndGenerator.g.resources
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCArchiveAndGenerator.Properties.Resources.resources
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\UI.csproj.GenerateResource.cache
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\UI.csproj.CoreCompileInputs.cache
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\UI.csproj.CopyComplete
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\bin\Debug\NPCArchiveAndGenerator.exe.config
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\bin\Debug\NPCArchiveAndGenerator.exe
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\bin\Debug\NPCArchiveAndGenerator.pdb
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCArchiveAndGenerator_MarkupCompile.cache
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCArchiveAndGenerator_MarkupCompile.lref
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCArchiveAndGenerator.g.resources
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCArchiveAndGenerator.Properties.Resources.resources
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCArchiveAndGenerator.exe
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\NPCGenerator\obj\Debug\NPCArchiveAndGenerator.pdb

@@ -35,7 +35,7 @@ namespace NPCGenerator
         // this Race Card.
         private void deleteBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ArchiveHandler.archiveRace.Remove(race);
+            ArchiveHandler.absoluteArchiveRace.Remove(race);
         }
 
         private void openExternallyBtn_Click(object sender, RoutedEventArgs e)

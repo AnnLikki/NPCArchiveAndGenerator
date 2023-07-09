@@ -20,7 +20,7 @@ namespace NPCGenerator
             // Binding the DataGrid the filterable races archive.
             updateFilterable();
 
-            ArchiveHandler.archiveRace.CollectionChanged += ArchiveRace_CollectionChanged;
+            ArchiveHandler.absoluteArchiveRace.CollectionChanged += ArchiveRace_CollectionChanged;
 
         }
 
@@ -31,7 +31,7 @@ namespace NPCGenerator
 
         void updateFilterable()
         {
-            displayedArchiveRace = ArchiveHandler.archiveRace.filterByKey(filterTB.Text);
+            displayedArchiveRace = ArchiveHandler.absoluteArchiveRace.filterByKey(filterTB.Text);
             RaceDataGrid.ItemsSource = displayedArchiveRace;
         }
 
@@ -40,7 +40,7 @@ namespace NPCGenerator
         private void addRaceBtn_Click(object sender, RoutedEventArgs e)
         {
             Race newRace = new Race();
-            ArchiveHandler.archiveRace.Add(newRace);
+            ArchiveHandler.absoluteArchiveRace.Add(newRace);
             RaceDataGrid.SelectedItem = newRace;
 
         }

@@ -19,7 +19,7 @@ namespace NPCGenerator
             this.grid = grid;
 
             //ComboBox with race options taken from global race archive.
-            raceCmb.ItemsSource = ArchiveHandler.archiveRace;
+            raceCmb.ItemsSource = ArchiveHandler.absoluteArchiveRace;
 
             // Filling all the fields with NPC's data.
             this.npc = npc;
@@ -28,8 +28,8 @@ namespace NPCGenerator
 
             // Using FindMatching function to set the ComboBox to the right
             // option if found the exact copy of NPC's race in the race archive.
-            if (ArchiveHandler.archiveRace.FindMatching(npc.Race) != null)
-                raceCmb.SelectedItem = ArchiveHandler.archiveRace.FindMatching(npc.Race);
+            if (ArchiveHandler.absoluteArchiveRace.FindMatching(npc.Race) != null)
+                raceCmb.SelectedItem = ArchiveHandler.absoluteArchiveRace.FindMatching(npc.Race);
             else
                 raceCmb.SelectedItem = npc.Race;
 
