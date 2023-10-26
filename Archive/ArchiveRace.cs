@@ -24,16 +24,6 @@ namespace Archives
         /// </summary>
         public static Race baseRace = new Race();
 
-        // TODO Remove unused code after tests.
-        //private ObservableCollection<Race> races = new ObservableCollection<Race>();
-
-        /*
-        public ObservableCollection<Race> Races
-        {
-            get { return races; }
-            set { races = value; }
-        }
-        */
 
         /// <summary>
         /// <returns>

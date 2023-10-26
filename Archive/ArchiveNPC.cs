@@ -13,18 +13,6 @@ namespace Archives
 
     public class ArchiveNPC : ObservableCollection<NPC>
     {
-        // TODO Remove unused code after tests.
-
-        //private ObservableCollection<NPC> npcs = new ObservableCollection<NPC>();
-
-        /*public ObservableCollection<NPC> NPCs
-        {
-            get { return npcs; }
-            set { npcs = value; }
-        }
-        */
-
-        //public ArchiveNPC() { }
 
         /// <summary>
         /// Returns an ArciveNPC, filtered and sorted by the keyword.
