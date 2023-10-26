@@ -3,11 +3,18 @@ using System.ComponentModel;
 
 namespace Archives
 {
-    // A class that contains all the variables of a Race.
-    // It uses INotifyPropertyChanged to notify the DataGrid
-    // to update the data displayed.
+    /// <summary>
+    /// A class that represents a Race and contains all its variables.
+    /// </summary>
+    /// <remarks>
+    /// It uses INotifyPropertyChanged to notify the DataGrid
+    /// to update the data displayed.
+    /// </remarks>
     public class Race : INotifyPropertyChanged
     {
+        /// <summary>
+        /// An ID of the race for identifying which race is linked to an NPC.
+        /// </summary>
         public string ID { get; set; } = ArchiveRace.randomizer.Next(1000, 10000).ToString();
         public string Name { get; set; } = "New Race";
         public string Description { get; set; } = "";
@@ -24,8 +31,9 @@ namespace Archives
             LifeExpectancy = lifeExpectancy;
         }
 
-        // A method to update Race's info and call the PropertyChanged event
-        // on relevant properties.
+        /// <summary>
+        /// A method to update Race's info and call the PropertyChanged event on relevant properties.
+        /// </summary>
         public void updateInfoNotifyably(string name, string description, int ageMaturity, int lifeExpectancy)
         {
             if (Name != name)
@@ -43,9 +51,10 @@ namespace Archives
 
         }
 
-        // Event and delegate responsible for notifying about changed info.
         public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <summary>
+        /// A delegate responsible for notifying about changed info.
+        /// </summary>
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

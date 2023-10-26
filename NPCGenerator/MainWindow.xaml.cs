@@ -6,7 +6,9 @@ using System.Windows.Controls;
 
 namespace NPCGenerator
 {
-    // Main Window class, standart implementation.
+    /// <summary>
+    /// Main Window class, standart implementation.
+    /// </summary>
     public partial class MainWindow : Window
     {
         // NPCsArchiveUC and RacesArchiveUC inherit from UserCotrol
@@ -43,7 +45,9 @@ namespace NPCGenerator
             racesArchiveUC.updateFilterable();
         }
 
-        // Updating the label that contatins current file name.
+        /// <summary>
+        /// Updating the label that contatins current file name.
+        /// </summary>
         private void updateFileName()
         {
             if (centerContainer.Content == npcsArchiveUC)
@@ -58,8 +62,9 @@ namespace NPCGenerator
                     fileNameLbl.Content = "Unsaved Races Archive";
         }
 
-        // Saving all of the archives. For each one that wasn't saved yet,
-        // a saving dialog opens.  
+        /// <summary>
+        /// Saving all of the archives. For each one that wasn't saved yet, a saving dialog opens.  
+        /// </summary>
         private void saveAllBtn_Click(object sender, RoutedEventArgs e)
         {
             if (SnL.NPCsSavePath == null)
@@ -75,7 +80,9 @@ namespace NPCGenerator
 
         }
 
-        // Saving currently open archive in a user-spesified location. 
+        /// <summary>
+        /// Saving currently open archive in a user-spesified location. 
+        /// </summary>
         private void saveAsBtn_Click(object sender, RoutedEventArgs e)
         {
             if (centerContainer.Content == npcsArchiveUC)
@@ -85,8 +92,10 @@ namespace NPCGenerator
             updateFileName();
         }
 
-        // Open button allows to open either an NPC archive or
-        // a race archive (depending on which tab is currently open).
+        /// <summary>
+        /// Open button allows to open either an NPC archive or a race archive 
+        /// (depending on which tab is currently open).
+        /// </summary>
         private void openBtn_Click(object sender, RoutedEventArgs e)
         {
             if (centerContainer.Content == npcsArchiveUC)
@@ -103,8 +112,6 @@ namespace NPCGenerator
             }
             updateFileName();
         }
-
-        // Event upon closing the window - ask the user if they want to save
 
         private void TheWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

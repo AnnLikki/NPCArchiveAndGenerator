@@ -6,8 +6,9 @@ using System.Windows.Input;
 
 namespace NPCGenerator
 {
-    // NPC Card is a User Control that is placed next to the NPC archive
-    // when sertain NPC is seleted. Allows to view and change NPC's data.
+    /// <summary>
+    /// NPC Card is a User Control that is placed next to the NPC archive when sertain NPC is seleted. Allows to view and change NPC's data.
+    /// </summary>
     public partial class NPCCard : UserControl
     {
         NPC npc;
@@ -68,8 +69,9 @@ namespace NPCGenerator
             notesTB.Text = npc.Notes;
         }
 
-        // Save button updates the NPC's data and notifies the DataGrid to update.
-        // Also recalculates the modifiers.
+        /// <summary>
+        /// Save button updates the NPC's data and notifies the DataGrid to update. Also recalculates the modifiers.
+        /// </summary>
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             npc.updateInfoNotifyably(
@@ -87,9 +89,11 @@ namespace NPCGenerator
 
         }
 
-        // Delete button deletes the NPC from the global archive,
-        // consequently changing DataGrid's selection and destroying
-        // this NPC Card.
+        /// <summary>
+        /// Delete button deletes the NPC from the global archive,
+        /// consequently changing DataGrid's selection and destroying
+        /// this NPC Card.
+        /// </summary>
         // TODO Create custom dialog window with turning off safe delete
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -104,6 +108,9 @@ namespace NPCGenerator
             else ArchiveHandler.absoluteArchiveNPC.Remove(npc);
         }
 
+        /// <summary>
+        /// Opens an extra window with the card.
+        /// </summary>
         private void openExternallyBtn_Click(object sender, RoutedEventArgs e)
         {
             npc.updateInfoNotifyably(
@@ -119,7 +126,9 @@ namespace NPCGenerator
             grid.SelectedItem = null;
         }
 
-        // Close without saving
+        /// <summary>
+        /// Closing without saving.
+        /// </summary>
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
             if (MainWindow.safeMode)
@@ -140,6 +149,7 @@ namespace NPCGenerator
         // linear progression of the age in two parts of life - 
         // before and after the age of maturity and calculates a proportion
         // based on npc race and human race variables.
+        
         // TODO Should I move the logic away to somewhere, maybe?
         private void ageBioTB_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -167,17 +177,27 @@ namespace NPCGenerator
                         ageBioTB.Text = ((int)Math.Round((double)((ParseCarefully(ageChronoTB.Text) - ((Race)raceCmb.SelectedValue).AgeMaturity) * (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) / (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) + ArchiveRace.baseRace.AgeMaturity).ToString();
         }
 
-        // These methods check input text to Age TextBoxes so the user
-        // can not input nothig except numbers in them.
+        /// <summary>
+        /// These methods check input text to Age TextBoxes so the user can 
+        /// not input nothig except numbers in them.
+        /// </summary>
         private void numeric_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!IsNumericInput(e.Text))
                 e.Handled = true;
         }
+        /// <summary>
+        /// These methods check input text to Age TextBoxes so the user can 
+        /// not input nothig except numbers in them.
+        /// </summary>
         private bool IsNumericInput(string input)
         {
             return int.TryParse(input, out _);
         }
+        /// <summary>
+        /// These methods check input text to Age TextBoxes so the user can 
+        /// not input nothig except numbers in them.
+        /// </summary>
         private int ParseCarefully(string s)
         {
             int result;
