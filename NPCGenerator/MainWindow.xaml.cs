@@ -2,6 +2,7 @@
 using FileManager;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace NPCGenerator
 {
@@ -13,6 +14,7 @@ namespace NPCGenerator
         // switched by clicking the correspoding buttons.
         public NPCsArchiveUC npcsArchiveUC;
         public RacesArchiveUC racesArchiveUC;
+        public static bool safeMode = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -100,6 +102,30 @@ namespace NPCGenerator
                 centerContainer.Content = racesArchiveUC;
             }
             updateFileName();
+        }
+
+        // Event upon closing the window - ask the user if they want to save
+
+        private void TheWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (safeMode)
+            {
+                MessageBoxResult result = MessageBox.Show("Do you want to save everything before closing?", "Saving",
+                   MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                    saveAllBtn_Click(null, null);
+                else if (result == MessageBoxResult.Cancel)
+                    e.Cancel = true;
+            }
+        }
+
+        private void safeModeChkBx_Click(object sender, RoutedEventArgs e)
+        {
+            if (safeModeChkBx.IsChecked == true)
+                safeMode = true;
+            else
+                safeMode = false;
         }
     }
 }

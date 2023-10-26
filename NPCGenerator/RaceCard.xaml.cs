@@ -11,7 +11,6 @@ namespace NPCGenerator
     {
         Race race;
         DataGrid grid;
-
         public RaceCard(Race race, DataGrid grid)
         {
             InitializeComponent();
@@ -29,7 +28,7 @@ namespace NPCGenerator
         private void saveBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             race.updateInfoNotifyably(nameTB.Text, descTB.Text, ParseCarefully(maturityTB.Text), ParseCarefully(expectancyTB.Text));
-            
+
         }
 
         // Delete button deletes the race from the global archive,
@@ -37,7 +36,15 @@ namespace NPCGenerator
         // this Race Card.
         private void deleteBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ArchiveHandler.absoluteArchiveRace.Remove(race);
+            if (MainWindow.safeMode)
+            {
+                MessageBoxResult confirmResult =
+                    MessageBox.Show("Are you sure you want to delete it?", "Confirm Delete",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (confirmResult == MessageBoxResult.Yes)
+                    ArchiveHandler.absoluteArchiveRace.Remove(race);
+            }
+            else ArchiveHandler.absoluteArchiveRace.Remove(race);
         }
 
         private void openExternallyBtn_Click(object sender, RoutedEventArgs e)
@@ -47,9 +54,15 @@ namespace NPCGenerator
 
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
-            race.updateInfoNotifyably(nameTB.Text, descTB.Text, ParseCarefully(maturityTB.Text), ParseCarefully(expectancyTB.Text));
-
-            grid.SelectedItem = null;
+            if (MainWindow.safeMode)
+            {
+                MessageBoxResult confirmResult =
+                MessageBox.Show("Close without saving?", "Confirm Closing",
+                MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (confirmResult == MessageBoxResult.Yes)
+                grid.SelectedItem = null;
+            }
+            else grid.SelectedItem = null;
         }
 
         // These methods check input text to Age TextBoxes so the user

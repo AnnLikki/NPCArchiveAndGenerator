@@ -66,7 +66,6 @@ namespace NPCGenerator
             chaModLbl.Content = (NPC.calcMod(npc.Cha) >= 0) ? "+" + NPC.calcMod(npc.Cha).ToString() : NPC.calcMod(npc.Cha).ToString();
 
             notesTB.Text = npc.Notes;
-
         }
 
         // Save button updates the NPC's data and notifies the DataGrid to update.
@@ -91,12 +90,18 @@ namespace NPCGenerator
         // Delete button deletes the NPC from the global archive,
         // consequently changing DataGrid's selection and destroying
         // this NPC Card.
-        // TODO Create custom dialog window with turning of safe delete
+        // TODO Create custom dialog window with turning off safe delete
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult confirmResult = MessageBox.Show("Are you sure you want to delete it?", "Confirm Delete", MessageBoxButton.YesNo);
-            if (confirmResult == MessageBoxResult.Yes)
-                ArchiveHandler.absoluteArchiveNPC.Remove(npc);
+            if (MainWindow.safeMode)
+            {
+                MessageBoxResult confirmResult =
+                    MessageBox.Show("Are you sure you want to delete it?", "Confirm Delete",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (confirmResult == MessageBoxResult.Yes)
+                    ArchiveHandler.absoluteArchiveNPC.Remove(npc);
+            }
+            else ArchiveHandler.absoluteArchiveNPC.Remove(npc);
         }
 
         private void openExternallyBtn_Click(object sender, RoutedEventArgs e)
@@ -114,16 +119,18 @@ namespace NPCGenerator
             grid.SelectedItem = null;
         }
 
+        // Close without saving
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
-            npc.updateInfoNotifyably(
-            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, ParseCarefully(ageChronoTB.Text), ParseCarefully(ageBioTB.Text),
-            occupationTB.Text, placeTB.Text, charaterTB.Text, backstoryTB.Text, heightTB.Text,
-            physiqueTB.Text, skincolourTB.Text, hairTB.Text, faceTB.Text, eyesTB.Text, clothesTB.Text, featuresTB.Text,
-            ParseCarefully(strTB.Text), ParseCarefully(dexTB.Text), ParseCarefully(conTB.Text), ParseCarefully(intTB.Text), ParseCarefully(wisTB.Text), ParseCarefully(chaTB.Text),
-            notesTB.Text);
-
-            grid.SelectedItem = null;
+            if (MainWindow.safeMode)
+            {
+                MessageBoxResult confirmResult =
+                MessageBox.Show("Close without saving?", "Confirm Closing",
+                MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (confirmResult == MessageBoxResult.Yes)
+                grid.SelectedItem = null;
+            }
+            else grid.SelectedItem = null;
         }
 
         // Two next methods are tied to chronological and biological (human)
