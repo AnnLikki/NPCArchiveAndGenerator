@@ -91,9 +91,12 @@ namespace NPCGenerator
         // Delete button deletes the NPC from the global archive,
         // consequently changing DataGrid's selection and destroying
         // this NPC Card.
+        // TODO Create custom dialog window with turning of safe delete
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            ArchiveHandler.absoluteArchiveNPC.Remove(npc);
+            MessageBoxResult confirmResult = MessageBox.Show("Are you sure you want to delete it?", "Confirm Delete", MessageBoxButton.YesNo);
+            if (confirmResult == MessageBoxResult.Yes)
+                ArchiveHandler.absoluteArchiveNPC.Remove(npc);
         }
 
         private void openExternallyBtn_Click(object sender, RoutedEventArgs e)

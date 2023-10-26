@@ -1,8 +1,11 @@
-Archive/bin/
-Archive/obj/
+/.vs/*
+/Archive/bin/*
+/Archive/obj/*
 
-FileManager/bin/
-FileManager/obj/
+/FileManager/bin/*
+/FileManager/obj/*
 
-NPCGenerator/bin/
-NPCGenerator/obj/
+/NPCGenerator/bin/*
+/NPCGenerator/obj/*
+
+/packages/*
