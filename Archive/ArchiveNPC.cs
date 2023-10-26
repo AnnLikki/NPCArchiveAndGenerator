@@ -75,6 +75,7 @@ namespace Archives
 
             ArchiveNPC fin = new ArchiveNPC();
             foreach (NPC i in name) fin.Add(i);
+            foreach (NPC i in race) fin.Add(i);
             foreach (NPC i in place) fin.Add(i);
             foreach (NPC i in occup) fin.Add(i);
             foreach (NPC i in other) fin.Add(i);
