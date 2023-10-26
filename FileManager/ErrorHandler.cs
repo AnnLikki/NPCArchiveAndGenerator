@@ -22,7 +22,8 @@ namespace FileManager
         // there were errors to show, else returns false.
         public static bool errorPopup()
         {
-            if(log.Length > 0) { 
+            if (log.Length > 0)
+            {
                 MessageBox.Show(log, "Errors!", MessageBoxButton.OK, MessageBoxImage.Warning);
                 log = "";
                 return true;

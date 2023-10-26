@@ -1,4 +1,5 @@
 ﻿using Archives;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,11 +13,27 @@ namespace NPCGenerator
     // displayes race's data.
     public partial class RacesArchiveUC : UserControl
     {
+        ArchiveRace displayedArchiveRace;
         public RacesArchiveUC()
         {
             InitializeComponent();
-            // Binding the DataGrid the global race archive.
-            RaceDataGrid.ItemsSource = ArchiveHandler.archiveRace;
+
+            // Binding the DataGrid the filterable races archive.
+            updateFilterable();
+
+            ArchiveHandler.absoluteArchiveRace.CollectionChanged += ArchiveRace_CollectionChanged;
+
+        }
+
+        private void ArchiveRace_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            updateFilterable();
+        }
+
+        public void updateFilterable()
+        {
+            displayedArchiveRace = ArchiveHandler.absoluteArchiveRace.filterByKey(filterTB.Text);
+            RaceDataGrid.ItemsSource = displayedArchiveRace;
         }
 
         // A new race is created, added to the archive and selected,
@@ -24,9 +41,7 @@ namespace NPCGenerator
         private void addRaceBtn_Click(object sender, RoutedEventArgs e)
         {
             Race newRace = new Race();
-            ArchiveHandler.archiveRace.Add(newRace);
-            RaceDataGrid.SelectedItem = newRace;
-
+            ArchiveHandler.absoluteArchiveRace.Add(newRace);
         }
 
         // When a race is selected, a Race Card is shown with all race's data.
@@ -35,7 +50,7 @@ namespace NPCGenerator
         {
             if (RaceDataGrid.SelectedItem is Race selectedRace)
             {
-                RaceCard card = new RaceCard(selectedRace);
+                RaceCard card = new RaceCard(selectedRace, RaceDataGrid);
                 RaceView.Content = card;
             }
             else
@@ -44,9 +59,15 @@ namespace NPCGenerator
             }
         }
 
-        // Filters and searching are yet to be implemented.
-        // I plan to implement this feature in the future.
+        private void filterTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            updateFilterable();
+        }
 
+        private void clearFilterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            filterTB.Clear();
+        }
 
     }
 

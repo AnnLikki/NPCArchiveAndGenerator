@@ -1,5 +1,6 @@
-﻿using FileManager;
-using Microsoft.Win32;
+﻿using Archives;
+using FileManager;
+using System;
 using System.Windows;
 
 namespace NPCGenerator
@@ -16,91 +17,89 @@ namespace NPCGenerator
         {
             InitializeComponent();
 
-            // Loading the data from files using SnL class.
-            SnL.loadRaceData(SnL.racesSavePath);
-            SnL.loadNPCData(SnL.NPCsSavePath);
-            // Displaying all the collected errors in one popup window.
-            ErrorHandler.errorPopup();
-
             npcsArchiveUC = new NPCsArchiveUC();
             racesArchiveUC = new RacesArchiveUC();
 
             // Setting the center of the window to be the
             // NPC archive by default.
             centerContainer.Content = npcsArchiveUC;
+            updateFileName();
         }
 
         // Buttons that switch panels.
         private void NPCsArchiveBtn_Click(object sender, RoutedEventArgs e)
         {
             centerContainer.Content = npcsArchiveUC;
+            updateFileName();
+            npcsArchiveUC.updateFilterable();
         }
 
         private void RacesArchiveBtn_Click(object sender, RoutedEventArgs e)
         {
             centerContainer.Content = racesArchiveUC;
+            updateFileName();
+            racesArchiveUC.updateFilterable();
         }
 
-        // Saving all the archives in the default directory,
-        // collecting and displaying the errors.
-        private void saveBtn_Click(object sender, RoutedEventArgs e)
+        // Updating the label that contatins current file name.
+        private void updateFileName()
         {
-            SnL.saveRaceData(SnL.racesSavePath);
-            SnL.saveNPCData(SnL.NPCsSavePath);
-            ErrorHandler.errorPopup();
+            if (centerContainer.Content == npcsArchiveUC)
+                if (SnL.NPCsSavePath != null)
+                    fileNameLbl.Content = SnL.NPCsSavePath;
+                else
+                    fileNameLbl.Content = "Unsaved NPC Archive";
+            else if (centerContainer.Content == racesArchiveUC)
+                if (SnL.racesSavePath != null)
+                    fileNameLbl.Content = SnL.racesSavePath;
+                else
+                    fileNameLbl.Content = "Unsaved Races Archive";
         }
 
-        // Saving all the archives in a user-spesified location,
-        // collecting and displaying the errors.
-        private void exportBtn_Click(object sender, RoutedEventArgs e)
+        // Saving all of the archives. For each one that wasn't saved yet,
+        // a saving dialog opens.  
+        private void saveAllBtn_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "JSON files(*.json)|*.json";
-            if (saveFileDialog.ShowDialog() == false)
-                return;
+            if (SnL.NPCsSavePath == null)
+                SnL.saveViaDialog(SnL.TYPE_NPC, "Save NPCs Archive");
+            else
+                SnL.saveArchive(SnL.TYPE_NPC, SnL.NPCsSavePath);
+            updateFileName();
+            if (SnL.racesSavePath == null)
+                SnL.saveViaDialog(SnL.TYPE_RACE, "Save Races Archive");
+            else
+                SnL.saveArchive(SnL.TYPE_RACE, SnL.racesSavePath);
+            updateFileName();
 
-            string filename = saveFileDialog.FileName;
-            if (centerContainer.Content == racesArchiveUC)
-            {
-                SnL.saveRaceData(filename);
-                if (!ErrorHandler.errorPopup())
-                    MessageBox.Show("Race Archive have been saved.");
-            }
-            else if (centerContainer.Content == npcsArchiveUC)
-            {
-                SnL.saveNPCData(filename);
-                if (!ErrorHandler.errorPopup())
-                    MessageBox.Show("NPC Archive have been saved.");
-            }
         }
 
-        // Import button allows to import either an NPC archive or
-        // a race archive (depending on which tab is currently open)
-        private void importBtn_Click(object sender, RoutedEventArgs e)
+        // Saving currently open archive in a user-spesified location. 
+        private void saveAsBtn_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "JSON files (*.json)|*.json";
-            if (openFileDialog.ShowDialog() == false)
-                return;
+            if (centerContainer.Content == npcsArchiveUC)
+                SnL.saveViaDialog(SnL.TYPE_NPC, "Save NPCs Archive as...");
+            else if (centerContainer.Content == racesArchiveUC)
+                SnL.saveViaDialog(SnL.TYPE_RACE, "Save Races Archive as...");
+            updateFileName();
+        }
 
-            string filename = openFileDialog.FileName;
-            if (centerContainer.Content == racesArchiveUC)
+        // Open button allows to open either an NPC archive or
+        // a race archive (depending on which tab is currently open).
+        private void openBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (centerContainer.Content == npcsArchiveUC)
             {
-                SnL.loadRaceData(filename);
-                racesArchiveUC = new RacesArchiveUC();
-                centerContainer.Content = racesArchiveUC;
-                if (!ErrorHandler.errorPopup())
-                    MessageBox.Show("Race Archive have been loaded.");
-
-            }
-            else if (centerContainer.Content == npcsArchiveUC)
-            {
-                SnL.loadNPCData(filename);
+                SnL.openViaDialog(SnL.TYPE_NPC, "Open NPCs Archive");
                 npcsArchiveUC = new NPCsArchiveUC();
                 centerContainer.Content = npcsArchiveUC;
-                if (!ErrorHandler.errorPopup())
-                    MessageBox.Show("NPC Archive have been loaded.");
             }
+            else if (centerContainer.Content == racesArchiveUC)
+            {
+                SnL.openViaDialog(SnL.TYPE_RACE, "Open Races Archive");
+                racesArchiveUC = new RacesArchiveUC();
+                centerContainer.Content = racesArchiveUC;
+            }
+            updateFileName();
         }
     }
 }

@@ -16,16 +16,25 @@
 
         <Grid Grid.Row="0" Margin="2">
             <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
             <Label FontWeight="DemiBold" Margin="2,0,2,0" Content="Race Card" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
             <Button x:Name="saveBtn" Margin="2,0,2,0" Grid.Column="1" Click="saveBtn_Click">
-                <Image Source="/NPCGenerator;component/Images/save.png"/>
+                <Image Source="/Images/save.png"/>
             </Button>
-            <Button x:Name="deleteBtn" Margin="2,0,2,0" Grid.Column="2" Click="deleteBtn_Click">
-                <Image Source="/NPCGenerator;component/Images/delete.png"/>
+            <Button x:Name="openExternallyBtn" Margin="2,0,2,0" Grid.Column="2" Click="openExternallyBtn_Click">
+                <Image Source="/Images/openEx.png"/>
+            </Button>
+            <Button x:Name="closeBtn" Margin="2,0,2,0" Grid.Column="3" Click="closeBtn_Click">
+                <Image Source="/Images/close.png"/>
+            </Button>
+
+            <Button x:Name="deleteBtn" Margin="2,0,2,0" Grid.Column="4" Click="deleteBtn_Click">
+                <Image Source="/Images/delete.png"/>
             </Button>
         </Grid>
 
@@ -48,7 +57,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="descTB" Margin="2,0,0,2" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled"/>
+            <TextBox x:Name="descTB" Margin="2,0,0,2" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" AcceptsTab="True" AutoWordSelection="True"/>
         </Grid>
 
         <Grid Grid.Row="4" Margin="2">
@@ -57,7 +66,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Content="Age of maturity" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-            <TextBox x:Name="maturityTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled"/>
+            <TextBox x:Name="maturityTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled" PreviewTextInput="numeric_PreviewTextInput"/>
         </Grid>
 
         <Grid Grid.Row="5" Margin="2">
@@ -66,7 +75,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label Content="Life expectancy" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-            <TextBox x:Name="expectancyTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled"/>
+            <TextBox x:Name="expectancyTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled" PreviewTextInput="numeric_PreviewTextInput"/>
         </Grid>
     </Grid>
 </UserControl>

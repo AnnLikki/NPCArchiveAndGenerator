@@ -55,17 +55,26 @@
                             <ColumnDefinition Width="30" />
                             <ColumnDefinition Width="30" />
                             <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
                         </Grid.ColumnDefinitions>
                         <Label FontWeight="DemiBold" Margin="2,0,2,0" Content="NPC Card" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <Button x:Name="randAllBtn" Margin="2,0,2,0" IsEnabled="False" Grid.Column="1">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                         <Button x:Name="saveBtn" Margin="2,0,2,0" Grid.Column="2" Click="saveBtn_Click">
-                            <Image Source="/NPCGenerator;component/Images/save.png"/>
+                            <Image Source="/Images/save.png"/>
                         </Button>
-                        <Button x:Name="deleteBtn" Margin="2,0,2,0" Grid.Column="3" Click="deleteBtn_Click">
-                            <Image Source="/NPCGenerator;component/Images/delete.png"/>
+                        <Button x:Name="openExternallyBtn" Margin="2,0,2,0" Grid.Column="3" Click="openExternallyBtn_Click">
+                            <Image Source="/Images/openEx.png"/>
                         </Button>
+                        <Button x:Name="closeBtn" Margin="2,0,2,0" Grid.Column="4" Click="closeBtn_Click">
+                            <Image Source="/Images/close.png"/>
+                        </Button>
+                        <Button x:Name="deleteBtn" Margin="2,0,2,0" Grid.Column="5" Click="deleteBtn_Click">
+                            <Image Source="/Images/delete.png"/>
+                        </Button>
+
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
@@ -77,10 +86,10 @@
                         <Label Content="Name" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <TextBox x:Name="nameTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled"/>
                         <Button x:Name="lockNameBtn" Grid.Column="2" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randNameBtn" Grid.Column="3" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                     </Grid>
                     <Grid Grid.Row="2" Grid.Column="0" Margin="2">
@@ -103,26 +112,26 @@
                         <Label Content="Race" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <ComboBox x:Name="raceCmb" DisplayMemberPath="Name" Margin="2,0,0,0" Grid.Column="1"/>
                         <Button x:Name="lockRaceBtn" Grid.Column="2" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randRaceBtn" Grid.Column="3" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Gender" Margin="2,0,2,0" Grid.Column="4" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <TextBox x:Name="genderTB" Margin="2,0,0,0" Grid.Column="5"/>
                         <Button x:Name="lockGenderBtn" Grid.Column="6" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randGenderBtn" Grid.Column="7" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Age" Margin="2,0,2,0" Grid.Column="8" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <TextBox x:Name="ageChronoTB" Margin="2,0,0,0" Grid.Column="9" VerticalScrollBarVisibility="Disabled" TextChanged="ageChronoTB_TextChanged" PreviewTextInput="numeric_PreviewTextInput"/>
                         <Button x:Name="lockAgeBtn" Grid.Column="10" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randAgeBtn" Grid.Column="11" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="/" Margin="2,0,2,0" Grid.Column="12" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <TextBox x:Name="ageBioTB" Margin="2,0,0,0" Grid.Column="13" VerticalScrollBarVisibility="Disabled" TextChanged="ageBioTB_TextChanged" PreviewTextInput="numeric_PreviewTextInput"/>
@@ -139,10 +148,10 @@
                         <Label Content="Occupation" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <TextBox x:Name="occupationTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled"/>
                         <Button x:Name="lockOccupationBtn" Grid.Column="2" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randOccupationBtn" Grid.Column="3" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Place" Margin="2,0,2,0" Grid.Column="4" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <TextBox x:Name="placeTB" Margin="2,0,0,0" Grid.Column="5" VerticalScrollBarVisibility="Disabled"/>
@@ -164,10 +173,10 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Character" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <Button x:Name="lockCharacterBtn" Grid.Column="1" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randCharacterBtn" Grid.Column="2" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                     </Grid>
                     <Grid Grid.Row="6" Grid.Column="0" Margin="2">
@@ -211,24 +220,24 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Height" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <Button x:Name="lockHeightBtn" Grid.Column="1" IsEnabled="False" VerticalAlignment="Top" MinHeight="20">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randHeightBtn" Grid.Column="2" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Physique" Margin="2,0,2,0" Grid.Column="3" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <Button x:Name="lockPhysiqueBtn" Grid.Column="4" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randPhysiqueBtn" Grid.Column="5" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Skin Colour" Margin="2,0,2,0" Grid.Column="6" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <Button x:Name="lockSkincolourBtn" Grid.Column="7" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randSkincolourBtn" Grid.Column="8" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
 
                     </Grid>
@@ -256,24 +265,24 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Hair/other" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <Button x:Name="lockHairBtn" Grid.Column="1" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randHairBtn" Grid.Column="2" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Face" Margin="2,0,2,0" Grid.Column="3" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <Button x:Name="lockFaceBtn" Grid.Column="4" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randFaceBtn" Grid.Column="5" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Eyes" Margin="2,0,2,0" Grid.Column="6" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <Button x:Name="lockEyesBtn" Grid.Column="7" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randEyesBtn" Grid.Column="8" IsEnabled="False" MinHeight="20" VerticalAlignment="Top">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                     </Grid>
                     <Grid Grid.Row="13" Grid.Column="0" Margin="2">
@@ -294,10 +303,10 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Clothes" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <Button x:Name="lockClothesBtn" Grid.Column="1" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randClothesBtn" Grid.Column="2" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                     </Grid>
                     <Grid Grid.Row="15" Grid.Column="0" Margin="2">
@@ -314,17 +323,17 @@
                         </Grid.ColumnDefinitions>
                         <Label Content="Features" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <Button x:Name="lockFeaturesBtn" Grid.Column="1" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/lock.png"/>
+                            <Image Source="/Images/lock.png"/>
                         </Button>
                         <Button x:Name="randFeaturesBtn" Grid.Column="2" IsEnabled="False">
-                            <Image Source="/NPCGenerator;component/Images/random.png"/>
+                            <Image Source="/Images/random.png"/>
                         </Button>
                     </Grid>
                     <Grid Grid.Row="17" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="featuresTB" Margin="2,0,0,2" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled"/>
+                        <TextBox x:Name="featuresTB" Margin="2,0,0,2" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" AcceptsTab="True"/>
                     </Grid>
                     <!--#endregion-->
 

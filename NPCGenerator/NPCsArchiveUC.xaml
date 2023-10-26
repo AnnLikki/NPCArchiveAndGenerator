@@ -19,7 +19,8 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Background="SteelBlue">
             <Button x:Name="addNPCBtn" Content="Add NPC" Padding="5" Height="30" Width="65" HorizontalContentAlignment="Center" Margin="15,0,0,0" Click="addNPCBtn_Click"/>
-            <TextBox x:Name="filterTB" TextWrapping="NoWrap" Height="30" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" Width="250" Margin="15,0,0,0" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="filterTB_TextChanged" IsEnabled="False"/>
+            <TextBox x:Name="filterTB" TextWrapping="NoWrap" Height="30" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" Width="250" Margin="15,0,0,0" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="filterTB_TextChanged"/>
+            <Button x:Name="clearFilterBtn" Content="X" Padding="5" Height="30" Width="30" HorizontalContentAlignment="Center" Margin="5,0,0,0" Click="clearFilterBtn_Click"/>
         </StackPanel>
 
 
