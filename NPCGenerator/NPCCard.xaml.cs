@@ -130,6 +130,7 @@ namespace NPCGenerator
         // linear progression of the age in two parts of life - 
         // before and after the age of maturity and calculates a proportion
         // based on npc race and human race variables.
+        // TODO Should I move the logic away to somewhere, maybe?
         private void ageBioTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (ageBioTB.IsFocused)

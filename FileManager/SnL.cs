@@ -81,10 +81,11 @@ namespace FileManager
                     {
                         string jsonData = File.ReadAllText(path).Replace("RACE ARCHIVE", "");
                         ArchiveHandler.absoluteArchiveRace = JsonSerializer.Deserialize<ArchiveRace>(jsonData);
+                        
                     }
                     else
                         throw new FormatException("No correct format descriptor found.");
-
+                
                 return true;
             }
             catch (FormatException e)

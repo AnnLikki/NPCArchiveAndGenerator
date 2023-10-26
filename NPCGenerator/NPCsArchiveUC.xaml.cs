@@ -1,4 +1,5 @@
 ﻿using Archives;
+using System;
 using System.Windows.Controls;
 
 namespace NPCGenerator
@@ -19,16 +20,15 @@ namespace NPCGenerator
             // Binding the DataGrid the filterable NPC archive.
             updateFilterable();
 
-            ArchiveHandler.absoluteArchiveNPC.CollectionChanged += AbsoluteArchiveNPC_CollectionChanged;
-
+            ArchiveHandler.absoluteArchiveNPC.CollectionChanged += ArchiveNPC_CollectionChanged;
         }
 
-        private void AbsoluteArchiveNPC_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        private void ArchiveNPC_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             updateFilterable();
         }
 
-        void updateFilterable()
+        public void updateFilterable()
         {
             displayedArchiveNPC = ArchiveHandler.absoluteArchiveNPC.filterByKey(filterTB.Text);
             NPCDataGrid.ItemsSource = displayedArchiveNPC;

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace Archives
 {
@@ -7,6 +8,7 @@ namespace Archives
     // to update the data displayed.
     public class Race : INotifyPropertyChanged
     {
+        public string ID { get; set; } = ArchiveRace.randomizer.Next(1000, 10000).ToString();
         public string Name { get; set; } = "New Race";
         public string Description { get; set; } = "";
 

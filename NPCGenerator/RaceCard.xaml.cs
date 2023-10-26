@@ -29,6 +29,7 @@ namespace NPCGenerator
         private void saveBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             race.updateInfoNotifyably(nameTB.Text, descTB.Text, ParseCarefully(maturityTB.Text), ParseCarefully(expectancyTB.Text));
+            
         }
 
         // Delete button deletes the race from the global archive,
@@ -41,7 +42,7 @@ namespace NPCGenerator
 
         private void openExternallyBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            // TODO Implement opening a race in a window 
         }
 
         private void closeBtn_Click(object sender, RoutedEventArgs e)

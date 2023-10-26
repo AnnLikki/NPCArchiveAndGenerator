@@ -1,4 +1,6 @@
-﻿using FileManager;
+﻿using Archives;
+using FileManager;
+using System;
 using System.Windows;
 
 namespace NPCGenerator
@@ -29,12 +31,14 @@ namespace NPCGenerator
         {
             centerContainer.Content = npcsArchiveUC;
             updateFileName();
+            npcsArchiveUC.updateFilterable();
         }
 
         private void RacesArchiveBtn_Click(object sender, RoutedEventArgs e)
         {
             centerContainer.Content = racesArchiveUC;
             updateFileName();
+            racesArchiveUC.updateFilterable();
         }
 
         // Updating the label that contatins current file name.

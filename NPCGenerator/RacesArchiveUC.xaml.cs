@@ -1,4 +1,5 @@
 ﻿using Archives;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -29,7 +30,7 @@ namespace NPCGenerator
             updateFilterable();
         }
 
-        void updateFilterable()
+        public void updateFilterable()
         {
             displayedArchiveRace = ArchiveHandler.absoluteArchiveRace.filterByKey(filterTB.Text);
             RaceDataGrid.ItemsSource = displayedArchiveRace;
@@ -41,8 +42,6 @@ namespace NPCGenerator
         {
             Race newRace = new Race();
             ArchiveHandler.absoluteArchiveRace.Add(newRace);
-            RaceDataGrid.SelectedItem = newRace;
-
         }
 
         // When a race is selected, a Race Card is shown with all race's data.
