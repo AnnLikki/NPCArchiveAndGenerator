@@ -1,6 +1,0 @@
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Archive\bin\Release\Archives.dll
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Archive\bin\Release\Archives.pdb
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Archive\obj\Release\Archives.csproj.AssemblyReference.cache
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Archive\obj\Release\Archives.csproj.CoreCompileInputs.cache
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Archive\obj\Release\Archives.dll
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Archive\obj\Release\Archives.pdb
