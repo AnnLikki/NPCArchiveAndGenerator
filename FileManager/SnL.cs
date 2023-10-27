@@ -7,13 +7,16 @@ using Path = System.IO.Path;
 
 namespace FileManager
 {
-    // SnL means Save and Load.
-    // This class handles working with files and directories.
-    // In the future as I add more data (such as little archives and settings)
-    // this class will gain more methods to save it.
-    // This class utilizes catching errors and sending them to
-    // the error handler to be shown when needed, not every time
-    // the error occures.
+
+    /// <summary>
+    /// Handles working with files and directories.
+    /// </summary>
+    ///<remarks>
+    /// <para>SnL means Save and Load.</para>
+    /// <para>It catches errors and sends them to
+    /// the error handler to be shown when needed, not every time
+    /// the error occures.</para>
+    ///</remarks>
     public static class SnL
     {
         public static string NPCsSavePath { set; get; } = null;
@@ -22,12 +25,15 @@ namespace FileManager
         public const string TYPE_NPC = "TYPE_NPC";
         public const string TYPE_RACE = "TYPE_RACE";
 
-        // These methods save and load the archives in their entirety using JSON files
-        // while collecting any occuring errors.
-        // The files are saved with a format decriptor that marks the type of
-        // archive saved. An archive file can not be loaded in a different type of archive.
-
-        // Saving archive depending on the provided type in a provided directory. 
+        /// <summary>
+        /// Saving archive depending on the provided type in a provided directory. 
+        /// </summary>
+        /// <remarks>
+        /// <para>These methods save and load the archives in their entirety using JSON files
+        /// while collecting any occuring errors.</para>
+        /// <para>The files are saved with a format decriptor that marks the type of
+        /// archive saved. An archive file can not be loaded in a different type of archive.</para>
+        /// </remarks>
         public static bool saveArchive(string type, string path)
         {
             if (type != TYPE_NPC && type != TYPE_RACE)
@@ -59,8 +65,15 @@ namespace FileManager
                 return false;
             }
         }
-
-        // Loading an archive depending on the provided type from a provided file.
+        /// <summary>
+        /// Loading an archive depending on the provided type from a provided file.
+        /// </summary>
+        /// <remarks>
+        /// <para>These methods save and load the archives in their entirety using JSON files
+        /// while collecting any occuring errors.</para>
+        /// <para>The files are saved with a format decriptor that marks the type of
+        /// archive saved. An archive file can not be loaded in a different type of archive.</para>
+        /// </remarks>
         public static bool loadArchive(string type, string path)
         {
             if (type != TYPE_NPC && type != TYPE_RACE)
@@ -101,7 +114,11 @@ namespace FileManager
             return false;
         }
 
-        // Choosing where to save by a dialog window.
+        /// <summary>
+        /// Choosing where to save by a dialog window.
+        /// </summary>
+        /// <param name="type">Type of the archive, either TYPE_NPC or TYPE_RACE.</param>
+        /// <returns>true if a file location has been chosen, false if not or canceled.</returns>
         public static bool saveViaDialog(string type, string windowTitle)
         {
             if (type != TYPE_NPC && type != TYPE_RACE)
@@ -125,7 +142,11 @@ namespace FileManager
 
         }
 
-        // Choosing where to load from by a dialog window.
+        /// <summary>
+        /// Choosing where to load from by a dialog window.
+        /// </summary>
+        /// <param name="type">Type of the archive, either TYPE_NPC or TYPE_RACE.</param>
+        /// <returns>true if a file has been chosen, false if not or canceled.</returns>
         public static bool openViaDialog(string type, string windowTitle)
         {
             if (type != TYPE_NPC && type != TYPE_RACE)

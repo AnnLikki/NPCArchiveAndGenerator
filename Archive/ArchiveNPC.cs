@@ -3,23 +3,35 @@ using System.Linq;
 
 namespace Archives
 {
-    // ArchiveNPC is a class that inherits from ObresvableCollection, which allows
-    // to raise events like CollectionChanged, so the DataGrid will update accordingly.
-    // It is a collection of NPC type.
-    // In future I am planning to add sorting/filtering by a text query. 
+    /// <summary>
+    /// A collection of NPC Objects.
+    /// </summary>
+    /// <remarks>
+    /// Inherits from ObresvableCollection, which allows
+    /// to raise events like CollectionChanged, so the DataGrid will update accordingly.
+    /// </remarks>
+
     public class ArchiveNPC : ObservableCollection<NPC>
     {
 
-        private ObservableCollection<NPC> npcs = new ObservableCollection<NPC>();
-
-        public ArchiveNPC() { }
-
-        public ObservableCollection<NPC> NPCs
-        {
-            get { return npcs; }
-            set { npcs = value; }
-        }
-
+        /// <summary>
+        /// Returns an ArciveNPC, filtered and sorted by the keyword.
+        /// </summary>
+        /// <remarks>
+        /// Returns:
+        /// <para>
+        /// A filtered and sorted ArchiveNPC using the method:
+        /// </para>
+        /// <para>
+        /// If zero length keyword - all Objects.
+        /// </para>
+        /// <para>
+        /// If the keyword is found in either <c>name</c>, <c>race.Name</c>, 
+        /// <c>place</c>, <c>occup</c>, <c>other</c>, <c>notes</c>,
+        /// disregarding letter case, it will recombine the found results by these groups in this order,
+        /// in the groups themselves Objects will keep their relative position.
+        /// </para>
+        /// </remarks>
         public ArchiveNPC filterByKey(string keyword)
         {
             if (keyword.Count() == 0)

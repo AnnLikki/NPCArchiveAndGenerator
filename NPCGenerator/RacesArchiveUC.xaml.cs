@@ -5,12 +5,14 @@ using System.Windows.Controls;
 
 namespace NPCGenerator
 {
-    // The race arcive inherits from UserControl,
-    // so it can be placed in the center of the window interchangebly
-    // with NPC archive.
-    // There the global race archive is displayed via DataGrid, and
-    // when its item is selected a Race Card opens to the side and
-    // displayes race's data.
+    /// <summary>
+    /// The race arcive inherits from UserControl,
+    /// so it can be placed in the center of the window interchangebly
+    /// with NPC archive.
+    /// There the global race archive is displayed via DataGrid, and
+    /// when its item is selected a Race Card opens to the side and
+    /// displayes race's data.
+    /// </summary>
     public partial class RacesArchiveUC : UserControl
     {
         ArchiveRace displayedArchiveRace;
@@ -36,16 +38,18 @@ namespace NPCGenerator
             RaceDataGrid.ItemsSource = displayedArchiveRace;
         }
 
-        // A new race is created, added to the archive and selected,
-        // so RaceDataGrid_SelectionChanged is triggered.
+        /// <summary>
+        /// A new race is created, added to the archive and selected, so RaceDataGrid_SelectionChanged is triggered.
+        /// </summary>
         private void addRaceBtn_Click(object sender, RoutedEventArgs e)
         {
             Race newRace = new Race();
             ArchiveHandler.absoluteArchiveRace.Add(newRace);
         }
 
-        // When a race is selected, a Race Card is shown with all race's data.
-        // If nothing is selected, the card isn't showing.
+        /// <summary>
+        /// When a race is selected, a Race Card is shown with all race's data. If nothing is selected, the card isn't showing.
+        /// </summary>
         private void RaceDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (RaceDataGrid.SelectedItem is Race selectedRace)

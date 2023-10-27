@@ -5,13 +5,14 @@ using System.Windows.Input;
 
 namespace NPCGenerator
 {
-    // Race Card is a User Control that is placed next to the race archive
-    // when sertain race is seleted. Allows to view and change race's data.
+    /// <summary>
+    /// Race Card is a User Control that is placed next to the race archive 
+    /// when sertain race is seleted. Allows to view and change race's data.
+    /// </summary>
     public partial class RaceCard : UserControl
     {
         Race race;
         DataGrid grid;
-
         public RaceCard(Race race, DataGrid grid)
         {
             InitializeComponent();
@@ -25,19 +26,30 @@ namespace NPCGenerator
             expectancyTB.Text = race.LifeExpectancy.ToString();
         }
 
-        // Save button updates the race's data and notifies the DataGrid to update.
+        /// <summary>
+        /// Save button updates the race's data and notifies the DataGrid to update.
+        /// </summary>
         private void saveBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             race.updateInfoNotifyably(nameTB.Text, descTB.Text, ParseCarefully(maturityTB.Text), ParseCarefully(expectancyTB.Text));
-            
+
         }
 
-        // Delete button deletes the race from the global archive,
-        // consequently changing DataGrid's selection and destroying
-        // this Race Card.
+        /// <summary>
+        /// Delete button deletes the race from the global archive, consequently 
+        /// changing DataGrid's selection and destroying this Race Card.
+        /// </summary>
         private void deleteBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ArchiveHandler.absoluteArchiveRace.Remove(race);
+            if (MainWindow.safeMode)
+            {
+                MessageBoxResult confirmResult =
+                    MessageBox.Show("Are you sure you want to delete it?", "Confirm Delete",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (confirmResult == MessageBoxResult.Yes)
+                    ArchiveHandler.absoluteArchiveRace.Remove(race);
+            }
+            else ArchiveHandler.absoluteArchiveRace.Remove(race);
         }
 
         private void openExternallyBtn_Click(object sender, RoutedEventArgs e)
@@ -47,22 +59,35 @@ namespace NPCGenerator
 
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
-            race.updateInfoNotifyably(nameTB.Text, descTB.Text, ParseCarefully(maturityTB.Text), ParseCarefully(expectancyTB.Text));
-
-            grid.SelectedItem = null;
+            if (MainWindow.safeMode)
+            {
+                MessageBoxResult confirmResult =
+                MessageBox.Show("Close without saving?", "Confirm Closing",
+                MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (confirmResult == MessageBoxResult.Yes)
+                grid.SelectedItem = null;
+            }
+            else grid.SelectedItem = null;
         }
 
-        // These methods check input text to Age TextBoxes so the user
-        // can not input nothig except numbers in them.
+        /// <summary>
+        /// These methods check input text to Age TextBoxes so the user can not input nothig except numbers in them.
+        /// </summary>
         private void numeric_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!IsNumericInput(e.Text))
                 e.Handled = true;
         }
+        /// <summary>
+        /// These methods check input text to Age TextBoxes so the user can not input nothig except numbers in them.
+        /// </summary>
         private bool IsNumericInput(string input)
         {
             return int.TryParse(input, out _);
         }
+        /// <summary>
+        /// These methods check input text to Age TextBoxes so the user can not input nothig except numbers in them.
+        /// </summary>
         private int ParseCarefully(string s)
         {
             int result;

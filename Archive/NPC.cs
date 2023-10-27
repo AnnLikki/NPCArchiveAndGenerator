@@ -3,9 +3,13 @@ using System.ComponentModel;
 
 namespace Archives
 {
-    // A class that contains all the variables of an NPC.
-    // It uses INotifyPropertyChanged to notify the DataGrid
-    // to update the data displayed.
+    /// <summary>
+    /// A class that represents an NPC and contains all its variables.
+    /// </summary>
+    /// <remarks>
+    /// It uses INotifyPropertyChanged to notify the DataGrid
+    /// to update the data displayed.
+    /// </remarks>
     public class NPC : INotifyPropertyChanged
     {
         // Main information
@@ -73,17 +77,19 @@ namespace Archives
         }
 
 
-        // A method to calculate a modifier of a sertain stat.
-        // Modifier is how much you add to or substract from your dice roll
-        // depending on your stats.
+        /// <summary>
+        /// A method to calculate a modifier of a sertain stat.
+        /// </summary>
         public static int calcMod(int stat)
         {
             return (int)Math.Floor(((double)stat - 10) / 2);
         }
 
-        // Unused methods of converting chronological age to biological (human)
-        // and vice versa. I decided to keep them because they might become
-        // handy later.
+        /// <summary>
+        /// PROBS INCORRECT
+        /// Yet unused method of converting chronological age to biological (human) age. 
+        /// I decided to keep it because it might become handy later.
+        /// </summary>
         public void chronoToBio()
         {
             if (Race != null)
@@ -93,6 +99,11 @@ namespace Archives
                     AgeBio = (int)Math.Round((double)((AgeChrono - Race.AgeMaturity) * (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) / (Race.LifeExpectancy - Race.AgeMaturity)) + ArchiveRace.baseRace.AgeMaturity;
         }
 
+        /// <summary>
+        /// PROBS INCORRECT
+        /// Yet unused method of converting biological (human) age to chronological age. 
+        /// I decided to keep it because it might become handy later.
+        /// </summary>
         public void bioToChrono()
         {
             if (Race != null)
@@ -102,8 +113,9 @@ namespace Archives
                     AgeChrono = (int)Math.Round((double)((AgeBio - ArchiveRace.baseRace.AgeMaturity) * (Race.LifeExpectancy - Race.AgeMaturity)) / (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) + Race.AgeMaturity;
         }
 
-        // A method to update NPC's info and call the PropertyChanged event
-        // on relevant properties.
+        /// <summary>
+        /// A method to update NPC's info and call the PropertyChanged event on relevant properties.
+        /// </summary>
         public void updateInfoNotifyably(string name, Race race, string gender, int ageChrono, int ageBio, string occupation, string place, string character, string backstory, string height, string physique, string skin, string hair, string face, string eyes, string clothes, string features, int str, int dex, int con, int intel, int wis, int cha, string notes)
         {
             if (Name != name)
@@ -157,8 +169,10 @@ namespace Archives
         }
 
 
-        // Event and delegate responsible for notifying about changed info.
         public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// A delegate responsible for notifying about changed info.
+        /// </summary>
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

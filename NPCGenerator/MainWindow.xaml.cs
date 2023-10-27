@@ -2,10 +2,13 @@
 using FileManager;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace NPCGenerator
 {
-    // Main Window class, standart implementation.
+    /// <summary>
+    /// Main Window class, standart implementation.
+    /// </summary>
     public partial class MainWindow : Window
     {
         // NPCsArchiveUC and RacesArchiveUC inherit from UserCotrol
@@ -13,6 +16,7 @@ namespace NPCGenerator
         // switched by clicking the correspoding buttons.
         public NPCsArchiveUC npcsArchiveUC;
         public RacesArchiveUC racesArchiveUC;
+        public static bool safeMode = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -41,7 +45,9 @@ namespace NPCGenerator
             racesArchiveUC.updateFilterable();
         }
 
-        // Updating the label that contatins current file name.
+        /// <summary>
+        /// Updating the label that contatins current file name.
+        /// </summary>
         private void updateFileName()
         {
             if (centerContainer.Content == npcsArchiveUC)
@@ -56,8 +62,9 @@ namespace NPCGenerator
                     fileNameLbl.Content = "Unsaved Races Archive";
         }
 
-        // Saving all of the archives. For each one that wasn't saved yet,
-        // a saving dialog opens.  
+        /// <summary>
+        /// Saving all of the archives. For each one that wasn't saved yet, a saving dialog opens.  
+        /// </summary>
         private void saveAllBtn_Click(object sender, RoutedEventArgs e)
         {
             if (SnL.NPCsSavePath == null)
@@ -73,7 +80,9 @@ namespace NPCGenerator
 
         }
 
-        // Saving currently open archive in a user-spesified location. 
+        /// <summary>
+        /// Saving currently open archive in a user-spesified location. 
+        /// </summary>
         private void saveAsBtn_Click(object sender, RoutedEventArgs e)
         {
             if (centerContainer.Content == npcsArchiveUC)
@@ -83,8 +92,10 @@ namespace NPCGenerator
             updateFileName();
         }
 
-        // Open button allows to open either an NPC archive or
-        // a race archive (depending on which tab is currently open).
+        /// <summary>
+        /// Open button allows to open either an NPC archive or a race archive 
+        /// (depending on which tab is currently open).
+        /// </summary>
         private void openBtn_Click(object sender, RoutedEventArgs e)
         {
             if (centerContainer.Content == npcsArchiveUC)
@@ -100,6 +111,28 @@ namespace NPCGenerator
                 centerContainer.Content = racesArchiveUC;
             }
             updateFileName();
+        }
+
+        private void TheWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (safeMode)
+            {
+                MessageBoxResult result = MessageBox.Show("Do you want to save everything before closing?", "Saving",
+                   MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                    saveAllBtn_Click(null, null);
+                else if (result == MessageBoxResult.Cancel)
+                    e.Cancel = true;
+            }
+        }
+
+        private void safeModeChkBx_Click(object sender, RoutedEventArgs e)
+        {
+            if (safeModeChkBx.IsChecked == true)
+                safeMode = true;
+            else
+                safeMode = false;
         }
     }
 }
