@@ -128,7 +128,6 @@ namespace NPCGenerator
 
         private void TheWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            SnL.saveData(SnL.dataSavePath);
             if (safeMode)
             {
                 MessageBoxResult result = MessageBox.Show("Do you want to save everything before closing?", "Saving",
@@ -139,6 +138,7 @@ namespace NPCGenerator
                 else if (result == MessageBoxResult.Cancel)
                     e.Cancel = true;
             }
+            SnL.saveData(SnL.dataSavePath);
             ErrorHandler.errorPopup();
         }
 
