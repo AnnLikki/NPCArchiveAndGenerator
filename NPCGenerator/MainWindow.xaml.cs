@@ -21,13 +21,15 @@ namespace NPCGenerator
         {
             InitializeComponent();
 
+            tryLoad();
+            updateFileName();
+
             npcsArchiveUC = new NPCsArchiveUC();
             racesArchiveUC = new RacesArchiveUC();
 
             // Setting the center of the window to be the
             // NPC archive by default.
             centerContainer.Content = npcsArchiveUC;
-            updateFileName();
         }
 
         // Buttons that switch panels.
@@ -44,6 +46,17 @@ namespace NPCGenerator
             updateFileName();
             racesArchiveUC.updateFilterable();
         }
+
+        private void tryLoad()
+        {
+            if (SnL.loadData(SnL.dataSavePath))
+            {
+                SnL.loadArchive(SnL.TYPE_NPC, SnL.NPCsSavePath);
+                SnL.loadArchive(SnL.TYPE_RACE, SnL.racesSavePath);
+            }
+            ErrorHandler.errorPopup();
+        }
+
 
         /// <summary>
         /// Updating the label that contatins current file name.
@@ -115,6 +128,7 @@ namespace NPCGenerator
 
         private void TheWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            SnL.saveData(SnL.dataSavePath);
             if (safeMode)
             {
                 MessageBoxResult result = MessageBox.Show("Do you want to save everything before closing?", "Saving",
@@ -125,6 +139,7 @@ namespace NPCGenerator
                 else if (result == MessageBoxResult.Cancel)
                     e.Cancel = true;
             }
+            ErrorHandler.errorPopup();
         }
 
         private void safeModeChkBx_Click(object sender, RoutedEventArgs e)
@@ -134,5 +149,54 @@ namespace NPCGenerator
             else
                 safeMode = false;
         }
+
+        /// <summary>
+        /// Double clicking the archive path label "closes" the archive.
+        /// </summary>
+        private void closeArchive_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (safeMode)
+            {
+                MessageBoxResult result = MessageBox.Show("Do you want to save this archive before closing?", "Saving",
+                   MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    if (centerContainer.Content == npcsArchiveUC)
+                    {
+                        if (SnL.NPCsSavePath != null)
+                            SnL.saveArchive(SnL.TYPE_NPC, SnL.NPCsSavePath);
+                        else
+                            SnL.saveViaDialog(SnL.TYPE_NPC, "Save NPCs Archive as...");
+                        SnL.NPCsSavePath = null;
+                    }
+                    else if (centerContainer.Content == racesArchiveUC)
+                    {
+                        if (SnL.racesSavePath != null)
+                            SnL.saveArchive(SnL.TYPE_RACE, SnL.racesSavePath);
+                        else
+                            SnL.saveViaDialog(SnL.TYPE_RACE, "Save Races Archive as...");
+                        SnL.racesSavePath = null;
+                    }
+                }
+                else if (result == MessageBoxResult.Cancel)
+                    return;
+            }
+
+            if (centerContainer.Content == npcsArchiveUC)
+            {
+                SnL.NPCsSavePath = null;
+                ArchiveHandler.absoluteArchiveNPC.Clear();
+            }
+            else if (centerContainer.Content == racesArchiveUC)
+            {
+                SnL.racesSavePath = null;
+                ArchiveHandler.absoluteArchiveRace.Clear();
+            }
+            updateFileName();
+            npcsArchiveUC.updateFilterable();
+            racesArchiveUC.updateFilterable();
+
+        }
+
     }
 }

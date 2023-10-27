@@ -34,7 +34,7 @@
                 <Image Source="/Images/open.png"/>
             </Button>
             <CheckBox x:Name="safeModeChkBx" Content="Safe mode" ToolTip="Enable/disable warnings" Click="safeModeChkBx_Click" Height="Auto" Grid.Column="3" Margin="5" Foreground="White" IsChecked="True" FontSize="14" VerticalContentAlignment="Center"/>
-            <Label x:Name="fileNameLbl" Grid.Column="6" Margin="5" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White"/>
+            <Label x:Name="fileNameLbl" Grid.Column="6" MouseDoubleClick="closeArchive_MouseDoubleClick" ToolTip="Double click to close the archive" Margin="5" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White"/>
             <WrapPanel x:Name="bottomWrpPnl" Grid.Column="0" Grid.ColumnSpan="6" Height="30" HorizontalAlignment="Center">
                 <Button x:Name="NPCsArchiveBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="NPCs Archive" Click="NPCsArchiveBtn_Click"/>
                 <Button x:Name="RacesArchiveBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Races Archive" Click="RacesArchiveBtn_Click"/>

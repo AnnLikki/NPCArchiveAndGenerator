@@ -22,8 +22,70 @@ namespace FileManager
         public static string NPCsSavePath { set; get; } = null;
         public static string racesSavePath { set; get; } = null;
 
+        public static string dataSavePath { set; get; } = "NPCA&G_Data.json";
+
         public const string TYPE_NPC = "TYPE_NPC";
         public const string TYPE_RACE = "TYPE_RACE";
+
+
+        public static bool saveData(string path)
+        {
+            path = Path.GetFullPath(path);
+            try
+            {
+                if (!Directory.Exists(Path.GetDirectoryName(path)))
+                    Directory.CreateDirectory(Path.GetDirectoryName(path));
+                if (!File.Exists(path))
+                    using (File.Create(path)) { }
+                string jsonData = "";
+
+                string[] paths = new string[] { NPCsSavePath, racesSavePath };
+
+                jsonData = "SETTINGS DATA\n" +
+                    JsonSerializer.Serialize(paths);
+
+                File.WriteAllText(path, jsonData);
+                return true;
+            }
+            catch (Exception e)
+            {
+                ErrorHandler.collectError("Could not save file " + path);
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
+        public static bool loadData(string path)
+        {
+            path = Path.GetFullPath(path);
+            try
+            {
+                if (File.ReadAllLines(path)[0] == "SETTINGS DATA")
+                {
+                    string jsonData = File.ReadAllText(path).Replace("SETTINGS DATA", "");
+                    string[] paths = JsonSerializer.Deserialize<string[]>(jsonData);
+                    
+                    NPCsSavePath = paths[0];
+                    racesSavePath = paths[1];
+                }
+                else
+                    throw new FormatException("No correct format descriptor found.");
+
+                return true;
+            }
+            catch (FormatException e)
+            {
+                ErrorHandler.collectError("Wrong or missing format descriptor " + path);
+                Console.WriteLine(e);
+            }
+            catch (Exception e)
+            {
+                ErrorHandler.collectError("Could not load file " + path);
+                Console.WriteLine(e);
+            }
+            return false;
+        }
+
 
         /// <summary>
         /// Saving archive depending on the provided type in a provided directory. 
@@ -76,6 +138,8 @@ namespace FileManager
         /// </remarks>
         public static bool loadArchive(string type, string path)
         {
+            if(path == null)
+                return false;
             if (type != TYPE_NPC && type != TYPE_RACE)
                 throw new ArgumentException(type + " is not one of valid archive types.");
             try
@@ -94,11 +158,11 @@ namespace FileManager
                     {
                         string jsonData = File.ReadAllText(path).Replace("RACE ARCHIVE", "");
                         ArchiveHandler.absoluteArchiveRace = JsonSerializer.Deserialize<ArchiveRace>(jsonData);
-                        
+
                     }
                     else
                         throw new FormatException("No correct format descriptor found.");
-                
+
                 return true;
             }
             catch (FormatException e)
