@@ -1,4 +1,5 @@
 ﻿using Archives;
+using NPCArchiveAndGenerator;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -41,7 +42,7 @@ namespace NPCGenerator
         /// </summary>
         private void deleteBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (MainWindow.safeMode)
+            if (Controller.safeMode)
             {
                 MessageBoxResult confirmResult =
                     MessageBox.Show("Are you sure you want to delete it?", "Confirm Delete",
@@ -59,7 +60,7 @@ namespace NPCGenerator
 
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.safeMode)
+            if (Controller.safeMode)
             {
                 MessageBoxResult confirmResult =
                 MessageBox.Show("Close without saving?", "Confirm Closing",

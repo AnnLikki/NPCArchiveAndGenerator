@@ -1,4 +1,5 @@
 ﻿using Archives;
+using NPCArchiveAndGenerator;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -97,7 +98,7 @@ namespace NPCGenerator
         // TODO Create custom dialog window with turning off safe delete
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.safeMode)
+            if (Controller.safeMode)
             {
                 MessageBoxResult confirmResult =
                     MessageBox.Show("Are you sure you want to delete it?", "Confirm Delete",
@@ -131,7 +132,7 @@ namespace NPCGenerator
         /// </summary>
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.safeMode)
+            if (Controller.safeMode)
             {
                 MessageBoxResult confirmResult =
                 MessageBox.Show("Close without saving?", "Confirm Closing",
@@ -150,7 +151,8 @@ namespace NPCGenerator
         // before and after the age of maturity and calculates a proportion
         // based on npc race and human race variables.
         
-        // TODO Should I move the logic away to somewhere, maybe?
+        // TODO Move this logic away
+        // Will do after 0.1.3.0 release, as there we'll be touching cross-game implementation
         private void ageBioTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (ageBioTB.IsFocused)

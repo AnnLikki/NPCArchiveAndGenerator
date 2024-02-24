@@ -3,7 +3,7 @@
 namespace Archives
 {
     /// <summary>
-    /// A static class to store the global archives.
+    /// A static class to store the global archives and the tempopary archives.
     /// </summary>
     /// <remarks>
     /// Contains <c>absoluteArchiveNPC</c> and <c>absoluteArchiveRace</c>.
@@ -20,5 +20,17 @@ namespace Archives
         /// Contains all of the created races.
         /// </summary>
         public static ArchiveRace absoluteArchiveRace = new ArchiveRace();
+
+        /// <summary>
+        /// Temporary NPC archive for autosaving.
+        /// </summary>
+        public static ArchiveNPC tempArchiveNPC = new ArchiveNPC();
+
+        /// <summary>
+        /// Temporary races archive for autosaving.
+        /// </summary>
+        public static ArchiveRace tempArchiveRace = new ArchiveRace();
+
+
     }
 }

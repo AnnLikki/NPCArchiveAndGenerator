@@ -1,8 +1,8 @@
 ﻿using Archives;
 using FileManager;
-using System;
 using System.Windows;
-using System.Windows.Controls;
+using static NPCArchiveAndGenerator.Controller;
+
 
 namespace NPCGenerator
 {
@@ -11,12 +11,8 @@ namespace NPCGenerator
     /// </summary>
     public partial class MainWindow : Window
     {
-        // NPCsArchiveUC and RacesArchiveUC inherit from UserCotrol
-        // and are basically tabs at the central panel that can be
-        // switched by clicking the correspoding buttons.
         public NPCsArchiveUC npcsArchiveUC;
         public RacesArchiveUC racesArchiveUC;
-        public static bool safeMode = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,14 +23,13 @@ namespace NPCGenerator
             npcsArchiveUC = new NPCsArchiveUC();
             racesArchiveUC = new RacesArchiveUC();
 
-            // Setting the center of the window to be the
-            // NPC archive by default.
             centerContainer.Content = npcsArchiveUC;
         }
 
         // Buttons that switch panels.
         private void NPCsArchiveBtn_Click(object sender, RoutedEventArgs e)
         {
+            status = Status.ArchiveNPC;
             centerContainer.Content = npcsArchiveUC;
             updateFileName();
             npcsArchiveUC.updateFilterable();
@@ -42,9 +37,16 @@ namespace NPCGenerator
 
         private void RacesArchiveBtn_Click(object sender, RoutedEventArgs e)
         {
+            status = Status.ArchiveRace;
             centerContainer.Content = racesArchiveUC;
             updateFileName();
             racesArchiveUC.updateFilterable();
+        }
+        private void LittleArchivesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            status = Status.ArchiveLA;
+            //centerContainer.Content = ;
+            updateFileName();
         }
 
         private void tryLoad()
@@ -63,16 +65,7 @@ namespace NPCGenerator
         /// </summary>
         private void updateFileName()
         {
-            if (centerContainer.Content == npcsArchiveUC)
-                if (SnL.NPCsSavePath != null)
-                    fileNameLbl.Content = SnL.NPCsSavePath;
-                else
-                    fileNameLbl.Content = "Unsaved NPC Archive";
-            else if (centerContainer.Content == racesArchiveUC)
-                if (SnL.racesSavePath != null)
-                    fileNameLbl.Content = SnL.racesSavePath;
-                else
-                    fileNameLbl.Content = "Unsaved Races Archive";
+            fileNameLbl.Content = GetFileName();
         }
 
         /// <summary>
@@ -84,11 +77,12 @@ namespace NPCGenerator
                 SnL.saveViaDialog(SnL.TYPE_NPC, "Save NPCs Archive");
             else
                 SnL.saveArchive(SnL.TYPE_NPC, SnL.NPCsSavePath);
-            updateFileName();
+
             if (SnL.racesSavePath == null)
                 SnL.saveViaDialog(SnL.TYPE_RACE, "Save Races Archive");
             else
                 SnL.saveArchive(SnL.TYPE_RACE, SnL.racesSavePath);
+
             updateFileName();
 
         }
@@ -98,10 +92,11 @@ namespace NPCGenerator
         /// </summary>
         private void saveAsBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (centerContainer.Content == npcsArchiveUC)
+            if (status == Status.ArchiveNPC)
                 SnL.saveViaDialog(SnL.TYPE_NPC, "Save NPCs Archive as...");
-            else if (centerContainer.Content == racesArchiveUC)
+            else if (status == Status.ArchiveRace)
                 SnL.saveViaDialog(SnL.TYPE_RACE, "Save Races Archive as...");
+
             updateFileName();
         }
 
@@ -111,13 +106,13 @@ namespace NPCGenerator
         /// </summary>
         private void openBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (centerContainer.Content == npcsArchiveUC)
+            if (status == Status.ArchiveNPC)
             {
                 SnL.openViaDialog(SnL.TYPE_NPC, "Open NPCs Archive");
                 npcsArchiveUC = new NPCsArchiveUC();
                 centerContainer.Content = npcsArchiveUC;
             }
-            else if (centerContainer.Content == racesArchiveUC)
+            else if (status == Status.ArchiveRace)
             {
                 SnL.openViaDialog(SnL.TYPE_RACE, "Open Races Archive");
                 racesArchiveUC = new RacesArchiveUC();
@@ -161,7 +156,7 @@ namespace NPCGenerator
                    MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    if (centerContainer.Content == npcsArchiveUC)
+                    if (status == Status.ArchiveNPC)
                     {
                         if (SnL.NPCsSavePath != null)
                             SnL.saveArchive(SnL.TYPE_NPC, SnL.NPCsSavePath);
@@ -169,7 +164,7 @@ namespace NPCGenerator
                             SnL.saveViaDialog(SnL.TYPE_NPC, "Save NPCs Archive as...");
                         SnL.NPCsSavePath = null;
                     }
-                    else if (centerContainer.Content == racesArchiveUC)
+                    else if (status == Status.ArchiveRace)
                     {
                         if (SnL.racesSavePath != null)
                             SnL.saveArchive(SnL.TYPE_RACE, SnL.racesSavePath);
@@ -182,12 +177,12 @@ namespace NPCGenerator
                     return;
             }
 
-            if (centerContainer.Content == npcsArchiveUC)
+            if (status == Status.ArchiveNPC)
             {
                 SnL.NPCsSavePath = null;
                 ArchiveHandler.absoluteArchiveNPC.Clear();
             }
-            else if (centerContainer.Content == racesArchiveUC)
+            else if (status == Status.ArchiveRace)
             {
                 SnL.racesSavePath = null;
                 ArchiveHandler.absoluteArchiveRace.Clear();
