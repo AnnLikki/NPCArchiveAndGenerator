@@ -69,7 +69,7 @@ namespace Tests
             archives.Add(ArchiveType.Hair, hairArchive);
             archives.Add(ArchiveType.Face, facesArchive);
             archives.Add(ArchiveType.Eyes, eyesArchive);
-            archives.Add(ArchiveType.Clothes, eyesArchive);
+            archives.Add(ArchiveType.Clothes, clothesArchive);
             archives.Add(ArchiveType.Features, featuresArchive);
 
 

@@ -111,7 +111,7 @@ namespace Tests
 
         // Tests if generated compound results with independent parts have right statistics
         [Test]
-        public void DependentCompoundStatistics()
+        public void IndependentCompoundStatistics()
         {
             int firstNames = 0, middleNames = 0, lastNames = 0;
 
@@ -144,6 +144,8 @@ namespace Tests
                 middleNames += middleNamesTmp;
                 lastNames += lastNamesTmp;
 
+                Console.WriteLine(name);
+
             }
 
             // all the names should have a first name
@@ -158,7 +160,7 @@ namespace Tests
         // Tests if generated compound results with dependent parts have right statistics
         // and if the default values are applied properly
         [Test]
-        public void IndependentCompoundStatistics()
+        public void DependentCompoundStatistics()
         {
             int color = 0, length = 0, bald = 0, hairstyle = 0, plain = 0;
 
