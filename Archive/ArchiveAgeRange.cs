@@ -9,8 +9,12 @@ namespace Archives
 {
     public class ArchiveAgeRange : ObservableCollection<AgeRange>
     {
+        Random random = new Random();
 
-
-
+        public int getAnyRandom()
+        {
+            int r = random.Next(0, this.Count);
+            return this[r].getRandom();
+        }
     }
 }

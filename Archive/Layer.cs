@@ -38,22 +38,12 @@ namespace Archives
 
             int r = random.Next(totalSum);
             int sum = 0;
-            //Console.WriteLine("___NEW RANDOM___ ");
+       
             foreach (ListElement le in elements)
             {
-                //Console.WriteLine("CURRENT ELEMENT " + le.value + " " + le.frequency);
-
+                sum += le.frequency;
                 if (sum >= r)
-                {
-                    //Console.WriteLine("SUM "+sum + " is greater than RANDOM " + r);
                     return le.value;
-                }
-                else
-                {
-                    sum += le.frequency;
-                    //Console.WriteLine("SUM increased to " + sum + ", RANDOM " + r);
-                }
-                
             }
             throw new Exception("Unexpected Behaviour please check");
         }

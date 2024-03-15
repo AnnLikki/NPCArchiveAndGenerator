@@ -1,16 +1,20 @@
 using Archives;
+using System.Reflection;
 
 namespace Tests
 {
-    public class Tests1
+    public class IntegrationTests
     {
         Bundle names1, names2;
+        AgeRange adult, child;
         ArchiveBundles namesArchive;
+        ArchiveAgeRange ageRanges;
         Dictionary<ArchiveType, ArchiveBundles> archives;
 
         [SetUp]
         public void Setup()
         {
+
             names1 = new Bundle(
                 ArchiveType.Name,
                 "Names1",
@@ -67,6 +71,16 @@ namespace Tests
 
             archives = new Dictionary<ArchiveType, ArchiveBundles>();
             archives.Add(ArchiveType.Name, namesArchive);
+
+
+            // age ranges
+            ageRanges = new ArchiveAgeRange();
+            adult = new AgeRange("Adult", 35, 55);
+            ageRanges.Add(adult);
+
+            child = new AgeRange("Child", 5, 14);
+            ageRanges.Add(child);
+
         }
 
         // Tests picking elements from all bundles combined
@@ -129,19 +143,38 @@ namespace Tests
                 Assert.IsTrue(names2.getValuesFromLayer(0).Contains(randomName2));
             }
 
+            bool youGood = false;
             for (int i = 0; i < 10; i++)
             {
                 string randomName1 = archives[ArchiveType.Name].getBundle(0).getRandom();
                 string randomName2 = archives[ArchiveType.Name].getBundle(0).getRandom();
                 if (randomName1 != randomName2)
+                {
+                    youGood = true;
                     break;
-
+                }
+            }
+            if (!youGood)
+            {
                 // cheking that different names are picked
                 Assert.Fail();
             }
         }
 
-
+        // Tests generating ages via age range from all ranges combined
+        [Test]
+        public void AgeRangeGen()
+        {
+            int tests = 1000;
+            for (int i = 0; i<tests; i++)
+            {
+                int age = ageRanges.getAnyRandom();
+                // All the generated ages fall into this interval
+                //"Adult", 35, 55
+                //"Child", 5, 14
+                Assert.True((age >= 5 && age <= 14) || (age >= 35 && age <= 55));
+            }
+        }
 
     }
 }

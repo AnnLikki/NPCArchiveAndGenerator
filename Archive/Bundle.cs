@@ -11,13 +11,9 @@ namespace Archives
 {
     /// <summary>
     ///  Bundle is a collection of a specific type and purpose. It contains a selection of elements
-    ///  that are interchangable, e.g. Positive Personalities Bundle (with elements like "kind", "generous" etc.) 
+    ///  that are interchangable, e.g. Positive Personalities Bundle (with elements like "kind", "generous" etc.)
     ///  or Common Names Bundle ("Steve", "Helen", etc).
     ///  It can also have multiple layers, each one can have a chance to get picked.
-    ///  E.g. 
-    ///  Layer one (chance = 1): "Steve", "Helen", "Maria", "Robert"
-    ///  Layer two (chance = 0.5): "Smith", "Higgins", "Butch"
-    ///  Possible results: "Helen Smith", "Robert", "Steve Smith", "Maria", "Maria Butch" etc.
     /// </summary>
     public class Bundle
     {
@@ -126,7 +122,7 @@ namespace Archives
         Name,
         Gender,
         Occupation,
-        Pesonality,
+        Personality,
         Height,
         Physique,
         Skin,
