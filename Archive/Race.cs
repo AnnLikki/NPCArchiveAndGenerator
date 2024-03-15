@@ -15,20 +15,27 @@ namespace Archives
         /// <summary>
         /// An ID of the race for identifying which race is linked to an NPC.
         /// </summary>
-        public string ID { get; set; } = ArchiveRace.randomizer.Next(1000, 10000).ToString();
+        public string ID { get; set; }
         public string Name { get; set; } = "New Race";
         public string Description { get; set; } = "";
 
         public int AgeMaturity { get; set; } = 18;
         public int LifeExpectancy { get; set; } = 80;
 
-        public Race() { }
+        public Race() {
+            regenerateID();
+        }
         public Race(string name, string description, int ageMaturity, int lifeExpectancy)
         {
             Name = name;
             Description = description;
             AgeMaturity = ageMaturity;
             LifeExpectancy = lifeExpectancy;
+        }
+
+        public void regenerateID()
+        {
+            ID = ArchiveRace.randomizer.Next(1000, 10000).ToString();
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Archives
 {
@@ -21,15 +22,23 @@ namespace Archives
         /// </summary>
         public static ArchiveRace absoluteArchiveRace = new ArchiveRace();
 
-        /// <summary>
-        /// Temporary NPC archive for autosaving.
-        /// </summary>
-        public static ArchiveNPC tempArchiveNPC = new ArchiveNPC();
 
-        /// <summary>
-        /// Temporary races archive for autosaving.
-        /// </summary>
-        public static ArchiveRace tempArchiveRace = new ArchiveRace();
+        public static ArchiveAgeRange defaultAgeRanges = new ArchiveAgeRange();
+
+        public static Dictionary<ArchiveType, ArchiveBundles> defaultArchives = new Dictionary<ArchiveType, ArchiveBundles>();
+
+
+        // TODO: temp saves
+
+        ///// <summary>
+        ///// Temporary NPC archive for autosaving.
+        ///// </summary>
+        //public static ArchiveNPC tempArchiveNPC = new ArchiveNPC();
+
+        ///// <summary>
+        ///// Temporary races archive for autosaving.
+        ///// </summary>
+        //public static ArchiveRace tempArchiveRace = new ArchiveRace();
 
 
     }

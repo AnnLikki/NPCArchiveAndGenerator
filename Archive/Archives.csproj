@@ -41,9 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgeRange.cs" />
+    <Compile Include="ArchiveAgeRange.cs" />
     <Compile Include="ArchiveHandler.cs" />
+    <Compile Include="ArchiveBundles.cs" />
     <Compile Include="ArchiveNPC.cs" />
     <Compile Include="ArchiveRace.cs" />
+    <Compile Include="Layer.cs" />
+    <Compile Include="ListElement.cs" />
+    <Compile Include="Bundle.cs" />
     <Compile Include="NPC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Race.cs" />

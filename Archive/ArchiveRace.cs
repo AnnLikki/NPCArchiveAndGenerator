@@ -41,6 +41,12 @@ namespace Archives
             return this.FirstOrDefault(race => race.ID == raceToMatch.ID);
         }
 
+
+        public bool isIdUsed(string id)
+        {
+            return this.Any(race => race.ID == id);
+        }
+
         /// <summary>
         /// Returns an ArchiveRace, filtered and sorted by the keyword.
         /// </summary>
