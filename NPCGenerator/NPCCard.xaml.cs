@@ -242,5 +242,78 @@ namespace NPCGenerator
             featuresTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Features, "Features");
 
         }
+        private void randNameBtn_Click(object sender, RoutedEventArgs e)
+        {
+            nameTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Name, "Name");
+        }
+
+        private void randRaceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            raceCmb.SelectedItem = ArchiveHandler.absoluteArchiveRace.getRandomRace();
+        }
+
+        private void randGenderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            genderTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Gender, "Gender");
+
+        }
+
+        private void randAgeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO Fix here as well
+            ageBioTB.Text = ArchiveHandler.defaultAgeRanges.getAnyRandomOrDefault(20).ToString(); // TODO Fix so it gens chrono age
+            updateAgeOnBio();
+        }
+
+        private void randOccupationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            occupationTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Occupation, "Occupation");
+        }
+
+        private void randCharacterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            characterTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Personality, "Personality");
+        }
+
+        private void randHeightBtn_Click(object sender, RoutedEventArgs e)
+        {
+            heightTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Height, "Height");
+        }
+
+        private void randPhysiqueBtn_Click(object sender, RoutedEventArgs e)
+        {
+            physiqueTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Physique, "Physique");
+        }
+
+        private void randSkinColourBtn_Click(object sender, RoutedEventArgs e)
+        {
+            skincolourTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Skin, "Skin Colour");
+        }
+
+        private void randHairBtn_Click(object sender, RoutedEventArgs e)
+        {
+            hairTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Hair, "Hair");
+        }
+
+        private void randFaceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            faceTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Face, "Face");
+        }
+
+        private void randEyesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            eyesTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Eyes, "Eyes");
+        }
+
+        private void randClothesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            clothesTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Clothes, "Clothes");
+        }
+
+        private void randFeaturesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            featuresTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Features, "Features");
+        }
+        
     }
 }
