@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Archives;
+using System.Windows.Controls;
 
 namespace NPCArchiveAndGenerator
 {
@@ -7,6 +8,9 @@ namespace NPCArchiveAndGenerator
         public LittleArchivesUC()
         {
             InitializeComponent();
+
+            Lbl0.Content = ArchiveHandler.defaultArchives.ToString();
+
         }
     }
 }

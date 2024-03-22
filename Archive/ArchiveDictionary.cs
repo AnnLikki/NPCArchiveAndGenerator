@@ -11,6 +11,7 @@ namespace Archives
 
         public string defaultValue = null;
 
+        /*
         public new ArchiveBundles this[ArchiveType archiveType]
         {
             get
@@ -29,7 +30,7 @@ namespace Archives
                 base[archiveType] = value;
             }
         }
-
+        */
 
         public string getRandomFromAnyOrDefault(ArchiveType type, string defaultValue)
         {
@@ -53,6 +54,25 @@ namespace Archives
             {
                 return base[type].getRandomFromAnyOrDefault(defaultValue);
             }
+        }
+
+        public override string ToString()
+        {
+            string output = "";
+
+            foreach (ArchiveType type in Enum.GetValues(typeof(ArchiveType)))
+            {
+                output+= type.ToString()+"\n";
+                if (ContainsKey(type))
+                {
+                    output += this[type].ToString()+"\n";
+                }
+                else
+                {
+                    output += "EMPTY" + "\n";
+                }
+            }
+            return output;
         }
 
     }

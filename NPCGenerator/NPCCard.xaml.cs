@@ -221,7 +221,7 @@ namespace NPCGenerator
 
 
         /// <summary>
-        /// Randomizes all fields, pulling from default archives.
+        /// Randomizes all fields, pulling from default archives. Doesn't randomize locked fields.
         /// </summary>
         private void randAllBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -257,6 +257,7 @@ namespace NPCGenerator
             if (lockFeaturesBtn.IsChecked == false)
                 featuresTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Features, "Features");
         }
+
         private void randNameBtn_Click(object sender, RoutedEventArgs e)
         {
             nameTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Name, "Name");
@@ -329,6 +330,6 @@ namespace NPCGenerator
         {
             featuresTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Features, "Features");
         }
-        
+
     }
 }

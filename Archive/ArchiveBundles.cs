@@ -58,5 +58,16 @@ namespace Archives
 
             return combinedBundles[index].getRandom();
         }
+
+        public override string ToString()
+        {
+            string output = "";
+            foreach (Bundle bundle in this)
+            {
+                output += bundle.ToString()+"\n";
+            }
+            return output;
+        }
+
     }
 }

@@ -115,6 +115,17 @@ namespace Archives
 
             return result.Trim();
         }
+
+
+        public override string ToString()
+        {
+            string output = name+"\n";
+            foreach (Layer layer in layers)
+            {
+                output += "Layer"+ layers.IndexOf(layer)+": "+ layer.ToString()+"\n";
+            }
+            return output;
+        }
     }
 
     public enum ArchiveType

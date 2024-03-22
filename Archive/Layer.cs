@@ -47,5 +47,15 @@ namespace Archives
             }
             throw new Exception("Unexpected Behaviour please check");
         }
+
+        public override string ToString()
+        {
+            string output = "";
+            foreach(ListElement le in elements)
+            {
+                output += le.ToString()+", ";
+            }
+            return output;
+        }
     }
 }
