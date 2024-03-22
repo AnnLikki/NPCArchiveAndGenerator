@@ -225,22 +225,37 @@ namespace NPCGenerator
         /// </summary>
         private void randAllBtn_Click(object sender, RoutedEventArgs e)
         {
-            nameTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Name, "Name");
-            raceCmb.SelectedItem = ArchiveHandler.absoluteArchiveRace.getRandomRace();
-            genderTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Gender, "Gender");
-            ageBioTB.Text = ArchiveHandler.defaultAgeRanges.getAnyRandomOrDefault(20).ToString(); // TODO Fix so it gens chrono age
-            updateAgeOnBio();
-            occupationTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Occupation, "Occupation");
-            characterTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Personality, "Personality");
-            heightTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Height, "Height");
-            physiqueTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Physique, "Physique");
-            skincolourTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Skin, "Skin Colour");
-            hairTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Hair, "Hair");
-            faceTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Face, "Face");
-            eyesTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Eyes, "Eyes");
-            clothesTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Clothes, "Clothes");
-            featuresTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Features, "Features");
-
+            if (lockNameBtn.IsChecked == false)
+                nameTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Name, "Name");
+            if (lockRaceBtn.IsChecked == false)
+                raceCmb.SelectedItem = ArchiveHandler.absoluteArchiveRace.getRandomRace();
+            if (lockGenderBtn.IsChecked == false)
+                genderTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Gender, "Gender");
+            if (lockAgeBtn.IsChecked == false)
+            {
+                ageBioTB.Text = ArchiveHandler.defaultAgeRanges.getAnyRandomOrDefault(20).ToString(); // TODO Fix so it gens chrono age
+                updateAgeOnBio();
+            }
+            if (lockOccupationBtn.IsChecked == false)
+                occupationTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Occupation, "Occupation");
+            if (lockCharacterBtn.IsChecked == false)
+                characterTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Personality, "Personality");
+            if (lockHeightBtn.IsChecked == false)
+                heightTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Height, "Height");
+            if (lockPhysiqueBtn.IsChecked == false)
+                physiqueTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Physique, "Physique");
+            if (lockSkincolourBtn.IsChecked == false)
+                skincolourTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Skin, "Skin Colour");
+            if (lockHairBtn.IsChecked == false)
+                hairTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Hair, "Hair");
+            if (lockFaceBtn.IsChecked == false)
+                faceTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Face, "Face");
+            if (lockEyesBtn.IsChecked == false)
+                eyesTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Eyes, "Eyes");
+            if (lockClothesBtn.IsChecked == false)
+                clothesTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Clothes, "Clothes");
+            if (lockFeaturesBtn.IsChecked == false)
+                featuresTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Features, "Features");
         }
         private void randNameBtn_Click(object sender, RoutedEventArgs e)
         {
