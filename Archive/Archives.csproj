@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AgeRange.cs" />
     <Compile Include="ArchiveAgeRange.cs" />
+    <Compile Include="ArchiveDictionary.cs" />
     <Compile Include="ArchiveHandler.cs" />
     <Compile Include="ArchiveBundles.cs" />
     <Compile Include="ArchiveNPC.cs" />

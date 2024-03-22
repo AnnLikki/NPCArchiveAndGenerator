@@ -9,9 +9,9 @@ namespace Archives
     public class AgeRange
     {
 
-        public string name;
-        public int lowerLimit;
-        public int upperLimit;
+        public string name { get; set; }
+        public int lowerLimit { get; set; }
+        public int upperLimit { get; set; }
         Random random = new Random();
 
         public AgeRange(string name, int lowerLimit, int upperLimit)

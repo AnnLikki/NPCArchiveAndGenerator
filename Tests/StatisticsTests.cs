@@ -11,14 +11,14 @@ namespace Tests
         ArchiveAgeRange ageRanges;
         ArchiveBundles namesArchive;
         ArchiveBundles hairArchive;
-        Dictionary<ArchiveType, ArchiveBundles> archives;
+        ArchiveDictionary archives;
 
         [SetUp]
         public void Setup()
         {
             namesArchive = new ArchiveBundles();
             hairArchive = new ArchiveBundles();
-            archives = new Dictionary<ArchiveType, ArchiveBundles>();
+            archives = new ArchiveDictionary();
             archives.Add(ArchiveType.Name, namesArchive);
             archives.Add(ArchiveType.Hair, hairArchive);
 
@@ -121,7 +121,7 @@ namespace Tests
 
                 int firstNamesTmp = 0, middleNamesTmp = 0, lastNamesTmp = 0;
 
-                string name = archives[ArchiveType.Name].getRandomFromAny();
+                string name = archives[ArchiveType.Name].getRandomFromAnyOrDefault();
 
                 foreach (string fn in names.getValuesFromLayer(0))
                     if (name.Contains(fn))
@@ -274,7 +274,7 @@ namespace Tests
             int tests = 1000;
             for (int i = 0; i < tests; i++)
             {
-                int age = ageRanges.getAnyRandom();
+                int age = ageRanges.getAnyRandomOrDefault();
                 if ((age >= 5 && age <= 14))
                     children++;
                 if (age >= 35 && age <= 14)

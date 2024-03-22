@@ -20,11 +20,11 @@ namespace Archives
         /// <summary>
         /// Type of the Bundle
         /// </summary>
-        public ArchiveType type;
+        public ArchiveType type { get; set; }
         /// <summary>
         /// Given name of the Bundle, represents it's purpose.
         /// </summary>
-        public string name;
+        public string name { get; set; }
         /// <summary>
         /// True if each layer after the first one can be picked regardless if the layer before was picked or not.\n
         /// False if layers can't be picked if the previous layer wasn't picked.\n
@@ -41,11 +41,11 @@ namespace Archives
         /// Layer three - Hairstyle (chance=0.5, default="plain hairstyle"): "Braided hair", "Curly hair", "Up-do"\n
         /// Possible results: "Blond long up-do", "Brown facial hair, bald head", "Ginger medium length plain hairsyle" etc.\n
         /// </summary>
-        public bool independentParts;
+        public bool independentParts { get; set; }
         /// <summary>
         /// Collection of layers, the higher the index, the lower the layer.
         /// </summary>
-        private Collection<Layer> layers;
+        public Collection<Layer> layers { get; set; }
 
         Random random = new Random();
 

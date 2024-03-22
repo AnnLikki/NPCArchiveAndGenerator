@@ -10,11 +10,26 @@ namespace Archives
     public class ArchiveAgeRange : ObservableCollection<AgeRange>
     {
         Random random = new Random();
+        public int defaultValue { get; set; } = 0;
 
-        public int getAnyRandom()
+        public int getAnyRandomOrDefault(int defaultValue)
         {
-            int r = random.Next(0, this.Count);
-            return this[r].getRandom();
+            if (Count > 0)
+            {
+                int r = random.Next(0, this.Count);
+                return this[r].getRandom();
+            }
+            else return defaultValue;
+        }
+
+        public int getAnyRandomOrDefault()
+        {
+            if (Count > 0)
+            {
+                int r = random.Next(0, this.Count);
+                return this[r].getRandom();
+            }
+            else return this.defaultValue;
         }
     }
 }

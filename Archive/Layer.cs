@@ -10,9 +10,9 @@ namespace Archives
     public class Layer
     {
 
-        Collection<ListElement> elements;
-        public float chance;
-        public string defaultValue;
+        public Collection<ListElement> elements { get; set; }
+        public float chance { get; set; }
+        public string defaultValue { get; set; }
 
         Random random = new Random();
 

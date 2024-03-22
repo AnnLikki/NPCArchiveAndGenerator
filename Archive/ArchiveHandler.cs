@@ -25,7 +25,7 @@ namespace Archives
 
         public static ArchiveAgeRange defaultAgeRanges = new ArchiveAgeRange();
 
-        public static Dictionary<ArchiveType, ArchiveBundles> defaultArchives = new Dictionary<ArchiveType, ArchiveBundles>();
+        public static ArchiveDictionary defaultArchives = new ArchiveDictionary();
 
 
         // TODO: temp saves

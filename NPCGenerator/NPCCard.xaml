@@ -59,7 +59,7 @@
                             <ColumnDefinition Width="30" />
                         </Grid.ColumnDefinitions>
                         <Label FontWeight="DemiBold" Margin="2,0,2,0" Content="NPC Card" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <Button x:Name="randAllBtn" Margin="2,0,2,0" IsEnabled="False" Grid.Column="1">
+                        <Button x:Name="randAllBtn" Margin="2,0,2,0" Grid.Column="1" Click="randAllBtn_Click">
                             <Image Source="/Images/random.png"/>
                         </Button>
                         <Button x:Name="saveBtn" Margin="2,0,2,0" Grid.Column="2" Click="saveBtn_Click">
@@ -183,7 +183,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="charaterTB" Margin="2,0,0,0" Grid.Column="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" TextWrapping="Wrap"/>
+                        <TextBox x:Name="characterTB" Margin="2,0,0,0" Grid.Column="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" TextWrapping="Wrap"/>
                     </Grid>
                     <Grid Grid.Row="7" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>

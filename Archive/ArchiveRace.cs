@@ -95,5 +95,15 @@ namespace Archives
             return fin;
 
         }
+
+        public Race getRandomRace()
+        {
+            if (Count > 0)
+            {
+                int index = randomizer.Next(this.Count);
+                return this[index];
+            }
+            else return baseRace;
+        }
     }
 }

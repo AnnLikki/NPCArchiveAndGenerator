@@ -1,5 +1,4 @@
 ﻿using FileManager;
-using NPCGenerator;
 
 namespace NPCArchiveAndGenerator
 {
@@ -31,7 +30,10 @@ namespace NPCArchiveAndGenerator
                     else
                         return "Unsaved Races Archive";
                 case Status.ArchiveLA:
-                    return "NOT IMPLEMENTED"; // TODO: Finish
+                    if (SnL.LASavePath != null)
+                        return SnL.LASavePath;
+                    else
+                        return "Unsaved Little Archives";
                 default:
                     return "WTF";
             }

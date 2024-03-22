@@ -9,7 +9,7 @@ namespace Tests
         AgeRange adult, child;
         ArchiveBundles namesArchive;
         ArchiveAgeRange ageRanges;
-        Dictionary<ArchiveType, ArchiveBundles> archives;
+        ArchiveDictionary archives;
 
         [SetUp]
         public void Setup()
@@ -61,7 +61,7 @@ namespace Tests
             namesArchive.Add(names1);
             namesArchive.Add(names2);
 
-            archives = new Dictionary<ArchiveType, ArchiveBundles>();
+            archives = new ArchiveDictionary();
             archives.Add(ArchiveType.Name, namesArchive);
 
 
@@ -83,8 +83,8 @@ namespace Tests
             bool youGood = false;
             for (int i = 0; i < 10; i++)
             {
-                string randomName1 = archives[ArchiveType.Name].getRandomFromAny();
-                string randomName2 = archives[ArchiveType.Name].getRandomFromAny();
+                string randomName1 = archives[ArchiveType.Name].getRandomFromAnyOrDefault();
+                string randomName2 = archives[ArchiveType.Name].getRandomFromAnyOrDefault();
                 if (randomName1 != randomName2)
                 {
                     youGood = true;
@@ -101,8 +101,8 @@ namespace Tests
             youGood = false;
             for (int i = 0; i < 10; i++)
             {
-                string randomName1 = archives[ArchiveType.Name].getRandomFromAny();
-                string randomName2 = archives[ArchiveType.Name].getRandomFromAny();
+                string randomName1 = archives[ArchiveType.Name].getRandomFromAnyOrDefault();
+                string randomName2 = archives[ArchiveType.Name].getRandomFromAnyOrDefault();
 
                 if ((names1.getValuesFromLayer(0).Contains(randomName1) && names2.getValuesFromLayer(0).Contains(randomName2)) ||
                     (names1.getValuesFromLayer(0).Contains(randomName2) && names2.getValuesFromLayer(0).Contains(randomName1)))
@@ -160,12 +160,43 @@ namespace Tests
             int tests = 1000;
             for (int i = 0; i<tests; i++)
             {
-                int age = ageRanges.getAnyRandom();
+                int age = ageRanges.getAnyRandomOrDefault();
                 // All the generated ages fall into this interval
                 //"Adult", 35, 55
                 //"Child", 5, 14
                 Assert.True((age >= 5 && age <= 14) || (age >= 35 && age <= 55));
             }
+        }
+
+        // Tests pulling from not existing archives
+        // We added only names bundles to the setup, let's try getting any other type of data,
+        // it should return a specified default value
+        [Test]
+        public void NonExistentKeyPulling()
+        {
+            string str = archives.getRandomFromAnyOrDefault(ArchiveType.Face, "face");
+            Assert.True(str == "face");
+        }
+
+        // Tests pulling from an empty ArchiveBundle
+        [Test]
+        public void EmptyArchiveBundlesPulling()
+        {
+            ArchiveBundles faces = new ArchiveBundles();
+            archives.Add(ArchiveType.Face, faces);
+
+            string str = archives[ArchiveType.Face].getRandomFromAnyOrDefault("face");
+            Assert.True(str == "face");
+        }
+
+        // Tests pulling from empty ArchiveAgeRange 
+        [Test]
+        public void EmptyArchiveAgeRangePulling()
+        {
+            ArchiveAgeRange ageRanges = new ArchiveAgeRange();
+            
+            int age = ageRanges.getAnyRandomOrDefault(10);
+            Assert.True(age == 10);
         }
 
     }

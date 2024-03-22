@@ -35,7 +35,7 @@ namespace Tests
         ArchiveBundles clothesArchive;
         ArchiveBundles featuresArchive;
 
-        Dictionary<ArchiveType, ArchiveBundles> archives;
+        ArchiveDictionary archives;
 
         [SetUp]
         public void Setup()
@@ -57,7 +57,7 @@ namespace Tests
             clothesArchive= new ArchiveBundles();
             featuresArchive= new ArchiveBundles();
 
-            archives = new Dictionary<ArchiveType, ArchiveBundles>();
+            archives = new ArchiveDictionary();
            
             archives.Add(ArchiveType.Name, namesArchive);
             archives.Add(ArchiveType.Gender, gendersArchive);
@@ -473,18 +473,18 @@ namespace Tests
             {
                 Console.WriteLine();
                 Console.WriteLine("NPC #"+i);
-                Console.WriteLine("Name: " + archives[ArchiveType.Name].getRandomFromAny());
-                Console.WriteLine("Gender: " + archives[ArchiveType.Gender].getRandomFromAny());
-                Console.WriteLine("Occupation: " + archives[ArchiveType.Occupation].getRandomFromAny());
-                Console.WriteLine("Personality: " + archives[ArchiveType.Personality].getRandomFromAny());
-                Console.WriteLine("Height: " + archives[ArchiveType.Height].getRandomFromAny());
-                Console.WriteLine("Physique: " + archives[ArchiveType.Physique].getRandomFromAny());
-                Console.WriteLine("Skin Color: " + archives[ArchiveType.Skin].getRandomFromAny());
-                Console.WriteLine("Hair Style: " + archives[ArchiveType.Hair].getRandomFromAny());
-                Console.WriteLine("Face: " + archives[ArchiveType.Face].getRandomFromAny());
-                Console.WriteLine("Eye Color: " + archives[ArchiveType.Eyes].getRandomFromAny());
-                Console.WriteLine("Clothing Style: " + archives[ArchiveType.Clothes].getRandomFromAny());
-                Console.WriteLine("Feature (Tattoo or Scar): " + archives[ArchiveType.Features].getRandomFromAny());
+                Console.WriteLine("Name: " + archives[ArchiveType.Name].getRandomFromAnyOrDefault());
+                Console.WriteLine("Gender: " + archives[ArchiveType.Gender].getRandomFromAnyOrDefault());
+                Console.WriteLine("Occupation: " + archives[ArchiveType.Occupation].getRandomFromAnyOrDefault());
+                Console.WriteLine("Personality: " + archives[ArchiveType.Personality].getRandomFromAnyOrDefault());
+                Console.WriteLine("Height: " + archives[ArchiveType.Height].getRandomFromAnyOrDefault());
+                Console.WriteLine("Physique: " + archives[ArchiveType.Physique].getRandomFromAnyOrDefault());
+                Console.WriteLine("Skin Color: " + archives[ArchiveType.Skin].getRandomFromAnyOrDefault());
+                Console.WriteLine("Hair Style: " + archives[ArchiveType.Hair].getRandomFromAnyOrDefault());
+                Console.WriteLine("Face: " + archives[ArchiveType.Face].getRandomFromAnyOrDefault());
+                Console.WriteLine("Eye Color: " + archives[ArchiveType.Eyes].getRandomFromAnyOrDefault());
+                Console.WriteLine("Clothing Style: " + archives[ArchiveType.Clothes].getRandomFromAnyOrDefault());
+                Console.WriteLine("Feature (Tattoo or Scar): " + archives[ArchiveType.Features].getRandomFromAnyOrDefault());
             }
 
         }

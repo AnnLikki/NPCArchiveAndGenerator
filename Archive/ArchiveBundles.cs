@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,9 @@ namespace Archives
 {
     public class ArchiveBundles : ObservableCollection<Bundle>
     {
+
+        public string defaultValue = "";
+
         Random random = new Random();
 
         public Bundle getBundle(int index)
@@ -21,13 +25,33 @@ namespace Archives
             return this[index];
         }
 
-        public string getRandomFromAny()
+        public string getRandomFromAnyOrDefault(string defaultValue)
         {
             List<Bundle> combinedBundles = new List<Bundle>();
             foreach (Bundle bundle in this)
             {
                 combinedBundles.Add(bundle);
             }
+
+            if (combinedBundles.Count == 0)
+                return defaultValue;
+
+            int index = random.Next(combinedBundles.Count);
+            //Console.WriteLine(index);
+
+            return combinedBundles[index].getRandom();
+        }
+
+        public string getRandomFromAnyOrDefault()
+        {
+            List<Bundle> combinedBundles = new List<Bundle>();
+            foreach (Bundle bundle in this)
+            {
+                combinedBundles.Add(bundle);
+            }
+
+            if (combinedBundles.Count == 0)
+                return this.defaultValue;
 
             int index = random.Next(combinedBundles.Count);
             //Console.WriteLine(index);

@@ -38,7 +38,7 @@
             <WrapPanel x:Name="bottomWrpPnl" Grid.Column="0" Grid.ColumnSpan="6" Height="30" HorizontalAlignment="Center">
                 <Button x:Name="NPCsArchiveBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="NPCs Archive" Click="NPCsArchiveBtn_Click"/>
                 <Button x:Name="RacesArchiveBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Races Archive" Click="RacesArchiveBtn_Click"/>
-                <Button x:Name="LittleArchivesBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Little Archives" IsEnabled="False" Click="LittleArchivesBtn_Click"/>
+                <Button x:Name="LittleArchivesBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Little Archives" Click="LittleArchivesBtn_Click"/>
             </WrapPanel>
         </Grid>
     </Grid>

@@ -40,7 +40,7 @@ namespace NPCGenerator
             ageBioTB.Text = npc.AgeBio.ToString();
             occupationTB.Text = npc.Occupation;
             placeTB.Text = npc.Place;
-            charaterTB.Text = npc.Character;
+            characterTB.Text = npc.Character;
             backstoryTB.Text = npc.Backstory;
             heightTB.Text = npc.Height;
             physiqueTB.Text = npc.Physique;
@@ -77,7 +77,7 @@ namespace NPCGenerator
         {
             npc.updateInfoNotifyably(
             nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, ParseCarefully(ageChronoTB.Text), ParseCarefully(ageBioTB.Text),
-            occupationTB.Text, placeTB.Text, charaterTB.Text, backstoryTB.Text, heightTB.Text,
+            occupationTB.Text, placeTB.Text, characterTB.Text, backstoryTB.Text, heightTB.Text,
             physiqueTB.Text, skincolourTB.Text, hairTB.Text, faceTB.Text, eyesTB.Text, clothesTB.Text, featuresTB.Text,
             ParseCarefully(strTB.Text), ParseCarefully(dexTB.Text), ParseCarefully(conTB.Text), ParseCarefully(intTB.Text), ParseCarefully(wisTB.Text), ParseCarefully(chaTB.Text),
             notesTB.Text);
@@ -116,7 +116,7 @@ namespace NPCGenerator
         {
             npc.updateInfoNotifyably(
             nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, ParseCarefully(ageChronoTB.Text), ParseCarefully(ageBioTB.Text),
-            occupationTB.Text, placeTB.Text, charaterTB.Text, backstoryTB.Text, heightTB.Text,
+            occupationTB.Text, placeTB.Text, characterTB.Text, backstoryTB.Text, heightTB.Text,
             physiqueTB.Text, skincolourTB.Text, hairTB.Text, faceTB.Text, eyesTB.Text, clothesTB.Text, featuresTB.Text,
             ParseCarefully(strTB.Text), ParseCarefully(dexTB.Text), ParseCarefully(conTB.Text), ParseCarefully(intTB.Text), ParseCarefully(wisTB.Text), ParseCarefully(chaTB.Text),
             notesTB.Text);
@@ -137,8 +137,8 @@ namespace NPCGenerator
                 MessageBoxResult confirmResult =
                 MessageBox.Show("Close without saving?", "Confirm Closing",
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (confirmResult == MessageBoxResult.Yes)
-                grid.SelectedItem = null;
+                if (confirmResult == MessageBoxResult.Yes)
+                    grid.SelectedItem = null;
             }
             else grid.SelectedItem = null;
         }
@@ -150,7 +150,7 @@ namespace NPCGenerator
         // linear progression of the age in two parts of life - 
         // before and after the age of maturity and calculates a proportion
         // based on npc race and human race variables.
-        
+
         // TODO Move this logic away
         // Will do after 0.1.3.0 release, as there we'll be touching cross-game implementation
         private void ageBioTB_TextChanged(object sender, TextChangedEventArgs e)
@@ -164,6 +164,18 @@ namespace NPCGenerator
                         ageChronoTB.Text = ((int)Math.Round((double)(ParseCarefully(ageBioTB.Text) * ((Race)raceCmb.SelectedValue).AgeMaturity) / ArchiveRace.baseRace.AgeMaturity)).ToString();
                     else
                         ageChronoTB.Text = ((int)Math.Round((double)((ParseCarefully(ageBioTB.Text) - ArchiveRace.baseRace.AgeMaturity) * (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) / (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) + ((Race)raceCmb.SelectedValue).AgeMaturity).ToString();
+        }
+
+        private void updateAgeOnBio()
+        {
+            if ((Race)raceCmb.SelectedValue != null)
+                if (ageBioTB.Text.Length == 0 || ParseCarefully(ageBioTB.Text) <= 0)
+                    ageChronoTB.Text = "0";
+                else
+                    if (ParseCarefully(ageBioTB.Text) <= ArchiveRace.baseRace.AgeMaturity)
+                    ageChronoTB.Text = ((int)Math.Round((double)(ParseCarefully(ageBioTB.Text) * ((Race)raceCmb.SelectedValue).AgeMaturity) / ArchiveRace.baseRace.AgeMaturity)).ToString();
+                else
+                    ageChronoTB.Text = ((int)Math.Round((double)((ParseCarefully(ageBioTB.Text) - ArchiveRace.baseRace.AgeMaturity) * (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) / (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) + ((Race)raceCmb.SelectedValue).AgeMaturity).ToString();
         }
 
         private void ageChronoTB_TextChanged(object sender, TextChangedEventArgs e)
@@ -207,5 +219,28 @@ namespace NPCGenerator
             return result;
         }
 
+
+        /// <summary>
+        /// Randomizes all fields, pulling from default archives.
+        /// </summary>
+        private void randAllBtn_Click(object sender, RoutedEventArgs e)
+        {
+            nameTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Name, "Name");
+            raceCmb.SelectedItem = ArchiveHandler.absoluteArchiveRace.getRandomRace();
+            genderTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Gender, "Gender");
+            ageBioTB.Text = ArchiveHandler.defaultAgeRanges.getAnyRandomOrDefault(20).ToString(); // TODO Fix so it gens chrono age
+            updateAgeOnBio();
+            occupationTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Occupation, "Occupation");
+            characterTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Personality, "Personality");
+            heightTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Height, "Height");
+            physiqueTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Physique, "Physique");
+            skincolourTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Skin, "Skin Colour");
+            hairTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Hair, "Hair");
+            faceTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Face, "Face");
+            eyesTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Eyes, "Eyes");
+            clothesTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Clothes, "Clothes");
+            featuresTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Features, "Features");
+
+        }
     }
 }

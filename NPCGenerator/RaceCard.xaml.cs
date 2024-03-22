@@ -65,8 +65,8 @@ namespace NPCGenerator
                 MessageBoxResult confirmResult =
                 MessageBox.Show("Close without saving?", "Confirm Closing",
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (confirmResult == MessageBoxResult.Yes)
-                grid.SelectedItem = null;
+                if (confirmResult == MessageBoxResult.Yes)
+                    grid.SelectedItem = null;
             }
             else grid.SelectedItem = null;
         }

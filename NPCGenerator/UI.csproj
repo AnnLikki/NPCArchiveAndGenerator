@@ -77,6 +77,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller.cs" />
+    <Compile Include="LittleArchivesUC.xaml.cs">
+      <DependentUpon>LittleArchivesUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NPCCardWindow.xaml.cs">
       <DependentUpon>NPCCardWindow.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
     <Compile Include="NPCCard.xaml.cs">
       <DependentUpon>NPCCard.xaml</DependentUpon>
     </Compile>
+    <Page Include="LittleArchivesUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

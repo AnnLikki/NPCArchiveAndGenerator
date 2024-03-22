@@ -21,12 +21,12 @@ namespace FileManager
     {
         public static string NPCsSavePath { set; get; } = null;
         public static string racesSavePath { set; get; } = null;
-
+        public static string LASavePath { set; get; } = null;
         public static string dataSavePath { set; get; } = "NPCA&G_Data.json";
 
         public const string TYPE_NPC = "TYPE_NPC";
         public const string TYPE_RACE = "TYPE_RACE";
-
+        public const string TYPE_LA = "TYPE_LA";
 
         public static bool saveData(string path)
         {
@@ -39,7 +39,7 @@ namespace FileManager
                     using (File.Create(path)) { }
                 string jsonData = "";
 
-                string[] paths = new string[] { NPCsSavePath, racesSavePath };
+                string[] paths = new string[] { NPCsSavePath, racesSavePath, LASavePath };
 
                 jsonData = "SETTINGS DATA\n" +
                     JsonSerializer.Serialize(paths);
@@ -67,6 +67,7 @@ namespace FileManager
                     
                     NPCsSavePath = paths[0];
                     racesSavePath = paths[1];
+                    LASavePath = paths[2];
                 }
                 else
                     throw new FormatException("No correct format descriptor found.");
@@ -98,7 +99,7 @@ namespace FileManager
         /// </remarks>
         public static bool saveArchive(string type, string path)
         {
-            if (type != TYPE_NPC && type != TYPE_RACE)
+            if (type != TYPE_NPC && type != TYPE_RACE && type != TYPE_LA)
                 throw new ArgumentException(type + " is not one of valid archive types.");
             try
             {
@@ -116,6 +117,12 @@ namespace FileManager
                 {
                     jsonData = "RACE ARCHIVE\n" +
                         JsonSerializer.Serialize(ArchiveHandler.absoluteArchiveRace);
+                }
+                else if (type == TYPE_LA)
+                {
+                    jsonData = "LITTLE ARCHIVES\n" +
+                        JsonSerializer.Serialize(ArchiveHandler.defaultArchives) + "\n" +
+                        JsonSerializer.Serialize(ArchiveHandler.defaultAgeRanges);
                 }
                 File.WriteAllText(path, jsonData);
                 return true;
@@ -140,7 +147,7 @@ namespace FileManager
         {
             if(path == null)
                 return false;
-            if (type != TYPE_NPC && type != TYPE_RACE)
+            if (type != TYPE_NPC && type != TYPE_RACE && type != TYPE_LA)
                 throw new ArgumentException(type + " is not one of valid archive types.");
             try
             {
@@ -159,6 +166,16 @@ namespace FileManager
                         string jsonData = File.ReadAllText(path).Replace("RACE ARCHIVE", "");
                         ArchiveHandler.absoluteArchiveRace = JsonSerializer.Deserialize<ArchiveRace>(jsonData);
 
+                    }
+                    else
+                        throw new FormatException("No correct format descriptor found.");
+                else if (type == TYPE_LA)
+
+                    if (File.ReadAllLines(path)[0] == "LITTLE ARCHIVES")
+                    {
+                        //string jsonData = File.ReadAllText(path).Replace("LITTLE ARCHIVES", "");
+                        ArchiveHandler.defaultArchives = JsonSerializer.Deserialize<ArchiveDictionary>(File.ReadAllLines(path)[1]);
+                        ArchiveHandler.defaultAgeRanges = JsonSerializer.Deserialize<ArchiveAgeRange>(File.ReadAllLines(path)[2]);
                     }
                     else
                         throw new FormatException("No correct format descriptor found.");
@@ -185,7 +202,7 @@ namespace FileManager
         /// <returns>true if a file location has been chosen, false if not or canceled.</returns>
         public static bool saveViaDialog(string type, string windowTitle)
         {
-            if (type != TYPE_NPC && type != TYPE_RACE)
+            if (type != TYPE_NPC && type != TYPE_RACE && type!=TYPE_LA)
                 throw new ArgumentException(type + " is not one of valid archive types.");
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -202,6 +219,8 @@ namespace FileManager
                     NPCsSavePath = filename;
                 else if (type == TYPE_RACE)
                     racesSavePath = filename;
+                else if (type == TYPE_LA)
+                    LASavePath = filename;
             return true;
 
         }
@@ -213,7 +232,7 @@ namespace FileManager
         /// <returns>true if a file has been chosen, false if not or canceled.</returns>
         public static bool openViaDialog(string type, string windowTitle)
         {
-            if (type != TYPE_NPC && type != TYPE_RACE)
+            if (type != TYPE_NPC && type != TYPE_RACE && type != TYPE_LA)
                 throw new ArgumentException(type + " is not one of valid archive types.");
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -231,6 +250,8 @@ namespace FileManager
                     NPCsSavePath = filename;
                 else if (type == TYPE_RACE)
                     racesSavePath = filename;
+                else if (type == TYPE_LA)
+                    LASavePath = filename;
             return true;
 
         }
