@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 /// <summary>
@@ -64,7 +60,7 @@ namespace Archives
             string output = "";
             foreach (Bundle bundle in this)
             {
-                output += bundle.ToString()+"\n";
+                output += bundle.ToString() + "\n";
             }
             return output;
         }

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Archives
 {
@@ -41,7 +36,7 @@ namespace Archives
         /// Layer three - Hairstyle (chance=0.5, default="plain hairstyle"): "Braided hair", "Curly hair", "Up-do"\n
         /// Possible results: "Blond long up-do", "Brown facial hair, bald head", "Ginger medium length plain hairsyle" etc.\n
         /// </summary>
-        public bool independentParts { get; set; }
+        public bool independentLayers { get; set; }
         /// <summary>
         /// Collection of layers, the higher the index, the lower the layer.
         /// </summary>
@@ -49,11 +44,11 @@ namespace Archives
 
         Random random = new Random();
 
-        public Bundle(ArchiveType type, string name, bool independentParts)
+        public Bundle(ArchiveType type, string name, bool independentLayers)
         {
             this.type = type;
             this.name = name;
-            this.independentParts = independentParts;
+            this.independentLayers = independentLayers;
             this.layers = new Collection<Layer>();
         }
 
@@ -77,10 +72,11 @@ namespace Archives
             return layers;
         }
 
-        public List<string> getValuesFromLayer(int layer) { 
-            
+        public List<string> getValuesFromLayer(int layer)
+        {
+
             List<string> values = new List<string>();
-            foreach(ListElement le in layers[layer].getElements())
+            foreach (ListElement le in layers[layer].getElements())
             {
                 values.Add(le.value);
             }
@@ -92,12 +88,12 @@ namespace Archives
         {
             return layers[layer];
         }
-        
+
         public string getRandom()
         {
             string result = "";
 
-            foreach(Layer layer in layers)
+            foreach (Layer layer in layers)
             {
                 float chance = (float)random.NextDouble();
                 if (chance <= layer.chance) // layer is chosen
@@ -106,9 +102,9 @@ namespace Archives
                 }
                 else // layer isn't chosen
                 {
-                    if(layer.defaultValue.Length>0)
+                    if (layer.defaultValue.Length > 0)
                         result += layer.defaultValue;
-                    if (!independentParts)
+                    if (!independentLayers)
                         break;
                 }
             }
@@ -119,10 +115,10 @@ namespace Archives
 
         public override string ToString()
         {
-            string output = name+"\n";
+            string output = name + "\n";
             foreach (Layer layer in layers)
             {
-                output += "Layer"+ layers.IndexOf(layer)+": "+ layer.ToString()+"\n";
+                output += "Layer" + layers.IndexOf(layer) + ": " + layer.ToString() + "\n";
             }
             return output;
         }

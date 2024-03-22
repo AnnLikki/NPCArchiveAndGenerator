@@ -1,5 +1,4 @@
 using Archives;
-using System.Reflection;
 
 namespace Tests
 {
@@ -36,7 +35,7 @@ namespace Tests
             // populated with new elements
             Assert.That(names1.getLayer(0).getElements().Count, Is.EqualTo(5));
 
-            names2 = new Bundle(ArchiveType.Name,"Names2",true);
+            names2 = new Bundle(ArchiveType.Name, "Names2", true);
 
             // new bundle, no layers
             Assert.That(names2.getAllLayers().Count, Is.EqualTo(0));
@@ -158,7 +157,7 @@ namespace Tests
         public void AgeRangeGen()
         {
             int tests = 1000;
-            for (int i = 0; i<tests; i++)
+            for (int i = 0; i < tests; i++)
             {
                 int age = ageRanges.getAnyRandomOrDefault();
                 // All the generated ages fall into this interval
@@ -194,7 +193,7 @@ namespace Tests
         public void EmptyArchiveAgeRangePulling()
         {
             ArchiveAgeRange ageRanges = new ArchiveAgeRange();
-            
+
             int age = ageRanges.getAnyRandomOrDefault(10);
             Assert.True(age == 10);
         }

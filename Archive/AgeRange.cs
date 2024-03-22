@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Archives
 {
@@ -23,7 +19,7 @@ namespace Archives
 
         internal int getRandom()
         {
-            int r = random.Next(lowerLimit, upperLimit+1);
+            int r = random.Next(lowerLimit, upperLimit + 1);
             return r;
         }
     }

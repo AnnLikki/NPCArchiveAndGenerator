@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Archives
 {
@@ -62,10 +59,10 @@ namespace Archives
 
             foreach (ArchiveType type in Enum.GetValues(typeof(ArchiveType)))
             {
-                output+= type.ToString()+"\n";
+                output += type.ToString() + "\n";
                 if (ContainsKey(type))
                 {
-                    output += this[type].ToString()+"\n";
+                    output += this[type].ToString() + "\n";
                 }
                 else
                 {

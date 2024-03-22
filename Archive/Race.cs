@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Archives
 {
@@ -22,7 +21,8 @@ namespace Archives
         public int AgeMaturity { get; set; } = 18;
         public int LifeExpectancy { get; set; } = 80;
 
-        public Race() {
+        public Race()
+        {
             regenerateID();
         }
         public Race(string name, string description, int ageMaturity, int lifeExpectancy)

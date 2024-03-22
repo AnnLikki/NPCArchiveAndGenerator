@@ -64,7 +64,7 @@ namespace FileManager
                 {
                     string jsonData = File.ReadAllText(path).Replace("SETTINGS DATA", "");
                     string[] paths = JsonSerializer.Deserialize<string[]>(jsonData);
-                    
+
                     NPCsSavePath = paths[0];
                     racesSavePath = paths[1];
                     LASavePath = paths[2];
@@ -145,7 +145,7 @@ namespace FileManager
         /// </remarks>
         public static bool loadArchive(string type, string path)
         {
-            if(path == null)
+            if (path == null)
                 return false;
             if (type != TYPE_NPC && type != TYPE_RACE && type != TYPE_LA)
                 throw new ArgumentException(type + " is not one of valid archive types.");
@@ -202,7 +202,7 @@ namespace FileManager
         /// <returns>true if a file location has been chosen, false if not or canceled.</returns>
         public static bool saveViaDialog(string type, string windowTitle)
         {
-            if (type != TYPE_NPC && type != TYPE_RACE && type!=TYPE_LA)
+            if (type != TYPE_NPC && type != TYPE_RACE && type != TYPE_LA)
                 throw new ArgumentException(type + " is not one of valid archive types.");
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();

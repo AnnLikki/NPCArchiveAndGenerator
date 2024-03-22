@@ -2,7 +2,7 @@ using Archives;
 
 namespace Tests
 {
-   public class FullNPCGen
+    public class FullNPCGen
     {
         Bundle englishNames, russianNames;
         Bundle genders;
@@ -44,21 +44,21 @@ namespace Tests
             races = new ArchiveRace();
             ageRanges = new ArchiveAgeRange();
 
-            namesArchive= new ArchiveBundles();
-            gendersArchive= new ArchiveBundles();
-            occupationsArchive= new ArchiveBundles();
-            personalitiesArchive= new ArchiveBundles();
-            heightsArchive= new ArchiveBundles();
-            physiquesArchive= new ArchiveBundles();
-            skinsArchive= new ArchiveBundles();
+            namesArchive = new ArchiveBundles();
+            gendersArchive = new ArchiveBundles();
+            occupationsArchive = new ArchiveBundles();
+            personalitiesArchive = new ArchiveBundles();
+            heightsArchive = new ArchiveBundles();
+            physiquesArchive = new ArchiveBundles();
+            skinsArchive = new ArchiveBundles();
             hairArchive = new ArchiveBundles();
             facesArchive = new ArchiveBundles();
             eyesArchive = new ArchiveBundles();
-            clothesArchive= new ArchiveBundles();
-            featuresArchive= new ArchiveBundles();
+            clothesArchive = new ArchiveBundles();
+            featuresArchive = new ArchiveBundles();
 
             archives = new ArchiveDictionary();
-           
+
             archives.Add(ArchiveType.Name, namesArchive);
             archives.Add(ArchiveType.Gender, gendersArchive);
             archives.Add(ArchiveType.Occupation, occupationsArchive);
@@ -467,12 +467,12 @@ namespace Tests
         // Tests full generation from any sources
         [Test]
         public void DependentCompoundStatistics()
-        { 
+        {
             int npcs = 5;
             for (int i = 0; i < npcs; i++)
             {
                 Console.WriteLine();
-                Console.WriteLine("NPC #"+i);
+                Console.WriteLine("NPC #" + i);
                 Console.WriteLine("Name: " + archives[ArchiveType.Name].getRandomFromAnyOrDefault());
                 Console.WriteLine("Gender: " + archives[ArchiveType.Gender].getRandomFromAnyOrDefault());
                 Console.WriteLine("Occupation: " + archives[ArchiveType.Occupation].getRandomFromAnyOrDefault());
@@ -489,6 +489,6 @@ namespace Tests
 
         }
 
-        
+
     }
 }

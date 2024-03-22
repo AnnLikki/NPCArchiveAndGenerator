@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Archives
+﻿namespace Archives
 {
     /// <summary>
     /// A static class to store the global archives and the tempopary archives.

@@ -1,26 +1,19 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Archives
+﻿namespace Archives
 {
     public class ListElement
     {
         public string value { get; set; }
-        public int frequency { get; set; }
+        public int weight { get; set; }
 
-        public ListElement(string value, int frequency=1)
+        public ListElement(string value, int weight = 1)
         {
             this.value = value;
-            this.frequency = frequency;
+            this.weight = weight;
         }
 
         public override string ToString()
         {
-            return value+":"+frequency;
+            return value + ":" + weight;
         }
     }
 }
