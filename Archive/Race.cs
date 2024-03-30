@@ -1,47 +1,50 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace Archives
 {
-    /// <summary>
-    /// A class that represents a Race and contains all its variables.
-    /// </summary>
-    /// <remarks>
-    /// It uses INotifyPropertyChanged to notify the DataGrid
-    /// to update the data displayed.
-    /// </remarks>
     public class Race : INotifyPropertyChanged
     {
         /// <summary>
-        /// An ID of the race for identifying which race is linked to an NPC.
+        /// ID of the Race. Allows to reference it without duplication during deserialization.
         /// </summary>
-        public string ID { get; set; }
-        public string Name { get; set; } = "New Race";
-        public string Description { get; set; } = "";
+        public Guid Id { get; set; }
+        /// <summary>
+        /// The name of the race in singular form, as a person of this race is called.
+        /// </summary>
+        public string Name { get; set; }
+        /// <summary>
+        /// Race description.
+        /// </summary>
+        public string Description { get; set; }
+        /// <summary>
+        /// Chronological age of biological maturity for this race. Equivalent of 18 years old in humans.
+        /// If children of this race "age at the same rate as humans", it means their biological
+        /// age of maturity is 18 y.o. regardles of lifespan or cultural norms.
+        /// </summary>
+        public uint MaturityAge { get; set; }
+        /// <summary>
+        /// Chronological expected lifespan of a person of this race. Equivalent of 80 years old in humans.
+        /// </summary>
+        public uint LifeExpectancy { get; set; }
+        /// <summary>
+        /// Compatable genders of this race. Elements of this Archive are Genders.
+        /// </summary>
+        public WeightedArchive Genders { get; set; }
+        /// <summary>
+        /// Compatable ages of this race. Elements of this Archive are integers.
+        /// </summary>
+        public WeightedArchive Ages { get; set; }
+        /// <summary>
+        /// Compatable Bundles of this race. Results of generation will only get picked from these Bundles.
+        /// </summary>
+        public WeightedArchive CompatableBundles { get; set; }
 
-        public int AgeMaturity { get; set; } = 18;
-        public int LifeExpectancy { get; set; } = 80;
-
-        public Race()
-        {
-            regenerateID();
-        }
-        public Race(string name, string description, int ageMaturity, int lifeExpectancy)
-        {
-            Name = name;
-            Description = description;
-            AgeMaturity = ageMaturity;
-            LifeExpectancy = lifeExpectancy;
-        }
-
-        public void regenerateID()
-        {
-            ID = ArchiveRace.randomizer.Next(1000, 10000).ToString();
-        }
 
         /// <summary>
         /// A method to update Race's info and call the PropertyChanged event on relevant properties.
         /// </summary>
-        public void updateInfoNotifyably(string name, string description, int ageMaturity, int lifeExpectancy)
+        public void updateInfoNotifyably(string name, string description, uint maturityAge, uint lifeExpectancy)
         {
             if (Name != name)
             {
@@ -53,7 +56,7 @@ namespace Archives
                 Description = description;
                 OnPropertyChanged(nameof(Description));
             }
-            AgeMaturity = ageMaturity;
+            MaturityAge = maturityAge;
             LifeExpectancy = lifeExpectancy;
 
         }
@@ -66,12 +69,5 @@ namespace Archives
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        public override string ToString()
-        {
-            return Name;
-        }
-
     }
-
 }

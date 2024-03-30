@@ -1,56 +1,35 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace Archives
 {
     public class Layer
     {
-        public Collection<ListElement> elements { get; set; }
-        public float chance { get; set; }
-        public string defaultValue { get; set; }
-
-        Random random = new Random();
-
-        public Layer(Collection<ListElement> elements, float chance, string defaultValue)
-        {
-            if (elements == null)
-                this.elements = new Collection<ListElement>();
-            else
-                this.elements = elements;
-            this.chance = chance;
-            this.defaultValue = defaultValue;
-        }
-
-        public Collection<ListElement> getElements()
-        {
-            return elements;
-        }
-        public string getRandom()
-        {
-            int totalSum = 0;
-            foreach (ListElement le in elements)
-                totalSum += le.weight;
-
-            int r = random.Next(totalSum);
-            int sum = 0;
-
-            foreach (ListElement le in elements)
-            {
-                sum += le.weight;
-                if (sum >= r)
-                    return le.value;
-            }
-            throw new Exception("Unexpected Behaviour please check");
-        }
-
-        public override string ToString()
-        {
-            string output = "";
-            foreach (ListElement le in elements)
-            {
-                output += le.ToString() + ", ";
-            }
-            return output;
-        }
+        /// <summary>
+        /// If Layer wasn't picked (applies only if it failed the check regarging the Chance), 
+        /// this value will be returned as the result of picking.
+        /// </summary>
+        public string DefaultValue { get; set; }
+        /// <summary>
+        /// A value between 0.0 and 1.0 that determines a chance of picking this Layer 
+        /// while generating a multi-level result.
+        /// </summary>
+        public double Chance { get; set; }
+        /// <summary>
+        /// If gendered, this Layer will only get picked if the character has the same gender.
+        /// </summary>
+        public Gender Gender { get; set; }
+        /// <summary>
+        /// The lowest biological age of a character that this Layer would be comapatable with.
+        /// </summary>
+        public uint LowerAgeLimit { get; set; }
+        /// <summary>
+        /// The highest biological age of a character that this Layer would be comapatable with.
+        /// </summary>
+        public uint UpperAgeLimit { get; set; }
+        /// <summary>
+        /// A collection of element from which the result of randomization will be picked. 
+        /// If empty, returns the Default Value.
+        /// </summary>
+        public Collection<WeightedElement> Elements { get; set; }
     }
 }

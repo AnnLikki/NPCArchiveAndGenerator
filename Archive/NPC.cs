@@ -14,7 +14,7 @@ namespace Archives
     {
         // Main information
         public string Name { get; set; } = "No Name";
-        public Race Race { get; set; } = null;
+        public Guid RaceID { get; set; } = Guid.Empty;
         public string Gender { get; set; } = "";
         public int AgeChrono { get; set; } = 0;
         public int AgeBio { get; set; } = 0;
@@ -51,7 +51,7 @@ namespace Archives
         public NPC(string name, Race race, string gender, int ageChrono, int ageBio, string occupation, string place, string character, string backstory, string height, string physique, string skin, string hair, string face, string eyes, string clothes, string features, int str, int dex, int con, int intel, int wis, int cha, string notes)
         {
             Name = name;
-            Race = race;
+            RaceID = race.Id;
             Gender = gender;
             AgeChrono = ageChrono;
             AgeBio = ageBio;
@@ -85,33 +85,33 @@ namespace Archives
             return (int)Math.Floor(((double)stat - 10) / 2);
         }
 
-        /// <summary>
-        /// PROBS INCORRECT
-        /// Yet unused method of converting chronological age to biological (human) age. 
-        /// I decided to keep it because it might become handy later.
-        /// </summary>
-        public void chronoToBio()
-        {
-            if (Race != null)
-                if (AgeChrono <= Race.AgeMaturity)
-                    AgeBio = (int)Math.Round((double)(AgeChrono * ArchiveRace.baseRace.AgeMaturity) / Race.AgeMaturity);
-                else
-                    AgeBio = (int)Math.Round((double)((AgeChrono - Race.AgeMaturity) * (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) / (Race.LifeExpectancy - Race.AgeMaturity)) + ArchiveRace.baseRace.AgeMaturity;
-        }
+        ///// <summary>
+        ///// PROBS INCORRECT
+        ///// Yet unused method of converting chronological age to biological (human) age. 
+        ///// I decided to keep it because it might become handy later.
+        ///// </summary>
+        //public void chronoToBio()
+        //{
+        //    if (Race != null)
+        //        if (AgeChrono <= Race.AgeMaturity)
+        //            AgeBio = (int)Math.Round((double)(AgeChrono * ArchiveRace.baseRace.AgeMaturity) / Race.AgeMaturity);
+        //        else
+        //            AgeBio = (int)Math.Round((double)((AgeChrono - Race.AgeMaturity) * (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) / (Race.LifeExpectancy - Race.AgeMaturity)) + ArchiveRace.baseRace.AgeMaturity;
+        //}
 
-        /// <summary>
-        /// PROBS INCORRECT
-        /// Yet unused method of converting biological (human) age to chronological age. 
-        /// I decided to keep it because it might become handy later.
-        /// </summary>
-        public void bioToChrono()
-        {
-            if (Race != null)
-                if (AgeBio <= ArchiveRace.baseRace.AgeMaturity)
-                    AgeChrono = (int)Math.Round((double)(AgeBio * Race.AgeMaturity) / ArchiveRace.baseRace.AgeMaturity);
-                else
-                    AgeChrono = (int)Math.Round((double)((AgeBio - ArchiveRace.baseRace.AgeMaturity) * (Race.LifeExpectancy - Race.AgeMaturity)) / (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) + Race.AgeMaturity;
-        }
+        ///// <summary>
+        ///// PROBS INCORRECT
+        ///// Yet unused method of converting biological (human) age to chronological age. 
+        ///// I decided to keep it because it might become handy later.
+        ///// </summary>
+        //public void bioToChrono()
+        //{
+        //    if (Race != null)
+        //        if (AgeBio <= ArchiveRace.baseRace.AgeMaturity)
+        //            AgeChrono = (int)Math.Round((double)(AgeBio * Race.AgeMaturity) / ArchiveRace.baseRace.AgeMaturity);
+        //        else
+        //            AgeChrono = (int)Math.Round((double)((AgeBio - ArchiveRace.baseRace.AgeMaturity) * (Race.LifeExpectancy - Race.AgeMaturity)) / (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) + Race.AgeMaturity;
+        //}
 
         /// <summary>
         /// A method to update NPC's info and call the PropertyChanged event on relevant properties.
@@ -123,9 +123,9 @@ namespace Archives
                 Name = name;
                 OnPropertyChanged(nameof(Name));
             }
-            if (Race != race)
+            if (RaceID != race.Id)
             {
-                Race = race;
+                RaceID = race.Id;
                 OnPropertyChanged(nameof(Race));
             }
             if (Gender != gender)

@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archives", "Archive\Archive
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManager", "FileManager\FileManager.csproj", "{078FB7EC-60AA-41FA-A432-95CE6F0EE4AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{110F140F-1920-406A-8B09-D89CBB5D9601}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{110F140F-1920-406A-8B09-D89CBB5D9601}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tmp", "Tmp\Tmp.csproj", "{D96121D0-4498-46A3-AE70-A7E4071040FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{110F140F-1920-406A-8B09-D89CBB5D9601}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{110F140F-1920-406A-8B09-D89CBB5D9601}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{110F140F-1920-406A-8B09-D89CBB5D9601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96121D0-4498-46A3-AE70-A7E4071040FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96121D0-4498-46A3-AE70-A7E4071040FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96121D0-4498-46A3-AE70-A7E4071040FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96121D0-4498-46A3-AE70-A7E4071040FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
