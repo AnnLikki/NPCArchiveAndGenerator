@@ -99,3 +99,4 @@ C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\obj\Debug\net6.0\Te
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\obj\Debug\net6.0\ref\Tests.dll
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\Archives.dll
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\Archives.pdb
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\nunit.framework.legacy.dll

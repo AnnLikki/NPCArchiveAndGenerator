@@ -168,6 +168,59 @@ namespace Archives
 
         }
 
+        /// <summary>
+        /// A method to update NPC's info and call the PropertyChanged event on relevant properties.
+        /// </summary>
+        public void UpdateInfoNotifyably(NPC npcToCopyFrom)
+        {
+            if (Name != npcToCopyFrom.Name)
+            {
+                Name = npcToCopyFrom.Name;
+                OnPropertyChanged(nameof(Name));
+            }
+            if (RaceID != npcToCopyFrom.RaceID)
+            {
+                RaceID = npcToCopyFrom.RaceID;
+                OnPropertyChanged(nameof(RaceID));
+            }
+            if (Gender != npcToCopyFrom.Gender)
+            {
+                Gender = npcToCopyFrom.Gender;
+                OnPropertyChanged(nameof(Gender));
+            }
+            if (AgeChrono != npcToCopyFrom.AgeChrono)
+            {
+                AgeChrono = npcToCopyFrom.AgeChrono;
+                OnPropertyChanged(nameof(AgeChrono));
+            }
+            if (Occupation != npcToCopyFrom.Occupation)
+            {
+                Occupation = npcToCopyFrom.Occupation;
+                OnPropertyChanged(nameof(Occupation));
+            }
+
+            AgeBio = npcToCopyFrom.AgeBio;
+            Occupation = npcToCopyFrom.Occupation;
+            Place = npcToCopyFrom.Place;
+            Character = npcToCopyFrom.Character;
+            Backstory = npcToCopyFrom.Backstory;
+            Height = npcToCopyFrom.Height;
+            Physique = npcToCopyFrom.Physique;
+            Skin = npcToCopyFrom.Skin;
+            Hair = npcToCopyFrom.Hair;
+            Face = npcToCopyFrom.Face;
+            Eyes = npcToCopyFrom.Eyes;
+            Clothes = npcToCopyFrom.Clothes;
+            Features = npcToCopyFrom.Features;
+            Str = npcToCopyFrom.Str;
+            Dex = npcToCopyFrom.Dex;
+            Con = npcToCopyFrom.Con;
+            Int = npcToCopyFrom.Int;
+            Wis = npcToCopyFrom.Wis;
+            Cha = npcToCopyFrom.Cha;
+            Notes = npcToCopyFrom.Notes;
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
@@ -178,5 +231,12 @@ namespace Archives
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        //public void Generate(Kit defaultArchives, AgeDistribution defaultAgeDistribution, Archetype archetype = null)
+        //{
+        //    if(archetype == null)
+        //    {
+
+        //    }
+        //}
     }
 }

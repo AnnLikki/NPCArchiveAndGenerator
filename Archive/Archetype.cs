@@ -18,6 +18,6 @@ namespace Archives
         /// <summary>
         /// Compatable Bundles of this archetype. Results of generation will only get picked from these Bundles.
         /// </summary>
-        public WeightedArchive CompatableBundles { get; set; }
+        public Kit CompatableBundles { get; set; }
     }
 }

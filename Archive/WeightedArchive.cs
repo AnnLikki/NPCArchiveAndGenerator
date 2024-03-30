@@ -2,12 +2,19 @@
 
 namespace Archives
 {
+    /// <summary>
+    /// Stores weighted elements.
+    /// </summary>
     public class WeightedArchive : ObservableCollection<WeightedElement>
     {
-        // TODO check if this thing is needed after the implementation.
+
         /// <summary>
-        /// Value that will be returned if the archive contains no suitable returns.
+        /// Add an instance of any element to archive.
         /// </summary>
-        public object DefaultValue { get; set; }
+        public void Add(object value, int weight = 1, Gender gender = Gender.Neutral)
+        {
+            Add(new WeightedElement(value, weight, gender));
+        }
+
     }
 }

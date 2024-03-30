@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Archetype.cs" />
-    <Compile Include="ArchiveDictionary.cs" />
+    <Compile Include="AgeDistribution.cs" />
+    <Compile Include="Kit.cs" />
+    <Compile Include="ArchiveStorage.cs" />
     <Compile Include="ArchiveHandler.cs" />
     <Compile Include="ArchiveNPC.cs" />
     <Compile Include="Bundle.cs" />

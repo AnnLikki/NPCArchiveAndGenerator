@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 
 namespace Archives
 {
@@ -21,15 +22,33 @@ namespace Archives
         /// <summary>
         /// The lowest biological age of a character that this Layer would be comapatable with.
         /// </summary>
-        public uint LowerAgeLimit { get; set; }
+        public int LowerAgeLimit { get; set; }
         /// <summary>
         /// The highest biological age of a character that this Layer would be comapatable with.
         /// </summary>
-        public uint UpperAgeLimit { get; set; }
+        public int UpperAgeLimit { get; set; }
         /// <summary>
         /// A collection of element from which the result of randomization will be picked. 
         /// If empty, returns the Default Value.
         /// </summary>
         public Collection<WeightedElement> Elements { get; set; }
+
+        public Layer(double chance = 1.0, string defaultValue = "", Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
+        {
+            DefaultValue = defaultValue;
+            Chance = chance;
+            Gender = gender;
+            LowerAgeLimit = lowerAgeLimit;
+            UpperAgeLimit = upperAgeLimit;
+            if (elements != null)
+                Elements = elements;
+            else
+                Elements = new Collection<WeightedElement>();
+        }
+
+        internal void Add(WeightedElement element)
+        {
+            Elements.Add(element);
+        }
     }
 }
