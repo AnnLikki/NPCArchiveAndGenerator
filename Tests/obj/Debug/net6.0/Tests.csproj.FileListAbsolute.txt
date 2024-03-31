@@ -19,7 +19,6 @@ C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\Mi
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\Microsoft.TestPlatform.Utilities.dll
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.Common.dll
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\NuGet.Frameworks.dll
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\nunit.framework.dll
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll

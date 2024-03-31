@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Xml.Linq;
+using static Archives.Enums;
 
 namespace Archives
 {
@@ -33,6 +36,8 @@ namespace Archives
         /// </summary>
         public Collection<WeightedElement> Elements { get; set; }
 
+        Random random = new Random();
+
         public Layer(double chance = 1.0, string defaultValue = "", Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
         {
             DefaultValue = defaultValue;
@@ -50,5 +55,27 @@ namespace Archives
         {
             Elements.Add(element);
         }
+
+        internal string GetRandom(Gender gender = Gender.Neutral, int ageBio = -1)
+        {
+            int totalSum = 0;
+            // Only element of the same gender or neutral are included in generation
+            // If no gender specification is provided, uses only gender-neutral options
+            foreach (WeightedElement we in Elements.Where(e => e.Gender == gender || e.Gender == Gender.Neutral))
+                totalSum += we.Weight;
+
+            int r = random.Next(totalSum+1);
+            int sum = 0;
+
+            foreach (WeightedElement we in Elements.Where(e => e.Gender == gender || e.Gender == Gender.Neutral))
+            {
+                sum += we.Weight;
+                if (sum >= r)
+                    return we.Value.ToString();
+            }
+            // If there are no elements on this layer
+            return DefaultValue;
+        }
+        
     }
 }

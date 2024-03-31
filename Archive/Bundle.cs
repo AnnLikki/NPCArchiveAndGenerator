@@ -1,6 +1,8 @@
 ﻿
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
+using static Archives.Enums;
 
 namespace Archives
 {
@@ -37,6 +39,8 @@ namespace Archives
         /// </summary>
         public Collection<Layer> Layers { get; set; }
 
+        Random random = new Random();
+
 
         public Bundle(string name, bool independentLayers = true, Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue)
         {
@@ -62,5 +66,35 @@ namespace Archives
         {
             Layers[index].Add(new WeightedElement(value, weight, gender));
         }
+
+        public string GetRandom(Gender gender = Gender.Neutral, int ageBio = -1)
+        {
+            string result = "";
+
+            // Picking only from Layers that are the same gender as provided or gender-neutral
+            // So gendered layers can only be picked if requested, otherwise always ungendered layers
+            // will get picked
+            foreach (Layer layer in Layers.Where(
+                l => 
+                (l.Gender == gender || l.Gender == Gender.Neutral)
+                &&
+                (ageBio==-1 || (l.LowerAgeLimit<=ageBio && l.UpperAgeLimit>=ageBio))))
+            {
+                double chance = random.NextDouble();
+                if (chance <= layer.Chance) // Layer is picked
+                    result += layer.GetRandom(gender, ageBio);
+                else // Layer isn't picked
+                {
+                    if (layer.DefaultValue.Length > 0)
+                        result += layer.DefaultValue;
+                    if (!IndependentLayers)
+                        break;
+                }
+            }
+
+            return result.Trim();
+        }
+
+
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using static Archives.Enums;
 
 namespace Archives
 {
@@ -39,17 +41,17 @@ namespace Archives
             this[type].Add(bundle);
         }
 
-        internal Race FindRace(Guid ID)
+        public Race FindRace(Guid ID)
         {
-            throw new NotImplementedException();
+            if (!ContainsKey(ArchiveType.Race))
+                return null;
+            return (Race)this[ArchiveType.Race].FirstOrDefault(r => ((Race)r).Id.Equals(ID));
         }
-        internal Archetype FindArchetype(Guid ID)
+        public Bundle FindBundle(ArchiveType archiveType, Guid ID)
         {
-            throw new NotImplementedException();
-        }
-        internal Bundle FindBundle(ArchiveType archiveType, Guid ID)
-        {
-            throw new NotImplementedException();
+            if (!ContainsKey(archiveType))
+                return null;
+            return (Bundle)this[archiveType].FirstOrDefault(r => ((Bundle)r).Id.Equals(ID));
         }
     }
 }

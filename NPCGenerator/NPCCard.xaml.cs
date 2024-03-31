@@ -31,9 +31,9 @@ namespace NPCGenerator
             // Using FindMatching function to set the ComboBox to the right
             // option if found the exact copy of NPC's race in the race archive.
             if (ArchiveHandler.absoluteArchiveRace.FindMatching(npc.Race) != null)
-                raceCmb.SelectedItem = ArchiveHandler.absoluteArchiveRace.FindMatching(npc.Race);
+            raceCmb.SelectedItem = ArchiveHandler.absoluteArchiveRace.FindMatching(npc.Race);
             else
-                raceCmb.SelectedItem = npc.Race;
+            raceCmb.SelectedItem = npc.Race;
 
             genderTB.Text = npc.Gender;
             ageChronoTB.Text = npc.AgeChrono.ToString();
@@ -171,11 +171,11 @@ namespace NPCGenerator
             if ((Race)raceCmb.SelectedValue != null)
                 if (ageBioTB.Text.Length == 0 || ParseCarefully(ageBioTB.Text) <= 0)
                     ageChronoTB.Text = "0";
-                else
-                    if (ParseCarefully(ageBioTB.Text) <= ArchiveRace.baseRace.AgeMaturity)
-                    ageChronoTB.Text = ((int)Math.Round((double)(ParseCarefully(ageBioTB.Text) * ((Race)raceCmb.SelectedValue).AgeMaturity) / ArchiveRace.baseRace.AgeMaturity)).ToString();
-                else
-                    ageChronoTB.Text = ((int)Math.Round((double)((ParseCarefully(ageBioTB.Text) - ArchiveRace.baseRace.AgeMaturity) * (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) / (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) + ((Race)raceCmb.SelectedValue).AgeMaturity).ToString();
+            else
+            if (ParseCarefully(ageBioTB.Text) <= ArchiveRace.baseRace.AgeMaturity)
+            ageChronoTB.Text = ((int)Math.Round((double)(ParseCarefully(ageBioTB.Text) * ((Race)raceCmb.SelectedValue).AgeMaturity) / ArchiveRace.baseRace.AgeMaturity)).ToString();
+             else
+             ageChronoTB.Text = ((int)Math.Round((double)((ParseCarefully(ageBioTB.Text) - ArchiveRace.baseRace.AgeMaturity) * (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) / (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) + ((Race)raceCmb.SelectedValue).AgeMaturity).ToString();
         }
 
         private void ageChronoTB_TextChanged(object sender, TextChangedEventArgs e)
@@ -233,7 +233,7 @@ namespace NPCGenerator
                 genderTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Gender, "Gender");
             if (lockAgeBtn.IsChecked == false)
             {
-                ageBioTB.Text = ArchiveHandler.defaultAgeRanges.getAnyRandomOrDefault(20).ToString(); // TODO Fix so it gens chrono age
+                ageBioTB.Text = ArchiveHandler.defaultAgeRanges.getAnyRandomOrDefault(20).ToString();  TODO Fix so it gens chrono age
                 updateAgeOnBio();
             }
             if (lockOccupationBtn.IsChecked == false)
@@ -260,30 +260,30 @@ namespace NPCGenerator
 
         private void randNameBtn_Click(object sender, RoutedEventArgs e)
         {
-            nameTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Name, "Name");
+            *nameTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Name, "Name");
         }
 
         private void randRaceBtn_Click(object sender, RoutedEventArgs e)
         {
-            raceCmb.SelectedItem = ArchiveHandler.absoluteArchiveRace.getRandomRace();
+            *raceCmb.SelectedItem = ArchiveHandler.absoluteArchiveRace.getRandomRace();
         }
 
         private void randGenderBtn_Click(object sender, RoutedEventArgs e)
         {
-            genderTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Gender, "Gender");
+            *genderTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Gender, "Gender");
 
         }
 
         private void randAgeBtn_Click(object sender, RoutedEventArgs e)
         {
-            // TODO Fix here as well
-            ageBioTB.Text = ArchiveHandler.defaultAgeRanges.getAnyRandomOrDefault(20).ToString(); // TODO Fix so it gens chrono age
+             TODO Fix here as well
+            ageBioTB.Text = ArchiveHandler.defaultAgeRanges.getAnyRandomOrDefault(20).ToString();  TODO Fix so it gens chrono age
             updateAgeOnBio();
         }
 
         private void randOccupationBtn_Click(object sender, RoutedEventArgs e)
         {
-            occupationTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Occupation, "Occupation");
+            *occupationTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Occupation, "Occupation");
         }
 
         private void randCharacterBtn_Click(object sender, RoutedEventArgs e)
@@ -293,7 +293,7 @@ namespace NPCGenerator
 
         private void randHeightBtn_Click(object sender, RoutedEventArgs e)
         {
-            heightTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Height, "Height");
+            *heightTB.Text = ArchiveHandler.defaultArchives.getRandomFromAnyOrDefault(ArchiveType.Height, "Height");
         }
 
         private void randPhysiqueBtn_Click(object sender, RoutedEventArgs e)

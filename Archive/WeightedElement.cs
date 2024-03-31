@@ -1,4 +1,6 @@
-﻿namespace Archives
+﻿using static Archives.Enums;
+
+namespace Archives
 {
     /// <summary>
     /// A part of a Weighted Archive. 
@@ -26,6 +28,11 @@
             Value = value;
             Gender = gender;
             Weight = weight;
+        }
+
+        public override string ToString()
+        {
+            return Value.ToString() + ":" + Weight.ToString() + (Gender != Gender.Neutral ? Gender.ToString() : "");
         }
     }
 }

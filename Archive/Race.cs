@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
+using static Archives.Enums;
 
 namespace Archives
 {
@@ -82,5 +84,26 @@ namespace Archives
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public void SetGender(Gender gender, int weight=1)
+        {
+            if (Genders.Any(g => (Gender) g.Value == gender))
+            {
+                Genders.First(g => (Gender)g.Value == gender).Weight = weight;
+            }
+            else
+            {
+                Genders.Add(new WeightedElement(gender, weight));
+            }
+        }
+
+        public void RemoveGender(Gender gender)
+        {
+            while (Genders.Any(g => (Gender)g.Value == gender))
+            {
+                Genders.Remove(Genders.First(g => (Gender)g.Value == gender));
+            }
+        }
+
     }
 }
