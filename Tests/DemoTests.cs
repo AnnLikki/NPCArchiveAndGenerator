@@ -4,7 +4,7 @@ using static Archives.Enums;
 
 namespace Tests
 {
-    public class IntegrationTests
+    public class DemoTests
     {
 
         ArchiveStorage archiveStorage = new ArchiveStorage();
@@ -13,25 +13,6 @@ namespace Tests
 
         Bundle commonNames, elvenNames, ageNicknames;
         Bundle jobs;
-
-        static string[] commonMaleNames = { "Arthur", "James", "Henry" };
-        static string[] commonFemaleNames = { "Alice", "Olivia", "Evelyn" };
-        static string[] commonGenderNeutralNames = { "Alex", "Jamie", "Sam" };
-        static string[] commonLastNames = { "Adams", "Allen", "Smith" };
-
-        static string[] elvenMaleNames = { "Arin", "Althaea", "Calathes", "Darindel", "Ondine", "Eira" };
-        static string[] elvenFemaleNames = { "Eira", "Faerydae", "Kaelen", "Darindel", "Ondine", "Eira" };
-        static string[] elvenNeutralNames = { "Darindel", "Ondine", "Eira" };
-        static string[] elvenLastNames = { "Pharomir", "Rivenneth", "Silvethiel" };
-
-
-        static string[] ageNicknames_0_5 = { "Baby", "Little one", "Munchkin" };
-        static string[] ageNicknames_6_10 = { "Kiddo", "Youngster", "Junior" };
-        static string[] ageNicknames_11_19 = { "Teenie", "Teenster", "Youth" };
-        static string[] ageNicknames_20_25 = { "Twentysomething", "Quarter-lifer", "Early bird" };
-        static string[] ageNicknames_26_35 = { "Prime timer", "Bloomer", "Seasoned soul" };
-        static string[] ageNicknames_36_55 = { "Mid-lifer", "Silver streak", "Golden Journeyer" };
-        static string[] ageNicknames_56_80 = { "Senior sage", "Wise one", "Oldie" };
 
         void racesSetup()
         {
@@ -190,7 +171,7 @@ namespace Tests
 
             archiveStorage.Add(ArchiveType.Occupation, jobs);
             defaultArchetype.CompatableBundles.AddBundle(ArchiveType.Occupation, jobs);
-
+            defaultArchetype.CompatableBundles[ArchiveType.Occupation].DefaultValue = "Can't work";
         }
 
 
@@ -207,129 +188,12 @@ namespace Tests
             // Creating a job bundle
             jobsSetup();
 
-
             // Filling age distributions
             ageDistributionsSetup();
         }
 
-
-        // Generating a result from a bundle with a gender condition
-        // Only gender-neutral results or results of the provided gender should be generated
-        [Test]
-        public void GenderedLayersBundleGen()
-        {
-            // Female
-            for (int i = 0; i < 100; i++)
-            {
-                string name = commonNames.GetRandom(Gender.Female);
-                string[] nameParts = name.Split(' ');
-
-                bool allFemaleOrNeutral = true;
-                foreach (string part in nameParts)
-                {
-                    if (!commonFemaleNames.Contains(part) && !commonGenderNeutralNames.Contains(part) && !commonLastNames.Contains(part))
-                    {
-                        allFemaleOrNeutral = false;
-                        break;
-                    }
-                }
-
-                Assert.That(allFemaleOrNeutral);
-            }
-
-            // Male
-            for (int i = 0; i < 100; i++)
-            {
-                string name = commonNames.GetRandom(Gender.Male);
-                string[] nameParts = name.Split(' ');
-
-                bool allMaleOrNeutral = true;
-                foreach (string part in nameParts)
-                {
-                    if (!commonMaleNames.Contains(part) && !commonGenderNeutralNames.Contains(part) && !commonLastNames.Contains(part))
-                    {
-                        allMaleOrNeutral = false;
-                        break;
-                    }
-                }
-
-                Assert.That(allMaleOrNeutral);
-            }
-
-            // Neutral
-            for (int i = 0; i < 100; i++)
-            {
-                string name = commonNames.GetRandom();
-                string[] nameParts = name.Split(' ');
-
-                bool allNeutral = true;
-                foreach (string part in nameParts)
-                {
-                    if (!commonGenderNeutralNames.Contains(part) && !commonLastNames.Contains(part))
-                    {
-                        allNeutral = false;
-                        break;
-                    }
-                }
-
-                Assert.That(allNeutral);
-            }
-        }
-
-        // Generating a result from a bundle with layer age condition
-        [Test]
-        public void AgeRestrictedLayersBundleGen()
-        {
-            Random random = new Random();
-
-            for (int i = 0; i < 100; i++)
-            {
-                int age = random.Next(0, 81);
-
-                string name = ageNicknames.GetRandom(Gender.Neutral, age);
-
-                if (age >= 0 && age <= 5)
-                    Assert.That(ageNicknames_0_5.Contains(name));
-                else if (age >= 6 && age < 11)
-                    Assert.That(ageNicknames_6_10.Contains(name));
-                else if (age >= 11 && age < 20)
-                    Assert.That(ageNicknames_11_19.Contains(name));
-                else if (age >= 20 && age < 26)
-                    Assert.That(ageNicknames_20_25.Contains(name));
-                else if (age >= 26 && age < 36)
-                    Assert.That(ageNicknames_26_35.Contains(name));
-                else if (age >= 36 && age < 56)
-                    Assert.That(ageNicknames_36_55.Contains(name));
-                else if (age >= 56 && age <= 80)
-                    Assert.That(ageNicknames_56_80.Contains(name));
-
-
-            }
-
-        }
-
-
-        public static bool IsCommonName(string fullName)
-        {
-            string[] nameParts = fullName.Split(' ');
-            foreach (string part in nameParts)
-                if (!(commonMaleNames.Contains(part) || commonFemaleNames.Contains(part) || commonGenderNeutralNames.Contains(part) || commonLastNames.Contains(part)))
-                    return false;
-            return true;
-        }
-
-        public static bool IsElvenName(string fullName)
-        {
-            string[] nameParts = fullName.Split(' ');
-            foreach (string part in nameParts)
-                if (!(elvenMaleNames.Contains(part) || elvenFemaleNames.Contains(part) || elvenNeutralNames.Contains(part) || elvenLastNames.Contains(part)))
-                    return false;
-            return true;
-        }
-
-        // Generating from default archetype
-        // It has Occupations archive, has no Names archive
-        // The ones it doesn't have will come from the generated race
+        
+        // Work Demo
         [Test]
         public void DefaultArchetypeGen()
         {

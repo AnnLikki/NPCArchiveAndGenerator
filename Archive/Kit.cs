@@ -39,18 +39,34 @@ namespace Archives
             this[type].AddElement(bundle.Id, weight, gender);
         }
 
-        public string GetRandomFromBundle(ArchiveStorage storage, ArchiveType type, Gender gender, int age)
+        /// <summary>
+        /// Add a bundle to a kit as an ID.
+        /// </summary>
+        public void AddBundle(ArchiveType type, Guid bundleID, int weight = 1, Gender gender = Gender.Neutral)
+        {
+            if (!ContainsKey(type))
+                Add(type, new WeightedArchive());
+            this[type].AddElement(bundleID, weight, gender);
+        }
+
+
+
+        public string GetRandomFromBundle(ArchiveStorage storage, ArchiveType type, Gender gender = Gender.Neutral, int ageBio = -1)
         {
             if (!ContainsKey(type))
                 return null;
-            return this[type].GetRandomFromBundle(storage, type, gender, age);
+            return this[type].GetRandomFromBundle(storage, type, gender, ageBio);
         }
 
-        public Guid GetRandomRaceID()
+        public Race GetRandomRace(ArchiveStorage storage)
         {
             if (!ContainsKey(ArchiveType.Race))
-                return Guid.Empty;
-            return (Guid) this[ArchiveType.Race].GetRandomUnrestricted();
+                return null;
+            object res = this[ArchiveType.Race].GetRandomUnrestricted();
+            if (res.GetType() == typeof(Guid))
+                return storage.FindRace((Guid)res);
+            else
+                return null;
         }
     }
 }

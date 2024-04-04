@@ -42,7 +42,7 @@ namespace Archives
         /// </summary>
         public Kit CompatableBundles { get; set; }
 
-        public Race(string name, string description="", int maturityAge=18, int lifeExpectancy=80)
+        public Race(string name, string description = "", int maturityAge = 18, int lifeExpectancy = 80)
         {
             Id = Guid.NewGuid();
             Name = name;
@@ -50,6 +50,7 @@ namespace Archives
             MaturityAge = maturityAge;
             LifeExpectancy = lifeExpectancy;
             Genders = new WeightedArchive();
+            Genders.DefaultValue = Gender.Neutral;
             AgeDistribution = new AgeDistribution();
             CompatableBundles = new Kit();
         }
@@ -85,24 +86,18 @@ namespace Archives
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void SetGender(Gender gender, int weight=1)
+        public void SetGender(Gender gender, int weight = 1)
         {
-            if (Genders.Any(g => (Gender) g.Value == gender))
-            {
+            if (Genders.Any(g => (Gender)g.Value == gender))
                 Genders.First(g => (Gender)g.Value == gender).Weight = weight;
-            }
             else
-            {
                 Genders.Add(new WeightedElement(gender, weight));
-            }
         }
 
         public void RemoveGender(Gender gender)
         {
             while (Genders.Any(g => (Gender)g.Value == gender))
-            {
                 Genders.Remove(Genders.First(g => (Gender)g.Value == gender));
-            }
         }
 
     }

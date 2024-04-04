@@ -15,7 +15,7 @@ namespace Archives
         /// <summary>
         /// Value that is returned during randomization if the archive is empty
         /// </summary>
-        public object DefaultValue = "No compatable element";
+        public object DefaultValue = "No compatable elements";
 
         Random random = new Random();
 

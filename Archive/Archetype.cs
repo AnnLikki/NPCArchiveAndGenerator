@@ -27,6 +27,7 @@ namespace Archives
         public Archetype(string name) {
             Name = name;
             Genders = new WeightedArchive();
+            Genders.DefaultValue = Gender.Neutral;
             Ages = new AgeDistribution();
             CompatableBundles = new Kit();
         }
@@ -44,35 +45,33 @@ namespace Archives
             return CompatableBundles.GetRandomFromBundle(storage, type, gender, age);
         }
 
-        public Gender GetRandomGender(Race race)
-        {
-            if(Genders.Count!=0)
-                return (Gender)race.Genders.GetIntersection(Genders).GetRandomUnrestricted();
-            return (Gender)race.Genders.GetRandomUnrestricted();
-        }
-        public Race GetRandomRace(ArchiveStorage storage)
-        {
-            return storage.FindRace(CompatableBundles.GetRandomRaceID());
-        }
-
         public void SetGender(Gender gender, int weight = 1)
         {
             if (Genders.Any(g => (Gender)g.Value == gender))
-            {
                 Genders.First(g => (Gender)g.Value == gender).Weight = weight;
-            }
             else
-            {
                 Genders.Add(new WeightedElement(gender, weight));
-            }
         }
 
         public void RemoveGender(Gender gender)
         {
             while (Genders.Any(g => (Gender)g.Value == gender))
-            {
                 Genders.Remove(Genders.First(g => (Gender)g.Value == gender));
+        }
+
+        public Gender GetRandomGender(Race race)
+        {
+            if (Genders.Count != 0)
+            {
+                var intersection = race.Genders.GetIntersection(Genders);
+                intersection.DefaultValue = Gender.Neutral;
+                return (Gender)intersection.GetRandomUnrestricted();
             }
+            return (Gender)race.Genders.GetRandomUnrestricted();
+        }
+        public Race GetRandomRace(ArchiveStorage storage)
+        {
+            return CompatableBundles.GetRandomRace(storage);
         }
 
     }
