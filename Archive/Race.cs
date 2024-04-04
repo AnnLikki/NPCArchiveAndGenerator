@@ -42,7 +42,7 @@ namespace Archives
         /// </summary>
         public Kit CompatableBundles { get; set; }
 
-        public Race(string name, string description, int maturityAge, int lifeExpectancy)
+        public Race(string name, string description="", int maturityAge=18, int lifeExpectancy=80)
         {
             Id = Guid.NewGuid();
             Name = name;

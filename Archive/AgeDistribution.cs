@@ -1,27 +1,20 @@
 ﻿
 using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Xml.Linq;
 
 namespace Archives
 {
-    public class AgeDistribution : WeightedArchive
+    public class AgeDistribution : ObservableCollection<WeightedElement>
     {
         Random random = new Random();
 
         public void AddAge(int age, int weight = 1)
         {
-            //Console.WriteLine(age + ":" + weight+" "+ Items.Any(el => (int)el.Value == age) + " "+ Items.Any(element => element.Value.Equals(age)));
             if (Items.Any(el => (int)el.Value == age))
-            {
                 Items.First(element => element.Value.Equals(age)).Weight = weight;
-                //Console.WriteLine("same");
-            }
             else
-            {
-                AddElement(age, weight);
-                //Console.WriteLine("new");
-            }
+                Add(new WeightedElement(age, weight));
         }
 
         public void AddRange(int from, int to, int weight = 1)
@@ -32,14 +25,14 @@ namespace Archives
                 AddAge(i, weight);
         }
 
-        public AgeDistribution Combine(AgeDistribution distribution)
+        public AgeDistribution GetIntersection(AgeDistribution distribution)
         {
             AgeDistribution result = new AgeDistribution();
             foreach (WeightedElement we1 in Items)
             {
                 WeightedElement we2 = distribution.FirstOrDefault(e => e.Value.Equals(we1.Value));
                 if (we2 != null)
-                    result.AddElement((int)we1.Value, we1.Weight * we2.Weight);
+                    result.Add(new WeightedElement((int)we1.Value, we1.Weight * we2.Weight));
             }
             return result;
         }
@@ -50,7 +43,7 @@ namespace Archives
             foreach (WeightedElement we in Items)
                 totalSum += we.Weight;
 
-            int r = random.Next(totalSum + 1);
+            int r = random.Next(1, totalSum + 1);
             int sum = 0;
 
             foreach (WeightedElement we in Items)

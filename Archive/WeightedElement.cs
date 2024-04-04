@@ -1,4 +1,5 @@
-﻿using static Archives.Enums;
+﻿using System;
+using static Archives.Enums;
 
 namespace Archives
 {
@@ -25,6 +26,7 @@ namespace Archives
 
         public WeightedElement(object value, int weight = 1, Gender gender = Gender.Neutral)
         {
+            if (weight < 0) throw new ArgumentException(nameof(weight) + " should be non-negative.");
             Value = value;
             Gender = gender;
             Weight = weight;

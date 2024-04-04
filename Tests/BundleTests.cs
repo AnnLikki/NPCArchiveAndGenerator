@@ -1,23 +1,14 @@
 ﻿using Archives;
 using NUnit.Framework;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection.Emit;
 
 namespace Tests
 {
-    internal class BundleTesting
+    internal class BundleTests
     {
         // Testing bundles and layers
         // Weighted element doesn't need testing
         // Getting and checking data, randomization and statistics
         // Testing edge cases
-
-        [SetUp]
-        public void Setup()
-        {
-
-        }
 
         // Layer testing
 
@@ -276,7 +267,6 @@ namespace Tests
 
         }
 
-        // Edge cases
         [Test]
         public void LayerEdgeCases()
         {
@@ -305,6 +295,9 @@ namespace Tests
             Assert.That(layer.Count == 1);
             layer.Clear();
 
+            // Adding a WeightedElement with negative Weight is bad
+            Assert.Throws<ArgumentException>(() => new WeightedElement("E", -5));
+
             // Removing by index out of range
             layer.Add(we1);
             Assert.Throws<ArgumentOutOfRangeException>(() => layer.RemoveAt(1));
@@ -322,6 +315,12 @@ namespace Tests
             for (int i = 0; i < 10; i++)
                 Assert.That(layer.GetRandom(), Is.EqualTo("Default"));
 
+            // Randomizing with elements that have Weight = 0
+            layer.Add("1", 0);
+            layer.Add("2", 0);
+            layer.Add("3", 0);
+            for (int i = 0; i < 10; i++)
+                Assert.That(layer.GetRandom(), Is.EqualTo("Default"));
 
         }
 
@@ -579,7 +578,6 @@ namespace Tests
                 Assert.That(result, Does.Not.Contain("D"));
             }
         }
-
 
         [Test]
         public void BundleEdgeCases()

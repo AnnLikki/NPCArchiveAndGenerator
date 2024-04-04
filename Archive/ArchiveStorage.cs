@@ -16,7 +16,7 @@ namespace Archives
         /// </summary>
         public void Add(Race race)
         {
-            if(!ContainsKey(ArchiveType.Race))
+            if (!ContainsKey(ArchiveType.Race))
                 Add(ArchiveType.Race, new ObservableCollection<object>());
             this[ArchiveType.Race].Add(race);
         }
@@ -41,6 +41,22 @@ namespace Archives
             this[type].Add(bundle);
         }
 
+        /// <summary>
+        /// Removes an element at index from collection corresponding with specified key.
+        /// </summary>
+        public void RemoveAt(ArchiveType type, int index)
+        {
+            this[type].RemoveAt(index);
+        }
+
+        /// <summary>
+        /// Removes an element from collection corresponding with specified key.
+        /// </summary>
+        public void Remove(ArchiveType type, object element)
+        {
+            this[type].Remove(element);
+        }
+
         public Race FindRace(Guid ID)
         {
             if (!ContainsKey(ArchiveType.Race))
@@ -53,5 +69,6 @@ namespace Archives
                 return null;
             return (Bundle)this[archiveType].FirstOrDefault(r => ((Bundle)r).Id.Equals(ID));
         }
+
     }
 }
