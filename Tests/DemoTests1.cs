@@ -4,7 +4,7 @@ using static Archives.Enums;
 
 namespace Tests
 {
-    public class DemoTests
+    public class DemoTests1
     {
 
         ArchiveStorage archiveStorage = new ArchiveStorage();
@@ -211,5 +211,88 @@ namespace Tests
 
             }
         }
+
+
+        string[] dwarvenMaleFirstNames = {
+            "Адрик", "Альберих", "Баренд", "Баэрн", "Броттор", "Бруенор", "Вондал", "Вэйт",
+            "Гардаин", "Даин", "Даррак", "Делг", "Килдрак", "Моргран", "Орсик", "Оскар",
+            "Рангрим", "Рюрик", "Таклинн", "Торадин", "Тордек", "Торин", "Травок", "Траубон",
+            "Ульфгар", "Фаргрим", "Флинт", "Харбек", "Эберк", "Эйнкиль" };
+        string[] dwarvenFemaleFirstNames = {
+            "Артин", "Бардрин", "Вистра", "Гуннлода", "Гурдис", "Дагнал",
+            "Диеза", "Илде", "Катра", "Кристид", "Лифтраса", "Мардред",
+            "Одхильд", "Рисвин", "Саннл", "Торбера", "Торгга", "Фалкрунн",
+            "Финеллен", "Хельджа", "Хлин", "Эльдет", "Эмбер" };
+        string[] dwarvenClanNames = {
+            "Балдерк", "Боевой Молот", "Горунн", "Данкил", "Железный Кулак",
+            "Крепкая Наковальня", "Ледяная Борода", "Лодерр", "Лютгер",
+            "Огненная Кузня", "Рамнахейм", "Стракелн", "Торунн",
+            "Унгарт", "Холдерхек" };
+
+
+
+        [Test]
+        public void DemoGen()
+        {
+            // Set Up
+            ArchiveStorage storage = new ArchiveStorage();
+
+            Race dwarf = new("Дварф", "", 18, 450);
+            dwarf.SetGender(Gender.Male);
+            dwarf.SetGender(Gender.Female);
+            dwarf.AgeDistribution.AddRange(0, 100);
+            dwarf.AgeDistribution.AddRange(15, 50, 2);
+            storage.Add(dwarf);
+
+            Bundle dwarvenNames = new("Дварфийские имена");
+            // First names
+            dwarvenNames.InsertNewLayer(0);
+            foreach (string name in dwarvenMaleFirstNames)
+                dwarvenNames.AddToLayer(0, name, 1, Gender.Male);
+            foreach (string name in dwarvenFemaleFirstNames)
+                dwarvenNames.AddToLayer(0, name, 1, Gender.Female);
+            // Clan names
+            dwarvenNames.InsertNewLayer(1, 0.8);
+            foreach (string name in dwarvenClanNames)
+                dwarvenNames.AddToLayer(1, " " + name, 1, Gender.Neutral);
+
+            storage.Add(ArchiveType.Name, dwarvenNames);
+            dwarf.CompatableBundles.AddBundle(ArchiveType.Name, dwarvenNames);
+
+            Archetype dwarvenMaleAcademyStudent = new("Ученик мужской дварфийской академии");
+            dwarvenMaleAcademyStudent.Ages.AddRange(10, 20);
+            dwarvenMaleAcademyStudent.SetGender(Gender.Male);
+            dwarvenMaleAcademyStudent.CompatableBundles.AddRace(dwarf);
+
+            storage.Add(dwarvenMaleAcademyStudent);
+
+
+            Archetype dwarvenSchoolKid = new("Дварфийский школьник");
+            dwarvenSchoolKid.Ages.AddRange(6, 16);
+            dwarvenSchoolKid.SetGender(Gender.Male);
+            dwarvenSchoolKid.SetGender(Gender.Female);
+            dwarvenSchoolKid.CompatableBundles.AddRace(dwarf);
+
+            storage.Add(dwarvenSchoolKid);
+
+            // Gen
+            foreach (Archetype ar in storage[ArchiveType.Archetype])
+            {
+                Console.WriteLine();
+                Console.WriteLine(ar.Name);
+                for (int i = 0; i < 10; i++)
+                {
+                    Race race = ar.GetRandomRace(storage);
+                    int age = ar.GetRandomAge(race);
+                    Gender gender = ar.GetRandomGender(race);
+
+                    string nameGen = ar.GetRandomFromBundle(storage, ArchiveType.Name, race, gender, age);
+
+                    Console.WriteLine(race.Name + " " + age + " " + gender + " " + nameGen);
+                }
+            }
+        }
+
+
     }
 }
