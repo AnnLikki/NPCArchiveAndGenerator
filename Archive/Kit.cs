@@ -8,31 +8,14 @@ namespace Archives
     /// <summary>
     /// Stores IDs of objects. Archetypes can't be added to kits.
     /// </summary>
-    public class Kit : Dictionary<ArchiveType, WeightedArchive>
+    public class Kit : Dictionary<BundleType, WeightedArchive>
     {
-        /// <summary>
-        /// Add a race to a kit as an ID.
-        /// </summary>
-        public void AddRace(Race race, int weight = 1)
-        {
-            if (!ContainsKey(ArchiveType.Race))
-                Add(ArchiveType.Race, new WeightedArchive());
-            this[ArchiveType.Race].AddElement(race.Id, weight);
-        }
-        /// <summary>
-        /// Add a race to a kit as an ID.
-        /// </summary>
-        public void AddRace(Guid raceID, int weight = 1)
-        {
-            if (!ContainsKey(ArchiveType.Race))
-                Add(ArchiveType.Race, new WeightedArchive());
-            this[ArchiveType.Race].AddElement(raceID, weight);
-        }
+
 
         /// <summary>
         /// Add a bundle to a kit as an ID.
         /// </summary>
-        public void AddBundle(ArchiveType type, Bundle bundle, int weight = 1, Gender gender = Gender.Neutral)
+        public void AddBundle(BundleType type, Bundle bundle, int weight = 1, Gender gender = Gender.Neutral)
         {
             if (!ContainsKey(type))
                 Add(type, new WeightedArchive());
@@ -42,7 +25,7 @@ namespace Archives
         /// <summary>
         /// Add a bundle to a kit as an ID.
         /// </summary>
-        public void AddBundle(ArchiveType type, Guid bundleID, int weight = 1, Gender gender = Gender.Neutral)
+        public void AddBundle(BundleType type, Guid bundleID, int weight = 1, Gender gender = Gender.Neutral)
         {
             if (!ContainsKey(type))
                 Add(type, new WeightedArchive());
@@ -51,22 +34,13 @@ namespace Archives
 
 
 
-        public string GetRandomFromBundle(ArchiveStorage storage, ArchiveType type, Gender gender = Gender.Neutral, int ageBio = -1)
+        public string GetRandomFromBundle(BundleStorage storage, BundleType type, Gender gender = Gender.Neutral, int ageBio = -1)
         {
             if (!ContainsKey(type))
                 return null;
             return this[type].GetRandomFromBundle(storage, type, gender, ageBio);
         }
 
-        public Race GetRandomRace(ArchiveStorage storage)
-        {
-            if (!ContainsKey(ArchiveType.Race))
-                return null;
-            object res = this[ArchiveType.Race].GetRandomUnrestricted();
-            if (res.GetType() == typeof(Guid))
-                return storage.FindRace((Guid)res);
-            else
-                return null;
-        }
+        
     }
 }

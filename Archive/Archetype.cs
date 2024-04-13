@@ -11,6 +11,9 @@ namespace Archives
         /// The name of the architype in singular form, as a person of this archetype is called.
         /// </summary>
         public string Name { get; set; }
+
+
+        public WeightedArchive Races { get; set; }
         /// <summary>
         /// Compatable genders of this archetype. Elements of this Archive are Genders.
         /// </summary>
@@ -26,6 +29,7 @@ namespace Archives
 
         public Archetype(string name) {
             Name = name;
+            Races = new WeightedArchive();
             Genders = new WeightedArchive();
             Genders.DefaultValue = Gender.Neutral;
             Ages = new AgeDistribution();
@@ -38,7 +42,7 @@ namespace Archives
             return race.AgeDistribution.GetIntersection(Ages).GetRandom();
         }
 
-        public string GetRandomFromBundle(ArchiveStorage storage, ArchiveType type, Race race, Gender gender, int age)
+        public string GetRandomFromBundle(BundleStorage storage, BundleType type, Race race, Gender gender, int age)
         {
             if (!CompatableBundles.ContainsKey(type) || CompatableBundles[type].Count == 0)
                 return race.CompatableBundles.GetRandomFromBundle(storage, type, gender, age);
@@ -69,9 +73,19 @@ namespace Archives
             }
             return (Gender)race.Genders.GetRandomUnrestricted();
         }
-        public Race GetRandomRace(ArchiveStorage storage)
+
+        public void AddRace(Race race, int weight = 1)
         {
-            return CompatableBundles.GetRandomRace(storage);
+            if (Races.Any(g => (Guid)g.Value == race.Id))
+                Races.First(g => (Guid)g.Value == race.Id).Weight = weight;
+            else
+                Races.AddElement(race.Id, weight);
+        }
+
+        public Race GetRandomRace(RaceStorage storage)
+        {
+            Guid raceID = (Guid)Races.GetRandomUnrestricted();
+            return storage.FindRace(raceID);
         }
 
     }

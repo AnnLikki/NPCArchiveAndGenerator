@@ -71,7 +71,7 @@ namespace Archives
             return DefaultValue;
         }
 
-        public string GetRandomFromBundle(ArchiveStorage storage, ArchiveType type, Gender gender = Gender.Neutral, int ageBio = -1)
+        public string GetRandomFromBundle(BundleStorage storage, BundleType type, Gender gender = Gender.Neutral, int ageBio = -1)
         {
             // If Archive is empty
             if (Count == 0) return DefaultValue.ToString();

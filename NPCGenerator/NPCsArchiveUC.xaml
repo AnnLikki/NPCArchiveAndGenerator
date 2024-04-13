@@ -34,7 +34,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Name}" Margin="5"/>
-                                    <TextBlock Text="{Binding Race}" Margin="5"/>
+                                    <TextBlock Text="{Binding RaceName}" Margin="5"/>
                                     <TextBlock Text="{Binding Gender}" Margin="5"/>
                                     <TextBlock Text="{Binding AgeChrono}" Margin="5"/>
                                     <TextBlock Text="{Binding Occupation}" Margin="5"/>

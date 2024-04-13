@@ -3,6 +3,7 @@ using NPCArchiveAndGenerator;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static Archives.Enums;
 
 namespace NPCGenerator
 {
@@ -23,7 +24,7 @@ namespace NPCGenerator
             // Filling all the fields with race's data.
             nameTB.Text = race.Name;
             descTB.Text = race.Description;
-            maturityTB.Text = race.AgeMaturity.ToString();
+            maturityTB.Text = race.MaturityAge.ToString();
             expectancyTB.Text = race.LifeExpectancy.ToString();
         }
 
@@ -48,9 +49,9 @@ namespace NPCGenerator
                     MessageBox.Show("Are you sure you want to delete it?", "Confirm Delete",
                     MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (confirmResult == MessageBoxResult.Yes)
-                    ArchiveHandler.absoluteArchiveRace.Remove(race);
+                    ArchiveHandler.raceStorage.Remove(race);
             }
-            else ArchiveHandler.absoluteArchiveRace.Remove(race);
+            else ArchiveHandler.raceStorage.Remove(race);
         }
 
         private void openExternallyBtn_Click(object sender, RoutedEventArgs e)

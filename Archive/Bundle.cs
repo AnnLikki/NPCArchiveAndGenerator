@@ -163,6 +163,19 @@ namespace Archives
             return result.Trim();
         }
 
+        public override string ToString()
+        {
+            string res = "Bundle "+Name+"\n";
+            int i = 0;
+            foreach(Layer l in Layers)
+            {
+                res += "Layer #"+i;
+                res += l.ToString()+"\n";
+                i++;
+            }
+            return res;
+        }
+
 
     }
 }

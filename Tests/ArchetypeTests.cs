@@ -6,6 +6,9 @@ namespace Tests
 {
     internal class ArchetypeTests
     {
+
+        //TODO fix comment
+
         // Archetype, Kit and Race testing
 
         // Kits inherit from Dictionary<ArchiveType, WeightedArchive> and basically are sets of weighted archives
@@ -20,28 +23,17 @@ namespace Tests
         {
             Kit kit = new Kit();
 
-            // Adding race as-is and via its ID
+            // Adding bundles as-is and via its ID
             // In both cases should add just the ID
-            Assert.That(!kit.ContainsKey(ArchiveType.Race));
-            Race race = new Race("Race");
-            kit.AddRace(race);
-            Assert.That(kit[ArchiveType.Race].Any(el => el.Value.Equals(race.Id)), Is.True);
-
-            kit.Clear();
-            Assert.That(!kit.ContainsKey(ArchiveType.Race));
-            kit.AddRace(race.Id);
-            Assert.That(kit[ArchiveType.Race].Any(el => el.Value.Equals(race.Id)), Is.True);
-
-            // Adding bundles with the same logic
-            Assert.That(!kit.ContainsKey(ArchiveType.Name));
+            Assert.That(!kit.ContainsKey(BundleType.Name));
             Bundle bundle = new Bundle("Bundle");
-            kit.AddBundle(ArchiveType.Name, bundle);
-            Assert.That(kit[ArchiveType.Name].Any(el => el.Value.Equals(bundle.Id)), Is.True);
+            kit.AddBundle(BundleType.Name, bundle);
+            Assert.That(kit[BundleType.Name].Any(el => el.Value.Equals(bundle.Id)), Is.True);
 
             kit.Clear();
-            Assert.That(!kit.ContainsKey(ArchiveType.Name));
-            kit.AddBundle(ArchiveType.Name, bundle.Id);
-            Assert.That(kit[ArchiveType.Name].Any(el => el.Value.Equals(bundle.Id)), Is.True);
+            Assert.That(!kit.ContainsKey(BundleType.Name));
+            kit.AddBundle(BundleType.Name, bundle.Id);
+            Assert.That(kit[BundleType.Name].Any(el => el.Value.Equals(bundle.Id)), Is.True);
 
         }
 
@@ -49,43 +41,26 @@ namespace Tests
         public void KitRandomization()
         {
             Kit kit = new Kit();
-            ArchiveStorage storage = new ArchiveStorage();
-
-            // Race randomization
-
-            Race r1 = new Race("R1");
-            Race r2 = new Race("R2");
-            storage.Add(r1);
-            storage.Add(r2);
-
-            kit.AddRace(r1);
-            kit.AddRace(r2);
-
-
-            for (int i = 0; i < 10; i++)
-            {
-                Race r = kit.GetRandomRace(storage);
-                Assert.That(r.Equals(r1) || r.Equals(r2));
-            }
+            BundleStorage storage = new BundleStorage();
 
             // Bundle randomization
 
             Bundle bundle1 = new("B1");
             bundle1.InsertNewLayer(0);
             bundle1.AddToLayer(0, "1");
-            storage.Add(ArchiveType.Name, bundle1);
+            storage.Add(BundleType.Name, bundle1);
 
             Bundle bundle2 = new("B2");
             bundle2.InsertNewLayer(0);
             bundle2.AddToLayer(0, "2");
-            storage.Add(ArchiveType.Name, bundle2);
+            storage.Add(BundleType.Name, bundle2);
 
-            kit.AddBundle(ArchiveType.Name, bundle1);
-            kit.AddBundle(ArchiveType.Name, bundle2);
+            kit.AddBundle(BundleType.Name, bundle1);
+            kit.AddBundle(BundleType.Name, bundle2);
 
             for (int i = 0; i < 10; i++)
             {
-                string res = kit.GetRandomFromBundle(storage, ArchiveType.Name);
+                string res = kit.GetRandomFromBundle(storage, BundleType.Name);
                 Assert.That(res.Equals("1") || res.Equals("2"));
             }
         }
@@ -94,23 +69,18 @@ namespace Tests
         public void KitEdgeCases()
         {
             Kit kit = new Kit();
-            ArchiveStorage storage = new ArchiveStorage();
+            BundleStorage storage = new BundleStorage();
 
             // Randomization from a non-existent archive
-            // Race
-            Assert.That(kit.GetRandomRace(storage), Is.EqualTo(null));
             // Bundle
-            Assert.That(kit.GetRandomFromBundle(storage, ArchiveType.Name), Is.EqualTo(null));
+            Assert.That(kit.GetRandomFromBundle(storage, BundleType.Name), Is.EqualTo(null));
 
             kit.Clear();
 
             // Randomization from an empty archive
-            // Race
-            kit.Add(ArchiveType.Race, new WeightedArchive());
-            Assert.That(kit.GetRandomRace(storage), Is.EqualTo(null));
             // Bundle
-            kit.Add(ArchiveType.Name, new WeightedArchive());
-            Assert.That(kit.GetRandomFromBundle(storage, ArchiveType.Name), Is.EqualTo(kit[ArchiveType.Name].DefaultValue.ToString()));
+            kit.Add(BundleType.Name, new WeightedArchive());
+            Assert.That(kit.GetRandomFromBundle(storage, BundleType.Name), Is.EqualTo(kit[BundleType.Name].DefaultValue.ToString()));
         }
 
 
@@ -153,8 +123,10 @@ namespace Tests
         public void ArchetypeBasicGen()
         {
             Archetype archetype = new Archetype("Archetype");
-            ArchiveStorage storage = new ArchiveStorage();
-            storage.Add(archetype);
+            BundleStorage bundleStorage = new BundleStorage();
+            RaceStorage raceStorage = new RaceStorage();
+            ArchetypeStorage archetypeStorage = new ArchetypeStorage();
+            archetypeStorage.Add(archetype);
 
             //Set up
 
@@ -170,19 +142,19 @@ namespace Tests
             Bundle bundle1 = new Bundle("Bundle1");
             bundle1.InsertNewLayer(0);
             bundle1.AddToLayer(0, "Feat");
-            storage.Add(ArchiveType.Features, bundle1);
-            storage.Add(race);
-            race.CompatableBundles.AddBundle(ArchiveType.Features, bundle1);
-            archetype.CompatableBundles.AddRace(race);
+            bundleStorage.Add(BundleType.Features, bundle1);
+            raceStorage.Add(race);
+            race.CompatableBundles.AddBundle(BundleType.Features, bundle1);
+            archetype.AddRace(race);
 
             Bundle bundle2 = new Bundle("Bundle2");
             bundle2.InsertNewLayer(0);
             bundle2.AddToLayer(0, "Name");
-            storage.Add(ArchiveType.Name, bundle2);
-            archetype.CompatableBundles.AddBundle(ArchiveType.Name,bundle2);
+            bundleStorage.Add(BundleType.Name, bundle2);
+            archetype.CompatableBundles.AddBundle(BundleType.Name,bundle2);
 
             // Gen
-            Race raceGen = archetype.GetRandomRace(storage);
+            Race raceGen = archetype.GetRandomRace(raceStorage);
             Gender gender = archetype.GetRandomGender(raceGen);
             int ageBio = archetype.GetRandomAge(raceGen);
 
@@ -191,11 +163,11 @@ namespace Tests
             Assert.That(ageBio >= 15 && ageBio <= 20);
 
             // From archetype
-            string nameArchiveGen = archetype.GetRandomFromBundle(storage, ArchiveType.Name, raceGen, gender, ageBio);
+            string nameArchiveGen = archetype.GetRandomFromBundle(bundleStorage, BundleType.Name, raceGen, gender, ageBio);
             Assert.That(nameArchiveGen, Is.EqualTo("Name"));
 
             // From race
-            string featArchiveGen = archetype.GetRandomFromBundle(storage, ArchiveType.Features, raceGen, gender, ageBio);
+            string featArchiveGen = archetype.GetRandomFromBundle(bundleStorage, BundleType.Features, raceGen, gender, ageBio);
             Assert.That(featArchiveGen, Is.EqualTo("Feat"));
         }
 
@@ -204,8 +176,10 @@ namespace Tests
         public void ArchetypeEdgeCases()
         {
             Archetype archetype = new Archetype("Archetype");
-            ArchiveStorage storage = new ArchiveStorage();
-            storage.Add(archetype);
+            BundleStorage bundleStorage = new BundleStorage();
+            RaceStorage raceStorage = new RaceStorage();
+            ArchetypeStorage archetypeStorage = new ArchetypeStorage();
+            archetypeStorage.Add(archetype);
 
 
             // No genders in intersection = should return DefaultValue, Neutral by default
@@ -213,10 +187,10 @@ namespace Tests
 
             Race race = new Race("Race");
             race.SetGender(Gender.Male);
-            storage.Add(race);
-            archetype.CompatableBundles.AddRace(race);
+            raceStorage.Add(race);
+            archetype.AddRace(race);
 
-            Race raceGen = archetype.GetRandomRace(storage);
+            Race raceGen = archetype.GetRandomRace(raceStorage);
             Gender gender = archetype.GetRandomGender(raceGen);
             Assert.That(gender, Is.EqualTo(Gender.Neutral));
 
@@ -225,7 +199,7 @@ namespace Tests
 
             race.AgeDistribution.AddRange(30, 40);
 
-            raceGen = archetype.GetRandomRace(storage);
+            raceGen = archetype.GetRandomRace(raceStorage);
             int ageBio = archetype.GetRandomAge(raceGen);
             Assert.That(ageBio, Is.EqualTo(-1));
 

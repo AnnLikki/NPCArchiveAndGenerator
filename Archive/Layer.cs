@@ -178,6 +178,17 @@ namespace Archives
             // If there are no elements on this layer
             return DefaultValue;
         }
-        
+
+
+        public override string ToString()
+        {
+            string res = "";
+            foreach (WeightedElement we in Elements)
+            {
+                res += we.ToString() + ", ";
+            }
+            return res.Trim().TrimEnd(',');
+        }
+
     }
 }

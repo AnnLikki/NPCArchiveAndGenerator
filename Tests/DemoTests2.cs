@@ -7,7 +7,10 @@ namespace Tests
     internal class DemoTests2
     {
         
-        ArchiveStorage storage = new();
+        BundleStorage bundleStorage = new();
+        RaceStorage raceStorage = new RaceStorage();
+        ArchetypeStorage archetypeStorage = new ArchetypeStorage();
+
 
         Race human = new("Human");
         Race elf = new("Elf");
@@ -23,9 +26,9 @@ namespace Tests
 
         void raccesSetUp()
         {
-            storage.Add(human);
-            storage.Add(elf);
-            storage.Add(dwarf);
+            raceStorage.Add(human);
+            raceStorage.Add(elf);
+            raceStorage.Add(dwarf);
 
             human.MaturityAge = 18;
             human.LifeExpectancy = 80;
@@ -69,8 +72,8 @@ namespace Tests
             // Clan can be generate with 80% chance
             // People with no clan get "Clanless" mark
             dwarvenNames = new("Dwarven Names", false);
-            dwarf.CompatableBundles.AddBundle(ArchiveType.Name, dwarvenNames);
-            storage.Add(ArchiveType.Name, dwarvenNames);
+            dwarf.CompatableBundles.AddBundle(BundleType.Name, dwarvenNames);
+            bundleStorage.Add(BundleType.Name, dwarvenNames);
 
             // Child predicates
             dwarvenNames.InsertNewLayer(0, 1, "", Gender.Neutral, 0, 15);
@@ -115,8 +118,8 @@ namespace Tests
             // Children have separate list of names
             // Last names have 80% chance
             elvenNames = new("Elven Names");
-            elf.CompatableBundles.AddBundle(ArchiveType.Name, elvenNames);
-            storage.Add(ArchiveType.Name, elvenNames);
+            elf.CompatableBundles.AddBundle(BundleType.Name, elvenNames);
+            bundleStorage.Add(BundleType.Name, elvenNames);
 
             // Child names
             elvenNames.InsertNewLayer(0, 1, "", Gender.Neutral, 0, 17);
@@ -155,8 +158,8 @@ namespace Tests
             // Young children only have First Names
             // Older people have Mr. or Mrs. before the name
             humanNames = new("Human Names");
-            human.CompatableBundles.AddBundle(ArchiveType.Name, humanNames);
-            storage.Add(ArchiveType.Name, humanNames);
+            human.CompatableBundles.AddBundle(BundleType.Name, humanNames);
+            bundleStorage.Add(BundleType.Name, humanNames);
 
             // Mr/Mrs before the name at 40 and up
             humanNames.InsertNewLayer(0, 1, "", Gender.Neutral, 40);

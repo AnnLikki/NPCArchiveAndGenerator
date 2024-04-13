@@ -6,19 +6,20 @@
         /// Archive that contains all NPCs.
         /// </summary>
         public static ArchiveNPC absoluteArchiveNPC = new ArchiveNPC();
-        /// <summary>
-        /// A collection of absolute archives that contain all Races and Bundles. 
-        /// </summary>
-        public static ArchiveStorage absoluteArchives = new ArchiveStorage();
 
         /// <summary>
-        /// A collection of default archives that will be picked from if none other archives are specified in an archetype/there's no archetype.
+        /// A collection of absolute archives that contain all Bundles. 
         /// </summary>
-        public static Kit defaultArchives = new Kit();
+        public static BundleStorage bundleStorage = new BundleStorage();
+
+        public static RaceStorage raceStorage = new RaceStorage();
+
+        public static ArchetypeStorage archetypeStorage = new ArchetypeStorage();
+
         /// <summary>
-        /// Archive of integers with weights to pick from if none other ages are specified in an archetype/there's no archetype.
+        /// An archetype that will be applied if no other archetype is used.
         /// </summary>
-        public static AgeDistribution defaultAgeDistribution = new AgeDistribution();
+        public static Archetype defaultArchetype = new Archetype("Default Archetype");
 
     }
 }

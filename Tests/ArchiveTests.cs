@@ -6,6 +6,8 @@ namespace Tests
 {
     internal class ArchiveTests
     {
+        // TODO Fix comment
+
         // Archive Storage stores instances of objects like Bundles, Races and Archetypes
         // Can be accessed with IDs to get Bundles and Races
 
@@ -20,72 +22,76 @@ namespace Tests
         // ArchiveStorage testing
 
         [Test]
-        public void ASBasicManipulation()
+        public void BSBasicManipulation()
         {
-            ArchiveStorage storage = new ArchiveStorage();
-
-            // Adding races
-            Assert.That(!storage.ContainsKey(ArchiveType.Race));
-            Race race = new Race("Race", "", 10, 100);
-            storage.Add(race);
-            Assert.That(storage.ContainsKey(ArchiveType.Race));
-            Assert.That(storage[ArchiveType.Race], Does.Contain(race));
-
-            // Adding archetypes
-            Assert.That(!storage.ContainsKey(ArchiveType.Archetype));
-            Archetype archetype = new Archetype("Archetype");
-            storage.Add(archetype);
-            Assert.That(storage.ContainsKey(ArchiveType.Archetype));
-            Assert.That(storage[ArchiveType.Archetype], Does.Contain(archetype));
+            BundleStorage storage = new BundleStorage();
 
             // Adding bundles
-            Assert.That(!storage.ContainsKey(ArchiveType.Name));
+            Assert.That(storage[BundleType.Name].Count == 0);
             Bundle bundle = new Bundle("Bundle");
-            storage.Add(ArchiveType.Name, bundle);
-            Assert.That(storage.ContainsKey(ArchiveType.Name));
-            Assert.That(storage[ArchiveType.Name], Does.Contain(bundle));
+            storage.Add(BundleType.Name, bundle);
+            Assert.That(storage[BundleType.Name], Does.Contain(bundle));
+
+            Assert.That(storage[BundleType.Name].Count == 1);
+            Bundle bundle1 = new Bundle("Bundle1");
+            storage.Add(BundleType.Name, bundle1);
+            Assert.That(storage[BundleType.Name], Does.Contain(bundle1));
 
             // Removing element by object
-            storage.Remove(ArchiveType.Name, bundle);
-            Assert.That(storage[ArchiveType.Name], Does.Not.Contain(bundle));
+            storage.Remove(BundleType.Name, bundle);
+            Assert.That(storage[BundleType.Name], Does.Not.Contain(bundle));
 
             // Removing element by index
-            storage.RemoveAt(ArchiveType.Race, 0);
-            Assert.That(storage[ArchiveType.Race], Does.Not.Contain(race));
+            storage.RemoveAt(BundleType.Name, 0);
+            Assert.That(storage[BundleType.Name], Does.Not.Contain(bundle1));
 
         }
 
         [Test]
-        public void ASSearching()
+        public void BSSearching()
         {
-            ArchiveStorage storage = new ArchiveStorage();
-
-            // Searching races by id
-            Race r1 = new Race("r1");
-            storage.Add(r1);
-            Guid guidr1 = r1.Id;
-            Assert.That(r1.Equals(storage.FindRace(guidr1)));
+            BundleStorage storage = new BundleStorage();
 
             // Searching bundles by id
             Bundle b1 = new Bundle("b1");
-            storage.Add(ArchiveType.Name, b1);
+            storage.Add(BundleType.Name, b1);
             Guid guidb1 = b1.Id;
-            Assert.That(b1.Equals(storage.FindBundle(ArchiveType.Name, guidb1)));
+            Assert.That(b1.Equals(storage.FindBundle(BundleType.Name, guidb1)));
 
             storage.Clear();
 
+            // Edge cases of searching
+
+            // Searching in non-existent archives
+            Assert.That(storage.FindBundle(BundleType.Name, Guid.NewGuid()), Is.EqualTo(null));
+
+            // Searching for non-existent object
+            storage.Add(BundleType.Name, b1);
+            Assert.That(storage.FindBundle(BundleType.Name, Guid.NewGuid()), Is.EqualTo(null));
+        }
+
+
+        [Test]
+        public void RSSearching()
+        {
+            RaceStorage raceStorage = new RaceStorage();
+
+            // Searching races by id
+            Race r1 = new Race("r1");
+            raceStorage.Add(r1);
+            Guid guidr1 = r1.Id;
+            Assert.That(r1.Equals(raceStorage.FindRace(guidr1)));
+
+            raceStorage.Clear();
 
             // Edge cases of searching
 
             // Searching in non-existent archives: race and regular
-            Assert.That(storage.FindRace(Guid.NewGuid()), Is.EqualTo(null));
-            Assert.That(storage.FindBundle(ArchiveType.Name, Guid.NewGuid()), Is.EqualTo(null));
+            Assert.That(raceStorage.FindRace(Guid.NewGuid()), Is.EqualTo(null));
 
             // Searching for non-existent object
-            storage.Add(r1);
-            Assert.That(storage.FindRace(Guid.NewGuid()), Is.EqualTo(null));
-            storage.Add(ArchiveType.Name, b1);
-            Assert.That(storage.FindBundle(ArchiveType.Name, Guid.NewGuid()), Is.EqualTo(null));
+            raceStorage.Add(r1);
+            Assert.That(raceStorage.FindRace(Guid.NewGuid()), Is.EqualTo(null));
         }
 
 
@@ -149,23 +155,23 @@ namespace Tests
         [Test]
         public void WABasicRandomFromBundleViaIDs()
         {
-            ArchiveStorage storage = new ArchiveStorage();
+            BundleStorage storage = new BundleStorage();
             WeightedArchive wa = new WeightedArchive();
 
             Bundle bundle1 = new("B1");
             bundle1.InsertNewLayer(0);
             bundle1.AddToLayer(0, "B1E");
-            storage.Add(ArchiveType.Name, bundle1);
+            storage.Add(BundleType.Name, bundle1);
 
             Bundle bundle2 = new("B2");
             bundle2.InsertNewLayer(0);
             bundle2.AddToLayer(0, "B2E");
-            storage.Add(ArchiveType.Name, bundle2);
+            storage.Add(BundleType.Name, bundle2);
 
             Bundle bundle3 = new("B3");
             bundle3.InsertNewLayer(0);
             bundle3.AddToLayer(0, "B3E");
-            storage.Add(ArchiveType.Name, bundle3);
+            storage.Add(BundleType.Name, bundle3);
 
             wa.AddElement(bundle1.Id, 0);
             wa.AddElement(bundle2.Id, 1);
@@ -176,7 +182,7 @@ namespace Tests
             int[] results = new int[3];
             for (int i = 0; i < tests; i++)
             {
-                string result = wa.GetRandomFromBundle(storage, ArchiveType.Name);
+                string result = wa.GetRandomFromBundle(storage, BundleType.Name);
                 if (result == "B1E")
                     results[0]++;
                 if (result == "B2E")
@@ -193,23 +199,23 @@ namespace Tests
         [Test]
         public void WAGenderedRandomFromBundleViaIDs()
         {
-            ArchiveStorage storage = new ArchiveStorage();
+            BundleStorage storage = new BundleStorage();
             WeightedArchive wa = new WeightedArchive();
 
             Bundle bundle1 = new("B1");
             bundle1.InsertNewLayer(0);
             bundle1.AddToLayer(0, "F");
-            storage.Add(ArchiveType.Name, bundle1);
+            storage.Add(BundleType.Name, bundle1);
 
             Bundle bundle2 = new("B2");
             bundle2.InsertNewLayer(0);
             bundle2.AddToLayer(0, "M");
-            storage.Add(ArchiveType.Name, bundle2);
+            storage.Add(BundleType.Name, bundle2);
 
             Bundle bundle3 = new("B3");
             bundle3.InsertNewLayer(0);
             bundle3.AddToLayer(0, "N");
-            storage.Add(ArchiveType.Name, bundle3);
+            storage.Add(BundleType.Name, bundle3);
 
             wa.AddElement(bundle1.Id, 1, Gender.Female);
             wa.AddElement(bundle2.Id, 1, Gender.Male);
@@ -223,7 +229,7 @@ namespace Tests
 
             for (int i = 0; i < tests; i++)
             {
-                string result = wa.GetRandomFromBundle(storage, ArchiveType.Name, Gender.Female);
+                string result = wa.GetRandomFromBundle(storage, BundleType.Name, Gender.Female);
                 if (result == "F")
                     resFemale[0]++;
                 else if (result == "M")
@@ -231,7 +237,7 @@ namespace Tests
                 else if (result == "N")
                     resFemale[2]++;
 
-                result = wa.GetRandomFromBundle(storage, ArchiveType.Name, Gender.Male);
+                result = wa.GetRandomFromBundle(storage, BundleType.Name, Gender.Male);
                 if (result == "F")
                     resMale[0]++;
                 else if (result == "M")
@@ -239,7 +245,7 @@ namespace Tests
                 else if (result == "N")
                     resMale[2]++;
 
-                result = wa.GetRandomFromBundle(storage, ArchiveType.Name, Gender.Neutral);
+                result = wa.GetRandomFromBundle(storage, BundleType.Name, Gender.Neutral);
                 if (result == "F")
                     resNeutral[0]++;
                 else if (result == "M")
@@ -267,23 +273,23 @@ namespace Tests
         [Test]
         public void WAAgedRandomFromBundleViaIDs()
         {
-            ArchiveStorage storage = new ArchiveStorage();
+            BundleStorage storage = new BundleStorage();
             WeightedArchive wa = new WeightedArchive();
 
             Bundle bundle1 = new("B1", true, Gender.Neutral, 10, 20);
             bundle1.InsertNewLayer(0);
             bundle1.AddToLayer(0, "1");
-            storage.Add(ArchiveType.Name, bundle1);
+            storage.Add(BundleType.Name, bundle1);
 
             Bundle bundle2 = new("B2", true, Gender.Neutral, 30, 40);
             bundle2.InsertNewLayer(0);
             bundle2.AddToLayer(0, "2");
-            storage.Add(ArchiveType.Name, bundle2);
+            storage.Add(BundleType.Name, bundle2);
 
             Bundle bundle3 = new("B3", true, Gender.Neutral, 10, 40);
             bundle3.InsertNewLayer(0);
             bundle3.AddToLayer(0, "3");
-            storage.Add(ArchiveType.Name, bundle3);
+            storage.Add(BundleType.Name, bundle3);
 
             wa.AddElement(bundle1.Id);
             wa.AddElement(bundle2.Id);
@@ -296,7 +302,7 @@ namespace Tests
             for (int i = 0; i < tests; i++)
             {
                 int age = random.Next();
-                string result = wa.GetRandomFromBundle(storage, ArchiveType.Name, Gender.Neutral, age);
+                string result = wa.GetRandomFromBundle(storage, BundleType.Name, Gender.Neutral, age);
 
                 if (result == "1")
                     Assert.That(age>=10 && age<=20);
@@ -332,7 +338,7 @@ namespace Tests
         public void WAEdgeCases()
         {
             WeightedArchive wa = new WeightedArchive();
-            ArchiveStorage storage = new ArchiveStorage();
+            BundleStorage storage = new BundleStorage();
 
             // Randomizing from an empty archive
             wa.DefaultValue = "Default";
@@ -351,7 +357,7 @@ namespace Tests
             wa.AddElement(new Bundle("B1").Id);
             wa.AddElement(new Bundle("B2").Id);
             for (int i = 0; i < 10; i++)
-                Assert.That(wa.GetRandomFromBundle(storage, ArchiveType.Name), Is.EqualTo("Default"));
+                Assert.That(wa.GetRandomFromBundle(storage, BundleType.Name), Is.EqualTo("Default"));
 
             // Randomizing from only unsuitable bundles
             Bundle bundle1 = new Bundle("B1", true, Gender.Male);
@@ -362,10 +368,10 @@ namespace Tests
             bundle2.AddToLayer(0, "B2E");
             wa.AddElement(bundle1.Id, 1, Gender.Male);
             wa.AddElement(bundle2.Id);
-            storage.Add(ArchiveType.Name, bundle1);
-            storage.Add(ArchiveType.Name, bundle2);
+            storage.Add(BundleType.Name, bundle1);
+            storage.Add(BundleType.Name, bundle2);
             for (int i = 0; i < 10; i++)
-                Assert.That(wa.GetRandomFromBundle(storage, ArchiveType.Name, Gender.Female, 15), Is.EqualTo("Default"));
+                Assert.That(wa.GetRandomFromBundle(storage, BundleType.Name, Gender.Female, 15), Is.EqualTo("Default"));
         }
 
 

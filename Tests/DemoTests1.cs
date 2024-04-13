@@ -7,8 +7,10 @@ namespace Tests
     public class DemoTests1
     {
 
-        ArchiveStorage archiveStorage = new ArchiveStorage();
+        BundleStorage bundleStorage = new BundleStorage();
         Archetype defaultArchetype = new Archetype("Default Archetype");
+        RaceStorage raceStorage = new RaceStorage();
+        ArchetypeStorage archetypeStorage = new ArchetypeStorage();
         Race human, elf;
 
         Bundle commonNames, elvenNames, ageNicknames;
@@ -27,10 +29,10 @@ namespace Tests
             elf.SetGender(Gender.Male, 5);
             elf.SetGender(Gender.Neutral, 2);
 
-            archiveStorage.Add(human);
-            archiveStorage.Add(elf);
-            defaultArchetype.CompatableBundles.AddRace(human, 7);
-            defaultArchetype.CompatableBundles.AddRace(elf, 3);
+            raceStorage.Add(human);
+            raceStorage.Add(elf);
+            defaultArchetype.AddRace(human, 7);
+            defaultArchetype.AddRace(elf, 3);
 
             defaultArchetype.SetGender(Gender.Female, 1);
             defaultArchetype.SetGender(Gender.Male, 1);
@@ -68,9 +70,9 @@ namespace Tests
             commonNames.AddToLayer(2, " Allen");
             commonNames.AddToLayer(2, " Smith");
 
-            human.CompatableBundles.AddBundle(ArchiveType.Name, commonNames);
-            elf.CompatableBundles.AddBundle(ArchiveType.Name, commonNames);
-            archiveStorage.Add(ArchiveType.Name, commonNames);
+            human.CompatableBundles.AddBundle(BundleType.Name, commonNames);
+            elf.CompatableBundles.AddBundle(BundleType.Name, commonNames);
+            bundleStorage.Add(BundleType.Name, commonNames);
         }
 
         void elvenNamesSetup()
@@ -95,8 +97,8 @@ namespace Tests
             elvenNames.AddToLayer(1, " Rivenneth");
             elvenNames.AddToLayer(1, " Silvethiel");
 
-            elf.CompatableBundles.AddBundle(ArchiveType.Name, elvenNames);
-            archiveStorage.Add(ArchiveType.Name, elvenNames);
+            elf.CompatableBundles.AddBundle(BundleType.Name, elvenNames);
+            bundleStorage.Add(BundleType.Name, elvenNames);
         }
 
         void ageNicknameSetup()
@@ -139,9 +141,9 @@ namespace Tests
             ageNicknames.AddToLayer(6, "Wise one");
             ageNicknames.AddToLayer(6, "Oldie");
 
-            human.CompatableBundles.AddBundle(ArchiveType.Name, ageNicknames);
-            elf.CompatableBundles.AddBundle(ArchiveType.Name, ageNicknames);
-            archiveStorage.Add(ArchiveType.Name, ageNicknames);
+            human.CompatableBundles.AddBundle(BundleType.Name, ageNicknames);
+            elf.CompatableBundles.AddBundle(BundleType.Name, ageNicknames);
+            bundleStorage.Add(BundleType.Name, ageNicknames);
         }
 
         void ageDistributionsSetup()
@@ -169,9 +171,9 @@ namespace Tests
             jobs.AddToLayer(0, "Judge");
             jobs.AddToLayer(0, "Vendor");
 
-            archiveStorage.Add(ArchiveType.Occupation, jobs);
-            defaultArchetype.CompatableBundles.AddBundle(ArchiveType.Occupation, jobs);
-            defaultArchetype.CompatableBundles[ArchiveType.Occupation].DefaultValue = "Can't work";
+            bundleStorage.Add(BundleType.Occupation, jobs);
+            defaultArchetype.CompatableBundles.AddBundle(BundleType.Occupation, jobs);
+            defaultArchetype.CompatableBundles[BundleType.Occupation].DefaultValue = "Can't work";
         }
 
 
@@ -199,13 +201,13 @@ namespace Tests
         {
             for (int i = 0; i < 100; i++)
             {
-                Race race = defaultArchetype.GetRandomRace(archiveStorage);
+                Race race = defaultArchetype.GetRandomRace(raceStorage);
                 Gender gender = defaultArchetype.GetRandomGender(race);
                 
                 int age = defaultArchetype.GetRandomAge(race);
 
-                string name = defaultArchetype.GetRandomFromBundle(archiveStorage, ArchiveType.Name, race, gender, age);
-                string job = defaultArchetype.GetRandomFromBundle(archiveStorage, ArchiveType.Occupation, race, gender, age);
+                string name = defaultArchetype.GetRandomFromBundle(bundleStorage, BundleType.Name, race, gender, age);
+                string job = defaultArchetype.GetRandomFromBundle(bundleStorage, BundleType.Occupation, race, gender, age);
 
                 Console.WriteLine(race.Name+" "+gender+" "+age+", "+name+", "+job);
 
@@ -235,14 +237,18 @@ namespace Tests
         public void DemoGen()
         {
             // Set Up
-            ArchiveStorage storage = new ArchiveStorage();
+
+            Archetype defaultArchetype = new Archetype("Default Archetype");
+            RaceStorage raceStorage = new RaceStorage();
+            ArchetypeStorage archetypeStorage = new ArchetypeStorage();
+            BundleStorage bundleStorage = new BundleStorage();
 
             Race dwarf = new("Дварф", "", 18, 450);
             dwarf.SetGender(Gender.Male);
             dwarf.SetGender(Gender.Female);
             dwarf.AgeDistribution.AddRange(0, 100);
             dwarf.AgeDistribution.AddRange(15, 50, 2);
-            storage.Add(dwarf);
+            raceStorage.Add(dwarf);
 
             Bundle dwarvenNames = new("Дварфийские имена");
             // First names
@@ -256,37 +262,37 @@ namespace Tests
             foreach (string name in dwarvenClanNames)
                 dwarvenNames.AddToLayer(1, " " + name, 1, Gender.Neutral);
 
-            storage.Add(ArchiveType.Name, dwarvenNames);
-            dwarf.CompatableBundles.AddBundle(ArchiveType.Name, dwarvenNames);
+            bundleStorage.Add(BundleType.Name, dwarvenNames);
+            dwarf.CompatableBundles.AddBundle(BundleType.Name, dwarvenNames);
 
             Archetype dwarvenMaleAcademyStudent = new("Ученик мужской дварфийской академии");
             dwarvenMaleAcademyStudent.Ages.AddRange(10, 20);
             dwarvenMaleAcademyStudent.SetGender(Gender.Male);
-            dwarvenMaleAcademyStudent.CompatableBundles.AddRace(dwarf);
+            dwarvenMaleAcademyStudent.AddRace(dwarf);
 
-            storage.Add(dwarvenMaleAcademyStudent);
+            archetypeStorage.Add(dwarvenMaleAcademyStudent);
 
 
             Archetype dwarvenSchoolKid = new("Дварфийский школьник");
             dwarvenSchoolKid.Ages.AddRange(6, 16);
             dwarvenSchoolKid.SetGender(Gender.Male);
             dwarvenSchoolKid.SetGender(Gender.Female);
-            dwarvenSchoolKid.CompatableBundles.AddRace(dwarf);
+            dwarvenSchoolKid.AddRace(dwarf);
 
-            storage.Add(dwarvenSchoolKid);
+            archetypeStorage.Add(dwarvenSchoolKid);
 
             // Gen
-            foreach (Archetype ar in storage[ArchiveType.Archetype])
+            foreach (Archetype ar in archetypeStorage)
             {
                 Console.WriteLine();
                 Console.WriteLine(ar.Name);
                 for (int i = 0; i < 10; i++)
                 {
-                    Race race = ar.GetRandomRace(storage);
+                    Race race = ar.GetRandomRace(raceStorage);
                     int age = ar.GetRandomAge(race);
                     Gender gender = ar.GetRandomGender(race);
 
-                    string nameGen = ar.GetRandomFromBundle(storage, ArchiveType.Name, race, gender, age);
+                    string nameGen = ar.GetRandomFromBundle(bundleStorage, BundleType.Name, race, gender, age);
 
                     Console.WriteLine(race.Name + " " + age + " " + gender + " " + nameGen);
                 }

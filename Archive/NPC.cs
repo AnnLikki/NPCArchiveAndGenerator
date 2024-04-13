@@ -15,6 +15,18 @@ namespace Archives
         // Main information
         public string Name { get; set; } = "No Name";
         public Guid RaceID { get; set; } = Guid.Empty;
+        public string RaceName
+        {
+            get
+            {
+                Race race = ArchiveHandler.raceStorage.FindRace(RaceID);
+                if (race == null)
+                    return "No Race";
+                else
+                    return race.Name;
+
+            }
+        }
         public string Gender { get; set; } = "";
         public int AgeChrono { get; set; } = 0;
         public int AgeBio { get; set; } = 0;
@@ -126,7 +138,7 @@ namespace Archives
             if (RaceID != race.Id)
             {
                 RaceID = race.Id;
-                OnPropertyChanged(nameof(Race));
+                OnPropertyChanged(nameof(RaceName));
             }
             if (Gender != gender)
             {
@@ -181,7 +193,7 @@ namespace Archives
             if (RaceID != npcToCopyFrom.RaceID)
             {
                 RaceID = npcToCopyFrom.RaceID;
-                OnPropertyChanged(nameof(RaceID));
+                OnPropertyChanged(nameof(RaceName));
             }
             if (Gender != npcToCopyFrom.Gender)
             {
@@ -231,12 +243,6 @@ namespace Archives
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        //public void Generate(Kit defaultArchives, AgeDistribution defaultAgeDistribution, Archetype archetype = null)
-        //{
-        //    if(archetype == null)
-        //    {
 
-        //    }
-        //}
     }
 }

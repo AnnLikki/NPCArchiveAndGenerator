@@ -7,6 +7,10 @@ namespace Archives
 {
     public class Race : INotifyPropertyChanged
     {
+
+        public static int basicMaturityAge = 18;
+        public static int basicLifeExpectancy = 80;
+
         /// <summary>
         /// ID of the Race. Allows to reference it without duplication during deserialization.
         /// </summary>
@@ -99,6 +103,44 @@ namespace Archives
             while (Genders.Any(g => (Gender)g.Value == gender))
                 Genders.Remove(Genders.First(g => (Gender)g.Value == gender));
         }
+
+
+        public int calculateChronoAge(int ageBio)
+        {
+            int ageChrono;
+            if (ageBio <= 0)
+                ageChrono = 0;
+            else
+            {
+                if (ageBio <= basicMaturityAge)
+                    ageChrono = (int)Math.Round((double)(ageBio * MaturityAge / basicMaturityAge));
+                else
+                    ageChrono = (int)Math.Round((double)((ageBio - basicMaturityAge) * (LifeExpectancy - MaturityAge)) / (basicLifeExpectancy - basicMaturityAge) + MaturityAge);
+            }
+            return ageChrono;
+        }
+
+        public int calculateBioAge(int ageChrono)
+        {
+            int ageBio;
+
+            if (ageChrono <= 0)
+                ageBio=0;
+            else
+            {
+                if (ageChrono <= MaturityAge)
+                    ageBio = (int)Math.Round((double)(ageChrono * basicMaturityAge) / MaturityAge);
+                else
+                    ageBio = (int)Math.Round((double)((ageChrono - MaturityAge) * (basicLifeExpectancy - basicMaturityAge)) / (LifeExpectancy - MaturityAge) + MaturityAge);
+            }
+            return ageBio;
+        }
+
+        public override string ToString()
+        {
+            return "Race "+Name;
+        }
+
 
     }
 }

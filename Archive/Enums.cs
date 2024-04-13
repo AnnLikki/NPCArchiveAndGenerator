@@ -30,7 +30,6 @@ namespace Archives
 
         /// <summary>
         /// Name,
-        /// Race,
         /// Occupation,
         /// Character,
         /// Height,
@@ -40,13 +39,11 @@ namespace Archives
         /// Face,
         /// Eyes,
         /// Clothes,
-        /// Features,
-        /// Archetype
+        /// Features
         /// </summary>
-        public enum ArchiveType
+        public enum BundleType
         {
             Name,
-            Race,
             Occupation,
             Character,
             Height,
@@ -56,8 +53,7 @@ namespace Archives
             Face,
             Eyes,
             Clothes,
-            Features,
-            Archetype
+            Features
         }
     }
 }
