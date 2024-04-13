@@ -3,13 +3,13 @@ using System.Windows.Controls;
 
 namespace NPCArchiveAndGenerator
 {
-    public partial class LittleArchivesUC : UserControl
+    public partial class BundlesArchivesUC : UserControl
     {
-        public LittleArchivesUC()
+        public BundlesArchivesUC()
         {
             InitializeComponent();
 
-            Lbl0.Content = ArchiveHandler.defaultArchives.ToString();
+            Lbl0.Content = ArchiveHandler.bundleStorage.ToString();
 
         }
     }

@@ -1,6 +1,8 @@
 ﻿using Archives;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using static Archives.Enums;
 
 namespace NPCGenerator
 {
@@ -14,7 +16,7 @@ namespace NPCGenerator
     /// </summary>
     public partial class RacesArchiveUC : UserControl
     {
-        ArchiveRace displayedArchiveRace;
+        Collection<Race> displayedArchiveRace;
         public RacesArchiveUC()
         {
             InitializeComponent();
@@ -22,7 +24,7 @@ namespace NPCGenerator
             // Binding the DataGrid the filterable races archive.
             updateFilterable();
 
-            ArchiveHandler.absoluteArchiveRace.CollectionChanged += ArchiveRace_CollectionChanged;
+            ArchiveHandler.raceStorage.CollectionChanged += ArchiveRace_CollectionChanged;
 
         }
 
@@ -33,7 +35,7 @@ namespace NPCGenerator
 
         public void updateFilterable()
         {
-            displayedArchiveRace = ArchiveHandler.absoluteArchiveRace.filterByKey(filterTB.Text);
+            displayedArchiveRace = ArchiveHandler.raceStorage.filterByKey(filterTB.Text);
             RaceDataGrid.ItemsSource = displayedArchiveRace;
         }
 
@@ -42,8 +44,8 @@ namespace NPCGenerator
         /// </summary>
         private void addRaceBtn_Click(object sender, RoutedEventArgs e)
         {
-            Race newRace = new Race();
-            ArchiveHandler.absoluteArchiveRace.Add(newRace);
+            Race newRace = new Race("New Race");
+            ArchiveHandler.raceStorage.Add(newRace);
         }
 
         /// <summary>

@@ -1,8 +1,10 @@
 ﻿using Archives;
 using Microsoft.Win32;
 using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
+using static Archives.Enums;
 using Path = System.IO.Path;
 
 namespace FileManager
@@ -20,13 +22,18 @@ namespace FileManager
     public static class SnL
     {
         public static string NPCsSavePath { set; get; } = null;
-        public static string racesSavePath { set; get; } = null;
-        public static string LASavePath { set; get; } = null;
+        public static string RacesSavePath { set; get; } = null;
+        public static string BundlesSavePath { set; get; } = null;
+        public static string ArchetypesSavePath { set; get; } = null;
         public static string dataSavePath { set; get; } = "NPCA&G_Data.json";
 
-        public const string TYPE_NPC = "TYPE_NPC";
-        public const string TYPE_RACE = "TYPE_RACE";
-        public const string TYPE_LA = "TYPE_LA";
+        public enum SaveType
+        {
+            NPC,
+            Races,
+            Bundles,
+            Archetypes
+        }
 
         public static bool saveData(string path)
         {
@@ -39,7 +46,7 @@ namespace FileManager
                     using (File.Create(path)) { }
                 string jsonData = "";
 
-                string[] paths = new string[] { NPCsSavePath, racesSavePath, LASavePath };
+                string[] paths = new string[] { NPCsSavePath, RacesSavePath, BundlesSavePath, ArchetypesSavePath };
 
                 jsonData = "SETTINGS DATA\n" +
                     JsonSerializer.Serialize(paths);
@@ -64,10 +71,11 @@ namespace FileManager
                 {
                     string jsonData = File.ReadAllText(path).Replace("SETTINGS DATA", "");
                     string[] paths = JsonSerializer.Deserialize<string[]>(jsonData);
-                    
+
                     NPCsSavePath = paths[0];
-                    racesSavePath = paths[1];
-                    LASavePath = paths[2];
+                    RacesSavePath = paths[1];
+                    BundlesSavePath = paths[2];
+                    ArchetypesSavePath = paths[3];
                 }
                 else
                     throw new FormatException("No correct format descriptor found.");
@@ -97,32 +105,32 @@ namespace FileManager
         /// <para>The files are saved with a format decriptor that marks the type of
         /// archive saved. An archive file can not be loaded in a different type of archive.</para>
         /// </remarks>
-        public static bool saveArchive(string type, string path)
+        public static bool saveArchive(SaveType type, string path)
         {
-            if (type != TYPE_NPC && type != TYPE_RACE && type != TYPE_LA)
-                throw new ArgumentException(type + " is not one of valid archive types.");
             try
             {
                 if (!Directory.Exists(Path.GetDirectoryName(path)))
                     Directory.CreateDirectory(Path.GetDirectoryName(path));
                 if (!File.Exists(path))
                     using (File.Create(path)) { }
-                string jsonData = "";
-                if (type == TYPE_NPC)
+                string jsonData = type + "\n";
+                switch (type)
                 {
-                    jsonData = "NPC ARCHIVE\n" +
-                        JsonSerializer.Serialize(ArchiveHandler.absoluteArchiveNPC);
-                }
-                else if (type == TYPE_RACE)
-                {
-                    jsonData = "RACE ARCHIVE\n" +
-                        JsonSerializer.Serialize(ArchiveHandler.absoluteArchiveRace);
-                }
-                else if (type == TYPE_LA)
-                {
-                    jsonData = "LITTLE ARCHIVES\n" +
-                        JsonSerializer.Serialize(ArchiveHandler.defaultArchives) + "\n" +
-                        JsonSerializer.Serialize(ArchiveHandler.defaultAgeRanges);
+                    case SaveType.NPC:
+                        jsonData += JsonSerializer.Serialize(ArchiveHandler.absoluteArchiveNPC);
+                        break;
+
+                    case SaveType.Races:
+                        jsonData += JsonSerializer.Serialize(ArchiveHandler.raceStorage);
+                        break;
+
+                    case SaveType.Bundles:
+                        jsonData += JsonSerializer.Serialize(ArchiveHandler.bundleStorage);
+                        break;
+
+                    case SaveType.Archetypes:
+                        jsonData += JsonSerializer.Serialize(ArchiveHandler.archetypeStorage);
+                        break;
                 }
                 File.WriteAllText(path, jsonData);
                 return true;
@@ -143,42 +151,33 @@ namespace FileManager
         /// <para>The files are saved with a format decriptor that marks the type of
         /// archive saved. An archive file can not be loaded in a different type of archive.</para>
         /// </remarks>
-        public static bool loadArchive(string type, string path)
+        public static bool loadArchive(SaveType type, string path)
         {
-            if(path == null)
+            if (path == null)
                 return false;
-            if (type != TYPE_NPC && type != TYPE_RACE && type != TYPE_LA)
-                throw new ArgumentException(type + " is not one of valid archive types.");
             try
             {
-                if (type == TYPE_NPC)
-                    if (File.ReadAllLines(path)[0] == "NPC ARCHIVE")
-                    {
-                        string jsonData = File.ReadAllText(path).Replace("NPC ARCHIVE", "");
+                if (File.ReadAllLines(path)[0] != type.ToString())
+                    throw new FormatException("No correct format descriptor found.");
+
+                //string jsonData = File.ReadAllText(path).Replace(type.ToString(), "");
+                string jsonData = File.ReadAllLines(path)[1];
+
+                switch (type)
+                {
+                    case SaveType.NPC:
                         ArchiveHandler.absoluteArchiveNPC = JsonSerializer.Deserialize<ArchiveNPC>(jsonData);
-                    }
-                    else
-                        throw new FormatException("No correct format descriptor found.");
-                else if (type == TYPE_RACE)
-
-                    if (File.ReadAllLines(path)[0] == "RACE ARCHIVE")
-                    {
-                        string jsonData = File.ReadAllText(path).Replace("RACE ARCHIVE", "");
-                        ArchiveHandler.absoluteArchiveRace = JsonSerializer.Deserialize<ArchiveRace>(jsonData);
-
-                    }
-                    else
-                        throw new FormatException("No correct format descriptor found.");
-                else if (type == TYPE_LA)
-
-                    if (File.ReadAllLines(path)[0] == "LITTLE ARCHIVES")
-                    {
-                        //string jsonData = File.ReadAllText(path).Replace("LITTLE ARCHIVES", "");
-                        ArchiveHandler.defaultArchives = JsonSerializer.Deserialize<ArchiveDictionary>(File.ReadAllLines(path)[1]);
-                        ArchiveHandler.defaultAgeRanges = JsonSerializer.Deserialize<ArchiveAgeRange>(File.ReadAllLines(path)[2]);
-                    }
-                    else
-                        throw new FormatException("No correct format descriptor found.");
+                        break;
+                    case SaveType.Races:
+                        ArchiveHandler.raceStorage = JsonSerializer.Deserialize<RaceStorage>(jsonData);
+                        break;
+                    case SaveType.Bundles:
+                        ArchiveHandler.bundleStorage = JsonSerializer.Deserialize<BundleStorage>(jsonData);
+                        break;
+                    case SaveType.Archetypes:
+                        ArchiveHandler.archetypeStorage = JsonSerializer.Deserialize<ArchetypeStorage>(jsonData);
+                        break;
+                }
 
                 return true;
             }
@@ -198,13 +197,8 @@ namespace FileManager
         /// <summary>
         /// Choosing where to save by a dialog window.
         /// </summary>
-        /// <param name="type">Type of the archive, either TYPE_NPC or TYPE_RACE.</param>
-        /// <returns>true if a file location has been chosen, false if not or canceled.</returns>
-        public static bool saveViaDialog(string type, string windowTitle)
+        public static bool saveViaDialog(SaveType type, string windowTitle)
         {
-            if (type != TYPE_NPC && type != TYPE_RACE && type!=TYPE_LA)
-                throw new ArgumentException(type + " is not one of valid archive types.");
-
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "JSON files(*.json)|*.json";
             saveFileDialog.Title = windowTitle;
@@ -215,12 +209,15 @@ namespace FileManager
             saveArchive(type, filename);
 
             if (!ErrorHandler.errorPopup())
-                if (type == TYPE_NPC)
+                if (type == SaveType.NPC)
                     NPCsSavePath = filename;
-                else if (type == TYPE_RACE)
-                    racesSavePath = filename;
-                else if (type == TYPE_LA)
-                    LASavePath = filename;
+                else if (type == SaveType.Races)
+                    RacesSavePath = filename;
+                else if (type == SaveType.Bundles)
+                    BundlesSavePath = filename;
+                else if (type == SaveType.Archetypes)
+                    ArchetypesSavePath = filename;
+
             return true;
 
         }
@@ -228,13 +225,9 @@ namespace FileManager
         /// <summary>
         /// Choosing where to load from by a dialog window.
         /// </summary>
-        /// <param name="type">Type of the archive, either TYPE_NPC or TYPE_RACE.</param>
         /// <returns>true if a file has been chosen, false if not or canceled.</returns>
-        public static bool openViaDialog(string type, string windowTitle)
+        public static bool openViaDialog(SaveType type, string windowTitle)
         {
-            if (type != TYPE_NPC && type != TYPE_RACE && type != TYPE_LA)
-                throw new ArgumentException(type + " is not one of valid archive types.");
-
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "JSON files (*.json)|*.json";
             openFileDialog.Title = windowTitle;
@@ -246,12 +239,15 @@ namespace FileManager
             loadArchive(type, filename);
 
             if (!ErrorHandler.errorPopup())
-                if (type == TYPE_NPC)
+                if (type == SaveType.NPC)
                     NPCsSavePath = filename;
-                else if (type == TYPE_RACE)
-                    racesSavePath = filename;
-                else if (type == TYPE_LA)
-                    LASavePath = filename;
+                else if (type == SaveType.Races)
+                    RacesSavePath = filename;
+                else if (type == SaveType.Bundles)
+                    BundlesSavePath = filename;
+                else if (type == SaveType.Archetypes)
+                    ArchetypesSavePath = filename;
+
             return true;
 
         }

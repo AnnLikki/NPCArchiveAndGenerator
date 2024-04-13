@@ -7,33 +7,39 @@ namespace NPCArchiveAndGenerator
 
         public enum Status
         {
-            ArchiveNPC,
-            ArchiveRace,
-            ArchiveLA
+            NPC,
+            Race,
+            Bundle,
+            Archetype
         }
 
         public static bool safeMode = true;
-        public static Status status = Status.ArchiveNPC;
+        public static Status status = Status.NPC;
 
         public static string GetFileName()
         {
             switch (status)
             {
-                case Status.ArchiveNPC:
+                case Status.NPC:
                     if (SnL.NPCsSavePath != null)
                         return SnL.NPCsSavePath;
                     else
                         return "Unsaved NPC Archive";
-                case Status.ArchiveRace:
-                    if (SnL.racesSavePath != null)
-                        return SnL.racesSavePath;
+                case Status.Race:
+                    if (SnL.RacesSavePath != null)
+                        return SnL.RacesSavePath;
                     else
                         return "Unsaved Races Archive";
-                case Status.ArchiveLA:
-                    if (SnL.LASavePath != null)
-                        return SnL.LASavePath;
+                case Status.Bundle:
+                    if (SnL.BundlesSavePath != null)
+                        return SnL.BundlesSavePath;
                     else
-                        return "Unsaved Little Archives";
+                        return "Unsaved Bundles Archive";
+                case Status.Archetype:
+                    if (SnL.ArchetypesSavePath != null)
+                        return SnL.ArchetypesSavePath;
+                    else
+                        return "Unsaved Archetype Archive";
                 default:
                     return "WTF";
             }

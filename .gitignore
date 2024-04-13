@@ -8,4 +8,6 @@
 /NPCGenerator/bin/*
 /NPCGenerator/obj/*
 
+/Tmp/*
+
 /packages/*

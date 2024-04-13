@@ -1,45 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Archives
+﻿namespace Archives
 {
-    /// <summary>
-    /// A static class to store the global archives and the tempopary archives.
-    /// </summary>
-    /// <remarks>
-    /// Contains <c>absoluteArchiveNPC</c> and <c>absoluteArchiveRace</c>.
-    /// Provides an easier to access from other classes.
-    /// </remarks>
     public static class ArchiveHandler
     {
         /// <summary>
-        /// Contains all of the created NPCs.
+        /// Archive that contains all NPCs.
         /// </summary>
         public static ArchiveNPC absoluteArchiveNPC = new ArchiveNPC();
 
         /// <summary>
-        /// Contains all of the created races.
+        /// A collection of absolute archives that contain all Bundles. 
         /// </summary>
-        public static ArchiveRace absoluteArchiveRace = new ArchiveRace();
+        public static BundleStorage bundleStorage = new BundleStorage();
 
+        public static RaceStorage raceStorage = new RaceStorage();
 
-        public static ArchiveAgeRange defaultAgeRanges = new ArchiveAgeRange();
+        public static ArchetypeStorage archetypeStorage = new ArchetypeStorage();
 
-        public static ArchiveDictionary defaultArchives = new ArchiveDictionary();
-
-
-        // TODO: temp saves
-
-        ///// <summary>
-        ///// Temporary NPC archive for autosaving.
-        ///// </summary>
-        //public static ArchiveNPC tempArchiveNPC = new ArchiveNPC();
-
-        ///// <summary>
-        ///// Temporary races archive for autosaving.
-        ///// </summary>
-        //public static ArchiveRace tempArchiveRace = new ArchiveRace();
-
+        /// <summary>
+        /// An archetype that will be applied if no other archetype is used.
+        /// </summary>
+        public static Archetype defaultArchetype = new Archetype("Default Archetype");
 
     }
 }

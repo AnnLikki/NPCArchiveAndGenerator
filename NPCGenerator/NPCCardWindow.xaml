@@ -9,7 +9,7 @@
     <ScrollViewer>
 
         <!--#region Main Grid-->
-        <!--Contains Top and Bottom Grids-->
+        <!--Contains Top and Bottom Grids--><!--
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -19,15 +19,15 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!--#region Top Grid -->
-            <!-- Contains the info on the left and stats on the right -->
+            --><!--#region Top Grid -->
+            <!-- Contains the info on the left and stats on the right --><!--
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
 
-                <!--#region Left info grid-->
+                --><!--#region Left info grid--><!--
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25" />
@@ -50,7 +50,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <!--#region Main Info-->
+                    --><!--#region Main Info--><!--
                     <Grid Grid.Row="0" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -150,9 +150,9 @@
                         <Label Content="Place" Margin="2,0,2,0" Grid.Column="4" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
                         <TextBox x:Name="placeTB" Margin="2,0,0,0" Grid.Column="5" VerticalScrollBarVisibility="Disabled"/>
                     </Grid>
-                    <!--#endregion-->
+                    --><!--#endregion-->
 
-                    <!--#region Personality-->
+                    <!--#region Personality--><!--
                     <Grid Grid.Row="4" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -191,9 +191,9 @@
                         </Grid.ColumnDefinitions>
                         <TextBox x:Name="backstoryTB" Margin="2,0,0,0" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled"/>
                     </Grid>
-                    <!--#endregion-->
+                    --><!--#endregion-->
 
-                    <!--#region Appearance-->
+                    <!--#region Appearance--><!--
                     <Grid Grid.Row="9" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -329,12 +329,12 @@
                         </Grid.ColumnDefinitions>
                         <TextBox x:Name="featuresTB" Margin="2,0,0,2" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" AcceptsTab="True"/>
                     </Grid>
-                    <!--#endregion-->
+                    --><!--#endregion--><!--
 
                 </Grid>
-                <!--#endregion-->
+                --><!--#endregion-->
 
-                <!--#region Right Stats Stack Panel-->
+                <!--#region Right Stats Stack Panel--><!--
                 <StackPanel Grid.Column="1">
                     <Border BorderThickness="2" BorderBrush="Black" Grid.Column="1" Margin="2" Padding="2">
                         <Grid>
@@ -409,12 +409,12 @@
                         </Grid>
                     </Border>
                 </StackPanel>
-                <!--#endregion-->
+                --><!--#endregion--><!--
 
             </Grid>
-            <!--#endregion-->
+            --><!--#endregion-->
 
-            <!--#region Bottom Grid-->
+            <!--#region Bottom Grid--><!--
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -425,10 +425,10 @@
                 <TextBox x:Name="notesTB" Grid.Row="1" Margin="2,2,2,2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"/>
 
             </Grid>
-            <!--#endregion-->
+            --><!--#endregion--><!--
 
         </Grid>
-        <!--#endregion-->
-
+        --><!--#endregion-->
+        
     </ScrollViewer>
 </Window>

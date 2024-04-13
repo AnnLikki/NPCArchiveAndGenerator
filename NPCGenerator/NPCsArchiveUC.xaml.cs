@@ -18,7 +18,7 @@ namespace NPCGenerator
         {
             InitializeComponent();
 
-            // Binding the DataGrid the filterable NPC archive.
+            // Binding the DataGrid to the filterable NPC archive.
             updateFilterable();
 
             ArchiveHandler.absoluteArchiveNPC.CollectionChanged += ArchiveNPC_CollectionChanged;

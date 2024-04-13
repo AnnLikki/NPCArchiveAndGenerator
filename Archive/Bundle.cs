@@ -1,114 +1,161 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
+using static Archives.Enums;
 
 namespace Archives
 {
-    /// <summary>
-    ///  Bundle is a collection of a specific type and purpose. It contains a selection of elements
-    ///  that are interchangable, e.g. Positive Personalities Bundle (with elements like "kind", "generous" etc.)
-    ///  or Common Names Bundle ("Steve", "Helen", etc).
-    ///  It can also have multiple layers, each one can have a chance to get picked.
-    /// </summary>
     public class Bundle
     {
         /// <summary>
-        /// Type of the Bundle
+        /// ID of the Bundle. Allows to reference it without duplication during deserialization.
         /// </summary>
-        public ArchiveType type { get; set; }
+        public Guid Id { get; set; }
         /// <summary>
-        /// Given name of the Bundle, represents it's purpose.
+        /// Given name of the Bundle.
         /// </summary>
-        public string name { get; set; }
+        public string Name { get; set; }
         /// <summary>
-        /// True if each layer after the first one can be picked regardless if the layer before was picked or not.\n
-        /// False if layers can't be picked if the previous layer wasn't picked.\n
-        /// Layer that wasn't picked can have a default value that will be used instead.\n
-        /// E.g. if true:\n
-        /// Layer one - Neutral personality trait (chance=0.5): "Calm", "Neat", "Shrewd"\n
-        /// Layer two - Good personality trait (chance=0.5): "Kind", "Empathetic", "Loyal"\n
-        /// Layer three - Bad personality trait (chance=0.5): "Evil", "Aggressive", "Greedy"\n
-        /// Possible results: "Clam, Kind", "Loyal, Greedy", "Evil" etc.\n
-        /// \n
-        /// E.g. if false:n\
-        /// Layer one - Hair color (chance=1): "Blond", "Black", "Brown", "Ginger"\n
-        /// Layer two - Hair length (chance=0.9 default="facial hair, bald head"): "long", "medium length", "short"\n
-        /// Layer three - Hairstyle (chance=0.5, default="plain hairstyle"): "Braided hair", "Curly hair", "Up-do"\n
-        /// Possible results: "Blond long up-do", "Brown facial hair, bald head", "Ginger medium length plain hairsyle" etc.\n
+        /// If the Bundle is gendered it will get picked only for characters of the same gender.
         /// </summary>
-        public bool independentParts { get; set; }
+        public Gender Gender { get; set; }
         /// <summary>
-        /// Collection of layers, the higher the index, the lower the layer.
+        /// The lowest biological age of a character that this Bundle would be comapatable with.
         /// </summary>
-        public Collection<Layer> layers { get; set; }
+        public int LowerAgeLimit { get; set; }
+        /// <summary>
+        /// The highest biological age of a character that this Bundle would be comapatable with.
+        /// </summary>
+        public int UpperAgeLimit { get; set; }
+        /// <summary>
+        /// If true - deeper layers can be picked if the previous one wasn't,
+        /// if false - it stops the generation on the first layer that wasn't picked.
+        /// </summary>
+        public bool IndependentLayers { get; set; }
+        /// <summary>
+        /// Default Value is returned if the bundle contains no Layers.
+        /// </summary>
+        public string DefaultValue { get; set; }
+        /// <summary>
+        /// A collection of Layers of elements. Layers allow for multi-level results by placing different 
+        /// independent types of data separately and picking randomly from each layer. 
+        /// </summary>
+        public Collection<Layer> Layers { get; set; }
+        /// <summary>
+        /// Gets the number of layers in this bundle.
+        /// </summary>
+        public int Count { get { return Layers.Count; } }
 
-        Random random = new Random();
+        private Random random = new Random();
 
-        public Bundle(ArchiveType type, string name, bool independentParts)
+
+        public Bundle(string name, bool independentLayers = true, Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, string defaultValue="No suitable layers")
         {
-            this.type = type;
-            this.name = name;
-            this.independentParts = independentParts;
-            this.layers = new Collection<Layer>();
+            Id = Guid.NewGuid();
+            Name = name;
+            IndependentLayers = independentLayers;
+            Gender = gender;
+            LowerAgeLimit = lowerAgeLimit;
+            UpperAgeLimit = upperAgeLimit;
+            DefaultValue = defaultValue;
+            Layers = new Collection<Layer>();
         }
 
-        public void insertLayer(int layerNumber, float chance = 1.0f, string defaultValue = "", Collection<ListElement> elements = null)
+        /// <summary>
+        /// Inser new layer at specified index.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Throws ArgumentOutOfRangeException if index is out of bounds [0, Count].
+        /// </exception>
+        public void InsertNewLayer(int index, double chance = 1.0, string defaultValue = "", Gender gender=Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
         {
-            layers.Insert(layerNumber, new Layer(elements, chance, defaultValue));
+            if (index < 0 || index > Layers.Count)
+                throw new ArgumentOutOfRangeException("index");
+            Layers.Insert(index, new Layer(chance, defaultValue, gender, lowerAgeLimit, upperAgeLimit, elements));
         }
 
-        public void insertLayer(int layerNumber, Layer layer)
+        /// <summary>
+        /// Removes layer at specified index.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Throws ArgumentOutOfRangeException if index is out of bounds.
+        /// </exception>
+        public void RemoveLayerAt(int index)
         {
-            layers.Insert(layerNumber, layer);
+            if (index < 0 || index >= Layers.Count)
+                throw new ArgumentOutOfRangeException("index");
+            Layers.RemoveAt(index);
         }
 
-        public void addElementToLayer(int layer, ListElement element)
+        /// <summary>
+        /// Removes all layers from this bundle.
+        /// </summary>
+        public void ClearLayers()
         {
-            layers[layer].getElements().Add(element);
+            Layers.Clear();
         }
 
-        public Collection<Layer> getAllLayers()
+        /// <summary>
+        /// Returns the layer at specified index.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public Layer GetLayer(int index)
         {
-            return layers;
+            if (index < 0 || index >= Layers.Count)
+                throw new ArgumentOutOfRangeException("index");
+            return Layers[index];
         }
 
-        public List<string> getValuesFromLayer(int layer) { 
-            
-            List<string> values = new List<string>();
-            foreach(ListElement le in layers[layer].getElements())
-            {
-                values.Add(le.value);
-            }
-
-            return values;
-        }
-
-        public Layer getLayer(int layer)
+        /// <summary>
+        /// Add WeightedElement to the Layer at specified index. Can't add an element that has already been added to this Layer. 
+        /// Can't add a null.
+        /// </summary>
+        /// <param name="index">Index of Layer that the element will be added to.</param>
+        public void AddToLayer(int index, WeightedElement element)
         {
-            return layers[layer];
+            Layers[index].Add(element);
         }
         
-        public string getRandom()
+        /// <summary>
+        /// Add a new WeighedElement with string Value and other specified parameters to the Layer at specified index.
+        /// </summary>
+        /// <param name="index">Index of Layer that the element will be added to.</param>
+        public void AddToLayer(int index, string value, int weight = 1, Gender gender = Gender.Neutral)
         {
+            Layers[index].Add(new WeightedElement(value, weight, gender));
+        }
+
+        public string GetRandom(Gender gender = Gender.Neutral, int ageBio = -1)
+        {
+            // If the bundle has no suitable layers
+            if (Layers.Count(
+                l =>
+                (l.Gender == gender || l.Gender == Gender.Neutral)
+                &&
+                (ageBio == -1 || (l.LowerAgeLimit <= ageBio && l.UpperAgeLimit >= ageBio))) == 0)
+                return DefaultValue;
+
             string result = "";
 
-            foreach(Layer layer in layers)
+            // Picking only from Layers that are the same gender as provided or gender-neutral
+            // So gendered layers can only be picked if requested, otherwise always ungendered layers
+            // will get picked
+            foreach (Layer layer in Layers.Where(
+                l => 
+                (l.Gender == gender || l.Gender == Gender.Neutral)
+                &&
+                (ageBio==-1 || (l.LowerAgeLimit<=ageBio && l.UpperAgeLimit>=ageBio))))
             {
-                float chance = (float)random.NextDouble();
-                if (chance <= layer.chance) // layer is chosen
+                double chance = random.NextDouble();
+                if (chance <= layer.Chance) // Layer is picked
+                    result += layer.GetRandom(gender);
+                else // Layer isn't picked
                 {
-                    result += layer.getRandom() + " ";
-                }
-                else // layer isn't chosen
-                {
-                    if(layer.defaultValue.Length>0)
-                        result += layer.defaultValue;
-                    if (!independentParts)
+                    if (layer.DefaultValue.Length > 0)
+                        result += layer.DefaultValue;
+                    if (!IndependentLayers)
                         break;
                 }
             }
@@ -116,31 +163,19 @@ namespace Archives
             return result.Trim();
         }
 
-
         public override string ToString()
         {
-            string output = name+"\n";
-            foreach (Layer layer in layers)
+            string res = "Bundle "+Name+"\n";
+            int i = 0;
+            foreach(Layer l in Layers)
             {
-                output += "Layer"+ layers.IndexOf(layer)+": "+ layer.ToString()+"\n";
+                res += "Layer #"+i;
+                res += l.ToString()+"\n";
+                i++;
             }
-            return output;
+            return res;
         }
-    }
 
-    public enum ArchiveType
-    {
-        Name,
-        Gender,
-        Occupation,
-        Personality,
-        Height,
-        Physique,
-        Skin,
-        Hair,
-        Face,
-        Eyes,
-        Clothes,
-        Features
+
     }
 }

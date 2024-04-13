@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,19 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgeRange.cs" />
-    <Compile Include="ArchiveAgeRange.cs" />
-    <Compile Include="ArchiveDictionary.cs" />
+    <Compile Include="Archetype.cs" />
+    <Compile Include="AgeDistribution.cs" />
+    <Compile Include="ArchetypeStorage.cs" />
+    <Compile Include="RaceStorage.cs" />
+    <Compile Include="Kit.cs" />
+    <Compile Include="BundleStorage.cs" />
     <Compile Include="ArchiveHandler.cs" />
-    <Compile Include="ArchiveBundles.cs" />
     <Compile Include="ArchiveNPC.cs" />
-    <Compile Include="ArchiveRace.cs" />
-    <Compile Include="Layer.cs" />
-    <Compile Include="ListElement.cs" />
     <Compile Include="Bundle.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Layer.cs" />
     <Compile Include="NPC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Race.cs" />
+    <Compile Include="WeightedArchive.cs" />
+    <Compile Include="WeightedElement.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
