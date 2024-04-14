@@ -186,6 +186,10 @@ namespace NPCArchiveAndGenerator
             }
         }
 
+        private void IndependentLayersChb_Changed(object sender, RoutedEventArgs e)
+        {
+            bundle.IndependentLayers = IndependentLayersChb.IsChecked==true ? true:false;
+        }
     }
 
     public class EnumToImageConverter : IValueConverter

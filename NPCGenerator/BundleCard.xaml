@@ -53,7 +53,7 @@
             <Button x:Name="MoveToCategoryBtn" Grid.Column="2" Margin="6" Click="MoveToCategoryBtn_Click">
                 <Image Source="/Images/move_category.png" />
             </Button>
-            <CheckBox x:Name="IndependentLayersChb" Grid.Column="3" Content="Independent Layers" VerticalAlignment="Center"/>
+            <CheckBox x:Name="IndependentLayersChb" Grid.Column="3" Content="Independent Layers" VerticalAlignment="Center" Unchecked="IndependentLayersChb_Changed" Checked="IndependentLayersChb_Changed" />
         </Grid>
 
         <Grid Grid.Row="2">
