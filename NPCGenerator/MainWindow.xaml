@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:NPCGenerator"
         mc:Ignorable="d"
         Closing="TheWindow_Closing"  
-        Title="NPC Archive &amp; Generator" Height="600" Width="800" MinWidth="550" MinHeight="200" Background="LightBlue" Icon="/Images/archive.png">
+        Title="NPC Archive &amp; Generator" Height="600" Width="800" MinWidth="600" MinHeight="200" Background="LightBlue" Icon="/Images/archive.png">
     <Grid x:Name="mainPnl">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -38,7 +38,8 @@
             <WrapPanel x:Name="bottomWrpPnl" Grid.Column="0" Grid.ColumnSpan="6" Height="30" HorizontalAlignment="Center">
                 <Button x:Name="NPCsArchiveBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="NPCs Archive" Click="NPCsArchiveBtn_Click"/>
                 <Button x:Name="RacesArchiveBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Races Archive" Click="RacesArchiveBtn_Click"/>
-                <Button x:Name="LittleArchivesBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Little Archives" Click="LittleArchivesBtn_Click"/>
+                <Button x:Name="BundlesArchivesBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Bundle Archives" Click="BundlesArchivesBtn_Click"/>
+                <Button x:Name="ArchetypeArchivesBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Archetype Archives" Click="ArchetypeArchivesBtn_Click"/>
             </WrapPanel>
         </Grid>
     </Grid>

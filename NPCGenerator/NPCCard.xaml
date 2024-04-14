@@ -78,9 +78,6 @@
                         <Button x:Name="deleteBtn" Margin="2,0,2,0" Grid.Column="6" Click="deleteBtn_Click">
                             <Image Source="/Images/delete.png"/>
                         </Button>
-                        <!--<Button x:Name="openExternallyBtn" Margin="2,0,2,0" Grid.Column="7" Click="openExternallyBtn_Click">
-                            <Image Source="/Images/openEx.png"/>
-                        </Button>-->
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>

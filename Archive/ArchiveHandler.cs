@@ -16,10 +16,6 @@
 
         public static ArchetypeStorage archetypeStorage = new ArchetypeStorage();
 
-        /// <summary>
-        /// An archetype that will be applied if no other archetype is used.
-        /// </summary>
-        public static Archetype defaultArchetype = new Archetype("Default Archetype");
 
     }
 }

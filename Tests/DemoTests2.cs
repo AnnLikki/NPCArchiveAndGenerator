@@ -6,7 +6,7 @@ namespace Tests
 {
     internal class DemoTests2
     {
-        
+
         BundleStorage bundleStorage = new();
         RaceStorage raceStorage = new RaceStorage();
         ArchetypeStorage archetypeStorage = new ArchetypeStorage();
@@ -62,7 +62,7 @@ namespace Tests
             string[] dwarfMaleNames = { "Thrain", "Gundar", "Korgrim", "Borin", "Hulgar", "Thurin", "Gimrik", "Durgan", "Orin", "Brogar" };
             string[] dwarfFemaleNames = { "Hilda", "Grenda", "Brunhild", "Elgrin", "Ulga", "Filda", "Gilda", "Ragna", "Thora", "Ingrith" };
             string[] dwarfNeutralNames = { "Karn", "Dolgrim", "Balinor", "Fargrim", "Durn", "Oskar", "Rogar", "Skorin", "Torrin", "Vargrim" };
-            
+
             string[] dwarfClanNames = { "Stonebreaker", "Ironhelm", "Goldbeard", "Battleborn", "Axehammer", "Deepdelver", "Mountainforge", "Firebeard", "Steelborn", "Rockcrusher" };
 
             // Dwarven names are built with this logic:

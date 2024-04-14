@@ -145,7 +145,7 @@ namespace Tests
             }
 
             Assert.That(results[0], Is.EqualTo(0));
-            Assert.That((double)results[1]/tests >= 1.0 / 10.0 - 0.05 && (double)results[1] / tests <= 1.0 / 10.0 + 0.05);
+            Assert.That((double)results[1] / tests >= 1.0 / 10.0 - 0.05 && (double)results[1] / tests <= 1.0 / 10.0 + 0.05);
             Assert.That((double)results[2] / tests >= 2.0 / 10.0 - 0.05 && (double)results[2] / tests <= 2.0 / 10.0 + 0.05);
             Assert.That((double)results[3] / tests >= 3.0 / 10.0 - 0.05 && (double)results[3] / tests <= 3.0 / 10.0 + 0.05);
             Assert.That((double)results[4] / tests >= 4.0 / 10.0 - 0.05 && (double)results[4] / tests <= 4.0 / 10.0 + 0.05);
@@ -305,7 +305,7 @@ namespace Tests
                 string result = wa.GetRandomFromBundle(storage, BundleType.Name, Gender.Neutral, age);
 
                 if (result == "1")
-                    Assert.That(age>=10 && age<=20);
+                    Assert.That(age >= 10 && age <= 20);
                 else if (result == "2")
                     Assert.That(age >= 30 && age <= 40);
                 else if (result == "3")
@@ -319,7 +319,7 @@ namespace Tests
         {
             WeightedArchive wa1 = new WeightedArchive();
             wa1.AddElement("A");
-            wa1.AddElement("B"); 
+            wa1.AddElement("B");
             wa1.AddElement("C");
 
             WeightedArchive wa2 = new WeightedArchive();
@@ -331,7 +331,7 @@ namespace Tests
 
             Assert.That(wa3.Any(el => el.Value.Equals("B")));
             Assert.That(wa3.Any(el => el.Value.Equals("C")));
-            Assert.That(wa3.Count==2);
+            Assert.That(wa3.Count == 2);
         }
 
         [Test]
@@ -386,7 +386,7 @@ namespace Tests
             ag.AddAge(12);
             ag.AddAge(23, 5);
             Assert.That(ag.Any(el => el.Value.Equals(12)));
-            Assert.That(ag.Any(el => el.Value.Equals(23)&& el.Weight.Equals(5)));
+            Assert.That(ag.Any(el => el.Value.Equals(23) && el.Weight.Equals(5)));
             Assert.That(ag.Count == 2);
 
             ag.Clear();
@@ -420,7 +420,7 @@ namespace Tests
             // Edge cases
 
             // From > to
-            Assert.Throws<ArgumentException>(()=> ag.AddRange(10, 5));
+            Assert.Throws<ArgumentException>(() => ag.AddRange(10, 5));
 
 
         }
@@ -442,21 +442,21 @@ namespace Tests
                     results[1]++;
                 else if (result == 2)
                     results[2]++;
-                else if(result == 3)
+                else if (result == 3)
                     results[3]++;
-                else if(result == 7)
+                else if (result == 7)
                     results[4]++;
-                else if(result == 8)
+                else if (result == 8)
                     results[5]++;
-                else if(result == 9)
+                else if (result == 9)
                     results[6]++;
-                else 
+                else
                     results[0]++;
 
             }
 
             Assert.That(results[0], Is.EqualTo(0));
-            for(int i = 1; i<4; i++)
+            for (int i = 1; i < 4; i++)
             {
                 Assert.That((double)results[i] / tests >= 5.0 / 21.0 - 0.05 && (double)results[i] / tests <= 5.0 / 21.0 + 0.05);
             }

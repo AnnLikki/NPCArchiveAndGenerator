@@ -50,11 +50,11 @@ namespace Archives
             {
                 sum += we.Weight;
                 if (sum >= r)
-                    return (int) we.Value;
+                    return (int)we.Value;
             }
             // If there are no elements on this layer
             return -1;
-            
+
         }
     }
 }

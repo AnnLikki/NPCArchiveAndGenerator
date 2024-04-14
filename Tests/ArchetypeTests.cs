@@ -151,7 +151,7 @@ namespace Tests
             bundle2.InsertNewLayer(0);
             bundle2.AddToLayer(0, "Name");
             bundleStorage.Add(BundleType.Name, bundle2);
-            archetype.CompatableBundles.AddBundle(BundleType.Name,bundle2);
+            archetype.CompatableBundles.AddBundle(BundleType.Name, bundle2);
 
             // Gen
             Race raceGen = archetype.GetRandomRace(raceStorage);

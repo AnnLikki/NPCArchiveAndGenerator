@@ -15,8 +15,7 @@ namespace Archives
         public BundleStorage()
         {
             foreach (BundleType type in (BundleType[])Enum.GetValues(typeof(BundleType)))
-                if (!ContainsKey(type))
-                    Add(type, new ObservableCollection<Bundle>());
+                Add(type, new ObservableCollection<Bundle>());
         }
 
         /// <summary>
@@ -53,16 +52,47 @@ namespace Archives
 
         public void ClearAllBundles()
         {
-            foreach(BundleType type in (BundleType[])Enum.GetValues(typeof(BundleType)))
+            foreach (BundleType type in (BundleType[])Enum.GetValues(typeof(BundleType)))
                 if (ContainsKey(type))
                     this[type].Clear();
         }
 
-        public Bundle FindBundle(BundleType archiveType, Guid ID)
+        public Bundle FindBundle(BundleType bundleType, Guid ID)
         {
-            if (!ContainsKey(archiveType))
+            if (!ContainsKey(bundleType))
                 return null;
-            return this[archiveType].FirstOrDefault(r => (r).Id.Equals(ID));
+            return this[bundleType].FirstOrDefault(r => (r).Id.Equals(ID));
+        }
+
+        public List<Bundle> filterByKey(BundleType bundleType, string keyword)
+        {
+            if (keyword.Count() == 0)
+            {
+                List<Bundle> fin1 = new List<Bundle>();
+                foreach (Bundle i in this[bundleType]) fin1.Add(i);
+                return fin1;
+            }
+            List<Bundle> name = new List<Bundle>();
+            List<Bundle> gender = new List<Bundle>();
+            foreach (Bundle bundle in this[bundleType])
+            {
+                if (bundle.Name.ToLower().Contains(keyword.ToLower()) || keyword.ToLower().Contains(bundle.Name.ToLower()))
+                {
+                    name.Add(bundle);
+                }
+                else if (keyword.ToLower().Contains(bundle.Gender.ToString().ToLower()))
+                {
+                    gender.Add(bundle);
+                }
+
+            }
+
+            List<Bundle> fin = new List<Bundle>();
+            foreach (Bundle i in name) fin.Add(i);
+            foreach (Bundle i in gender) fin.Add(i);
+
+            return fin;
+
         }
 
         public override string ToString()
@@ -72,7 +102,7 @@ namespace Archives
             {
                 res += type + ":\n";
                 foreach (var e in this[type])
-                    res += e+"\n";
+                    res += e + "\n";
                 res += "\n";
             }
             return res;

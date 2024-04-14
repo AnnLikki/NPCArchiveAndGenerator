@@ -78,12 +78,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller.cs" />
-    <Compile Include="LittleArchivesUC.xaml.cs">
-      <DependentUpon>LittleArchivesUC.xaml</DependentUpon>
+    <Compile Include="AchetypesArchivesUC.xaml.cs">
+      <DependentUpon>AchetypesArchivesUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NPCCardWindow.xaml.cs">
-      <DependentUpon>NPCCardWindow.xaml</DependentUpon>
+    <Compile Include="Controller.cs" />
+    <Compile Include="BundlesArchivesUC.xaml.cs">
+      <DependentUpon>BundlesArchivesUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BundleCard.xaml.cs">
+      <DependentUpon>BundleCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LayerEditWin.xaml.cs">
+      <DependentUpon>LayerEditWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="RaceCard.xaml.cs">
       <DependentUpon>RaceCard.xaml</DependentUpon>
@@ -91,7 +97,15 @@
     <Compile Include="NPCCard.xaml.cs">
       <DependentUpon>NPCCard.xaml</DependentUpon>
     </Compile>
-    <Page Include="LittleArchivesUC.xaml">
+    <Page Include="AchetypesArchivesUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BundlesArchivesUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LayerEditWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,7 +121,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NPCCardWindow.xaml">
+    <Page Include="BundleCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,9 +203,6 @@
     <Resource Include="Images\archive.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\openEx.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="archive.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +221,28 @@
     <Resource Include="Images\open.png" />
     <Resource Include="Images\saveAll.png" />
     <Resource Include="Images\saveAs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\female.png" />
+    <Resource Include="Images\male.png" />
+    <Resource Include="Images\neuter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\down.png" />
+    <Resource Include="Images\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\duplicate.png" />
+    <Resource Include="Images\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\move_category.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

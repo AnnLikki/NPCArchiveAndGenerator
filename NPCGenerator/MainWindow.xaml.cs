@@ -1,8 +1,6 @@
-﻿using Archives;
-using FileManager;
+﻿using FileManager;
 using NPCArchiveAndGenerator;
 using System.Windows;
-using static Archives.Enums;
 using static NPCArchiveAndGenerator.Controller;
 
 
@@ -16,6 +14,7 @@ namespace NPCGenerator
         public NPCsArchiveUC npcsArchiveUC;
         public RacesArchiveUC racesArchiveUC;
         public BundlesArchivesUC bundlesArchivesUC;
+        public ArchetypesArchivesUC archetypesArchivesUC;
         public MainWindow()
         {
             InitializeComponent();
@@ -26,8 +25,10 @@ namespace NPCGenerator
             npcsArchiveUC = new NPCsArchiveUC();
             racesArchiveUC = new RacesArchiveUC();
             bundlesArchivesUC = new BundlesArchivesUC();
+            archetypesArchivesUC = new ArchetypesArchivesUC();
 
             centerContainer.Content = npcsArchiveUC;
+
         }
 
         // Buttons that switch panels.
@@ -46,12 +47,19 @@ namespace NPCGenerator
             updateFileName();
             racesArchiveUC.updateFilterable();
         }
-        private void LittleArchivesBtn_Click(object sender, RoutedEventArgs e)
+        private void BundlesArchivesBtn_Click(object sender, RoutedEventArgs e)
         {
             status = Status.Bundle;
             centerContainer.Content = bundlesArchivesUC;
             updateFileName();
         }
+        private void ArchetypeArchivesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            status = Status.Archetype;
+            centerContainer.Content = archetypesArchivesUC;
+            updateFileName();
+        }
+
 
         private void tryLoad()
         {
@@ -59,6 +67,8 @@ namespace NPCGenerator
             {
                 SnL.loadArchive(SnL.SaveType.NPC, SnL.NPCsSavePath);
                 SnL.loadArchive(SnL.SaveType.Races, SnL.RacesSavePath);
+                SnL.loadArchive(SnL.SaveType.Bundles, SnL.BundlesSavePath);
+                SnL.loadArchive(SnL.SaveType.Archetypes, SnL.ArchetypesSavePath);
             }
             ErrorHandler.errorPopup();
         }
@@ -144,9 +154,9 @@ namespace NPCGenerator
             }
             else if (status == Status.Archetype)
             {
-                //SnL.openViaDialog(SnL.SaveType.Archetypes, "Open Archetype Archive");
-                //racesArchiveUC = new RacesArchiveUC();
-                //centerContainer.Content = racesArchiveUC;
+                SnL.openViaDialog(SnL.SaveType.Archetypes, "Open Archetype Archive");
+                archetypesArchivesUC = new ArchetypesArchivesUC();
+                centerContainer.Content = archetypesArchivesUC;
             }
             updateFileName();
         }
@@ -165,6 +175,7 @@ namespace NPCGenerator
             }
             SnL.saveData(SnL.dataSavePath);
             ErrorHandler.errorPopup();
+            Application.Current.Shutdown();
         }
 
         private void safeModeChkBx_Click(object sender, RoutedEventArgs e)

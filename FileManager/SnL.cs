@@ -1,10 +1,8 @@
 ﻿using Archives;
 using Microsoft.Win32;
 using System;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
-using static Archives.Enums;
 using Path = System.IO.Path;
 
 namespace FileManager

@@ -1,4 +1,5 @@
-﻿using FileManager;
+﻿using Archives;
+using FileManager;
 
 namespace NPCArchiveAndGenerator
 {
@@ -37,7 +38,8 @@ namespace NPCArchiveAndGenerator
                         return "Unsaved Bundles Archive";
                 case Status.Archetype:
                     if (SnL.ArchetypesSavePath != null)
-                        return SnL.ArchetypesSavePath;
+                        //return SnL.ArchetypesSavePath;
+                        return ArchiveHandler.archetypeStorage.DefaultArchiveIndex.ToString();
                     else
                         return "Unsaved Archetype Archive";
                 default:

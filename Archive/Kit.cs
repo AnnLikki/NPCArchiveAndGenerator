@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using static Archives.Enums;
 
 namespace Archives
@@ -41,6 +40,6 @@ namespace Archives
             return this[type].GetRandomFromBundle(storage, type, gender, ageBio);
         }
 
-        
+
     }
 }

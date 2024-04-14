@@ -1,9 +1,7 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
-using System.Xml.Linq;
 using static Archives.Enums;
 
 namespace Archives
@@ -44,8 +42,19 @@ namespace Archives
         /// </summary>
         public int Count { get { return Elements.Count; } }
 
+        public int TotalWeight
+        {
+            get {
+                int totalSum = 0;
+                foreach (WeightedElement we in Elements)
+                    totalSum += we.Weight;
+                return totalSum;
+            }
+        }
+
         private Random random = new Random();
 
+        
         public Layer(double chance = 1.0, string defaultValue = "", Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
         {
             DefaultValue = defaultValue;
@@ -53,11 +62,15 @@ namespace Archives
             Gender = gender;
             LowerAgeLimit = lowerAgeLimit;
             UpperAgeLimit = upperAgeLimit;
+            Elements = new Collection<WeightedElement>();
             if (elements != null)
-                Elements = elements;
-            else
+            {
                 Elements = new Collection<WeightedElement>();
+                foreach (var e in elements)
+                    Elements.Add(new WeightedElement(e.Value, e.Weight, e.Gender));
+            }
         }
+
 
         /// <summary>
         /// Add a WeighedElement. Can't add an element that has been added already. 
@@ -65,9 +78,9 @@ namespace Archives
         /// </summary>
         public void Add(WeightedElement element)
         {
-            if(element!=null && !Elements.Contains(element))
+            if (element != null && !Elements.Contains(element))
                 Elements.Add(element);
-            else if(element==null)
+            else if (element == null)
                 throw new ArgumentNullException(nameof(element));
         }
 
@@ -78,6 +91,20 @@ namespace Archives
         {
             Elements.Add(new WeightedElement(value, weight, gender));
         }
+
+        public void AddToStart(object value, int weight = 1, Gender gender = Gender.Neutral)
+        {
+            Elements.Insert(0, new WeightedElement(value, weight, gender));
+        }
+
+        public void AddToStart(WeightedElement element)
+        {
+            if (element != null && !Elements.Contains(element))
+                Elements.Insert(0, element);
+            else if (element == null)
+                throw new ArgumentNullException(nameof(element));
+        }
+
 
         /// <summary>
         /// Removes first entry of an element.
@@ -128,7 +155,7 @@ namespace Archives
         /// </exception>
         public WeightedElement Get(int index)
         {
-            if(index < 0 || index >= Elements.Count)
+            if (index < 0 || index >= Elements.Count)
                 throw new ArgumentOutOfRangeException("index");
             return Elements[index];
         }
@@ -166,7 +193,7 @@ namespace Archives
             foreach (WeightedElement we in Elements.Where(e => e.Gender == gender || e.Gender == Gender.Neutral))
                 totalSum += we.Weight;
 
-            int r = random.Next(1, totalSum+1);
+            int r = random.Next(1, totalSum + 1);
             int sum = 0;
 
             foreach (WeightedElement we in Elements.Where(e => e.Gender == gender || e.Gender == Gender.Neutral))

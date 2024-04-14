@@ -27,7 +27,8 @@ namespace Archives
         /// </summary>
         public Kit CompatableBundles { get; set; }
 
-        public Archetype(string name) {
+        public Archetype(string name)
+        {
             Name = name;
             Races = new WeightedArchive();
             Genders = new WeightedArchive();

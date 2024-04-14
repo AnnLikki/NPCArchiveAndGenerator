@@ -194,7 +194,7 @@ namespace Tests
             ageDistributionsSetup();
         }
 
-        
+
         // Work Demo
         [Test]
         public void DefaultArchetypeGen()
@@ -203,13 +203,13 @@ namespace Tests
             {
                 Race race = defaultArchetype.GetRandomRace(raceStorage);
                 Gender gender = defaultArchetype.GetRandomGender(race);
-                
+
                 int age = defaultArchetype.GetRandomAge(race);
 
                 string name = defaultArchetype.GetRandomFromBundle(bundleStorage, BundleType.Name, race, gender, age);
                 string job = defaultArchetype.GetRandomFromBundle(bundleStorage, BundleType.Occupation, race, gender, age);
 
-                Console.WriteLine(race.Name+" "+gender+" "+age+", "+name+", "+job);
+                Console.WriteLine(race.Name + " " + gender + " " + age + ", " + name + ", " + job);
 
             }
         }

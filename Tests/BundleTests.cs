@@ -411,7 +411,7 @@ namespace Tests
             int e0 = 0, e1 = 0, e2 = 0;
             int tests = 10000;
             // counting occurances
-            for(int i = 0; i<tests; i++)
+            for (int i = 0; i < tests; i++)
             {
                 string result = bundle.GetRandom();
                 if (result.Contains("D0"))
@@ -426,13 +426,13 @@ namespace Tests
                     e1++;
                 if (result.Contains("E2"))
                     e2++;
-                
+
             }
 
             Assert.That(((double)d0) / tests >= 0.15 && ((double)d0) / tests <= 0.25);
             Assert.That(((double)d1) / tests >= 0.05 && ((double)d1) / tests <= 0.15);
             Assert.That(((double)d2) / tests >= 0.75 && ((double)d2) / tests <= 0.85);
-           
+
             Assert.That(((double)e0) / tests >= 0.75 && ((double)e0) / tests <= 0.85);
             Assert.That(((double)e1) / tests >= 0.85 && ((double)e1) / tests <= 0.95);
             Assert.That(((double)e2) / tests >= 0.15 && ((double)e2) / tests <= 0.25);
@@ -480,7 +480,7 @@ namespace Tests
                     e1++;
                 if (result.Contains("E2"))
                     e2++;
-                
+
             }
 
             // 20%
@@ -602,6 +602,6 @@ namespace Tests
             Assert.That(bundle.GetRandom(Enums.Gender.Male), Is.EqualTo("No suitable layers"));
 
         }
-    
+
     }
 }

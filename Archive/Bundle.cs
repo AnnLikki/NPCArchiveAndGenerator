@@ -2,7 +2,6 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Xml.Linq;
 using static Archives.Enums;
 
 namespace Archives
@@ -51,7 +50,7 @@ namespace Archives
         private Random random = new Random();
 
 
-        public Bundle(string name, bool independentLayers = true, Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, string defaultValue="No suitable layers")
+        public Bundle(string name, bool independentLayers = true, Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, string defaultValue = "No suitable layers")
         {
             Id = Guid.NewGuid();
             Name = name;
@@ -69,11 +68,24 @@ namespace Archives
         /// <exception cref="ArgumentOutOfRangeException">
         /// Throws ArgumentOutOfRangeException if index is out of bounds [0, Count].
         /// </exception>
-        public void InsertNewLayer(int index, double chance = 1.0, string defaultValue = "", Gender gender=Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
+        public void InsertNewLayer(int index, double chance = 1.0, string defaultValue = "", Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
         {
             if (index < 0 || index > Layers.Count)
                 throw new ArgumentOutOfRangeException("index");
             Layers.Insert(index, new Layer(chance, defaultValue, gender, lowerAgeLimit, upperAgeLimit, elements));
+        }
+        public void InsertNewLayer(int index, Layer layer)
+        {
+            if (index < 0 || index > Layers.Count)
+                throw new ArgumentOutOfRangeException("index");
+            Layers.Insert(index, layer);
+        }
+
+        public void Duplicate(Layer layer)
+        {
+            Layer layer1 = new Layer(layer.Chance, layer.DefaultValue, layer.Gender, layer.LowerAgeLimit, layer.UpperAgeLimit, layer.Elements);
+
+            InsertNewLayer(Layers.IndexOf(layer), layer1);
         }
 
         /// <summary>
@@ -87,6 +99,11 @@ namespace Archives
             if (index < 0 || index >= Layers.Count)
                 throw new ArgumentOutOfRangeException("index");
             Layers.RemoveAt(index);
+        }
+
+        public void RemoveLayer(Layer layer)
+        {
+            Layers.Remove(layer);
         }
 
         /// <summary>
@@ -108,6 +125,31 @@ namespace Archives
             return Layers[index];
         }
 
+        public bool MoveLayerUp(Layer layer)
+        {
+            int ind = Layers.IndexOf(layer);
+            if (ind > 0)
+            {
+                Layers.Remove(layer);
+                Layers.Insert(ind - 1, layer);
+                return true;
+            }
+            return false;
+
+        }
+        public bool MoveLayerDown(Layer layer)
+        {
+            int ind = Layers.IndexOf(layer);
+            if (ind < Count-1)
+            {
+                Layers.Remove(layer);
+                Layers.Insert(ind + 1, layer);
+                return true;
+            }
+            return false;
+
+        }
+
         /// <summary>
         /// Add WeightedElement to the Layer at specified index. Can't add an element that has already been added to this Layer. 
         /// Can't add a null.
@@ -117,7 +159,7 @@ namespace Archives
         {
             Layers[index].Add(element);
         }
-        
+
         /// <summary>
         /// Add a new WeighedElement with string Value and other specified parameters to the Layer at specified index.
         /// </summary>
@@ -143,18 +185,18 @@ namespace Archives
             // So gendered layers can only be picked if requested, otherwise always ungendered layers
             // will get picked
             foreach (Layer layer in Layers.Where(
-                l => 
+                l =>
                 (l.Gender == gender || l.Gender == Gender.Neutral)
                 &&
-                (ageBio==-1 || (l.LowerAgeLimit<=ageBio && l.UpperAgeLimit>=ageBio))))
+                (ageBio == -1 || (l.LowerAgeLimit <= ageBio && l.UpperAgeLimit >= ageBio))))
             {
                 double chance = random.NextDouble();
                 if (chance <= layer.Chance) // Layer is picked
-                    result += layer.GetRandom(gender);
+                    result += layer.GetRandom(gender) + " "; // SPACE ADDED
                 else // Layer isn't picked
                 {
                     if (layer.DefaultValue.Length > 0)
-                        result += layer.DefaultValue;
+                        result += layer.DefaultValue + " "; // SPACE ADDED
                     if (!IndependentLayers)
                         break;
                 }
@@ -165,17 +207,16 @@ namespace Archives
 
         public override string ToString()
         {
-            string res = "Bundle "+Name+"\n";
+            string res = "Bundle " + Name + "\n";
             int i = 0;
-            foreach(Layer l in Layers)
+            foreach (Layer l in Layers)
             {
-                res += "Layer #"+i;
-                res += l.ToString()+"\n";
+                res += "Layer #" + i;
+                res += l.ToString() + "\n";
                 i++;
             }
             return res;
         }
-
 
     }
 }

@@ -125,7 +125,7 @@ namespace Archives
             int ageBio;
 
             if (ageChrono <= 0)
-                ageBio=0;
+                ageBio = 0;
             else
             {
                 if (ageChrono <= MaturityAge)
@@ -138,7 +138,7 @@ namespace Archives
 
         public override string ToString()
         {
-            return "Race "+Name;
+            return "Race " + Name;
         }
 
 
