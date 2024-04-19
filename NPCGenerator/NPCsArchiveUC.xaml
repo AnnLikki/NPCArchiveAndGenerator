@@ -27,8 +27,33 @@
 
         <Grid Grid.Row="1" Grid.Column="0">
 
-            <DataGrid x:Name="NPCDataGrid" ScrollViewer.CanContentScroll="False" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" CanUserResizeRows="False" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="NPCDataGrid_SelectionChanged" Background="Azure">
-                <DataGrid.Columns>
+            <DataGrid x:Name="NPCDataGrid" Background="Azure"
+                      VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
+                      CanUserResizeColumns="False" CanUserResizeRows="False" 
+                      SelectionMode="Single" CanUserReorderColumns="False"
+                      AutoGenerateColumns="False" IsReadOnly="True"
+                      SelectionChanged="NPCDataGrid_SelectionChanged">
+
+                    <!--#region Styles -->
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                        </Style>
+                        <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="Azure"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="SkyBlue"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <!--#endregion-->
+
+
+                    <DataGrid.Columns>
                     <DataGridTemplateColumn Header="NPC" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

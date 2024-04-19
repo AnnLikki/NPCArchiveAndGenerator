@@ -81,6 +81,12 @@
     <Compile Include="AchetypesArchivesUC.xaml.cs">
       <DependentUpon>AchetypesArchivesUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ArchetypeCard.xaml.cs">
+      <DependentUpon>ArchetypeCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BundleSelectionWin.xaml.cs">
+      <DependentUpon>BundleSelectionWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller.cs" />
     <Compile Include="BundlesArchivesUC.xaml.cs">
       <DependentUpon>BundlesArchivesUC.xaml</DependentUpon>
@@ -97,11 +103,22 @@
     <Compile Include="NPCCard.xaml.cs">
       <DependentUpon>NPCCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RaceSelectionWin.xaml.cs">
+      <DependentUpon>RaceSelectionWin.xaml</DependentUpon>
+    </Compile>
     <Page Include="AchetypesArchivesUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ArchetypeCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BundlesArchivesUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BundleSelectionWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NPCCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RaceSelectionWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -243,6 +264,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\move_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using static Archives.Enums;
 
 namespace Archives
@@ -10,6 +11,13 @@ namespace Archives
     public class Kit : Dictionary<BundleType, WeightedArchive>
     {
 
+        public Kit()
+        {
+
+            foreach (BundleType type in (BundleType[])Enum.GetValues(typeof(BundleType)))
+                Add(type, new WeightedArchive());
+
+        }
 
         /// <summary>
         /// Add a bundle to a kit as an ID.
@@ -18,7 +26,8 @@ namespace Archives
         {
             if (!ContainsKey(type))
                 Add(type, new WeightedArchive());
-            this[type].AddElement(bundle.Id, weight, gender);
+            if (!this[type].Any(e => e.Value.Equals(bundle.Id)))
+                this[type].AddElement(bundle.Id, weight, gender);
         }
 
         /// <summary>
@@ -28,9 +37,22 @@ namespace Archives
         {
             if (!ContainsKey(type))
                 Add(type, new WeightedArchive());
-            this[type].AddElement(bundleID, weight, gender);
+            if (!this[type].Any(e => e.Value.Equals(bundleID)))
+                this[type].AddElement(bundleID, weight, gender);
         }
 
+        public void RemoveBundle(BundleType type, Bundle bundle)
+        {
+            if (ContainsKey(type))
+                if (this[type].Any(e => e.Value.Equals(bundle.Id)))
+                    this[type].Remove(this[type].First(e => e.Value.Equals(bundle.Id)));
+        }
+        public void RemoveBundle(BundleType type, Guid bundleId)
+        {
+            if (ContainsKey(type))
+                if (this[type].Any(e => e.Value.Equals(bundleId)))
+                    this[type].Remove(this[type].First(e => e.Value.Equals(bundleId)));
+        }
 
 
         public string GetRandomFromBundle(BundleStorage storage, BundleType type, Gender gender = Gender.Neutral, int ageBio = -1)

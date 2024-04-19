@@ -135,7 +135,7 @@ namespace Archives
                 Name = name;
                 OnPropertyChanged(nameof(Name));
             }
-            if (race!=null&&RaceID != race.Id)
+            if (race != null && RaceID != race.Id)
             {
                 RaceID = race.Id;
                 OnPropertyChanged(nameof(RaceName));

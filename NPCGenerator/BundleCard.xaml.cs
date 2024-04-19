@@ -18,11 +18,11 @@ namespace NPCArchiveAndGenerator
 
         public BundleCard(BundleType type1, Bundle bundle1, DataGrid grid1)
         {
-            InitializeComponent();
-
             bundle = bundle1;
             type = type1;
             grid = grid1;
+
+            InitializeComponent();
 
             BundleNameTB.Text = bundle.Name;
 
@@ -45,7 +45,7 @@ namespace NPCArchiveAndGenerator
 
             updateLayers();
 
-            
+
         }
 
         private void closeBtn_Click(object sender, RoutedEventArgs e)
@@ -168,7 +168,7 @@ namespace NPCArchiveAndGenerator
             {
                 LayerEditWin layerEdit = new LayerEditWin(layer);
                 layerEdit.Closed += LayerEdit_Closed;
-                layerEdit.Visibility = Visibility.Visible;
+                layerEdit.Show();
             }
         }
 
@@ -188,7 +188,7 @@ namespace NPCArchiveAndGenerator
 
         private void IndependentLayersChb_Changed(object sender, RoutedEventArgs e)
         {
-            bundle.IndependentLayers = IndependentLayersChb.IsChecked==true ? true:false;
+            bundle.IndependentLayers = IndependentLayersChb.IsChecked == true ? true : false;
         }
     }
 
@@ -258,5 +258,29 @@ namespace NPCArchiveAndGenerator
             throw new NotImplementedException();
         }
     }
+
+    public class ElemsPercentageConverter : IMultiValueConverter
+    {
+
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (values != null && values.Length == 2 && values[0] is Layer layer && values[1] is WeightedElement element)
+            {
+                string percent;
+                percent = layer.GetPercentage(element.Value) + "%";
+                return percent;
+            }
+
+            return DependencyProperty.UnsetValue;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+
+    }
+
+
 
 }

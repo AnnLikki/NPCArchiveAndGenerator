@@ -1,2 +1,2 @@
 Archetypes
-{"Items":[],"DefaultArchiveIndex":0}
+{"Items":[{"Name":"New Archetype","Races":[],"Genders":[{"Value":0,"Weight":1,"Gender":2},{"Value":1,"Weight":2,"Gender":2},{"Value":2,"Weight":3,"Gender":2}],"Ages":[],"CompatableBundles":{"Name":[],"Occupation":[],"Character":[],"Height":[],"Physique":[],"Skin":[],"Hair":[],"Face":[],"Eyes":[],"Clothes":[],"Features":[]}}],"DefaultArchetype":{"Name":"New Archetype","Races":[],"Genders":[{"Value":0,"Weight":0,"Gender":2},{"Value":1,"Weight":0,"Gender":2},{"Value":2,"Weight":0,"Gender":2}],"Ages":[],"CompatableBundles":{"Name":[],"Occupation":[],"Character":[],"Height":[],"Physique":[],"Skin":[],"Hair":[],"Face":[],"Eyes":[],"Clothes":[],"Features":[]}}}

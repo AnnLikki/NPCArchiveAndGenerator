@@ -44,7 +44,8 @@ namespace Archives
 
         public int TotalWeight
         {
-            get {
+            get
+            {
                 int totalSum = 0;
                 foreach (WeightedElement we in Elements)
                     totalSum += we.Weight;
@@ -54,7 +55,7 @@ namespace Archives
 
         private Random random = new Random();
 
-        
+
         public Layer(double chance = 1.0, string defaultValue = "", Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
         {
             DefaultValue = defaultValue;
@@ -69,6 +70,12 @@ namespace Archives
                 foreach (var e in elements)
                     Elements.Add(new WeightedElement(e.Value, e.Weight, e.Gender));
             }
+        }
+
+        public int GetPercentage(object value)
+        {
+            if (Elements.Any(e => e.Value.Equals(value)) && TotalWeight != 0) return Elements.First(e => e.Value.Equals(value)).Weight * 100 / TotalWeight;
+            else return 0;
         }
 
 

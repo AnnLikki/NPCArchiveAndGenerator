@@ -27,14 +27,37 @@ namespace Archives
         /// </summary>
         public Kit CompatableBundles { get; set; }
 
-        public Archetype(string name)
+        public Archetype(string name, WeightedArchive races = null, WeightedArchive genders = null, AgeDistribution ages = null, Kit compatableBundles = null)
         {
             Name = name;
+
             Races = new WeightedArchive();
+            if (races != null)
+                foreach (WeightedElement e in races)
+                    Races.Add(e);
+
             Genders = new WeightedArchive();
             Genders.DefaultValue = Gender.Neutral;
+            if (genders != null)
+            {
+                foreach (WeightedElement e in genders)
+                    Genders.Add(e);
+                Genders.DefaultValue = genders.DefaultValue;
+            }
+
             Ages = new AgeDistribution();
+            if (ages != null)
+                foreach (WeightedElement e in ages)
+                    Ages.Add(e);
+
             CompatableBundles = new Kit();
+            if (compatableBundles != null)
+                foreach (BundleType type in (BundleType[])Enum.GetValues(typeof(BundleType)))
+                    foreach (WeightedElement e in compatableBundles[type])
+                    {
+                        Console.WriteLine(e.Value.ToString() + " " + Guid.Parse(e.Value.ToString()));
+                        CompatableBundles.AddBundle(type, Guid.Parse(e.Value.ToString()), e.Weight, e.Gender);
+                    }
         }
 
 
@@ -52,16 +75,21 @@ namespace Archives
 
         public void SetGender(Gender gender, int weight = 1)
         {
-            if (Genders.Any(g => (Gender)g.Value == gender))
-                Genders.First(g => (Gender)g.Value == gender).Weight = weight;
+            if (Genders.Any(g => g.Value.Equals(gender)))
+            {
+                Genders.First(g => g.Value.Equals(gender)).Weight = weight;
+            }
             else
+            {
                 Genders.Add(new WeightedElement(gender, weight));
+            }
+
         }
 
         public void RemoveGender(Gender gender)
         {
-            while (Genders.Any(g => (Gender)g.Value == gender))
-                Genders.Remove(Genders.First(g => (Gender)g.Value == gender));
+            while (Genders.Any(g => g.Value.Equals(gender)))
+                Genders.Remove(Genders.First(g => g.Value.Equals(gender)));
         }
 
         public Gender GetRandomGender(Race race)
@@ -77,8 +105,8 @@ namespace Archives
 
         public void AddRace(Race race, int weight = 1)
         {
-            if (Races.Any(g => (Guid)g.Value == race.Id))
-                Races.First(g => (Guid)g.Value == race.Id).Weight = weight;
+            if (Races.Any(g => g.Value.Equals(race.Id)))
+                Races.First(g => g.Value.Equals(race.Id)).Weight = weight;
             else
                 Races.AddElement(race.Id, weight);
         }

@@ -18,12 +18,36 @@ namespace Archives
 
         Random random = new Random();
 
+        public int TotalWeight
+        {
+            get
+            {
+                int totalSum = 0;
+                foreach (WeightedElement we in this)
+                    totalSum += we.Weight;
+                return totalSum;
+            }
+        }
+
         /// <summary>
         /// Add an instance of any element to archive.
         /// </summary>
         public void AddElement(object value, int weight = 1, Gender gender = Gender.Neutral)
         {
-            Add(new WeightedElement(value, weight, gender));
+            if (!this.Any(e => e.Value.Equals(value)))
+                Add(new WeightedElement(value, weight, gender));
+        }
+
+        public int GetWeight(object value)
+        {
+            if (this.Any(e => e.Value.Equals(value))) return this.First(e => e.Value.Equals(value)).Weight;
+            else return 0;
+        }
+
+        public int GetPercentage(object value)
+        {
+            if (this.Any(e => e.Value.Equals(value)) && TotalWeight != 0) return GetWeight(value) * 100 / TotalWeight;
+            else return 0;
         }
 
         /// <summary>
@@ -106,5 +130,16 @@ namespace Archives
             // If there are no compatable elements in this Archive or they all have 0 weight
             return DefaultValue.ToString();
         }
+
+        public List<object> ToList()
+        {
+            List<object> l = new List<object>();
+            foreach (WeightedElement we in this)
+            {
+                l.Add(we.Value);
+            }
+            return l;
+        }
+
     }
 }

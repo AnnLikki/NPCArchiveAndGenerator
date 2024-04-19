@@ -140,7 +140,7 @@ namespace Archives
         public bool MoveLayerDown(Layer layer)
         {
             int ind = Layers.IndexOf(layer);
-            if (ind < Count-1)
+            if (ind < Count - 1)
             {
                 Layers.Remove(layer);
                 Layers.Insert(ind + 1, layer);

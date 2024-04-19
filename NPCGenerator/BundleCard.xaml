@@ -10,6 +10,7 @@
         <local:EnumToImageConverter x:Key="EnumToImageConverter"/>
         <local:AgeLimitVisibilityConverter x:Key="AgeLimitVisibilityConverter"/>
         <local:StringLengthVisibilityConverter x:Key="StringLengthVisibilityConverter"/>
+        <local:ElemsPercentageConverter x:Key="ElemsPercentageConverter"/>
     </UserControl.Resources>
 
 
@@ -23,6 +24,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!--#region Top row - name and buttons -->
         <Grid Grid.Row="0" Margin="0,0,5,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -40,6 +42,7 @@
                 <Image Source="/Images/delete.png"/>
             </Button>
         </Grid>
+        <!--#endregion-->
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -155,8 +158,6 @@
                                 <Button x:Name="MoveDownBtn" Margin="2" Click="MoveDownBtn_Click">
                                     <Image Source="/Images/down.png" />
                                 </Button>
-
-
                             </StackPanel>
 
                             <Grid Grid.Column="1">
@@ -199,10 +200,32 @@
 
 
                                 </Grid>
-                                <DataGrid x:Name="LayersDG" ItemsSource="{Binding Elements}" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False"
-                                            ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"
-                                            SelectionMode="Single" Background="#ACECEC" CanUserSortColumns="False" CanUserReorderColumns="False" 
-                                          CanUserAddRows="False" CanUserDeleteRows="False" Margin="5" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" MaxHeight="190">
+                              
+                                <DataGrid x:Name="LayersDG" ItemsSource="{Binding Elements}" Grid.Row="1" 
+                                          MaxHeight="190" Margin="5" Background="#ACECEC" 
+                                          VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
+                                          CanUserResizeColumns="False" CanUserResizeRows="False" 
+                                          SelectionMode="Single" CanUserReorderColumns="False"
+                                          AutoGenerateColumns="False" IsReadOnly="True">
+
+                                    <!--#region Styles -->
+                                    <DataGrid.Resources>
+                                        <Style TargetType="DataGridCell">
+                                            <Setter Property="Foreground" Value="Black"/>
+                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                        </Style>
+                                        <Style TargetType="DataGridRow">
+                                            <Setter Property="Background" Value="White"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="#ACECEC"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </DataGrid.Resources>
+                                    <!--#endregion-->
+
 
                                     <DataGrid.Columns>
                                         <DataGridTemplateColumn Header="Value" Width="*">
@@ -223,6 +246,20 @@
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <TextBlock HorizontalAlignment="Center" Text="{Binding Weight}"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTemplateColumn Header="Percentage" Width="Auto">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock HorizontalAlignment="Center">
+                                                        <TextBlock.Text>
+                                                            <MultiBinding Converter="{StaticResource ElemsPercentageConverter}">
+                                                                <Binding Path="DataContext" RelativeSource="{RelativeSource AncestorType={x:Type DataGrid}}" />
+                                                                <Binding />
+                                                            </MultiBinding>
+                                                        </TextBlock.Text>
+                                                    </TextBlock>
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>

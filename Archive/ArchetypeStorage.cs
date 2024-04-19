@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Archives
 {
@@ -10,7 +11,7 @@ namespace Archives
     public class ArchetypeStorage
     {
         public ObservableCollection<Archetype> Items { get; set; } = new ObservableCollection<Archetype>();
-        public int DefaultArchiveIndex { get; set; } = 0;
+        public Archetype DefaultArchetype { get; set; }
 
 
         public void Add(Archetype item)
@@ -25,7 +26,7 @@ namespace Archives
 
         public override string ToString()
         {
-            string res = "Def ind " + DefaultArchiveIndex + " \n";
+            string res = "";
 
             foreach (var r in Items)
                 res += r + "\n";
@@ -37,5 +38,44 @@ namespace Archives
         {
             return Items.GetEnumerator();
         }
+
+
+        public List<Archetype> filterByKey(string keyword)
+        {
+            if (keyword.Count() == 0)
+            {
+                List<Archetype> fin1 = new List<Archetype>();
+                foreach (Archetype i in this) fin1.Add(i);
+                return fin1;
+            }
+            List<Archetype> name = new List<Archetype>();
+            foreach (Archetype Archetype in this)
+            {
+                if (Archetype.Name.ToLower().Contains(keyword.ToLower()))
+                {
+                    name.Add(Archetype);
+                }
+
+            }
+
+            return name;
+
+        }
+
+
+        public void SetDefaultArchetype(Archetype archetype)
+        {
+
+            // Items.Add(new Archetype(DefaultArchetype.Name, DefaultArchetype.Races, DefaultArchetype.Genders, DefaultArchetype.Ages, DefaultArchetype.CompatableBundles));
+
+            if (DefaultArchetype != null)
+                Items.Add(DefaultArchetype);
+            Items.Remove(archetype);
+
+            DefaultArchetype = archetype;
+
+        }
+
+
     }
 }

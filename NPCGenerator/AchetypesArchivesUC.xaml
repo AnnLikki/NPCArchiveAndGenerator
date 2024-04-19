@@ -7,11 +7,113 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="0">
-            <Label x:Name="Lbl0"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--#region List of archetypes -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--#region Search panel -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="/Images/search.png" Grid.Column="0" />
+                <TextBox x:Name="SearchTB" Grid.Column="1"  TextWrapping="NoWrap" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" Margin="0,0,5,0" TextChanged="SearchTB_TextChanged"/>
+                <Button x:Name="AddBtn" Grid.Column="2" Click="AddBtn_Click">
+                    <Image Source="/Images/add.png" />
+                </Button>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Default archive -->
+            <Grid Grid.Row="1">
+                <Grid.Resources>
+                    <!-- Custom style for RadioButton to mimic ToggleButton -->
+                    <Style x:Key="ToggleButtonStyle" TargetType="RadioButton">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="RadioButton">
+                                    <Grid>
+                                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#FF69FFAA"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#FFBDFECF"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Background" Value="#FFBEFFDA"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                    </Style>
+                </Grid.Resources>
+                
+                <RadioButton x:Name="DefaultArchetypeBtn" Style="{StaticResource ToggleButtonStyle}" Checked="DefaultArchiveBtn_Checked" />
+
+            </Grid>
+            <!--#endregion-->
+                
+            <!--#region Archetype datagrid -->
+            <DataGrid x:Name="ArchetypesDG"  Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" 
+                      CanUserResizeRows="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single" Background="#FFBEFFDA" 
+                      CanUserSortColumns="False" CanUserReorderColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" 
+                      SelectionChanged="ArchetypesDG_SelectionChanged">
+                <!--#region Styles -->
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                    </Style>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FF69FFAA"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>
+                <!--#endregion-->
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Archetype" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Center" Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <!--#endregion-->
+            
+        </Grid>
+        <!--#endregion-->
+
+        <ScrollViewer Grid.Column="2">
+            <ContentControl x:Name="ArchetypeView"/>
         </ScrollViewer>
+
     </Grid>
 </UserControl>

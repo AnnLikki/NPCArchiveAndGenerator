@@ -1,11 +1,11 @@
 ﻿using Archives;
-using System.Globalization;
 using System;
+using System.Globalization;
 using System.Windows;
-using System.Windows.Data;
-using static Archives.Enums;
-using System.Windows.Input;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
+using static Archives.Enums;
 
 namespace NPCArchiveAndGenerator
 {
@@ -15,8 +15,14 @@ namespace NPCArchiveAndGenerator
 
         public LayerEditWin(Layer layer1)
         {
-            InitializeComponent();
+
             layer = layer1;
+
+            LayerElemsPercentageConverter converter = new LayerElemsPercentageConverter();
+            converter.Layer = layer;
+            Resources.Add("LayerElemsPercentageConverter", converter);
+
+            InitializeComponent();
 
             ChanceTB.Text = layer.Chance.ToString();
             DefaultTB.Text = layer.DefaultValue;
@@ -49,7 +55,7 @@ namespace NPCArchiveAndGenerator
         private void ChanceDecrement_Click(object sender, RoutedEventArgs e)
         {
             if (layer.Chance > 0)
-                layer.Chance=Math.Round(layer.Chance - 0.05, 2);
+                layer.Chance = Math.Round(layer.Chance - 0.05, 2);
             if (layer.Chance < 0)
                 layer.Chance = 0;
             ChanceTB.Text = layer.Chance.ToString();
@@ -116,7 +122,6 @@ namespace NPCArchiveAndGenerator
 
         public void updateElems()
         {
-            TotalWeightLbl.Content = layer.TotalWeight.ToString();
             ElemsDG.ItemsSource = null;
             ElemsDG.ItemsSource = layer.Elements;
         }
@@ -176,6 +181,10 @@ namespace NPCArchiveAndGenerator
             }
         }
 
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            updateElems();
+        }
     }
 
     public class GenderToCheckedConverter : IValueConverter
@@ -206,8 +215,26 @@ namespace NPCArchiveAndGenerator
             return null;
         }
     }
+    public class LayerElemsPercentageConverter : IValueConverter
+    {
+        public Layer Layer { get; set; }
 
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is WeightedElement item && Layer != null)
+            {
+                string percent;
+                percent = Layer.GetPercentage(item.Value) + "%";
+                return percent;
+            }
+            return string.Empty;
+        }
 
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 
 
 

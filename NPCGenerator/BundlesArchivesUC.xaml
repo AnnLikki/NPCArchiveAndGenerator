@@ -14,9 +14,9 @@
         </Grid.ColumnDefinitions>
         
         <!--#region Left Categories Grid-->
-        <!-- Gonna hardcode the categories and no one will stop me -->
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" >
             <Grid>
+                <!--#region Styles - radio button-->
                 <Grid.Resources>
                     <!-- Custom style for RadioButton to mimic ToggleButton -->
                     <Style x:Key="ToggleButtonStyle" TargetType="RadioButton">
@@ -24,10 +24,8 @@
                             <Setter.Value>
                                 <ControlTemplate TargetType="RadioButton">
                                     <Grid>
-                                        <Border x:Name="border"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                Background="{TemplateBinding Background}">
+                                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" 
+                                                BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                         </Border>
                                     </Grid>
@@ -47,6 +45,7 @@
                         <Setter Property="BorderThickness" Value="1"/>
                     </Style>
                 </Grid.Resources>
+                <!--#endregion-->
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -77,14 +76,14 @@
         </ScrollViewer>
         <!--#endregion-->
 
+        <!--#region Bundles list -->
         <Grid Grid.Column="1">
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-
+            <!--#region Top row - search+add-->
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="25"/>
@@ -98,37 +97,36 @@
                     <Image Source="/Images/add.png" />
                 </Button>
             </Grid>
+            <!--#endregion-->
 
-            <DataGrid x:Name="BundlesDG"  Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False"
-          ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"
-          SelectionMode="Single"
-                      Background="#ACECEC" SelectionChanged="BundlesDG_SelectionChanged" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+            <!--#region Bundles datagrid-->
+            <DataGrid x:Name="BundlesDG"  Grid.Row="1" Background="#ACECEC" 
+                      VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
+                      CanUserResizeColumns="False" CanUserResizeRows="False"
+                      SelectionMode="Single" CanUserReorderColumns="False"
+                      AutoGenerateColumns="False" IsReadOnly="True"
+                      SelectionChanged="BundlesDG_SelectionChanged">
+                <!--#region Styles -->
                 <DataGrid.Resources>
-                    <!-- Style for DataGridCell to customize item colors -->
                     <Style TargetType="DataGridCell">
                         <Setter Property="Foreground" Value="Black"/>
-                        <!-- Set item foreground color -->
                         <Setter Property="Background" Value="Transparent"/>
-                        <!-- Set item background color -->
                         <Setter Property="BorderBrush" Value="Transparent"/>
-                        <!-- Set item border color -->
                         <Setter Property="BorderThickness" Value="1"/>
                         <Setter Property="BorderBrush" Value="#35CACA"/>
-                        <!-- Set item border thickness -->
                     </Style>
-                    <!-- Style for DataGridRow to customize selection color -->
                     <Style TargetType="DataGridRow">
                         <Setter Property="Background" Value="Transparent"/>
-                        <!-- Set default row background color -->
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter Property="Background" Value="#5CD6D6"/>
                                 <Setter Property="BorderThickness" Value="0"/>
-                                <!-- Set selection background color -->
                             </Trigger>
                         </Style.Triggers>
                     </Style>
                 </DataGrid.Resources>
+                <!--#endregion-->
+                
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="Bundle Name" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
@@ -146,11 +144,10 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-
-
-
+            <!--#endregion-->
         </Grid>
-        
+        <!--#endregion-->
+
         <ScrollViewer Grid.Column="2">
             <ContentControl x:Name="BundleView"/>
         </ScrollViewer>
