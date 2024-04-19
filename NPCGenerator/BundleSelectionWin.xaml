@@ -6,8 +6,15 @@
         xmlns:local="clr-namespace:NPCArchiveAndGenerator"
         mc:Ignorable="d"
         Title="Bundle Selection" Height="350" Width="300">
+    <Window.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="#C0FFDF" />
+        <SolidColorBrush x:Key="LightColor" Color="#9EFFCE" />
+        <SolidColorBrush x:Key="BrightColor" Color="#75FFB9" />
+        <SolidColorBrush x:Key="DarkColor" Color="#75F5B4" />
+        <SolidColorBrush x:Key="VeryDarkColor" Color="#66F1AA" />
+    </Window.Resources>
 
-    <Grid Background="#FFBEFFDA">
+    <Grid Background="{StaticResource VeryLightColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>

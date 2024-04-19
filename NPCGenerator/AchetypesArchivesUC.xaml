@@ -6,7 +6,39 @@
              xmlns:local="clr-namespace:NPCArchiveAndGenerator"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="#C0FFDF" />
+        <SolidColorBrush x:Key="LightColor" Color="#9EFFCE" />
+        <SolidColorBrush x:Key="BrightColor" Color="#75FFB9" />
+        <SolidColorBrush x:Key="DarkColor" Color="#75FFB9" />
+        <SolidColorBrush x:Key="VeryDarkColor" Color="#66F1AA" />
+
+            <!-- Custom style for RadioButton to mimic ToggleButton -->
+        <Style x:Key="ToggleButtonStyle" TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource VeryDarkColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{StaticResource LightColor}"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource VeryLightColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
@@ -38,35 +70,7 @@
 
             <!--#region Default archive -->
             <Grid Grid.Row="1">
-                <Grid.Resources>
-                    <!-- Custom style for RadioButton to mimic ToggleButton -->
-                    <Style x:Key="ToggleButtonStyle" TargetType="RadioButton">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="RadioButton">
-                                    <Grid>
-                                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                                        </Border>
-                                    </Grid>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsChecked" Value="True">
-                                            <Setter TargetName="border" Property="Background" Value="#FF69FFAA"/>
-                                        </Trigger>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="border" Property="Background" Value="#FFBDFECF"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Property="Background" Value="#FFBEFFDA"/>
-                        <Setter Property="BorderBrush" Value="Black"/>
-                        <Setter Property="BorderThickness" Value="1"/>
-                    </Style>
-                </Grid.Resources>
-                
                 <RadioButton x:Name="DefaultArchetypeBtn" Style="{StaticResource ToggleButtonStyle}" Checked="DefaultArchiveBtn_Checked" />
 
             </Grid>
@@ -75,7 +79,7 @@
             <!--#region Archetype datagrid -->
             <DataGrid x:Name="ArchetypesDG"  Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" 
                       CanUserResizeRows="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                      ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single" Background="#FFBEFFDA" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single" Background="{StaticResource VeryLightColor}" 
                       CanUserSortColumns="False" CanUserReorderColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" 
                       SelectionChanged="ArchetypesDG_SelectionChanged">
                 <!--#region Styles -->
@@ -89,7 +93,7 @@
                         <Setter Property="Background" Value="Transparent"/>
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="#FF69FFAA"/>
+                                <Setter Property="Background" Value="{StaticResource VeryDarkColor}"/>
                                 <Setter Property="BorderThickness" Value="0"/>
                             </Trigger>
                         </Style.Triggers>

@@ -7,11 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="500">
     <UserControl.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="#C0FFDF" />
+        <SolidColorBrush x:Key="LightColor" Color="#9EFFCE" />
+        <SolidColorBrush x:Key="BrightColor" Color="#75FFB9" />
+        <SolidColorBrush x:Key="DarkColor" Color="#75F5B4" />
+        <SolidColorBrush x:Key="VeryDarkColor" Color="#66F1AA" />
+        
+        
         <local:BundleIdToNameConverter x:Key="BundleIdToNameConverter"/>
         <local:RaceIdToNameConverter x:Key="RaceIdToNameConverter"/>
     </UserControl.Resources>
 
-    <Grid Background="#FFBEFFDA" Margin="5">
+    <Grid Background="{StaticResource LightColor}" Margin="5">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
@@ -123,7 +130,7 @@
                 <ItemsControl x:Name="AgesIC" Grid.Row="1" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Height="25" Background="Aquamarine" Margin="2">
+                            <StackPanel Orientation="Horizontal" Height="25" Background="{StaticResource DarkColor}" Margin="2">
                                 <Button x:Name="DeleteRangeBtn" Click="DeleteRangeBtn_Click" Margin="2">
                                     <Image Source="/Images/delete.png" />
                                 </Button>
@@ -161,7 +168,7 @@
             </StackPanel>
 
             <!--#region Races -->
-            <Grid Grid.Row="1" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="1" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -174,7 +181,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="RacesIC">
                         <ItemsControl.ItemsPanel>
@@ -184,7 +191,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteRaceBtn" Margin="2" Click="DeleteRaceBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -226,7 +233,7 @@
             </StackPanel>
 
             <!--#region Name -->
-            <Grid Grid.Row="1" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="1" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -239,7 +246,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="NamesBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -249,7 +256,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteNamesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -267,7 +274,7 @@
             <!--#endregion-->
 
             <!--#region Occupation -->
-            <Grid Grid.Row="2" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="2" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -280,7 +287,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="OccupationsBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -290,7 +297,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteOccupationsBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -306,7 +313,7 @@
             <!--#endregion-->
 
             <!--#region Character -->
-            <Grid Grid.Row="3" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="3" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -319,7 +326,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="CharactersBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -329,7 +336,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteCharactersBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -345,7 +352,7 @@
             <!--#endregion-->
 
             <!--#region Height -->
-            <Grid Grid.Row="4" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="4" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -358,7 +365,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="HeightsBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -368,7 +375,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteHeightsBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -384,7 +391,7 @@
             <!--#endregion-->
 
             <!--#region Physique -->
-            <Grid Grid.Row="5" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="5" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -397,7 +404,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="PhysiquesBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -407,7 +414,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeletePhysiquesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -423,7 +430,7 @@
             <!--#endregion-->
 
             <!--#region Skin -->
-            <Grid Grid.Row="6" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="6" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -436,7 +443,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="SkinsBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -446,7 +453,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteSkinsBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -462,7 +469,7 @@
             <!--#endregion-->
 
             <!--#region Hair -->
-            <Grid Grid.Row="7" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="7" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -475,7 +482,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="HairsBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -485,7 +492,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteHairsBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -501,7 +508,7 @@
             <!--#endregion-->
 
             <!--#region Face -->
-            <Grid Grid.Row="8" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="8" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -514,7 +521,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="FacesBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -524,7 +531,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteFacesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -540,7 +547,7 @@
             <!--#endregion-->
 
             <!--#region Eyes -->
-            <Grid Grid.Row="9" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="9" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -553,7 +560,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="EyesBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -563,7 +570,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteEyesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -579,7 +586,7 @@
             <!--#endregion-->
 
             <!--#region Clothes -->
-            <Grid Grid.Row="10" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="10" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -592,7 +599,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="ClothesBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -602,7 +609,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteClothesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>
@@ -618,7 +625,7 @@
             <!--#endregion-->
 
             <!--#region Features -->
-            <Grid Grid.Row="11" Margin="5" Background="Aquamarine">
+            <Grid Grid.Row="11" Margin="5" Background="{StaticResource DarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="*"/>
@@ -631,7 +638,7 @@
                     </Button>
                 </StackPanel>
 
-                <WrapPanel Grid.Column="1" Background="AliceBlue" Margin="5" Orientation="Horizontal">
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
 
                     <ItemsControl x:Name="FeaturesBundlesIC">
                         <ItemsControl.ItemsPanel>
@@ -641,7 +648,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="Aquamarine" Margin="2">
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
                                     <Button x:Name="DeleteFeaturesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
                                         <Image Source="/Images/delete.png" />
                                     </Button>

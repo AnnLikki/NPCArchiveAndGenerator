@@ -34,14 +34,22 @@ namespace Archives
             Races = new WeightedArchive();
             if (races != null)
                 foreach (WeightedElement e in races)
-                    Races.Add(e);
+                    Races.AddElement(Guid.Parse(e.Value.ToString()), e.Weight, e.Gender);
 
             Genders = new WeightedArchive();
             Genders.DefaultValue = Gender.Neutral;
             if (genders != null)
             {
                 foreach (WeightedElement e in genders)
-                    Genders.Add(e);
+                {
+                    if (int.TryParse(e.Value.ToString(), out int numerical))
+                        Genders.AddElement((Gender)numerical, e.Weight);
+                    else if (e.Value is Gender gender)
+                        Genders.AddElement(gender, e.Weight);
+                    else
+                        throw new Exception("Yo wtf");
+
+                }
                 Genders.DefaultValue = genders.DefaultValue;
             }
 
@@ -54,10 +62,7 @@ namespace Archives
             if (compatableBundles != null)
                 foreach (BundleType type in (BundleType[])Enum.GetValues(typeof(BundleType)))
                     foreach (WeightedElement e in compatableBundles[type])
-                    {
-                        Console.WriteLine(e.Value.ToString() + " " + Guid.Parse(e.Value.ToString()));
                         CompatableBundles.AddBundle(type, Guid.Parse(e.Value.ToString()), e.Weight, e.Gender);
-                    }
         }
 
 
