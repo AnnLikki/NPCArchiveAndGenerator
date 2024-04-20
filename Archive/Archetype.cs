@@ -7,6 +7,8 @@ namespace Archives
 {
     public class Archetype
     {
+        Random random = new Random();
+
         /// <summary>
         /// The name of the architype in singular form, as a person of this archetype is called.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Archives
             Ages = new AgeDistribution();
             if (ages != null)
                 foreach (WeightedElement e in ages)
-                    Ages.Add(e);
+                    Ages.AddAge(int.Parse(e.Value.ToString()), e.Weight);
 
             CompatableBundles = new Kit();
             if (compatableBundles != null)
@@ -66,9 +68,19 @@ namespace Archives
         }
 
 
-        public int GetRandomAge(Race race)
+        public int GetRandomAgeBio(Race race)
         {
             return race.Ages.GetIntersection(Ages).GetRandom();
+        }
+
+        public int GetRandomAgeChrono(Race race)
+        {
+            int ageBio = GetRandomAgeBio(race);
+            int from = race.calculateChronoAge(ageBio);
+            int to = race.calculateChronoAge(ageBio+1);
+
+            return random.Next(from, to);
+
         }
 
         public string GetRandomFromBundle(BundleStorage storage, BundleType type, Race race, Gender gender, int age)
@@ -76,6 +88,13 @@ namespace Archives
             if (!CompatableBundles.ContainsKey(type) || CompatableBundles[type].Count == 0)
                 return race.CompatableBundles.GetRandomFromBundle(storage, type, gender, age);
             return CompatableBundles.GetRandomFromBundle(storage, type, gender, age);
+        }
+
+        public string GetRandomFromBundle(BundleType type, Race race, Gender gender, int age)
+        {
+            if (!CompatableBundles.ContainsKey(type) || CompatableBundles[type].Count == 0)
+                return race.CompatableBundles.GetRandomFromBundle(type, gender, age);
+            return CompatableBundles.GetRandomFromBundle(type, gender, age);
         }
 
         public void SetGender(Gender gender, int weight = 1)
@@ -120,6 +139,18 @@ namespace Archives
         {
             Guid raceID = (Guid)Races.GetRandomUnrestricted();
             return storage.FindRace(raceID);
+        }
+
+        public Race GetRandomRace()
+        {
+            Guid raceID = (Guid)Races.GetRandomUnrestricted();
+            return ArchiveHandler.raceStorage.FindRace(raceID);
+        }
+
+
+        public override string ToString()
+        {
+            return Name;
         }
 
     }

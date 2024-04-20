@@ -68,7 +68,7 @@ namespace Archives
             {
                 WeightedElement we2 = distribution.FirstOrDefault(e => e.Value.Equals(we1.Value));
                 if (we2 != null)
-                    result.Add(new WeightedElement((int)we1.Value, we1.Weight * we2.Weight));
+                    result.Add(new WeightedElement(we1.Value, we1.Weight * we2.Weight));
             }
             return result;
         }

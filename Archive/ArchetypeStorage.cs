@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -76,6 +78,13 @@ namespace Archives
 
         }
 
-
+        public List<Archetype> ToList()
+        {
+            List<Archetype> list = new List<Archetype>();
+            list.Add(DefaultArchetype);
+            foreach(Archetype ar in Items)
+                list.Add(ar);
+            return list;
+        }
     }
 }

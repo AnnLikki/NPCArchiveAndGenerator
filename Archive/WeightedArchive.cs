@@ -14,7 +14,7 @@ namespace Archives
         /// <summary>
         /// Value that is returned during randomization if the archive is empty
         /// </summary>
-        public object DefaultValue = "No compatable elements";
+        public object DefaultValue = "";
 
         Random random = new Random();
 
@@ -126,6 +126,43 @@ namespace Archives
                 sum += we.Weight;
                 if (sum >= r)
                     return storage.FindBundle(type, (Guid)we.Value).GetRandom(gender, ageBio);
+            }
+            // If there are no compatable elements in this Archive or they all have 0 weight
+            return DefaultValue.ToString();
+        }
+
+        public string GetRandomFromBundle(BundleType type, Gender gender = Gender.Neutral, int ageBio = -1)
+        {
+            // If Archive is empty
+            if (Count == 0) return DefaultValue.ToString();
+
+            // Searching for bundles in storage and checking compatability 
+            // WEIGHTED ELEMENT'S GENDER IS PRIORITIZED
+            List<WeightedElement> compatableBundleIDs = new List<WeightedElement>();
+            foreach (WeightedElement we in Items)
+            {
+                Bundle found = ArchiveHandler.bundleStorage.FindBundle(type, (Guid)we.Value);
+                if (found != null)
+                    if (we.Gender == Gender.Neutral || we.Gender == gender)
+                    {
+                        if (ageBio == -1 || (found.LowerAgeLimit <= ageBio && found.UpperAgeLimit >= ageBio))
+                            compatableBundleIDs.Add(we);
+                    }
+            }
+
+            int totalSum = 0;
+
+            foreach (WeightedElement we in compatableBundleIDs)
+                totalSum += we.Weight;
+
+            int r = random.Next(1, totalSum + 1);
+            int sum = 0;
+
+            foreach (WeightedElement we in compatableBundleIDs)
+            {
+                sum += we.Weight;
+                if (sum >= r)
+                    return ArchiveHandler.bundleStorage.FindBundle(type, (Guid)we.Value).GetRandom(gender, ageBio);
             }
             // If there are no compatable elements in this Archive or they all have 0 weight
             return DefaultValue.ToString();

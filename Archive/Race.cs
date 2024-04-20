@@ -88,7 +88,7 @@ namespace Archives
             Ages = new AgeDistribution();
             if (ages != null)
                 foreach (WeightedElement e in ages)
-                    Ages.Add(e);
+                    Ages.AddAge(int.Parse(e.Value.ToString()), e.Weight);
 
             CompatableBundles = new Kit();
             if (compatableBundles != null)

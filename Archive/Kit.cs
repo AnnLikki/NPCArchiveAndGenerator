@@ -62,6 +62,12 @@ namespace Archives
             return this[type].GetRandomFromBundle(storage, type, gender, ageBio);
         }
 
+        public string GetRandomFromBundle(BundleType type, Gender gender = Gender.Neutral, int ageBio = -1)
+        {
+            if (!ContainsKey(type))
+                return null;
+            return this[type].GetRandomFromBundle(type, gender, ageBio);
+        }
 
     }
 }

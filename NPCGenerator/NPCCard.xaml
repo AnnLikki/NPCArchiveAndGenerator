@@ -129,7 +129,9 @@
                             <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Gender" Margin="2,0,2,0" Grid.Column="4" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <TextBox x:Name="genderTB" Margin="2,0,0,0" Grid.Column="5"/>
+
+                        <ComboBox x:Name="genderCmb" Margin="2,0,0,0" Grid.Column="5"/>
+                        
                         <ToggleButton x:Name="lockGenderBtn" Grid.Column="6" >
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>

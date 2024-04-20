@@ -156,7 +156,7 @@ namespace Tests
             // Gen
             Race raceGen = archetype.GetRandomRace(raceStorage);
             Gender gender = archetype.GetRandomGender(raceGen);
-            int ageBio = archetype.GetRandomAge(raceGen);
+            int ageBio = archetype.GetRandomAgeBio(raceGen);
 
             Assert.That(raceGen, Is.EqualTo(race));
             Assert.That(gender, Is.EqualTo(Gender.Female));
@@ -200,7 +200,7 @@ namespace Tests
             race.Ages.AddRange(30, 40);
 
             raceGen = archetype.GetRandomRace(raceStorage);
-            int ageBio = archetype.GetRandomAge(raceGen);
+            int ageBio = archetype.GetRandomAgeBio(raceGen);
             Assert.That(ageBio, Is.EqualTo(-1));
 
         }

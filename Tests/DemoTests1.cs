@@ -204,7 +204,7 @@ namespace Tests
                 Race race = defaultArchetype.GetRandomRace(raceStorage);
                 Gender gender = defaultArchetype.GetRandomGender(race);
 
-                int age = defaultArchetype.GetRandomAge(race);
+                int age = defaultArchetype.GetRandomAgeBio(race);
 
                 string name = defaultArchetype.GetRandomFromBundle(bundleStorage, BundleType.Name, race, gender, age);
                 string job = defaultArchetype.GetRandomFromBundle(bundleStorage, BundleType.Occupation, race, gender, age);
@@ -289,7 +289,7 @@ namespace Tests
                 for (int i = 0; i < 10; i++)
                 {
                     Race race = ar.GetRandomRace(raceStorage);
-                    int age = ar.GetRandomAge(race);
+                    int age = ar.GetRandomAgeBio(race);
                     Gender gender = ar.GetRandomGender(race);
 
                     string nameGen = ar.GetRandomFromBundle(bundleStorage, BundleType.Name, race, gender, age);

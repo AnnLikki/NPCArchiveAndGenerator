@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using static Archives.Enums;
 
 namespace Archives
 {
@@ -27,7 +28,7 @@ namespace Archives
 
             }
         }
-        public string Gender { get; set; } = "";
+        public Gender Gender { get; set; } = Gender.Neutral;
         public int AgeChrono { get; set; } = 0;
         public int AgeBio { get; set; } = 0;
         public string Occupation { get; set; } = "";
@@ -60,7 +61,7 @@ namespace Archives
 
         public NPC() { }
 
-        public NPC(string name, Race race, string gender, int ageChrono, int ageBio, string occupation, string place, string character, string backstory, string height, string physique, string skin, string hair, string face, string eyes, string clothes, string features, int str, int dex, int con, int intel, int wis, int cha, string notes)
+        public NPC(string name, Race race, Gender gender, int ageChrono, int ageBio, string occupation, string place, string character, string backstory, string height, string physique, string skin, string hair, string face, string eyes, string clothes, string features, int str, int dex, int con, int intel, int wis, int cha, string notes)
         {
             Name = name;
             RaceID = race.Id;
@@ -128,7 +129,7 @@ namespace Archives
         /// <summary>
         /// A method to update NPC's info and call the PropertyChanged event on relevant properties.
         /// </summary>
-        public void updateInfoNotifyably(string name, Race race, string gender, int ageChrono, int ageBio, string occupation, string place, string character, string backstory, string height, string physique, string skin, string hair, string face, string eyes, string clothes, string features, int str, int dex, int con, int intel, int wis, int cha, string notes)
+        public void updateInfoNotifyably(string name, Race race, Gender gender, int ageChrono, int ageBio, string occupation, string place, string character, string backstory, string height, string physique, string skin, string hair, string face, string eyes, string clothes, string features, int str, int dex, int con, int intel, int wis, int cha, string notes)
         {
             if (Name != name)
             {

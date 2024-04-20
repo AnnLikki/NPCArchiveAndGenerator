@@ -99,3 +99,4 @@ C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\obj\Debug\net6.0\re
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\obj\Debug\net6.0\Tests.pdb
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\obj\Debug\net6.0\Tests.genruntimeconfig.cache
 C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\obj\Debug\net6.0\ref\Tests.dll
+C:\Users\likki\Documents\GitHub\NPCArchiveAndGenerator\Tests\bin\Debug\net6.0\Archives.dll.config
