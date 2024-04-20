@@ -47,7 +47,7 @@
 
 
 
-    <Grid Background="{StaticResource VeryLightColor}" Margin="5">
+    <Grid Background="{StaticResource LightColor}" Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
@@ -146,7 +146,7 @@
             <ItemsControl x:Name="LayersIC">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Grid Margin="5" Background="{StaticResource LightColor}" >
+                        <Grid Margin="5" Background="{StaticResource DarkColor}" >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="*"/>
@@ -173,18 +173,18 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     <WrapPanel Grid.Column="0" Orientation="Horizontal">
-                                        <Label Content="Chance" Background="{StaticResource DarkColor}"/>
-                                        <Label Content="{Binding Chance}" Background="{StaticResource DarkColor}"/>
-                                        <Label Content="Gender" Background="{StaticResource DarkColor}"/>
-                                        <Label Background="{StaticResource DarkColor}">
+                                        <Label Content="Chance" />
+                                        <Label Content="{Binding Chance}" />
+                                        <Label Content="Gender" />
+                                        <Label >
                                             <Image Width="20" Height="20" Source="{Binding Gender, Converter={StaticResource EnumToImageConverter}}"/>
                                         </Label>
-                                        <Label Content="{Binding LowerAgeLimit}" Background="{StaticResource DarkColor}" Visibility="{Binding LowerAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
-                                        <Label Content="-" Background="{StaticResource DarkColor}" Visibility="{Binding LowerAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
-                                        <Label Content="{Binding UpperAgeLimit}" Background="{StaticResource DarkColor}" Visibility="{Binding UpperAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
+                                        <Label Content="{Binding LowerAgeLimit}"  Visibility="{Binding LowerAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
+                                        <Label Content="-"  Visibility="{Binding LowerAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
+                                        <Label Content="{Binding UpperAgeLimit}"  Visibility="{Binding UpperAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
 
-                                        <Label Content="Default Value" Background="{StaticResource DarkColor}" Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
-                                        <Label Content="{Binding DefaultValue}" Background="{StaticResource DarkColor}" Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
+                                        <Label Content="Default Value"  Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
+                                        <Label Content="{Binding DefaultValue}"  Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
 
                                     </WrapPanel>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" Height="30">
