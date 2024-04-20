@@ -137,14 +137,24 @@ namespace Archives
 
         public Race GetRandomRace(RaceStorage storage)
         {
-            Guid raceID = (Guid)Races.GetRandomUnrestricted();
-            return storage.FindRace(raceID);
+            if (Races.Count != 0)
+            {
+                Guid raceID = (Guid)Races.GetRandomUnrestricted();
+                return storage.FindRace(raceID);
+            }
+            else
+                return null;
         }
 
         public Race GetRandomRace()
         {
-            Guid raceID = (Guid)Races.GetRandomUnrestricted();
-            return ArchiveHandler.raceStorage.FindRace(raceID);
+            if (Races.Count != 0)
+            {
+                Guid raceID = (Guid)Races.GetRandomUnrestricted();
+                return ArchiveHandler.raceStorage.FindRace(raceID);
+            }
+            else
+                return null;
         }
 
 
