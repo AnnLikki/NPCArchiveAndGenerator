@@ -73,9 +73,9 @@ namespace Archives
             }
         }
 
-        public int GetPercentage(object value)
+        public double GetPercentage(object value)
         {
-            if (Elements.Any(e => e.Value.Equals(value)) && TotalWeight != 0) return Elements.First(e => e.Value.Equals(value)).Weight * 100 / TotalWeight;
+            if (Elements.Any(e => e.Value.Equals(value)) && TotalWeight != 0) return Math.Round((double)Elements.First(e => e.Value.Equals(value)).Weight * 100 / TotalWeight, 2);
             else return 0;
         }
 
