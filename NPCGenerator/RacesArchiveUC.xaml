@@ -6,28 +6,58 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid Grid.Column="0">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="#F1D8FF" />
+        <SolidColorBrush x:Key="LightColor" Color="#E3AFFF" />
+        <SolidColorBrush x:Key="BrightColor" Color="#D07CFF" />
+        <SolidColorBrush x:Key="DarkColor" Color="#C77CF0" />
+        <SolidColorBrush x:Key="VeryDarkColor" Color="#BB65EB" />
+    </UserControl.Resources>
+
+    <Grid Grid.Column="0" Background="{StaticResource VeryLightColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Background="MediumPurple" >
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Background="{StaticResource VeryDarkColor}" >
             <Button x:Name="addRaceBtn" Content="Add Race" Padding="5" Height="30" Width="65" HorizontalContentAlignment="Center" Margin="15,0,0,0" Click="addRaceBtn_Click"/>
             <TextBox x:Name="filterTB" TextWrapping="NoWrap" Height="30" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" Width="250" Margin="15,0,0,0" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="filterTB_TextChanged"/>
             <Button x:Name="clearFilterBtn" Content="X" Padding="5" Height="30" Width="30" HorizontalContentAlignment="Center" Margin="5,0,0,0" Click="clearFilterBtn_Click"/>
         </StackPanel>
 
-
-
+        
         <Grid Grid.Row="1" Grid.Column="0">
 
-            <DataGrid x:Name="RaceDataGrid" ScrollViewer.CanContentScroll="False" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="RaceDataGrid_SelectionChanged" MinWidth="200" Background="Lavender">
+            <DataGrid x:Name="RaceDataGrid" Background="{StaticResource VeryLightColor}"
+                        VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
+                        CanUserResizeColumns="False" CanUserResizeRows="False" 
+                        SelectionMode="Single" CanUserReorderColumns="False"
+                        AutoGenerateColumns="False" IsReadOnly="True"
+                        SelectionChanged="RaceDataGrid_SelectionChanged">
+                <!--#region Styles -->
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                    </Style>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="{StaticResource BrightColor}"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>
+                <!--#endregion-->
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="Race" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
@@ -43,8 +73,8 @@
             </DataGrid>
 
         </Grid>
-        <Grid Grid.Row="1"  Grid.Column="1">
+        <ScrollViewer Grid.Row="1"  Grid.Column="1" VerticalScrollBarVisibility="Auto">
             <ContentControl x:Name="RaceView"/>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>

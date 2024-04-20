@@ -1,8 +1,10 @@
 ﻿using Archives;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,14 +15,34 @@ namespace NPCArchiveAndGenerator
     public partial class BundleSelectionWin : Window
     {
         Archetype archetype;
+        Race race;
         public BundleType type;
         public BundleSelectionWin(BundleType type1, Archetype archetype1)
         {
             archetype = archetype1;
             type = type1;
+            race = null;
 
             BundleCheckedConverter converter = new BundleCheckedConverter();
             converter.bundleIds = archetype.CompatableBundles[type].ToList();
+            Resources.Add("BundleCheckedConverter", converter);
+
+
+            InitializeComponent();
+
+            CategoryNameLbl.Content = type + " Bundles";
+
+            BundlesIC.ItemsSource = ArchiveHandler.bundleStorage[type];
+        }
+
+        public BundleSelectionWin(BundleType type1, Race race1)
+        {
+            race = race1;
+            type = type1;
+            archetype = null;
+
+            BundleCheckedConverter converter = new BundleCheckedConverter();
+            converter.bundleIds = race.CompatableBundles[type].ToList();
             Resources.Add("BundleCheckedConverter", converter);
 
 
@@ -36,7 +58,10 @@ namespace NPCArchiveAndGenerator
         {
             if (sender is CheckBox checkBox && checkBox.DataContext is Bundle bundle)
             {
+                if(archetype!=null)
                 archetype.CompatableBundles.AddBundle(type, bundle);
+                else if(race!=null)
+                    race.CompatableBundles.AddBundle(type, bundle);
             }
         }
 
@@ -44,7 +69,10 @@ namespace NPCArchiveAndGenerator
         {
             if (sender is CheckBox checkBox && checkBox.DataContext is Bundle bundle)
             {
-                archetype.CompatableBundles.RemoveBundle(type, bundle);
+                if (archetype != null)
+                    archetype.CompatableBundles.RemoveBundle(type, bundle);
+                else if (race != null)
+                    race.CompatableBundles.RemoveBundle(type, bundle);
             }
         }
     }

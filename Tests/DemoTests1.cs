@@ -153,8 +153,8 @@ namespace Tests
             defaultArchetype.Ages.AddRange(15, 35, 10);
             defaultArchetype.Ages.AddRange(35, 55, 5);
 
-            human.AgeDistribution.AddRange(15, 30, 5);
-            elf.AgeDistribution.AddRange(30, 40, 10);
+            human.Ages.AddRange(15, 30, 5);
+            elf.Ages.AddRange(30, 40, 10);
         }
 
         void jobsSetup()
@@ -246,8 +246,8 @@ namespace Tests
             Race dwarf = new("Дварф", "", 18, 450);
             dwarf.SetGender(Gender.Male);
             dwarf.SetGender(Gender.Female);
-            dwarf.AgeDistribution.AddRange(0, 100);
-            dwarf.AgeDistribution.AddRange(15, 50, 2);
+            dwarf.Ages.AddRange(0, 100);
+            dwarf.Ages.AddRange(15, 50, 2);
             raceStorage.Add(dwarf);
 
             Bundle dwarvenNames = new("Дварфийские имена");

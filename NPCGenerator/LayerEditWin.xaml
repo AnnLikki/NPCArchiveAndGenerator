@@ -6,8 +6,13 @@
         xmlns:local="clr-namespace:NPCArchiveAndGenerator"
         mc:Ignorable="d"
         Title="Edit Layer" Height="500" Width="400">
-
     <Window.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="#D6FFFF" />
+        <SolidColorBrush x:Key="LightColor" Color="#ABFFFF" />
+        <SolidColorBrush x:Key="BrightColor" Color="#75FFFF" />
+        <SolidColorBrush x:Key="DarkColor" Color="#75F0F0" />
+        <SolidColorBrush x:Key="VeryDarkColor" Color="#5FEBEB" />
+
         <local:GenderToCheckedConverter x:Key="GenderToCheckedConverter"/>
 
         <!-- Custom style for RadioButton to mimic ToggleButton -->
@@ -22,22 +27,21 @@
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#5CD6D6"/>
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource VeryDarkColor}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#ACECEC"/>
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource BrightColor}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Background" Value="#D5F6F6"/>
-            <Setter Property="BorderBrush" Value="#35CACA"/>
+            <Setter Property="Background" Value="{StaticResource VeryLightColor}"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
     </Window.Resources>
 
-    <Grid Background="#D5F6F6">
+    <Grid Background="{StaticResource VeryLightColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="35"/>
@@ -132,8 +136,26 @@
 
         <DataGrid x:Name="ElemsDG" ItemsSource="{Binding Elements}" Grid.Row="4" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"
-            SelectionMode="Single" Background="#ACECEC" CanUserSortColumns="False" CanUserReorderColumns="False" 
+            SelectionMode="Single" Background="{StaticResource VeryLightColor}" CanUserSortColumns="False" CanUserReorderColumns="False" 
           CanUserAddRows="False" CanUserDeleteRows="False" Margin="5" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+
+            <!--#region Styles -->
+            <DataGrid.Resources>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                </Style>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="White"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource DarkColor}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+            <!--#endregion-->
 
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Value" Width="*">

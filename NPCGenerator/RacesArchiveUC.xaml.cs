@@ -1,4 +1,5 @@
 ﻿using Archives;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -37,6 +38,10 @@ namespace NPCGenerator
             displayedArchiveRace = ArchiveHandler.raceStorage.filterByKey(filterTB.Text);
             RaceDataGrid.ItemsSource = displayedArchiveRace;
         }
+        private void UpdateFilterable(object sender, RoutedEventArgs e)
+        {
+            updateFilterable();
+        }
 
         /// <summary>
         /// A new race is created, added to the archive and selected, so RaceDataGrid_SelectionChanged is triggered.
@@ -56,6 +61,7 @@ namespace NPCGenerator
             {
                 RaceCard card = new RaceCard(selectedRace, RaceDataGrid);
                 RaceView.Content = card;
+                card.closeBtn.Click += UpdateFilterable;
             }
             else
             {

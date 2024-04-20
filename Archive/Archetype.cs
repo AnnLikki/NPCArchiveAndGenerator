@@ -68,7 +68,7 @@ namespace Archives
 
         public int GetRandomAge(Race race)
         {
-            return race.AgeDistribution.GetIntersection(Ages).GetRandom();
+            return race.Ages.GetIntersection(Ages).GetRandom();
         }
 
         public string GetRandomFromBundle(BundleStorage storage, BundleType type, Race race, Gender gender, int age)

@@ -138,7 +138,7 @@ namespace Tests
             Race race = new Race("Race");
             race.SetGender(Gender.Male);
             race.SetGender(Gender.Female);
-            race.AgeDistribution.AddRange(15, 25);
+            race.Ages.AddRange(15, 25);
             Bundle bundle1 = new Bundle("Bundle1");
             bundle1.InsertNewLayer(0);
             bundle1.AddToLayer(0, "Feat");
@@ -197,7 +197,7 @@ namespace Tests
             // No ages in intersection = should return -1
             archetype.Ages.AddRange(10, 20);
 
-            race.AgeDistribution.AddRange(30, 40);
+            race.Ages.AddRange(30, 40);
 
             raceGen = archetype.GetRandomRace(raceStorage);
             int ageBio = archetype.GetRandomAge(raceGen);

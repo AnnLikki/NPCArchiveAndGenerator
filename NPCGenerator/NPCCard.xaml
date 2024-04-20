@@ -3,8 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" Width="550" Background="LightSteelBlue">
-    <ScrollViewer>
+             mc:Ignorable="d" Width="550">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="#D9EEFF" />
+        <SolidColorBrush x:Key="LightColor" Color="#B0DDFF" />
+        <SolidColorBrush x:Key="BrightColor" Color="#7EC7FF" />
+        <SolidColorBrush x:Key="DarkColor" Color="#7DBEF0" />
+        <SolidColorBrush x:Key="VeryDarkColor" Color="#66B1EB" />
+    </UserControl.Resources>
+
+    <ScrollViewer Background="{StaticResource LightColor}">
 
         <!--#region Main Grid-->
         <!--Contains Top and Bottom Grids-->
@@ -430,7 +438,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Content="Notes" Background="{x:Null}"/>
+                <Label Grid.Row="0" Content="Notes"/>
                 <TextBox x:Name="notesTB" Grid.Row="1" Margin="2,2,2,2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"/>
 
             </Grid>

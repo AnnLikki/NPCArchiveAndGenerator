@@ -163,8 +163,8 @@ namespace NPCGenerator
             defaultArchetype.Ages.AddRange(15, 35, 10);
             defaultArchetype.Ages.AddRange(35, 55, 5);
 
-            human.AgeDistribution.AddRange(15, 30, 5);
-            elf.AgeDistribution.AddRange(30, 40, 10);
+            human.Ages.AddRange(15, 30, 5);
+            elf.Ages.AddRange(30, 40, 10);
         }
 
         void jobsSetup()

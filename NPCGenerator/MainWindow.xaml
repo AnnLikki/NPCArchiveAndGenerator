@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:NPCGenerator"
         mc:Ignorable="d"
         Closing="TheWindow_Closing"  
-        Title="NPC Archive &amp; Generator" Height="600" Width="800" MinWidth="600" MinHeight="200" Background="LightBlue" Icon="/Images/archive.png">
-    <Grid x:Name="mainPnl">
+        Title="NPC Archive &amp; Generator" Height="600" Width="820" MinWidth="600" MinHeight="200" Icon="/Images/archive.png">
+    <Window.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="AliceBlue" />
+        <SolidColorBrush x:Key="DarkColor" Color="SteelBlue" />
+    </Window.Resources>
+    
+    
+    <Grid Background="{StaticResource VeryLightColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
@@ -15,7 +21,7 @@
 
         <ContentControl x:Name="centerContainer" Grid.Row="0"/>
 
-        <Grid x:Name="bottomPnl" Grid.Row="1" Background="SteelBlue">
+        <Grid x:Name="bottomPnl" Grid.Row="1" Background="{StaticResource DarkColor}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>

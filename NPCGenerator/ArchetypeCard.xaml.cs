@@ -1,5 +1,6 @@
 ﻿using Archives;
 using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
@@ -22,15 +23,15 @@ namespace NPCArchiveAndGenerator
             archetype = archetype1;
             isDefault = isDefault1;
 
-            AgesPercentageConverter converter1 = new AgesPercentageConverter();
+            AgesPercentageConverterForArchetype converter1 = new AgesPercentageConverterForArchetype();
             converter1.Archetype = archetype;
             Resources.Add("AgesPercentageConverter", converter1);
 
-            BundlesPercentageConverter converter2 = new BundlesPercentageConverter();
+            BundlesPercentageConverterForArchetype converter2 = new BundlesPercentageConverterForArchetype();
             converter2.Archetype = archetype;
             Resources.Add("BundlesPercentageConverter", converter2);
 
-            RacesPercentageConverter converter3 = new RacesPercentageConverter();
+            RacesPercentageConverterForArchetype converter3 = new RacesPercentageConverterForArchetype();
             converter3.Archetype = archetype;
             Resources.Add("RacesPercentageConverter", converter3);
 
@@ -447,7 +448,7 @@ namespace NPCArchiveAndGenerator
 
     }
 
-    public class AgesPercentageConverter : IValueConverter
+    public class AgesPercentageConverterForArchetype : IValueConverter
     {
         public Archetype Archetype { get; set; }
 
@@ -474,7 +475,10 @@ namespace NPCArchiveAndGenerator
         {
             if (value is WeightedElement item)
             {
-                string name = ArchiveHandler.raceStorage.FindRace(Guid.Parse(item.Value.ToString())).Name;
+                Race race = ArchiveHandler.raceStorage.FindRace(Guid.Parse(item.Value.ToString()));
+                string name = null;
+                if (race!=null)
+                 name = race.Name;
                 if (name != null)
                     return name;
             }
@@ -487,7 +491,7 @@ namespace NPCArchiveAndGenerator
         }
     }
 
-    public class RacesPercentageConverter : IValueConverter
+    public class RacesPercentageConverterForArchetype : IValueConverter
     {
         public Archetype Archetype { get; set; }
 
@@ -515,7 +519,10 @@ namespace NPCArchiveAndGenerator
             if (value is WeightedElement item && parameter is string typeNumber)
             {
                 BundleType type = (BundleType)int.Parse(typeNumber);
-                string name = ArchiveHandler.bundleStorage.FindBundle(type, (Guid)item.Value).Name;
+                Bundle bundle = ArchiveHandler.bundleStorage.FindBundle(type, (Guid)item.Value);
+                string name = null;
+                if (bundle != null)
+                    name = bundle.Name;
                 if (name != null)
                     return name;
             }
@@ -528,7 +535,7 @@ namespace NPCArchiveAndGenerator
         }
     }
 
-    public class BundlesPercentageConverter : IValueConverter
+    public class BundlesPercentageConverterForArchetype : IValueConverter
     {
         public Archetype Archetype { get; set; }
 

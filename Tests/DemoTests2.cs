@@ -34,25 +34,25 @@ namespace Tests
             human.LifeExpectancy = 80;
             human.Genders.AddElement(Gender.Female);
             human.Genders.AddElement(Gender.Male);
-            human.AgeDistribution.AddRange(0, 80, 2);
-            human.AgeDistribution.AddRange(80, 100, 1);
-            human.AgeDistribution.AddRange(15, 50, 3);
+            human.Ages.AddRange(0, 80, 2);
+            human.Ages.AddRange(80, 100, 1);
+            human.Ages.AddRange(15, 50, 3);
 
             elf.MaturityAge = 18;
             elf.LifeExpectancy = 750;
             elf.Genders.AddElement(Gender.Female);
             elf.Genders.AddElement(Gender.Male);
-            elf.AgeDistribution.AddRange(0, 80);
-            elf.AgeDistribution.AddRange(0, 50, 2);
-            elf.AgeDistribution.AddRange(15, 30, 3);
+            elf.Ages.AddRange(0, 80);
+            elf.Ages.AddRange(0, 50, 2);
+            elf.Ages.AddRange(15, 30, 3);
 
             dwarf.MaturityAge = 18;
             dwarf.LifeExpectancy = 400;
             dwarf.Genders.AddElement(Gender.Female);
             dwarf.Genders.AddElement(Gender.Male);
-            dwarf.AgeDistribution.AddRange(0, 80);
-            dwarf.AgeDistribution.AddRange(0, 50, 2);
-            dwarf.AgeDistribution.AddRange(15, 30, 3);
+            dwarf.Ages.AddRange(0, 80);
+            dwarf.Ages.AddRange(0, 50, 2);
+            dwarf.Ages.AddRange(15, 30, 3);
 
         }
 
@@ -216,7 +216,7 @@ namespace Tests
             for (int i = 0; i < 10; i++)
             {
                 Gender gender = (Gender)human.Genders.GetRandomUnrestricted();
-                int age = human.AgeDistribution.GetRandom();
+                int age = human.Ages.GetRandom();
                 Console.WriteLine(gender + " " + age + " " + humanNames.GetRandom(gender, age));
             }
             Console.WriteLine();
@@ -225,7 +225,7 @@ namespace Tests
             for (int i = 0; i < 10; i++)
             {
                 Gender gender = (Gender)elf.Genders.GetRandomUnrestricted();
-                int age = elf.AgeDistribution.GetRandom();
+                int age = elf.Ages.GetRandom();
                 Console.WriteLine(gender + " " + age + " " + elvenNames.GetRandom(gender, age));
             }
             Console.WriteLine();
@@ -234,7 +234,7 @@ namespace Tests
             for (int i = 0; i < 10; i++)
             {
                 Gender gender = (Gender)dwarf.Genders.GetRandomUnrestricted();
-                int age = dwarf.AgeDistribution.GetRandom();
+                int age = dwarf.Ages.GetRandom();
                 Console.WriteLine(gender + " " + age + " " + dwarvenNames.GetRandom(gender, age));
             }
         }

@@ -11,11 +11,43 @@
         <local:AgeLimitVisibilityConverter x:Key="AgeLimitVisibilityConverter"/>
         <local:StringLengthVisibilityConverter x:Key="StringLengthVisibilityConverter"/>
         <local:ElemsPercentageConverter x:Key="ElemsPercentageConverter"/>
+
+        <SolidColorBrush x:Key="VeryLightColor" Color="#D6FFFF" />
+        <SolidColorBrush x:Key="LightColor" Color="#ABFFFF" />
+        <SolidColorBrush x:Key="BrightColor" Color="#75FFFF" />
+        <SolidColorBrush x:Key="DarkColor" Color="#75F0F0" />
+        <SolidColorBrush x:Key="VeryDarkColor" Color="#5FEBEB" />
+        <!-- Custom style for RadioButton to mimic ToggleButton -->
+        <Style x:Key="ToggleButtonStyle" TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" 
+                                                BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource VeryDarkColor}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource BrightColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{StaticResource VeryLightColor}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource VeryDarkColor}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
     </UserControl.Resources>
 
 
 
-    <Grid Background="#D5F6F6" Margin="5">
+    <Grid Background="{StaticResource VeryLightColor}" Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
             <RowDefinition Height="35"/>
@@ -66,37 +98,6 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <Grid.Resources>
-                    <!-- Custom style for RadioButton to mimic ToggleButton -->
-                    <Style x:Key="ToggleButtonStyle" TargetType="RadioButton">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="RadioButton">
-                                    <Grid>
-                                        <Border x:Name="border"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                        </Border>
-                                    </Grid>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsChecked" Value="True">
-                                            <Setter TargetName="border" Property="Background" Value="#5CD6D6"/>
-                                        </Trigger>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="border" Property="Background" Value="#ACECEC"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Property="Background" Value="#D5F6F6"/>
-                        <Setter Property="BorderBrush" Value="#35CACA"/>
-                        <Setter Property="BorderThickness" Value="1"/>
-                    </Style>
-                </Grid.Resources>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="35"/>
@@ -145,7 +146,7 @@
             <ItemsControl x:Name="LayersIC">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Grid Margin="5" Background="#ABEDED" >
+                        <Grid Margin="5" Background="{StaticResource LightColor}" >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="*"/>
@@ -172,18 +173,18 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     <WrapPanel Grid.Column="0" Orientation="Horizontal">
-                                        <Label Content="Chance" Background="#FF81E4E4"/>
-                                        <Label Content="{Binding Chance}" Background="#FF81E4E4"/>
-                                        <Label Content="Gender" Background="#FF81E4E4"/>
-                                        <Label Background="#FF81E4E4">
+                                        <Label Content="Chance" Background="{StaticResource DarkColor}"/>
+                                        <Label Content="{Binding Chance}" Background="{StaticResource DarkColor}"/>
+                                        <Label Content="Gender" Background="{StaticResource DarkColor}"/>
+                                        <Label Background="{StaticResource DarkColor}">
                                             <Image Width="20" Height="20" Source="{Binding Gender, Converter={StaticResource EnumToImageConverter}}"/>
                                         </Label>
-                                        <Label Content="{Binding LowerAgeLimit}" Background="#FF81E4E4" Visibility="{Binding LowerAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
-                                        <Label Content="-" Background="#FF81E4E4" Visibility="{Binding LowerAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
-                                        <Label Content="{Binding UpperAgeLimit}" Background="#FF81E4E4" Visibility="{Binding UpperAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
+                                        <Label Content="{Binding LowerAgeLimit}" Background="{StaticResource DarkColor}" Visibility="{Binding LowerAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
+                                        <Label Content="-" Background="{StaticResource DarkColor}" Visibility="{Binding LowerAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
+                                        <Label Content="{Binding UpperAgeLimit}" Background="{StaticResource DarkColor}" Visibility="{Binding UpperAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
 
-                                        <Label Content="Default Value" Background="#FF81E4E4" Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
-                                        <Label Content="{Binding DefaultValue}" Background="#FF81E4E4" Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
+                                        <Label Content="Default Value" Background="{StaticResource DarkColor}" Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
+                                        <Label Content="{Binding DefaultValue}" Background="{StaticResource DarkColor}" Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
 
                                     </WrapPanel>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" Height="30">
@@ -202,7 +203,7 @@
                                 </Grid>
                               
                                 <DataGrid x:Name="LayersDG" ItemsSource="{Binding Elements}" Grid.Row="1" 
-                                          MaxHeight="190" Margin="5" Background="#ACECEC" 
+                                          MaxHeight="190" Margin="5" Background="{StaticResource VeryLightColor}" 
                                           VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
                                           CanUserResizeColumns="False" CanUserResizeRows="False" 
                                           SelectionMode="Single" CanUserReorderColumns="False"
@@ -219,7 +220,7 @@
                                             <Setter Property="Background" Value="White"/>
                                             <Style.Triggers>
                                                 <Trigger Property="IsSelected" Value="True">
-                                                    <Setter Property="Background" Value="#ACECEC"/>
+                                                    <Setter Property="Background" Value="{StaticResource DarkColor}"/>
                                                 </Trigger>
                                             </Style.Triggers>
                                         </Style>

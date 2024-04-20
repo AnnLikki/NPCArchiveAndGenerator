@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Text.Json.Serialization;
 using static Archives.Enums;
 
 namespace Archives
@@ -40,7 +41,7 @@ namespace Archives
         /// <summary>
         /// Compatable ages of this race. Elements of this Archive are integers.
         /// </summary>
-        public AgeDistribution AgeDistribution { get; set; }
+        public AgeDistribution Ages { get; set; }
         /// <summary>
         /// Compatable Bundles of this race. Results of generation will only get picked from these Bundles.
         /// </summary>
@@ -55,11 +56,46 @@ namespace Archives
             LifeExpectancy = lifeExpectancy;
             Genders = new WeightedArchive();
             Genders.DefaultValue = Gender.Neutral;
-            AgeDistribution = new AgeDistribution();
+            Ages = new AgeDistribution();
             CompatableBundles = new Kit();
+            
         }
 
+        [JsonConstructor]
+        public Race(Guid id, string name, string description, int maturityAge, int lifeExpectancy, WeightedArchive genders, AgeDistribution ages, Kit compatableBundles)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            MaturityAge = maturityAge;
+            LifeExpectancy = lifeExpectancy;
+            Genders = new WeightedArchive();
+            Genders.DefaultValue = Gender.Neutral;
+            if (genders != null)
+            {
+                foreach (WeightedElement e in genders)
+                {
+                    if (int.TryParse(e.Value.ToString(), out int numerical))
+                        Genders.AddElement((Gender)numerical, e.Weight);
+                    else if (e.Value is Gender gender)
+                        Genders.AddElement(gender, e.Weight);
+                    else
+                        throw new Exception("Yo wtf");
+                }
+                Genders.DefaultValue = genders.DefaultValue;
+            }
 
+            Ages = new AgeDistribution();
+            if (ages != null)
+                foreach (WeightedElement e in ages)
+                    Ages.Add(e);
+
+            CompatableBundles = new Kit();
+            if (compatableBundles != null)
+                foreach (BundleType type in (BundleType[])Enum.GetValues(typeof(BundleType)))
+                    foreach (WeightedElement e in compatableBundles[type])
+                        CompatableBundles.AddBundle(type, Guid.Parse(e.Value.ToString()), e.Weight, e.Gender);
+        }
 
         /// <summary>
         /// A method to update Race's info and call the PropertyChanged event on relevant properties.
@@ -92,16 +128,21 @@ namespace Archives
 
         public void SetGender(Gender gender, int weight = 1)
         {
-            if (Genders.Any(g => (Gender)g.Value == gender))
-                Genders.First(g => (Gender)g.Value == gender).Weight = weight;
+            if (Genders.Any(g => g.Value.Equals(gender)))
+            {
+                Genders.First(g => g.Value.Equals(gender)).Weight = weight;
+            }
             else
+            {
                 Genders.Add(new WeightedElement(gender, weight));
+            }
+
         }
 
         public void RemoveGender(Gender gender)
         {
-            while (Genders.Any(g => (Gender)g.Value == gender))
-                Genders.Remove(Genders.First(g => (Gender)g.Value == gender));
+            while (Genders.Any(g => g.Value.Equals(gender)))
+                Genders.Remove(Genders.First(g => g.Value.Equals(gender)));
         }
 
 

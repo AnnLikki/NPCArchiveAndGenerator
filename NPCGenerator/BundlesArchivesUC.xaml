@@ -6,7 +6,39 @@
              xmlns:local="clr-namespace:NPCArchiveAndGenerator"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="#D6FFFF" />
+        <SolidColorBrush x:Key="LightColor" Color="#ABFFFF" />
+        <SolidColorBrush x:Key="BrightColor" Color="#75FFFF" />
+        <SolidColorBrush x:Key="DarkColor" Color="#75F0F0" />
+        <SolidColorBrush x:Key="VeryDarkColor" Color="#5FEBEB" />
+        <!-- Custom style for RadioButton to mimic ToggleButton -->
+        <Style x:Key="ToggleButtonStyle" TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" 
+                                                BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource VeryDarkColor}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource BrightColor}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{StaticResource VeryLightColor}"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource VeryLightColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="200"/>
@@ -16,37 +48,6 @@
         <!--#region Left Categories Grid-->
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" >
             <Grid>
-                <!--#region Styles - radio button-->
-                <Grid.Resources>
-                    <!-- Custom style for RadioButton to mimic ToggleButton -->
-                    <Style x:Key="ToggleButtonStyle" TargetType="RadioButton">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="RadioButton">
-                                    <Grid>
-                                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" 
-                                                BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </Grid>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsChecked" Value="True">
-                                            <Setter TargetName="border" Property="Background" Value="#5CD6D6"/>
-                                        </Trigger>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter TargetName="border" Property="Background" Value="#ACECEC"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Setter Property="Background" Value="#D5F6F6"/>
-                        <Setter Property="BorderBrush" Value="#35CACA"/>
-                        <Setter Property="BorderThickness" Value="1"/>
-                    </Style>
-                </Grid.Resources>
-                <!--#endregion-->
-
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -84,7 +85,7 @@
             </Grid.RowDefinitions>
 
             <!--#region Top row - search+add-->
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" Background="{StaticResource VeryDarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="25"/>
                     <ColumnDefinition Width="*"/>
@@ -100,7 +101,7 @@
             <!--#endregion-->
 
             <!--#region Bundles datagrid-->
-            <DataGrid x:Name="BundlesDG"  Grid.Row="1" Background="#ACECEC" 
+            <DataGrid x:Name="BundlesDG"  Grid.Row="1" Background="{StaticResource VeryLightColor}" 
                       VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
                       CanUserResizeColumns="False" CanUserResizeRows="False"
                       SelectionMode="Single" CanUserReorderColumns="False"
@@ -112,14 +113,12 @@
                         <Setter Property="Foreground" Value="Black"/>
                         <Setter Property="Background" Value="Transparent"/>
                         <Setter Property="BorderBrush" Value="Transparent"/>
-                        <Setter Property="BorderThickness" Value="1"/>
-                        <Setter Property="BorderBrush" Value="#35CACA"/>
                     </Style>
                     <Style TargetType="DataGridRow">
                         <Setter Property="Background" Value="Transparent"/>
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="#5CD6D6"/>
+                                <Setter Property="Background" Value="{StaticResource VeryDarkColor}"/>
                                 <Setter Property="BorderThickness" Value="0"/>
                             </Trigger>
                         </Style.Triggers>
