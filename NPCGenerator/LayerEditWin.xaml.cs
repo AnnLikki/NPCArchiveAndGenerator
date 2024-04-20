@@ -1,5 +1,8 @@
 ﻿using Archives;
+using FileManager;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -132,6 +135,22 @@ namespace NPCArchiveAndGenerator
             updateElems();
         }
 
+        private void ImportElementsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<WeightedElement> data;
+            if (DataPorter.importViaDialog("Import Layer from a text file...", out data))
+            {
+                layer.AddAll(data);
+                updateElems();
+            }
+        }
+
+        private void ExportElementsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DataPorter.exportViaDialog(layer.Elements, "Export Layer to file...");
+        }
+
+
         private void DeleteElemBtn_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.DataContext is WeightedElement element)
@@ -185,6 +204,7 @@ namespace NPCArchiveAndGenerator
         {
             updateElems();
         }
+
     }
 
     public class GenderToCheckedConverter : IValueConverter

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
@@ -85,8 +86,8 @@ namespace Archives
         /// </summary>
         public void Add(WeightedElement element)
         {
-            if (element != null && !Elements.Contains(element))
-                Elements.Add(element);
+            if (element != null && !Elements.Any(e=>e.Value.Equals(element.Value)))
+                Add(element.Value, element.Weight, element.Gender);
             else if (element == null)
                 throw new ArgumentNullException(nameof(element));
         }
@@ -110,6 +111,13 @@ namespace Archives
                 Elements.Insert(0, element);
             else if (element == null)
                 throw new ArgumentNullException(nameof(element));
+        }
+
+
+        public void AddAll(IEnumerable<WeightedElement> elements)
+        {
+            foreach (WeightedElement element in elements)
+                Add(element);
         }
 
 

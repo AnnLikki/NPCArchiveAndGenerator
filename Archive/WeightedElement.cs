@@ -34,7 +34,7 @@ namespace Archives
 
         public override string ToString()
         {
-            return Value.ToString() + ":" + Weight.ToString() + (Gender != Gender.Neutral ? Gender.ToString() : "");
+            return Value.ToString() + ";" + Weight.ToString() + ";" + (Gender != Gender.Neutral ? Gender.ToString() : "");
         }
     }
 }
