@@ -1,9 +1,6 @@
 ﻿using Archives;
 using NPCArchiveAndGenerator;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Security.AccessControl;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -30,7 +27,7 @@ namespace NPCGenerator
             archetypeCmb.ItemsSource = ArchiveHandler.archetypeStorage.ToList();
             ArchiveHandler.archetypeStorage.Items.CollectionChanged += Archetypes_CollectionChanged;
 
-            if (ArchiveHandler.archetypeStorage.DefaultArchetype!=null)
+            if (ArchiveHandler.archetypeStorage.DefaultArchetype != null)
                 archetypeCmb.SelectedItem = ArchiveHandler.archetypeStorage.DefaultArchetype;
 
             genderCmb.ItemsSource = Enum.GetValues(typeof(Gender));

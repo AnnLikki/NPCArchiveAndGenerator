@@ -46,6 +46,12 @@ namespace Archives
 
         }
 
+        public void Duplicate(Race race)
+        {
+            Race race1 = new Race(Guid.NewGuid(), race.Name, race.Description, race.MaturityAge, race.LifeExpectancy, race.Genders, race.Ages, race.CompatableBundles);
+            Insert(IndexOf(race), race1);
+        }
+
         public override string ToString()
         {
             string res = "";
@@ -55,5 +61,6 @@ namespace Archives
 
             return res;
         }
+
     }
 }

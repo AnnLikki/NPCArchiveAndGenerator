@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -82,7 +80,7 @@ namespace Archives
         {
             List<Archetype> list = new List<Archetype>();
             list.Add(DefaultArchetype);
-            foreach(Archetype ar in Items)
+            foreach (Archetype ar in Items)
                 list.Add(ar);
             return list;
         }

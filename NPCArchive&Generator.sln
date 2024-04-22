@@ -32,7 +32,6 @@ Global
 		{110F140F-1920-406A-8B09-D89CBB5D9601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{110F140F-1920-406A-8B09-D89CBB5D9601}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{110F140F-1920-406A-8B09-D89CBB5D9601}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{110F140F-1920-406A-8B09-D89CBB5D9601}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

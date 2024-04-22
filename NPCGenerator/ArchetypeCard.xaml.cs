@@ -1,8 +1,6 @@
 ﻿using Archives;
 using System;
-using System.Diagnostics;
 using System.Globalization;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -477,8 +475,8 @@ namespace NPCArchiveAndGenerator
             {
                 Race race = ArchiveHandler.raceStorage.FindRace(Guid.Parse(item.Value.ToString()));
                 string name = null;
-                if (race!=null)
-                 name = race.Name;
+                if (race != null)
+                    name = race.Name;
                 if (name != null)
                     return name;
             }

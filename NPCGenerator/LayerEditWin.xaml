@@ -188,15 +188,15 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Height="20">
 
-                                <RadioButton x:Name="MaleBtn" IsChecked="{Binding Gender, Converter={StaticResource GenderToCheckedConverter}, ConverterParameter=0}" Style="{StaticResource ToggleButtonStyle}" Margin="2" Checked="MaleBtn_Checked_1">
+                                <RadioButton x:Name="MaleBtn" IsChecked="{Binding Gender, Mode=OneWay, Converter={StaticResource GenderToCheckedConverter}, ConverterParameter=0}" Style="{StaticResource ToggleButtonStyle}" Margin="2" Checked="MaleBtn_Checked_1">
                                     <Image Source="/Images/male.png" />
                                 </RadioButton>
 
-                                <RadioButton x:Name="FemaleBtn" IsChecked="{Binding Gender, Converter={StaticResource GenderToCheckedConverter}, ConverterParameter=1}" Style="{StaticResource ToggleButtonStyle}" Margin="2" Checked="FemaleBtn_Checked_1">
+                                <RadioButton x:Name="FemaleBtn" IsChecked="{Binding Gender, Mode=OneWay, Converter={StaticResource GenderToCheckedConverter}, ConverterParameter=1}" Style="{StaticResource ToggleButtonStyle}" Margin="2" Checked="FemaleBtn_Checked_1">
                                     <Image Source="/Images/female.png" />
                                 </RadioButton>
 
-                                <RadioButton x:Name="NeutralBtn" IsChecked="{Binding Gender, Converter={StaticResource GenderToCheckedConverter}, ConverterParameter=2}" Style="{StaticResource ToggleButtonStyle}" Margin="2" Checked="NeutralBtn_Checked_1">
+                                <RadioButton x:Name="NeutralBtn" IsChecked="{Binding Gender, Mode=OneWay, Converter={StaticResource GenderToCheckedConverter}, ConverterParameter=2}" Style="{StaticResource ToggleButtonStyle}" Margin="2" Checked="NeutralBtn_Checked_1">
                                     <Image Source="/Images/neuter.png" />
                                 </RadioButton>
 

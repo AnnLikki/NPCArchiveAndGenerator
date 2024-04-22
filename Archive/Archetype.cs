@@ -77,7 +77,7 @@ namespace Archives
         {
             int ageBio = GetRandomAgeBio(race);
             int from = race.calculateChronoAge(ageBio);
-            int to = race.calculateChronoAge(ageBio+1);
+            int to = race.calculateChronoAge(ageBio + 1);
 
             return random.Next(from, to);
 

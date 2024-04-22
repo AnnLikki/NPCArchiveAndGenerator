@@ -86,7 +86,7 @@ namespace Archives
         /// </summary>
         public void Add(WeightedElement element)
         {
-            if (element != null && !Elements.Any(e=>e.Value.Equals(element.Value)))
+            if (element != null && !Elements.Any(e => e.Value.Equals(element.Value)))
                 Add(element.Value, element.Weight, element.Gender);
             else if (element == null)
                 throw new ArgumentNullException(nameof(element));

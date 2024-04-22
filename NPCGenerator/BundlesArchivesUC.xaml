@@ -41,7 +41,7 @@
     <Grid Background="{StaticResource VeryLightColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
@@ -130,7 +130,7 @@
                     <DataGridTemplateColumn Header="Bundle Name" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock HorizontalAlignment="Center" Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding Name}" Padding="2,0,0,0"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

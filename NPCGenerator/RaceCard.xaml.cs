@@ -2,7 +2,6 @@
 using NPCArchiveAndGenerator;
 using System;
 using System.Globalization;
-using System.Security.AccessControl;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -34,7 +33,7 @@ namespace NPCGenerator
             Resources.Add("BundlesPercentageConverter", converter2);
 
             InitializeComponent();
-            
+
             nameTB.Text = race.Name;
             descTB.Text = race.Description;
             maturityTB.Text = race.MaturityAge.ToString();
@@ -64,6 +63,10 @@ namespace NPCGenerator
                     ArchiveHandler.raceStorage.Remove(race);
             }
             else ArchiveHandler.raceStorage.Remove(race);
+        }
+        private void cloneBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ArchiveHandler.raceStorage.Duplicate(race);
         }
 
         public void closeBtn_Click(object sender, RoutedEventArgs e)
@@ -416,7 +419,6 @@ namespace NPCGenerator
 
             return foundChild;
         }
-
     }
 
 

@@ -1,11 +1,8 @@
 ﻿using Archives;
-using Microsoft.SqlServer.Server;
 using Microsoft.Win32;
-using static FileManager.SnL;
-using System.Text.Json;
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using static Archives.Enums;
 
@@ -19,7 +16,7 @@ namespace FileManager
             {
                 string[] lines;
                 lines = data.Select(element => element.ToString()).ToArray();
-                       
+
                 File.WriteAllLines(path, lines);
                 return true;
             }
@@ -89,17 +86,17 @@ namespace FileManager
         {
             data = null;
             OpenFileDialog importFileDialog = new OpenFileDialog();
-                importFileDialog.Filter = "Text files (*.txt)|*.txt";
+            importFileDialog.Filter = "Text files (*.txt)|*.txt";
             importFileDialog.Title = windowTitle;
             if (importFileDialog.ShowDialog() == false)
                 return false;
 
             string filename = importFileDialog.FileName;
 
-            data=Import(filename);
+            data = Import(filename);
 
             ErrorHandler.errorPopup();
-                
+
             return true;
 
         }

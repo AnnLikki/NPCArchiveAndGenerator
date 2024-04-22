@@ -58,7 +58,7 @@ namespace Archives
             Genders.DefaultValue = Gender.Neutral;
             Ages = new AgeDistribution();
             CompatableBundles = new Kit();
-            
+
         }
 
         [JsonConstructor]

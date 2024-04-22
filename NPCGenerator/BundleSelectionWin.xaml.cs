@@ -1,10 +1,8 @@
 ﻿using Archives;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Security.AccessControl;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -58,9 +56,9 @@ namespace NPCArchiveAndGenerator
         {
             if (sender is CheckBox checkBox && checkBox.DataContext is Bundle bundle)
             {
-                if(archetype!=null)
-                archetype.CompatableBundles.AddBundle(type, bundle);
-                else if(race!=null)
+                if (archetype != null)
+                    archetype.CompatableBundles.AddBundle(type, bundle);
+                else if (race != null)
                     race.CompatableBundles.AddBundle(type, bundle);
             }
         }
