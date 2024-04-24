@@ -4,9 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" d:DesignWidth="800">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="#D9EEFF" />
+        <SolidColorBrush x:Key="LightColor" Color="#B0DDFF" />
+        <SolidColorBrush x:Key="BrightColor" Color="#7EC7FF" />
+        <SolidColorBrush x:Key="DarkColor" Color="#7DBEF0" />
+        <SolidColorBrush x:Key="VeryDarkColor" Color="#66B1EB" />
+    </UserControl.Resources>
 
-
-    <Grid Grid.Column="0">
+    <Grid Grid.Column="0" Background="{StaticResource VeryLightColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
@@ -17,7 +23,7 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Background="SteelBlue">
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Background="{StaticResource VeryDarkColor}">
             <Button x:Name="addNPCBtn" Content="Add NPC" Padding="5" Height="30" Width="65" HorizontalContentAlignment="Center" Margin="15,0,0,0" Click="addNPCBtn_Click"/>
             <TextBox x:Name="filterTB" TextWrapping="NoWrap" Height="30" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" Width="250" Margin="15,0,0,0" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="filterTB_TextChanged"/>
             <Button x:Name="clearFilterBtn" Content="X" Padding="5" Height="30" Width="30" HorizontalContentAlignment="Center" Margin="5,0,0,0" Click="clearFilterBtn_Click"/>
@@ -27,14 +33,39 @@
 
         <Grid Grid.Row="1" Grid.Column="0">
 
-            <DataGrid x:Name="NPCDataGrid" ScrollViewer.CanContentScroll="False" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="NPCDataGrid_SelectionChanged" Background="Azure">
-                <DataGrid.Columns>
+            <DataGrid x:Name="NPCDataGrid" Background="{StaticResource VeryLightColor}"
+                      VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
+                      CanUserResizeColumns="False" CanUserResizeRows="False" 
+                      SelectionMode="Single" CanUserReorderColumns="False"
+                      AutoGenerateColumns="False" IsReadOnly="True"
+                      SelectionChanged="NPCDataGrid_SelectionChanged">
+
+                    <!--#region Styles -->
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                        </Style>
+                        <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="Transparent"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="{StaticResource BrightColor}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <!--#endregion-->
+
+
+                    <DataGrid.Columns>
                     <DataGridTemplateColumn Header="NPC" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Name}" Margin="5"/>
-                                    <TextBlock Text="{Binding Race}" Margin="5"/>
+                                    <TextBlock Text="{Binding RaceName}" Margin="5"/>
                                     <TextBlock Text="{Binding Gender}" Margin="5"/>
                                     <TextBlock Text="{Binding AgeChrono}" Margin="5"/>
                                     <TextBlock Text="{Binding Occupation}" Margin="5"/>

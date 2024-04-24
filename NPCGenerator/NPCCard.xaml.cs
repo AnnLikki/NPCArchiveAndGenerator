@@ -1,8 +1,10 @@
 ﻿using Archives;
+using NPCArchiveAndGenerator;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static Archives.Enums;
 
 namespace NPCGenerator
 {
@@ -19,8 +21,17 @@ namespace NPCGenerator
             InitializeComponent();
             this.grid = grid;
 
-            //ComboBox with race options taken from global race archive.
-            raceCmb.ItemsSource = ArchiveHandler.absoluteArchiveRace;
+            //ComboBox with race options taken from storage.
+            raceCmb.ItemsSource = ArchiveHandler.raceStorage;
+
+            archetypeCmb.ItemsSource = ArchiveHandler.archetypeStorage.ToList();
+            ArchiveHandler.archetypeStorage.Items.CollectionChanged += Archetypes_CollectionChanged;
+
+            if (ArchiveHandler.archetypeStorage.DefaultArchetype != null)
+                archetypeCmb.SelectedItem = ArchiveHandler.archetypeStorage.DefaultArchetype;
+
+            genderCmb.ItemsSource = Enum.GetValues(typeof(Gender));
+
 
             // Filling all the fields with NPC's data.
             this.npc = npc;
@@ -29,17 +40,17 @@ namespace NPCGenerator
 
             // Using FindMatching function to set the ComboBox to the right
             // option if found the exact copy of NPC's race in the race archive.
-            if (ArchiveHandler.absoluteArchiveRace.FindMatching(npc.Race) != null)
-                raceCmb.SelectedItem = ArchiveHandler.absoluteArchiveRace.FindMatching(npc.Race);
+            if (ArchiveHandler.raceStorage.FindRace(npc.RaceID) != null)
+                raceCmb.SelectedItem = ArchiveHandler.raceStorage.FindRace(npc.RaceID);
             else
-                raceCmb.SelectedItem = npc.Race;
+                raceCmb.SelectedItem = null;
 
-            genderTB.Text = npc.Gender;
+            genderCmb.SelectedItem = npc.Gender;
             ageChronoTB.Text = npc.AgeChrono.ToString();
             ageBioTB.Text = npc.AgeBio.ToString();
             occupationTB.Text = npc.Occupation;
             placeTB.Text = npc.Place;
-            charaterTB.Text = npc.Character;
+            characterTB.Text = npc.Character;
             backstoryTB.Text = npc.Backstory;
             heightTB.Text = npc.Height;
             physiqueTB.Text = npc.Physique;
@@ -69,14 +80,19 @@ namespace NPCGenerator
             notesTB.Text = npc.Notes;
         }
 
+        private void Archetypes_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            archetypeCmb.ItemsSource = ArchiveHandler.archetypeStorage.ToList();
+        }
+
         /// <summary>
         /// Save button updates the NPC's data and notifies the DataGrid to update. Also recalculates the modifiers.
         /// </summary>
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             npc.updateInfoNotifyably(
-            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, ParseCarefully(ageChronoTB.Text), ParseCarefully(ageBioTB.Text),
-            occupationTB.Text, placeTB.Text, charaterTB.Text, backstoryTB.Text, heightTB.Text,
+            nameTB.Text, (Race)raceCmb.SelectedValue, (Gender)genderCmb.SelectedItem, ParseCarefully(ageChronoTB.Text), ParseCarefully(ageBioTB.Text),
+            occupationTB.Text, placeTB.Text, characterTB.Text, backstoryTB.Text, heightTB.Text,
             physiqueTB.Text, skincolourTB.Text, hairTB.Text, faceTB.Text, eyesTB.Text, clothesTB.Text, featuresTB.Text,
             ParseCarefully(strTB.Text), ParseCarefully(dexTB.Text), ParseCarefully(conTB.Text), ParseCarefully(intTB.Text), ParseCarefully(wisTB.Text), ParseCarefully(chaTB.Text),
             notesTB.Text);
@@ -94,10 +110,9 @@ namespace NPCGenerator
         /// consequently changing DataGrid's selection and destroying
         /// this NPC Card.
         /// </summary>
-        // TODO Create custom dialog window with turning off safe delete
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.safeMode)
+            if (Controller.safeMode)
             {
                 MessageBoxResult confirmResult =
                     MessageBox.Show("Are you sure you want to delete it?", "Confirm Delete",
@@ -109,73 +124,51 @@ namespace NPCGenerator
         }
 
         /// <summary>
-        /// Opens an extra window with the card.
-        /// </summary>
-        private void openExternallyBtn_Click(object sender, RoutedEventArgs e)
-        {
-            npc.updateInfoNotifyably(
-            nameTB.Text, (Race)raceCmb.SelectedValue, genderTB.Text, ParseCarefully(ageChronoTB.Text), ParseCarefully(ageBioTB.Text),
-            occupationTB.Text, placeTB.Text, charaterTB.Text, backstoryTB.Text, heightTB.Text,
-            physiqueTB.Text, skincolourTB.Text, hairTB.Text, faceTB.Text, eyesTB.Text, clothesTB.Text, featuresTB.Text,
-            ParseCarefully(strTB.Text), ParseCarefully(dexTB.Text), ParseCarefully(conTB.Text), ParseCarefully(intTB.Text), ParseCarefully(wisTB.Text), ParseCarefully(chaTB.Text),
-            notesTB.Text);
-
-            NPCCardWindow npcCardWindow = new NPCCardWindow(npc);
-            npcCardWindow.Show();
-
-            grid.SelectedItem = null;
-        }
-
-        /// <summary>
         /// Closing without saving.
         /// </summary>
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.safeMode)
+            if (Controller.safeMode)
             {
                 MessageBoxResult confirmResult =
                 MessageBox.Show("Close without saving?", "Confirm Closing",
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (confirmResult == MessageBoxResult.Yes)
-                grid.SelectedItem = null;
+                if (confirmResult == MessageBoxResult.Yes)
+                    grid.SelectedItem = null;
             }
             else grid.SelectedItem = null;
         }
 
-        // Two next methods are tied to chronological and biological (human)
-        // ages of the NPC. Depending on which TextBox is being changed,
-        // it recalculates the number in the other.
-        // The logic is simple but difficult to explain. It depends on 
-        // linear progression of the age in two parts of life - 
-        // before and after the age of maturity and calculates a proportion
-        // based on npc race and human race variables.
-        
-        // TODO Should I move the logic away to somewhere, maybe?
         private void ageBioTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (ageBioTB.IsFocused)
-                if ((Race)raceCmb.SelectedValue != null)
-                    if (ageBioTB.Text.Length == 0 || ParseCarefully(ageBioTB.Text) <= 0)
-                        ageChronoTB.Text = "0";
-                    else
-                        if (ParseCarefully(ageBioTB.Text) <= ArchiveRace.baseRace.AgeMaturity)
-                        ageChronoTB.Text = ((int)Math.Round((double)(ParseCarefully(ageBioTB.Text) * ((Race)raceCmb.SelectedValue).AgeMaturity) / ArchiveRace.baseRace.AgeMaturity)).ToString();
-                    else
-                        ageChronoTB.Text = ((int)Math.Round((double)((ParseCarefully(ageBioTB.Text) - ArchiveRace.baseRace.AgeMaturity) * (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) / (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) + ((Race)raceCmb.SelectedValue).AgeMaturity).ToString();
+                updateAgeOnBio();
+        }
+
+        private void updateAgeOnBio()
+        {
+            if (((Race)raceCmb.SelectedValue) != null)
+                if (ageBioTB.Text.Length == 0)
+                    ageChronoTB.Text = "0";
+                else
+                    ageChronoTB.Text = ((Race)raceCmb.SelectedValue).calculateChronoAge(ParseCarefully(ageBioTB.Text)).ToString();
         }
 
         private void ageChronoTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (ageChronoTB.IsFocused)
-                if ((Race)raceCmb.SelectedValue != null)
-                    if (ageChronoTB.Text.Length == 0 || ParseCarefully(ageChronoTB.Text) <= 0)
-                        ageBioTB.Text = "0";
-                    else
-                        if (ParseCarefully(ageChronoTB.Text) <= ((Race)raceCmb.SelectedValue).AgeMaturity)
-                        ageBioTB.Text = ((int)Math.Round((double)(ParseCarefully(ageChronoTB.Text) * ArchiveRace.baseRace.AgeMaturity) / ((Race)raceCmb.SelectedValue).AgeMaturity)).ToString();
-                    else
-                        ageBioTB.Text = ((int)Math.Round((double)((ParseCarefully(ageChronoTB.Text) - ((Race)raceCmb.SelectedValue).AgeMaturity) * (ArchiveRace.baseRace.LifeExpectancy - ArchiveRace.baseRace.AgeMaturity)) / (((Race)raceCmb.SelectedValue).LifeExpectancy - ((Race)raceCmb.SelectedValue).AgeMaturity)) + ArchiveRace.baseRace.AgeMaturity).ToString();
+                updateAgeOnChrono();
         }
+
+        private void updateAgeOnChrono()
+        {
+            if (((Race)raceCmb.SelectedValue) != null)
+                if (ageChronoTB.Text.Length == 0)
+                    ageBioTB.Text = "0";
+                else
+                    ageBioTB.Text = ((Race)raceCmb.SelectedValue).calculateBioAge(ParseCarefully(ageChronoTB.Text)).ToString();
+        }
+
 
         /// <summary>
         /// These methods check input text to Age TextBoxes so the user can 
@@ -203,6 +196,298 @@ namespace NPCGenerator
             int result;
             int.TryParse(s, out result);
             return result;
+        }
+
+
+        /// <summary>
+        /// Randomizes all fields. Doesn't randomize locked fields.
+        /// </summary>
+        private void randAllBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race;
+                if (lockRaceBtn.IsChecked == false)
+                {
+                    race = archetype.GetRandomRace();
+                    raceCmb.SelectedItem = race;
+                }
+                else
+                    race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender;
+                    if (lockGenderBtn.IsChecked == false)
+                    {
+                        gender = archetype.GetRandomGender(race);
+                        genderCmb.SelectedItem = gender;
+                    }
+                    else
+                        gender = (Gender)genderCmb.SelectedItem;
+
+                    int ageChrono;
+                    if (lockAgeBtn.IsChecked == false)
+                    {
+                        ageChrono = archetype.GetRandomAgeChrono(race);
+                        ageChronoTB.Text = ageChrono.ToString();
+                        updateAgeOnChrono();
+                    }
+                    else
+                        ageChrono = ParseCarefully(ageChronoTB.Text);
+
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+
+                    if (lockNameBtn.IsChecked == false)
+                        nameTB.Text = archetype.GetRandomFromBundle(BundleType.Name, race, gender, ageBio);
+                    if (lockOccupationBtn.IsChecked == false)
+                        occupationTB.Text = archetype.GetRandomFromBundle(BundleType.Occupation, race, gender, ageBio);
+                    if (lockCharacterBtn.IsChecked == false)
+                        characterTB.Text = archetype.GetRandomFromBundle(BundleType.Character, race, gender, ageBio);
+                    if (lockHeightBtn.IsChecked == false)
+                        heightTB.Text = archetype.GetRandomFromBundle(BundleType.Height, race, gender, ageBio);
+                    if (lockPhysiqueBtn.IsChecked == false)
+                        physiqueTB.Text = archetype.GetRandomFromBundle(BundleType.Physique, race, gender, ageBio);
+                    if (lockSkincolourBtn.IsChecked == false)
+                        skincolourTB.Text = archetype.GetRandomFromBundle(BundleType.Skin, race, gender, ageBio);
+                    if (lockHairBtn.IsChecked == false)
+                        hairTB.Text = archetype.GetRandomFromBundle(BundleType.Hair, race, gender, ageBio);
+                    if (lockFaceBtn.IsChecked == false)
+                        faceTB.Text = archetype.GetRandomFromBundle(BundleType.Face, race, gender, ageBio);
+                    if (lockEyesBtn.IsChecked == false)
+                        eyesTB.Text = archetype.GetRandomFromBundle(BundleType.Eyes, race, gender, ageBio);
+                    if (lockClothesBtn.IsChecked == false)
+                        clothesTB.Text = archetype.GetRandomFromBundle(BundleType.Clothes, race, gender, ageBio);
+                    if (lockFeaturesBtn.IsChecked == false)
+                        featuresTB.Text = archetype.GetRandomFromBundle(BundleType.Features, race, gender, ageBio);
+                }
+            }
+        }
+        private void randNameBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    nameTB.Text = archetype.GetRandomFromBundle(BundleType.Name, race, gender, ageBio);
+                }
+            }
+        }
+
+        private void randRaceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = archetype.GetRandomRace();
+                raceCmb.SelectedItem = race;
+            }
+        }
+
+        private void randGenderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender;
+                    gender = archetype.GetRandomGender(race);
+                    genderCmb.SelectedItem = gender;
+                }
+            }
+        }
+
+        private void randAgeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    int ageChrono = archetype.GetRandomAgeChrono(race);
+                    ageChronoTB.Text = ageChrono.ToString();
+                    updateAgeOnChrono();
+                }
+            }
+        }
+
+        private void randOccupationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    occupationTB.Text = archetype.GetRandomFromBundle(BundleType.Occupation, race, gender, ageBio);
+                }
+            }
+        }
+
+        private void randCharacterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    characterTB.Text = archetype.GetRandomFromBundle(BundleType.Character, race, gender, ageBio);
+                }
+            }
+        }
+
+        private void randHeightBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    heightTB.Text = archetype.GetRandomFromBundle(BundleType.Height, race, gender, ageBio);
+                }
+            }
+        }
+
+        private void randPhysiqueBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    physiqueTB.Text = archetype.GetRandomFromBundle(BundleType.Physique, race, gender, ageBio);
+                }
+            }
+        }
+
+        private void randSkinColourBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    skincolourTB.Text = archetype.GetRandomFromBundle(BundleType.Skin, race, gender, ageBio);
+                }
+            }
+        }
+
+        private void randHairBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    hairTB.Text = archetype.GetRandomFromBundle(BundleType.Hair, race, gender, ageBio);
+                }
+            }
+        }
+
+        private void randFaceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    faceTB.Text = archetype.GetRandomFromBundle(BundleType.Face, race, gender, ageBio);
+                }
+            }
+        }
+
+        private void randEyesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    eyesTB.Text = archetype.GetRandomFromBundle(BundleType.Eyes, race, gender, ageBio);
+                }
+            }
+        }
+
+        private void randClothesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    clothesTB.Text = archetype.GetRandomFromBundle(BundleType.Clothes, race, gender, ageBio);
+                }
+            }
+        }
+
+        private void randFeaturesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (archetypeCmb.SelectedItem is Archetype archetype && archetype != null)
+            {
+                Race race = (Race)raceCmb.SelectedItem;
+
+                if (race != null)
+                {
+                    Gender gender = (Gender)genderCmb.SelectedItem;
+                    int ageChrono = ParseCarefully(ageChronoTB.Text);
+                    int ageBio = race.calculateBioAge(ageChrono);
+
+                    featuresTB.Text = archetype.GetRandomFromBundle(BundleType.Features, race, gender, ageBio);
+                }
+            }
         }
 
     }

@@ -29,6 +29,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -76,8 +78,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="NPCCardWindow.xaml.cs">
-      <DependentUpon>NPCCardWindow.xaml</DependentUpon>
+    <Compile Include="AchetypesArchivesUC.xaml.cs">
+      <DependentUpon>AchetypesArchivesUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ArchetypeCard.xaml.cs">
+      <DependentUpon>ArchetypeCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BundleSelectionWin.xaml.cs">
+      <DependentUpon>BundleSelectionWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controller.cs" />
+    <Compile Include="BundlesArchivesUC.xaml.cs">
+      <DependentUpon>BundlesArchivesUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BundleCard.xaml.cs">
+      <DependentUpon>BundleCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LayerEditWin.xaml.cs">
+      <DependentUpon>LayerEditWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="RaceCard.xaml.cs">
       <DependentUpon>RaceCard.xaml</DependentUpon>
@@ -85,6 +103,29 @@
     <Compile Include="NPCCard.xaml.cs">
       <DependentUpon>NPCCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RaceSelectionWin.xaml.cs">
+      <DependentUpon>RaceSelectionWin.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AchetypesArchivesUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ArchetypeCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BundlesArchivesUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BundleSelectionWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LayerEditWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -97,7 +138,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NPCCardWindow.xaml">
+    <Page Include="BundleCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NPCCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RaceSelectionWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,9 +224,6 @@
     <Resource Include="Images\archive.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\openEx.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="archive.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +242,31 @@
     <Resource Include="Images\open.png" />
     <Resource Include="Images\saveAll.png" />
     <Resource Include="Images\saveAs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\female.png" />
+    <Resource Include="Images\male.png" />
+    <Resource Include="Images\neuter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\down.png" />
+    <Resource Include="Images\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\duplicate.png" />
+    <Resource Include="Images\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\move_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

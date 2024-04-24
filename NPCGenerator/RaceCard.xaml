@@ -3,79 +3,567 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" Width="400" Background="Plum">
-    <Grid Margin="5">
+             xmlns:local="clr-namespace:NPCArchiveAndGenerator"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="#F1D8FF" />
+        <SolidColorBrush x:Key="LightColor" Color="#E3AFFF" />
+        <SolidColorBrush x:Key="BrightColor" Color="#D07CFF" />
+        <SolidColorBrush x:Key="DarkColor" Color="#C77CF0" />
+        <SolidColorBrush x:Key="VeryDarkColor" Color="#BB65EB" />
+
+        <local:BundleIdToNameConverter x:Key="BundleIdToNameConverter"/>
+    </UserControl.Resources>
+
+    <Grid Margin="5" Background="{StaticResource LightColor}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="2">
+        <!--#region Top row label and buttons-->
+        <Grid Grid.Row="0" Margin="2" Height="25">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
             <Label FontWeight="DemiBold" Margin="2,0,2,0" Content="Race Card" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-            <Button x:Name="saveBtn" Margin="2,0,2,0" Grid.Column="1" Click="saveBtn_Click">
-                <Image Source="/Images/save.png"/>
+            <Button x:Name="cloneBtn" Margin="2,0,2,0" Grid.Column="1" Click="cloneBtn_Click">
+                <Image Source="/Images/duplicate.png"/>
             </Button>
-            <Button x:Name="openExternallyBtn" Margin="2,0,2,0" Grid.Column="2" Click="openExternallyBtn_Click">
-                <Image Source="/Images/openEx.png"/>
-            </Button>
-            <Button x:Name="closeBtn" Margin="2,0,2,0" Grid.Column="3" Click="closeBtn_Click">
+            <Button x:Name="closeBtn" Margin="2,0,2,0" Grid.Column="2" Click="closeBtn_Click">
                 <Image Source="/Images/close.png"/>
             </Button>
-            <Button x:Name="deleteBtn" Margin="2,0,2,0" Grid.Column="4" Click="deleteBtn_Click">
+            <Button x:Name="deleteBtn" Margin="2,0,2,0" Grid.Column="3" Click="deleteBtn_Click">
                 <Image Source="/Images/delete.png"/>
             </Button>
-
         </Grid>
-
-        <Grid Grid.Row="1" Margin="2">
+        <!--#endregion-->
+        
+        <!--#region Name-->
+        <Grid Grid.Row="1" Margin="2" Height="25">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Label Content="Name" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-            <TextBox x:Name="nameTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled"/>
+            <Label Content="Name" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="nameTB" Margin="2" Grid.Column="1" VerticalScrollBarVisibility="Disabled" VerticalContentAlignment="Center" TextChanged="nameTB_TextChanged"/>
         </Grid>
+        <!--#endregion-->
 
+        <!--#region left ages and genders, right age ranges-->
         <Grid Grid.Row="2" Margin="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Description" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
+            
+            <!--#region ages and genders -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!--#region ages -->
+                <Grid Grid.Row="0" Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="55" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label Content="Age of maturity" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="maturityTB" Grid.Column="1" Grid.Row="0" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="maturityTB_TextChanged"/>
+
+                    <Label Content="Life expectancy" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="expectancyTB" Grid.Column="1" Grid.Row="1" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="expectancyTB_TextChanged"/>
+                </Grid>
+                <!--#endregion-->
+
+                <!--#region genders-->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="1" Grid.Row="0" Content="Weight" VerticalContentAlignment="Bottom"/>
+
+                    <Image Source="/Images/male.png" Grid.Column="0" Grid.Row="1"/>
+                    <Image Source="/Images/female.png" Grid.Column="0" Grid.Row="2"/>
+                    <Image Source="/Images/neuter.png" Grid.Column="0" Grid.Row="3"/>
+
+                    <TextBox x:Name="MaleWeightTB" Grid.Column="1" Grid.Row="1" Margin="3" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="MaleWeightTB_TextChanged"/>
+                    <TextBox x:Name="FemaleWeightTB" Grid.Column="1" Grid.Row="2" Margin="3" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="FemaleWeightTB_TextChanged"/>
+                    <TextBox x:Name="NeutralWeightTB" Grid.Column="1" Grid.Row="3" Margin="3" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="NeutralWeightTB_TextChanged"/>
+
+                    <Label x:Name="MalePercentLbl" Grid.Column="2" Grid.Row="1" Margin="3"/>
+                    <Label x:Name="FemalePercentLbl" Grid.Column="2" Grid.Row="2" Margin="3"/>
+                    <Label x:Name="NeutralPercentLbl" Grid.Column="2" Grid.Row="3" Margin="3"/>
+
+                </Grid>
+                <!--#endregion-->
+
+
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region right age ranges -->
+            <Grid Grid.Column="1" Margin="5,0,5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!--#region top row ages-->
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="35"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="35"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="Age ranges" VerticalContentAlignment="Bottom"/>
+                    <Button x:Name="AddRangeBtn" Grid.Column="1" Margin="5" Click="AddRangeBtn_Click">
+                        <Image Source="/Images/add.png" />
+                    </Button>
+                    <Button x:Name="SaveRangesBtn" Grid.Column="3" Margin="5" Click="SaveRangesBtn_Click">
+                        <Image Source="/Images/save.png" />
+                    </Button>
+                </Grid>
+                <!--#endregion-->
+
+                <!--#region age ranges -->
+                <ItemsControl x:Name="AgesIC" Grid.Row="1" >
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Height="25" Background="{StaticResource DarkColor}" Margin="2" HorizontalAlignment="Center" Width="300">
+                                <Button x:Name="DeleteRangeBtn" Click="DeleteRangeBtn_Click" Margin="2">
+                                    <Image Source="/Images/delete.png" />
+                                </Button>
+                                <Label Content="from"/>
+                                <TextBox x:Name="FromTB" Text="{Binding Value.Item1, Mode=OneWay}" Width="45" Margin="0,3,0,3" />
+                                <Label Content="to"/>
+                                <TextBox x:Name="ToTB" Text="{Binding Value.Item2, Mode=OneWay}" Width="45" Margin="0,3,0,3"/>
+                                <Label Content="weight"/>
+                                <TextBox x:Name="RangeWeightTB" Text="{Binding Weight, Mode=OneWay}" Width="45" Margin="0,3,0,3"/>
+                                <Label Content="{Binding Converter={StaticResource AgesPercentageConverter}}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <!--#endregion-->
+
+            </Grid>
+            <!--#endregion-->
+
         </Grid>
+        <!--#endregion-->
+
+        <!--#region Decription-->
         <Grid Grid.Row="3" Margin="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <TextBox x:Name="descTB" Margin="2,0,0,2" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" AcceptsTab="True" AutoWordSelection="True"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Content="Description" Grid.Row="0" Margin="2,0,2,0" VerticalContentAlignment="Bottom"/>
+            <TextBox x:Name="descTB" Grid.Row="1" MaxHeight="100" MinHeight="20" Margin="2,0,0,2" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" AcceptsTab="True" AutoWordSelection="True" TextChanged="descTB_TextChanged"/>
         </Grid>
+        <!--#endregion-->
 
-        <Grid Grid.Row="4" Margin="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Label Content="Age of maturity" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-            <TextBox x:Name="maturityTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled" PreviewTextInput="numeric_PreviewTextInput"/>
-        </Grid>
+        <!--#region bundles -->
+        <Grid Grid.Row="4" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <Grid Grid.Row="5" Margin="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Label Content="Life expectancy" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-            <TextBox x:Name="expectancyTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled" PreviewTextInput="numeric_PreviewTextInput"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <Label Content="Compatable bundles"/>
+                <Button x:Name="UpdateBundlesBtn" Click="UpdateBundlesBtn_Click" >
+                    <Image Source="/Images/refresh.png" />
+                </Button>
+            </StackPanel>
+
+            <!--#region Name -->
+            <Grid Grid.Row="1" Margin="5" Background="{StaticResource DarkColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                    <Label Content="Names" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                    <Button x:Name="AddNamesBundleBtn" Width="25" Height="25" Click="AddBundleBtn_Click">
+                        <Image Source="/Images/add.png" />
+                    </Button>
+                </StackPanel>
+
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
+
+                    <ItemsControl x:Name="NamesBundlesIC">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
+                                    <Button x:Name="DeleteNamesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
+                                        <Image Source="/Images/delete.png" />
+                                    </Button>
+                                    <TextBlock Text="{Binding Converter={StaticResource BundleIdToNameConverter}, ConverterParameter=0}" Margin="2" VerticalAlignment="Center"/>
+                                    <TextBox Text="{Binding Weight}" Width="35" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                                    <Label Content="{Binding Converter={StaticResource BundlesPercentageConverter}, ConverterParameter=0}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </WrapPanel>
+
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Character -->
+            <Grid Grid.Row="2" Margin="5" Background="{StaticResource DarkColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                    <Label Content="Characters" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                    <Button x:Name="AddCharactersBundleBtn" Width="25" Height="25" Click="AddBundleBtn_Click">
+                        <Image Source="/Images/add.png" />
+                    </Button>
+                </StackPanel>
+
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
+
+                    <ItemsControl x:Name="CharactersBundlesIC">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
+                                    <Button x:Name="DeleteCharactersBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
+                                        <Image Source="/Images/delete.png" />
+                                    </Button>
+                                    <TextBlock Text="{Binding Converter={StaticResource BundleIdToNameConverter}, ConverterParameter=2}" Margin="2" VerticalAlignment="Center"/>
+                                    <TextBox Text="{Binding Weight}" Width="35" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                                    <Label Content="{Binding Converter={StaticResource BundlesPercentageConverter}, ConverterParameter=2}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </WrapPanel>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Height -->
+            <Grid Grid.Row="3" Margin="5" Background="{StaticResource DarkColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                    <Label Content="Heights" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                    <Button x:Name="AddHeightsBundleBtn" Width="25" Height="25" Click="AddBundleBtn_Click">
+                        <Image Source="/Images/add.png" />
+                    </Button>
+                </StackPanel>
+
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
+
+                    <ItemsControl x:Name="HeightsBundlesIC">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
+                                    <Button x:Name="DeleteHeightsBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
+                                        <Image Source="/Images/delete.png" />
+                                    </Button>
+                                    <TextBlock Text="{Binding Converter={StaticResource BundleIdToNameConverter}, ConverterParameter=3}" Margin="2" VerticalAlignment="Center"/>
+                                    <TextBox Text="{Binding Weight}" Width="35" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                                    <Label Content="{Binding Converter={StaticResource BundlesPercentageConverter}, ConverterParameter=3}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </WrapPanel>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Physique -->
+            <Grid Grid.Row="4" Margin="5" Background="{StaticResource DarkColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                    <Label Content="Physiques" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                    <Button x:Name="AddPhysiquesBundleBtn" Width="25" Height="25" Click="AddBundleBtn_Click">
+                        <Image Source="/Images/add.png" />
+                    </Button>
+                </StackPanel>
+
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
+
+                    <ItemsControl x:Name="PhysiquesBundlesIC">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
+                                    <Button x:Name="DeletePhysiquesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
+                                        <Image Source="/Images/delete.png" />
+                                    </Button>
+                                    <TextBlock Text="{Binding Converter={StaticResource BundleIdToNameConverter}, ConverterParameter=4}" Margin="2" VerticalAlignment="Center"/>
+                                    <TextBox Text="{Binding Weight}" Width="35" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                                    <Label Content="{Binding Converter={StaticResource BundlesPercentageConverter}, ConverterParameter=4}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </WrapPanel>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Skin -->
+            <Grid Grid.Row="5" Margin="5" Background="{StaticResource DarkColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                    <Label Content="Skins" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                    <Button x:Name="AddSkinsBundleBtn" Width="25" Height="25" Click="AddBundleBtn_Click">
+                        <Image Source="/Images/add.png" />
+                    </Button>
+                </StackPanel>
+
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
+
+                    <ItemsControl x:Name="SkinsBundlesIC">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
+                                    <Button x:Name="DeleteSkinsBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
+                                        <Image Source="/Images/delete.png" />
+                                    </Button>
+                                    <TextBlock Text="{Binding Converter={StaticResource BundleIdToNameConverter}, ConverterParameter=5}" Margin="2" VerticalAlignment="Center"/>
+                                    <TextBox Text="{Binding Weight}" Width="35" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                                    <Label Content="{Binding Converter={StaticResource BundlesPercentageConverter}, ConverterParameter=5}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </WrapPanel>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Hair -->
+            <Grid Grid.Row="6" Margin="5" Background="{StaticResource DarkColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                    <Label Content="Hairs" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                    <Button x:Name="AddHairsBundleBtn" Width="25" Height="25" Click="AddBundleBtn_Click">
+                        <Image Source="/Images/add.png" />
+                    </Button>
+                </StackPanel>
+
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
+
+                    <ItemsControl x:Name="HairsBundlesIC">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
+                                    <Button x:Name="DeleteHairsBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
+                                        <Image Source="/Images/delete.png" />
+                                    </Button>
+                                    <TextBlock Text="{Binding Converter={StaticResource BundleIdToNameConverter}, ConverterParameter=6}" Margin="2" VerticalAlignment="Center"/>
+                                    <TextBox Text="{Binding Weight}" Width="35" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                                    <Label Content="{Binding Converter={StaticResource BundlesPercentageConverter}, ConverterParameter=6}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </WrapPanel>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Face -->
+            <Grid Grid.Row="7" Margin="5" Background="{StaticResource DarkColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                    <Label Content="Faces" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                    <Button x:Name="AddFacesBundleBtn" Width="25" Height="25" Click="AddBundleBtn_Click">
+                        <Image Source="/Images/add.png" />
+                    </Button>
+                </StackPanel>
+
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
+
+                    <ItemsControl x:Name="FacesBundlesIC">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
+                                    <Button x:Name="DeleteFacesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
+                                        <Image Source="/Images/delete.png" />
+                                    </Button>
+                                    <TextBlock Text="{Binding Converter={StaticResource BundleIdToNameConverter}, ConverterParameter=7}" Margin="2" VerticalAlignment="Center"/>
+                                    <TextBox Text="{Binding Weight}" Width="35" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                                    <Label Content="{Binding Converter={StaticResource BundlesPercentageConverter}, ConverterParameter=7}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </WrapPanel>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Eyes -->
+            <Grid Grid.Row="8" Margin="5" Background="{StaticResource DarkColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                    <Label Content="Eyes" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                    <Button x:Name="AddEyesBundleBtn" Width="25" Height="25" Click="AddBundleBtn_Click">
+                        <Image Source="/Images/add.png" />
+                    </Button>
+                </StackPanel>
+
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
+
+                    <ItemsControl x:Name="EyesBundlesIC">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
+                                    <Button x:Name="DeleteEyesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
+                                        <Image Source="/Images/delete.png" />
+                                    </Button>
+                                    <TextBlock Text="{Binding Converter={StaticResource BundleIdToNameConverter}, ConverterParameter=8}" Margin="2" VerticalAlignment="Center"/>
+                                    <TextBox Text="{Binding Weight}" Width="35" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                                    <Label Content="{Binding Converter={StaticResource BundlesPercentageConverter}, ConverterParameter=8}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </WrapPanel>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region Features -->
+            <Grid Grid.Row="9" Margin="5" Background="{StaticResource DarkColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5">
+                    <Label Content="Features" FontWeight="DemiBold" HorizontalAlignment="Center"/>
+                    <Button x:Name="AddFeaturesBundleBtn" Width="25" Height="25" Click="AddBundleBtn_Click">
+                        <Image Source="/Images/add.png" />
+                    </Button>
+                </StackPanel>
+
+                <WrapPanel Grid.Column="1" Background="{StaticResource VeryLightColor}" Margin="5" Orientation="Horizontal">
+
+                    <ItemsControl x:Name="FeaturesBundlesIC">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Height="25" Width="Auto" Background="{StaticResource DarkColor}" Margin="2">
+                                    <Button x:Name="DeleteFeaturesBundleBtn" Margin="2" Click="DeleteBundleBtn_Click">
+                                        <Image Source="/Images/delete.png" />
+                                    </Button>
+                                    <TextBlock Text="{Binding Converter={StaticResource BundleIdToNameConverter}, ConverterParameter=10}" Margin="2" VerticalAlignment="Center"/>
+                                    <TextBox Text="{Binding Weight}" Width="35" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                                    <Label Content="{Binding Converter={StaticResource BundlesPercentageConverter}, ConverterParameter=10}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </WrapPanel>
+            </Grid>
+            <!--#endregion-->
         </Grid>
+        <!--#endregion-->
+        
     </Grid>
 </UserControl>

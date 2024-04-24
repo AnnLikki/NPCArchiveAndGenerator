@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:NPCGenerator"
         mc:Ignorable="d"
         Closing="TheWindow_Closing"  
-        Title="NPC Archive &amp; Generator" Height="600" Width="800" MinWidth="550" MinHeight="200" Background="LightBlue" Icon="/Images/archive.png">
-    <Grid x:Name="mainPnl">
+        Title="NPC Archive &amp; Generator" Height="600" Width="820" MinWidth="600" MinHeight="200" Icon="/Images/archive.png">
+    <Window.Resources>
+        <SolidColorBrush x:Key="VeryLightColor" Color="AliceBlue" />
+        <SolidColorBrush x:Key="DarkColor" Color="SteelBlue" />
+    </Window.Resources>
+    
+    
+    <Grid Background="{StaticResource VeryLightColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
@@ -15,7 +21,7 @@
 
         <ContentControl x:Name="centerContainer" Grid.Row="0"/>
 
-        <Grid x:Name="bottomPnl" Grid.Row="1" Background="SteelBlue">
+        <Grid x:Name="bottomPnl" Grid.Row="1" Background="{StaticResource DarkColor}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -34,11 +40,12 @@
                 <Image Source="/Images/open.png"/>
             </Button>
             <CheckBox x:Name="safeModeChkBx" Content="Safe mode" ToolTip="Enable/disable warnings" Click="safeModeChkBx_Click" Height="Auto" Grid.Column="3" Margin="5" Foreground="White" IsChecked="True" FontSize="14" VerticalContentAlignment="Center"/>
-            <Label x:Name="fileNameLbl" Grid.Column="6" Margin="5" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White"/>
+            <Label x:Name="fileNameLbl" Grid.Column="6" MouseDoubleClick="closeArchive_MouseDoubleClick" ToolTip="Double click to close the archive" Margin="5" FontSize="14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White"/>
             <WrapPanel x:Name="bottomWrpPnl" Grid.Column="0" Grid.ColumnSpan="6" Height="30" HorizontalAlignment="Center">
                 <Button x:Name="NPCsArchiveBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="NPCs Archive" Click="NPCsArchiveBtn_Click"/>
                 <Button x:Name="RacesArchiveBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Races Archive" Click="RacesArchiveBtn_Click"/>
-                <Button x:Name="LittleArchivesBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Little Archives" IsEnabled="False"/>
+                <Button x:Name="BundlesArchivesBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Bundle Archives" Click="BundlesArchivesBtn_Click"/>
+                <Button x:Name="ArchetypeArchivesBtn" Margin="5,0,5,0" MinHeight="30" MinWidth="100" Content="Archetype Archives" Click="ArchetypeArchivesBtn_Click"/>
             </WrapPanel>
         </Grid>
     </Grid>

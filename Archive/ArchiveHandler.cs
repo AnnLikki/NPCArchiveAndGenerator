@@ -1,24 +1,21 @@
-﻿using System;
-
-namespace Archives
+﻿namespace Archives
 {
-    /// <summary>
-    /// A static class to store the global archives.
-    /// </summary>
-    /// <remarks>
-    /// Contains <c>absoluteArchiveNPC</c> and <c>absoluteArchiveRace</c>.
-    /// Provides an easier to access from other classes.
-    /// </remarks>
     public static class ArchiveHandler
     {
         /// <summary>
-        /// Contains all of the created NPCs.
+        /// Archive that contains all NPCs.
         /// </summary>
         public static ArchiveNPC absoluteArchiveNPC = new ArchiveNPC();
 
         /// <summary>
-        /// Contains all of the created races.
+        /// A collection of absolute archives that contain all Bundles. 
         /// </summary>
-        public static ArchiveRace absoluteArchiveRace = new ArchiveRace();
+        public static BundleStorage bundleStorage = new BundleStorage();
+
+        public static RaceStorage raceStorage = new RaceStorage();
+
+        public static ArchetypeStorage archetypeStorage = new ArchetypeStorage();
+
+
     }
 }
