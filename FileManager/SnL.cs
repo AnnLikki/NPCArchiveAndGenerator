@@ -2,7 +2,9 @@
 using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Unicode;
 using Path = System.IO.Path;
 
 namespace FileManager
@@ -112,22 +114,27 @@ namespace FileManager
                 if (!File.Exists(path))
                     using (File.Create(path)) { }
                 string jsonData = type + "\n";
+                var options = new JsonSerializerOptions
+                {
+                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.Cyrillic, UnicodeRanges.BasicLatin),
+                    WriteIndented = true
+                };
                 switch (type)
                 {
                     case SaveType.NPC:
-                        jsonData += JsonSerializer.Serialize(ArchiveHandler.absoluteArchiveNPC);
+                        jsonData += JsonSerializer.Serialize(ArchiveHandler.absoluteArchiveNPC, options);
                         break;
 
                     case SaveType.Races:
-                        jsonData += JsonSerializer.Serialize(ArchiveHandler.raceStorage);
+                        jsonData += JsonSerializer.Serialize(ArchiveHandler.raceStorage, options);
                         break;
 
                     case SaveType.Bundles:
-                        jsonData += JsonSerializer.Serialize(ArchiveHandler.bundleStorage);
+                        jsonData += JsonSerializer.Serialize(ArchiveHandler.bundleStorage, options);
                         break;
 
                     case SaveType.Archetypes:
-                        jsonData += JsonSerializer.Serialize(ArchiveHandler.archetypeStorage);
+                        jsonData += JsonSerializer.Serialize(ArchiveHandler.archetypeStorage, options);
                         break;
                 }
                 File.WriteAllText(path, jsonData);
@@ -158,9 +165,7 @@ namespace FileManager
                 if (File.ReadAllLines(path)[0] != type.ToString())
                     throw new FormatException("No correct format descriptor found.");
 
-                //string jsonData = File.ReadAllText(path).Replace(type.ToString(), "");
-                string jsonData = File.ReadAllLines(path)[1];
-
+                string jsonData = File.ReadAllText(path).Replace(type.ToString(), "");
                 switch (type)
                 {
                     case SaveType.NPC:
@@ -195,11 +200,12 @@ namespace FileManager
         /// <summary>
         /// Choosing where to save by a dialog window.
         /// </summary>
-        public static bool saveViaDialog(SaveType type, string windowTitle)
+        public static bool saveViaDialog(SaveType type, string windowTitle, string defaultFileName)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "JSON files(*.json)|*.json";
             saveFileDialog.Title = windowTitle;
+            saveFileDialog.FileName = defaultFileName;
             if (saveFileDialog.ShowDialog() == false)
                 return false;
 

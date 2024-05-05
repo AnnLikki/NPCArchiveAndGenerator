@@ -277,22 +277,22 @@ namespace NPCGenerator
         private void saveAllBtn_Click(object sender, RoutedEventArgs e)
         {
             if (SnL.NPCsSavePath == null)
-                SnL.saveViaDialog(SnL.SaveType.NPC, "Save NPCs Archive");
+                SnL.saveViaDialog(SnL.SaveType.NPC, "Save NPCs Archive", "NPCs Archive");
             else
                 SnL.saveArchive(SnL.SaveType.NPC, SnL.NPCsSavePath);
 
             if (SnL.RacesSavePath == null)
-                SnL.saveViaDialog(SnL.SaveType.Races, "Save Races Archive");
+                SnL.saveViaDialog(SnL.SaveType.Races, "Save Races Archive", "Races Archive");
             else
                 SnL.saveArchive(SnL.SaveType.Races, SnL.RacesSavePath);
 
             if (SnL.BundlesSavePath == null)
-                SnL.saveViaDialog(SnL.SaveType.Bundles, "Save Bundles Archive");
+                SnL.saveViaDialog(SnL.SaveType.Bundles, "Save Bundles Archive", "Bundles Archive");
             else
                 SnL.saveArchive(SnL.SaveType.Bundles, SnL.BundlesSavePath);
 
             if (SnL.ArchetypesSavePath == null)
-                SnL.saveViaDialog(SnL.SaveType.Archetypes, "Save Archetypes Archive");
+                SnL.saveViaDialog(SnL.SaveType.Archetypes, "Save Archetypes Archive", "Archetypes Archive");
             else
                 SnL.saveArchive(SnL.SaveType.Archetypes, SnL.ArchetypesSavePath);
 
@@ -306,13 +306,13 @@ namespace NPCGenerator
         private void saveAsBtn_Click(object sender, RoutedEventArgs e)
         {
             if (status == Status.NPC)
-                SnL.saveViaDialog(SnL.SaveType.NPC, "Save NPCs Archive as...");
+                SnL.saveViaDialog(SnL.SaveType.NPC, "Save NPCs Archive as...", "NPCs Archive");
             else if (status == Status.Race)
-                SnL.saveViaDialog(SnL.SaveType.Races, "Save Races Archive as...");
+                SnL.saveViaDialog(SnL.SaveType.Races, "Save Races Archive as...", "Races Archive");
             else if (status == Status.Bundle)
-                SnL.saveViaDialog(SnL.SaveType.Bundles, "Save Bundles Archive as...");
+                SnL.saveViaDialog(SnL.SaveType.Bundles, "Save Bundles Archive as...", "Bundles Archive");
             else if (status == Status.Archetype)
-                SnL.saveViaDialog(SnL.SaveType.Archetypes, "Save Archetypes Archive as...");
+                SnL.saveViaDialog(SnL.SaveType.Archetypes, "Save Archetypes Archive as...", "Archetypes Archive");
 
             updateFileName();
         }
