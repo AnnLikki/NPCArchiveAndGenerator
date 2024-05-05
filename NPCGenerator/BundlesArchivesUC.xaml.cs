@@ -107,7 +107,9 @@ namespace NPCArchiveAndGenerator
             updateFilterable();
         }
 
-
-
+        private void clearFilterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            BundleSearchTB.Text = "";
+        }
     }
 }

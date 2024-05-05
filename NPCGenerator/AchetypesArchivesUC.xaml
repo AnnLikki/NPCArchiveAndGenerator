@@ -56,14 +56,18 @@
             <Grid Grid.Row="0" Background="{StaticResource VeryDarkColor}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="25"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Source="/Images/search.png" Grid.Column="0" />
-                <TextBox x:Name="SearchTB" Grid.Column="1"  TextWrapping="NoWrap" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" Margin="0,0,5,0" TextChanged="SearchTB_TextChanged"/>
-                <Button x:Name="AddBtn" Grid.Column="2" Click="AddBtn_Click">
+                <Button x:Name="AddBtn" Grid.Column="0" Click="AddBtn_Click">
                     <Image Source="/Images/add.png" />
+                </Button>
+                <Image Source="/Images/search.png" Grid.Column="1" />
+                <TextBox x:Name="SearchTB" Grid.Column="2"  TextWrapping="NoWrap" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="SearchTB_TextChanged" />
+                <Button x:Name="clearFilterBtn"  Grid.Column="3" HorizontalContentAlignment="Center" Click="clearFilterBtn_Click" Padding="1,1,3,1">
+                    <Image Source="/Images/clear.png" />
                 </Button>
             </Grid>
             <!--#endregion-->

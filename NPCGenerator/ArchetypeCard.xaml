@@ -62,9 +62,11 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Button x:Name="MakeDefaultBtn" Grid.Row="0" Content="Make this archetype default" Height="25" Padding="5,0,5,0" Click="MakeDefaultRtn_Click"/>
+                <Button x:Name="MakeDefaultBtn" Grid.Row="0" Content="Make this archetype default" 
+                        Height="25" Padding="5,0,5,0" Click="MakeDefaultRtn_Click"/>
 
-                <Label Grid.Row="1" Content="Compatable genders" Margin="5,0,5,0" VerticalContentAlignment="Bottom"/>
+                <Label Grid.Row="1" Content="🛈 Compatable genders" Margin="5,0,5,0" VerticalContentAlignment="Bottom" FontWeight="DemiBold"
+                       ToolTip="Only charachers of these genders will be generated"/>
 
                 <!--#region genders-->
                 <Grid Grid.Row="2">
@@ -112,15 +114,18 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="35"/>
+                        <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="35"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Grid.Column="0" Content="Age ranges" VerticalContentAlignment="Bottom"/>
+                    <Label Grid.Column="0" Content="🛈 Age ranges" VerticalContentAlignment="Bottom" FontWeight="DemiBold"
+                           ToolTip="Only characters with these ages will be generated"/>
                     <Button x:Name="AddRangeBtn" Grid.Column="1" Margin="5" Click="AddRangeBtn_Click">
                         <Image Source="/Images/add.png" />
                     </Button>
-                    <Button x:Name="SaveRangesBtn" Grid.Column="3" Margin="5" Click="SaveRangesBtn_Click">
+                    <Image x:Name="EmptyAgeRangesImg" Grid.Column="2" Source="/Images/exclamation_mark.png" Width="25"/>
+                    <Button x:Name="SaveRangesBtn" Grid.Column="4" Margin="5" Click="SaveRangesBtn_Click">
                         <Image Source="/Images/save.png" />
                     </Button>
                 </Grid>
@@ -135,11 +140,11 @@
                                     <Image Source="/Images/delete.png" />
                                 </Button>
                                 <Label Content="from"/>
-                                <TextBox x:Name="FromTB" Text="{Binding Value.Item1, Mode=OneWay}" Width="45" Margin="0,3,0,3" />
+                                <TextBox x:Name="FromTB" Text="{Binding Value.Item1, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged" />
                                 <Label Content="to"/>
-                                <TextBox x:Name="ToTB" Text="{Binding Value.Item2, Mode=OneWay}" Width="45" Margin="0,3,0,3"/>
+                                <TextBox x:Name="ToTB" Text="{Binding Value.Item2, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged"/>
                                 <Label Content="weight"/>
-                                <TextBox x:Name="RangeWeightTB" Text="{Binding Weight, Mode=OneWay}" Width="45" Margin="0,3,0,3"/>
+                                <TextBox x:Name="RangeWeightTB" Text="{Binding Weight, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged"/>
                                 <Label Content="{Binding Converter={StaticResource AgesPercentageConverter}}" />
                             </StackPanel>
                         </DataTemplate>
@@ -161,8 +166,12 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Grid.Row="0">
-                <Label Content="Compatable races"/>
-                <Button x:Name="UpdateRacesBtn" Click="UpdateRacesBtn_Click" >
+                <Label Content="🛈 Compatable races"
+                       ToolTip="At least one race is required to generate a character" />
+                
+                <Image x:Name="EmptyRacesImg" Source="/Images/exclamation_mark.png" />
+                
+                <Button x:Name="UpdateRacesBtn" Click="UpdateRacesBtn_Click" ToolTip="Update percentages">
                     <Image Source="/Images/refresh.png" />
                 </Button>
             </StackPanel>
@@ -228,7 +237,7 @@
 
             <StackPanel Orientation="Horizontal" Grid.Row="0">
                 <Label Content="Compatable bundles"/>
-                <Button x:Name="UpdateBundlesBtn" Click="UpdateBundlesBtn_Click" >
+                <Button x:Name="UpdateBundlesBtn" Click="UpdateBundlesBtn_Click" ToolTip="Update percentages">
                     <Image Source="/Images/refresh.png" />
                 </Button>
             </StackPanel>

@@ -27,8 +27,11 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Background="{StaticResource VeryDarkColor}" >
             <Button x:Name="addRaceBtn" Content="Add Race" Padding="5" Height="30" Width="65" HorizontalContentAlignment="Center" Margin="15,0,0,0" Click="addRaceBtn_Click"/>
-            <TextBox x:Name="filterTB" TextWrapping="NoWrap" Height="30" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" Width="250" Margin="15,0,0,0" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="filterTB_TextChanged"/>
-            <Button x:Name="clearFilterBtn" Content="X" Padding="5" Height="30" Width="30" HorizontalContentAlignment="Center" Margin="5,0,0,0" Click="clearFilterBtn_Click"/>
+            <Image Source="/Images/search.png" Height="30" Width="30" Margin="15,0,0,0"/>
+            <TextBox x:Name="filterTB" TextWrapping="NoWrap" Height="30" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" Width="250" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="filterTB_TextChanged"/>
+            <Button x:Name="clearFilterBtn" Height="30" Width="30" HorizontalContentAlignment="Center" Click="clearFilterBtn_Click" Padding="1,1,3,1">
+                <Image Source="/Images/clear.png" />
+            </Button>
         </StackPanel>
 
         

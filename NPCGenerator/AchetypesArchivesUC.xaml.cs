@@ -87,10 +87,9 @@ namespace NPCArchiveAndGenerator
                 DefaultArchetypeBtn.IsChecked = false;
         }
 
-        private void ArchetypesDG_SelectionChanged(object sender, RoutedEventArgs e)
+        private void clearFilterBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            SearchTB.Text = "";
         }
-
     }
 }
