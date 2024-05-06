@@ -63,8 +63,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Column="0" Content="🛈 Chance" Margin="5"
-                   ToolTip="A 0.0 - 1.0 (0% - 100%) chance that this layer will participate in generation."
-                   />
+                   ToolTip="A 0.0 - 1.0 (0% - 100%) chance that this layer will participate in generation."/>
 
             <Button Grid.Column="1" Width="15" Height="20" Content="-" Click="ChanceDecrement_Click" />
             <TextBox x:Name="ChanceTB" Grid.Column="2" Margin="5" VerticalContentAlignment="Center" IsReadOnly="True"/>
@@ -72,8 +71,7 @@
 
 
             <Label Grid.Column="4" Content="🛈 Default Value" Margin="5"
-                   ToolTip="This value will be used in generation if the layer didn't pass the Chance."
-                   />
+                   ToolTip="This value will be used in generation if the layer didn't pass the Chance."/>
             <TextBox x:Name="DefaultTB" Grid.Column="5" Margin="5" VerticalContentAlignment="Center" TextChanged="DefaultTB_TextChanged"/>
             
         </Grid>
@@ -126,10 +124,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="35"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="ImportElementsBtn" Grid.Column="0" Margin="5" Click="ImportElementsBtn_Click">
+            <Button x:Name="ImportElementsBtn" Grid.Column="0" Margin="5" Click="ImportElementsBtn_Click" ToolTip="Import data from txt">
                 <Image Source="/Images/import.png" />
             </Button>
-            <Button x:Name="ExportElementsBtn" Grid.Column="1" Margin="5" Click="ExportElementsBtn_Click">
+            <Button x:Name="ExportElementsBtn" Grid.Column="1" Margin="5" Click="ExportElementsBtn_Click" ToolTip="Export data to txt">
                 <Image Source="/Images/export.png" />
             </Button>
             <Button x:Name="AddElementBtn" Grid.Column="2" Margin="5" Click="AddElementBtn_Click">
@@ -137,7 +135,7 @@
             </Button>
             <Label Grid.Column="3" Content="Elements" VerticalContentAlignment="Center" FontSize="14" />
 
-            <Button x:Name="RefreshBtn" Grid.Column="4" Margin="5" Click="RefreshBtn_Click">
+            <Button x:Name="RefreshBtn" Grid.Column="4" Margin="5" Click="RefreshBtn_Click" ToolTip="Update percentage">
                 <Image Source="/Images/refresh.png" />
             </Button>
         </Grid>

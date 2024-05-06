@@ -4,6 +4,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using static Archives.Enums;
 
 namespace NPCGenerator
@@ -15,6 +16,7 @@ namespace NPCGenerator
     {
         NPC npc;
         DataGrid grid;
+        bool changesSaved = true;
 
         public NPCCard(NPC npc, DataGrid grid)
         {
@@ -78,6 +80,8 @@ namespace NPCGenerator
             chaModLbl.Content = (NPC.calcMod(npc.Cha) >= 0) ? "+" + NPC.calcMod(npc.Cha).ToString() : NPC.calcMod(npc.Cha).ToString();
 
             notesTB.Text = npc.Notes;
+
+            unhighlightBecauseSaved();
         }
 
         private void Archetypes_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -102,8 +106,30 @@ namespace NPCGenerator
             intModLbl.Content = (NPC.calcMod(npc.Int) >= 0) ? "+" + NPC.calcMod(npc.Int).ToString() : NPC.calcMod(npc.Int).ToString();
             wisModLbl.Content = (NPC.calcMod(npc.Wis) >= 0) ? "+" + NPC.calcMod(npc.Wis).ToString() : NPC.calcMod(npc.Wis).ToString();
             chaModLbl.Content = (NPC.calcMod(npc.Cha) >= 0) ? "+" + NPC.calcMod(npc.Cha).ToString() : NPC.calcMod(npc.Cha).ToString();
-
+            unhighlightBecauseSaved();
         }
+
+        private void field_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            highlightNotSaved();
+        }
+
+        private void field_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            highlightNotSaved();
+        }
+
+        void highlightNotSaved()
+        {
+            changesSaved = false;
+            saveBtn.Background = Brushes.Orange;
+        }
+        void unhighlightBecauseSaved()
+        {
+            changesSaved = true;
+            saveBtn.Background = Brushes.LightGray;
+        }
+
 
         /// <summary>
         /// Delete button deletes the NPC from the global archive,
@@ -128,7 +154,7 @@ namespace NPCGenerator
         /// </summary>
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Controller.safeMode)
+            if (Controller.safeMode && !changesSaved)
             {
                 MessageBoxResult confirmResult =
                 MessageBox.Show("Close without saving?", "Confirm Closing",
@@ -143,6 +169,7 @@ namespace NPCGenerator
         {
             if (ageBioTB.IsFocused)
                 updateAgeOnBio();
+            highlightNotSaved();
         }
 
         private void updateAgeOnBio()
@@ -158,6 +185,7 @@ namespace NPCGenerator
         {
             if (ageChronoTB.IsFocused)
                 updateAgeOnChrono();
+            highlightNotSaved();
         }
 
         private void updateAgeOnChrono()
@@ -489,6 +517,5 @@ namespace NPCGenerator
                 }
             }
         }
-
     }
 }

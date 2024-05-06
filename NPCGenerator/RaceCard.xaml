@@ -81,11 +81,12 @@
                         <RowDefinition Height="25"/>
                         <RowDefinition Height="25"/>
                     </Grid.RowDefinitions>
-                    
-                    <Label Content="Age of maturity" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center"/>
-                    <TextBox x:Name="maturityTB" Grid.Column="1" Grid.Row="0" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="maturityTB_TextChanged"/>
 
-                    <Label Content="Life expectancy" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Center"/>
+                    <Label Content="🛈 Age of maturity" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center"
+                           ToolTip="Chronological age of biological (not cultural) maturity for this race.&#x0a;Equivalent to the age of 18 in humans."/>
+                    <TextBox x:Name="maturityTB" Grid.Column="1" Grid.Row="0" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="maturityTB_TextChanged"/>
+                    <Label Content="🛈 Life expectancy" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Center"
+                           ToolTip="How long are members of this race are expected to live for.&#x0a;Equivalent to the age of 80 in humans."/>
                     <TextBox x:Name="expectancyTB" Grid.Column="1" Grid.Row="1" Margin="2" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="expectancyTB_TextChanged"/>
                 </Grid>
                 <!--#endregion-->
@@ -93,30 +94,32 @@
                 <!--#region genders-->
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition MaxWidth="30"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="55"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Content="🛈 Compatable genders" Margin="5,0,0,0" VerticalContentAlignment="Bottom" FontWeight="DemiBold"
+                    ToolTip="General gender distribution for this race"/>
+                    <Label Grid.Column="1" Grid.Row="1" Content="Weight" VerticalContentAlignment="Bottom"/>
 
-                    <Label Grid.Column="1" Grid.Row="0" Content="Weight" VerticalContentAlignment="Bottom"/>
+                    <Image Source="/Images/male.png" Grid.Column="0" Grid.Row="2"/>
+                    <Image Source="/Images/female.png" Grid.Column="0" Grid.Row="3"/>
+                    <Image Source="/Images/neuter.png" Grid.Column="0" Grid.Row="4"/>
 
-                    <Image Source="/Images/male.png" Grid.Column="0" Grid.Row="1"/>
-                    <Image Source="/Images/female.png" Grid.Column="0" Grid.Row="2"/>
-                    <Image Source="/Images/neuter.png" Grid.Column="0" Grid.Row="3"/>
+                    <TextBox x:Name="MaleWeightTB" Grid.Column="1" Grid.Row="2" Margin="3,3,1,3" Width="50" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="MaleWeightTB_TextChanged"/>
+                    <TextBox x:Name="FemaleWeightTB" Grid.Column="1" Grid.Row="3" Margin="3,3,1,3" Width="50" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="FemaleWeightTB_TextChanged"/>
+                    <TextBox x:Name="NeutralWeightTB" Grid.Column="1" Grid.Row="4" Margin="3,3,1,3" Width="50" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="NeutralWeightTB_TextChanged"/>
 
-                    <TextBox x:Name="MaleWeightTB" Grid.Column="1" Grid.Row="1" Margin="3" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="MaleWeightTB_TextChanged"/>
-                    <TextBox x:Name="FemaleWeightTB" Grid.Column="1" Grid.Row="2" Margin="3" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="FemaleWeightTB_TextChanged"/>
-                    <TextBox x:Name="NeutralWeightTB" Grid.Column="1" Grid.Row="3" Margin="3" VerticalContentAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="NeutralWeightTB_TextChanged"/>
-
-                    <Label x:Name="MalePercentLbl" Grid.Column="2" Grid.Row="1" Margin="3"/>
-                    <Label x:Name="FemalePercentLbl" Grid.Column="2" Grid.Row="2" Margin="3"/>
-                    <Label x:Name="NeutralPercentLbl" Grid.Column="2" Grid.Row="3" Margin="3"/>
+                    <Label x:Name="MalePercentLbl" Grid.Column="2" Grid.Row="2" Margin="0,3,3,3"/>
+                    <Label x:Name="FemalePercentLbl" Grid.Column="2" Grid.Row="3" Margin="0,3,3,3"/>
+                    <Label x:Name="NeutralPercentLbl" Grid.Column="2" Grid.Row="4" Margin="0,3,3,3"/>
 
                 </Grid>
                 <!--#endregion-->
@@ -137,15 +140,17 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="35"/>
+                        <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="35"/>
                     </Grid.ColumnDefinitions>
-
-                    <Label Grid.Column="0" Content="Age ranges" VerticalContentAlignment="Bottom"/>
+                    <Label Grid.Column="0" Content="🛈 Age ranges (bio)" VerticalContentAlignment="Bottom" FontWeight="DemiBold"
+                        ToolTip="General biological age distribution across the population"/>
                     <Button x:Name="AddRangeBtn" Grid.Column="1" Margin="5" Click="AddRangeBtn_Click">
                         <Image Source="/Images/add.png" />
                     </Button>
-                    <Button x:Name="SaveRangesBtn" Grid.Column="3" Margin="5" Click="SaveRangesBtn_Click">
+                    <Image x:Name="EmptyAgeRangesImg" Grid.Column="2" Source="/Images/exclamation_mark.png"/>
+                    <Button x:Name="SaveRangesBtn" Grid.Column="4" Margin="5" Click="SaveRangesBtn_Click">
                         <Image Source="/Images/save.png" />
                     </Button>
                 </Grid>
@@ -160,11 +165,11 @@
                                     <Image Source="/Images/delete.png" />
                                 </Button>
                                 <Label Content="from"/>
-                                <TextBox x:Name="FromTB" Text="{Binding Value.Item1, Mode=OneWay}" Width="45" Margin="0,3,0,3" />
+                                <TextBox x:Name="FromTB" Text="{Binding Value.Item1, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged"/>
                                 <Label Content="to"/>
-                                <TextBox x:Name="ToTB" Text="{Binding Value.Item2, Mode=OneWay}" Width="45" Margin="0,3,0,3"/>
+                                <TextBox x:Name="ToTB" Text="{Binding Value.Item2, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged"/>
                                 <Label Content="weight"/>
-                                <TextBox x:Name="RangeWeightTB" Text="{Binding Weight, Mode=OneWay}" Width="45" Margin="0,3,0,3"/>
+                                <TextBox x:Name="RangeWeightTB" Text="{Binding Weight, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged"/>
                                 <Label Content="{Binding Converter={StaticResource AgesPercentageConverter}}" />
                             </StackPanel>
                         </DataTemplate>
@@ -204,8 +209,10 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Grid.Row="0">
-                <Label Content="Compatable bundles"/>
-                <Button x:Name="UpdateBundlesBtn" Click="UpdateBundlesBtn_Click" >
+                <Label Content="🛈 Compatable bundles"
+                       ToolTip="These bundles will be used in generation&#x0a;if the archetype doesn't have any in the same category"/>
+                <Button x:Name="UpdateBundlesBtn" Click="UpdateBundlesBtn_Click" 
+                        ToolTip="Update percentage">
                     <Image Source="/Images/refresh.png" />
                 </Button>
             </StackPanel>

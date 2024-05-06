@@ -118,13 +118,12 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="35"/>
                     </Grid.ColumnDefinitions>
-
-                    <Label Grid.Column="0" Content="🛈 Age ranges" VerticalContentAlignment="Bottom" FontWeight="DemiBold"
-                           ToolTip="Only characters with these ages will be generated"/>
+                    <Label Grid.Column="0" Content="🛈 Age ranges (bio)" VerticalContentAlignment="Bottom" FontWeight="DemiBold"
+                           ToolTip="Only characters with these biological ages will be generated"/>
                     <Button x:Name="AddRangeBtn" Grid.Column="1" Margin="5" Click="AddRangeBtn_Click">
                         <Image Source="/Images/add.png" />
                     </Button>
-                    <Image x:Name="EmptyAgeRangesImg" Grid.Column="2" Source="/Images/exclamation_mark.png" Width="25"/>
+                    <Image x:Name="EmptyAgeRangesImg" Grid.Column="2" Source="/Images/exclamation_mark.png"/>
                     <Button x:Name="SaveRangesBtn" Grid.Column="4" Margin="5" Click="SaveRangesBtn_Click">
                         <Image Source="/Images/save.png" />
                     </Button>
@@ -233,10 +232,12 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Grid.Row="0">
-                <Label Content="Compatable bundles"/>
+                <Label Content="🛈 Compatable bundles"
+                        ToolTip="These bundles will be used in generation.&#x0a;If the archetype doesn't have any in a category,&#x0a;race's bundles will be used."/>
                 <Button x:Name="UpdateBundlesBtn" Click="UpdateBundlesBtn_Click" ToolTip="Update percentages">
                     <Image Source="/Images/refresh.png" />
                 </Button>

@@ -65,11 +65,12 @@ namespace FileManager
 
 
 
-        public static bool exportViaDialog(IEnumerable<WeightedElement> data, string windowTitle)
+        public static bool exportViaDialog(IEnumerable<WeightedElement> data, string windowTitle, string defaultFileName)
         {
             SaveFileDialog exportFileDialog = new SaveFileDialog();
             exportFileDialog.Filter = "Text files (*.txt)|*.txt";
             exportFileDialog.Title = windowTitle;
+            exportFileDialog.FileName = defaultFileName;
             if (exportFileDialog.ShowDialog() == false)
                 return false;
 

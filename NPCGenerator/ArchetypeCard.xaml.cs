@@ -152,7 +152,7 @@ namespace NPCArchiveAndGenerator
         }
         void unhighlightAgeRangeBecauseSaved()
         {
-            SaveRangesBtn.Background = Brushes.Silver;
+            SaveRangesBtn.Background = Brushes.LightGray;
         }
 
 

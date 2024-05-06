@@ -81,14 +81,15 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="35"/>
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Move to category" Margin="5"/>
             <ComboBox x:Name="CategoryCmb" Grid.Column="1" Margin="0,6,0,6"/>
             <Button x:Name="MoveToCategoryBtn" Grid.Column="2" Margin="6" Click="MoveToCategoryBtn_Click">
                 <Image Source="/Images/move_category.png" />
             </Button>
-            <CheckBox x:Name="IndependentLayersChb" Grid.Column="3" Content="Independent Layers" VerticalAlignment="Center" Unchecked="IndependentLayersChb_Changed" Checked="IndependentLayersChb_Changed" />
+            <CheckBox x:Name="IndependentLayersChb" Grid.Column="3" Content="🛈 Independent Layers" VerticalAlignment="Center" Unchecked="IndependentLayersChb_Changed" Checked="IndependentLayersChb_Changed" 
+                      ToolTip="If layers are independent, the generation will continue&#x0a;even if the previous layer didn't pass the Chance.&#x0a;If they are dependent, the generation will stop." Margin="5,0,0,0"/>
         </Grid>
 
         <Grid Grid.Row="2">
