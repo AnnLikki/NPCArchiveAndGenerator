@@ -1,0 +1,674 @@
+Archetypes
+{
+  "Items": [
+    {
+      "Name": "Гражданин эльфийского города",
+      "Races": [
+        {
+          "Value": "c6ea0276-6a3d-4f1a-bd6e-202ecea59ca9",
+          "Weight": 4,
+          "Gender": 2
+        },
+        {
+          "Value": "5fa12848-fb43-4be7-b9d4-06f2bc6fe0f6",
+          "Weight": 10,
+          "Gender": 2
+        },
+        {
+          "Value": "83f6f2a5-9de9-40b7-af23-8c717bbd957e",
+          "Weight": 2,
+          "Gender": 2
+        }
+      ],
+      "Genders": [
+        {
+          "Value": 2,
+          "Weight": 2,
+          "Gender": 2
+        },
+        {
+          "Value": 0,
+          "Weight": 5,
+          "Gender": 2
+        },
+        {
+          "Value": 1,
+          "Weight": 5,
+          "Gender": 2
+        }
+      ],
+      "Ages": [
+        {
+          "Value": 1,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 2,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 3,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 4,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 5,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 6,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 7,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 8,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 9,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 10,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 11,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 12,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 13,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 14,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 15,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 16,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 17,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 18,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 19,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 20,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 21,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 22,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 23,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 24,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 25,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 26,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 27,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 28,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 29,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 30,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 31,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 32,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 33,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 34,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 35,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 36,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 37,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 38,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 39,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 40,
+          "Weight": 6,
+          "Gender": 2
+        },
+        {
+          "Value": 41,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 42,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 43,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 44,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 45,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 46,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 47,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 48,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 49,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 50,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 51,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 52,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 53,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 54,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 55,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 56,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 57,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 58,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 59,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 60,
+          "Weight": 3,
+          "Gender": 2
+        },
+        {
+          "Value": 61,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 62,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 63,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 64,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 65,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 66,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 67,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 68,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 69,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 70,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 71,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 72,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 73,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 74,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 75,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 76,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 77,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 78,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 79,
+          "Weight": 1,
+          "Gender": 2
+        },
+        {
+          "Value": 80,
+          "Weight": 1,
+          "Gender": 2
+        }
+      ],
+      "CompatableBundles": {
+        "Name": [],
+        "Occupation": [],
+        "Character": [],
+        "Height": [],
+        "Physique": [],
+        "Skin": [],
+        "Hair": [],
+        "Face": [],
+        "Eyes": [],
+        "Clothes": [],
+        "Features": []
+      }
+    }
+  ],
+  "DefaultArchetype": {
+    "Name": "Обычный архетип",
+    "Races": [
+      {
+        "Value": "c6ea0276-6a3d-4f1a-bd6e-202ecea59ca9",
+        "Weight": 20,
+        "Gender": 2
+      },
+      {
+        "Value": "83f6f2a5-9de9-40b7-af23-8c717bbd957e",
+        "Weight": 5,
+        "Gender": 2
+      },
+      {
+        "Value": "fd4a6627-be86-4967-a7fc-a3cfe0b43796",
+        "Weight": 2,
+        "Gender": 2
+      },
+      {
+        "Value": "b996acb1-6321-42ad-96d7-022f34543b94",
+        "Weight": 5,
+        "Gender": 2
+      },
+      {
+        "Value": "5fa12848-fb43-4be7-b9d4-06f2bc6fe0f6",
+        "Weight": 5,
+        "Gender": 2
+      }
+    ],
+    "Genders": [
+      {
+        "Value": 2,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 0,
+        "Weight": 5,
+        "Gender": 2
+      },
+      {
+        "Value": 1,
+        "Weight": 5,
+        "Gender": 2
+      }
+    ],
+    "Ages": [
+      {
+        "Value": 20,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 21,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 22,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 23,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 24,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 25,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 26,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 27,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 28,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 29,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 30,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 31,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 32,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 33,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 34,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 35,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 36,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 37,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 38,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 39,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 40,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 41,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 42,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 43,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 44,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 45,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 46,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 47,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 48,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 49,
+        "Weight": 1,
+        "Gender": 2
+      },
+      {
+        "Value": 50,
+        "Weight": 1,
+        "Gender": 2
+      }
+    ],
+    "CompatableBundles": {
+      "Name": [],
+      "Occupation": [],
+      "Character": [],
+      "Height": [],
+      "Physique": [],
+      "Skin": [],
+      "Hair": [],
+      "Face": [],
+      "Eyes": [],
+      "Clothes": [],
+      "Features": []
+    }
+  }
+}

@@ -18,22 +18,32 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource VeryDarkColor}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="fileNameLbl" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="14" Foreground="White"/>
+            <Button x:Name="closeArchviveBtn" Grid.Column="1" Height="25" Width="25" Margin="5" Click="closeArchviveBtn_Click">
+                <Image Source="/Images/close2.png" />
+            </Button>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Background="{StaticResource VeryDarkColor}">
-            <Button x:Name="addNPCBtn" Content="Add NPC" Padding="5" Height="30" Width="65" HorizontalContentAlignment="Center" Margin="15,0,0,0" Click="addNPCBtn_Click"/>
-            <TextBox x:Name="filterTB" TextWrapping="NoWrap" Height="30" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" Width="250" Margin="15,0,0,0" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="filterTB_TextChanged"/>
-            <Button x:Name="clearFilterBtn" Content="X" Padding="5" Height="30" Width="30" HorizontalContentAlignment="Center" Margin="5,0,0,0" Click="clearFilterBtn_Click"/>
+        </Grid>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent">
+            <Button x:Name="addNPCBtn" Content="Add NPC" Height="30" Width="92" HorizontalContentAlignment="Center" Margin="15,0,0,0" Click="addNPCBtn_Click"/>
+            <Image Source="/Images/search.png" Height="30" Width="30" Margin="15,0,0,0"/>
+            <TextBox x:Name="filterTB" TextWrapping="NoWrap" Height="30" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" Width="200" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="filterTB_TextChanged"/>
+            <Button x:Name="clearFilterBtn" Height="30" Width="30" HorizontalContentAlignment="Center" Click="clearFilterBtn_Click" Padding="1,1,3,1">
+                <Image Source="/Images/clear.png" />
+            </Button>
         </StackPanel>
 
-
-
-        <Grid Grid.Row="1" Grid.Column="0">
-
-            <DataGrid x:Name="NPCDataGrid" Background="{StaticResource VeryLightColor}"
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" MinWidth="500"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Grid.Column="0" x:Name="NPCDataGrid" Background="{StaticResource VeryLightColor}"
                       VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
                       CanUserResizeColumns="False" CanUserResizeRows="False" 
                       SelectionMode="Single" CanUserReorderColumns="False"
@@ -76,10 +86,11 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-        </Grid>
-        <Grid Grid.Row="1"  Grid.Column="1">
+        
+        <Grid Grid.Column="1">
             <ContentControl x:Name="NPCView"/>
         </Grid>
+    </Grid>
     </Grid>
 
 </UserControl>

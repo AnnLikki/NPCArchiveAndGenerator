@@ -1,10 +1,15 @@
 ﻿using FileManager;
+using NPCGenerator;
+using System.Windows.Documents;
 
 namespace NPCArchiveAndGenerator
 {
     internal static class Controller
     {
-
+        public static NPCsArchiveUC npcsArchiveUC;
+        public static RacesArchiveUC racesArchiveUC;
+        public static BundlesArchivesUC bundlesArchivesUC;
+        public static ArchetypesArchivesUC archetypesArchivesUC;
         public enum Status
         {
             NPC,
@@ -44,6 +49,28 @@ namespace NPCArchiveAndGenerator
                     return "WTF";
             }
         }
+
+        public static void UpdateFileName()
+        {
+            switch (status)
+            {
+                case Status.NPC:
+                    npcsArchiveUC.fileNameLbl.Content = GetFileName();
+                    break;
+                case Status.Race:
+                    racesArchiveUC.fileNameLbl.Content = GetFileName();
+                    break;
+                case Status.Bundle:
+                    bundlesArchivesUC.fileNameLbl.Content = GetFileName();
+                    break;
+                case Status.Archetype:
+                    archetypesArchivesUC.fileNameLbl.Content = GetFileName();
+                    break;
+                default:
+                    return;
+            }
+        }
+
 
     }
 }

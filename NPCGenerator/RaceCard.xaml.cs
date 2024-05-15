@@ -207,8 +207,23 @@ namespace NPCGenerator
         {
             AgesIC.ItemsSource = null;
             AgesIC.ItemsSource = race.Ages.GetRanges();
+            EmptyAgeRangesImg.Visibility = (race.Ages.Count == 0) ? Visibility.Visible : Visibility.Collapsed;
+            unhighlightAgeRangeBecauseSaved();
         }
 
+        private void agerange_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            highlightAgeRangeNotSaved();
+        }
+
+        void highlightAgeRangeNotSaved()
+        {
+            SaveRangesBtn.Background = Brushes.Orange;
+        }
+        void unhighlightAgeRangeBecauseSaved()
+        {
+            SaveRangesBtn.Background = Brushes.LightGray;
+        }
 
 
         private void AddBundleBtn_Click(object sender, RoutedEventArgs e)

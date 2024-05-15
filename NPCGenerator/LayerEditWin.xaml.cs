@@ -146,7 +146,7 @@ namespace NPCArchiveAndGenerator
 
         private void ExportElementsBtn_Click(object sender, RoutedEventArgs e)
         {
-            DataPorter.exportViaDialog(layer.Elements, "Export Layer to file...");
+            DataPorter.exportViaDialog(layer.Elements, "Export Layer to file...", "Layer Data");
         }
 
 

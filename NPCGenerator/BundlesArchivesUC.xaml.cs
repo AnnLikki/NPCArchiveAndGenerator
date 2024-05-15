@@ -1,4 +1,5 @@
 ﻿using Archives;
+using FileManager;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -107,7 +108,25 @@ namespace NPCArchiveAndGenerator
             updateFilterable();
         }
 
+        private void clearFilterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            BundleSearchTB.Text = "";
+        }
 
+        private void closeArchviveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Controller.safeMode)
+            {
+                MessageBoxResult result = MessageBox.Show("Close without saving?", "Saving",
+                   MessageBoxButton.YesNo, MessageBoxImage.Question);
 
+                if (result == MessageBoxResult.Yes)
+                {
+                    SnL.BundlesSavePath = null;
+                    ArchiveHandler.bundleStorage.ClearAllBundles();
+                }
+            }
+            Controller.UpdateFileName();
+        }
     }
 }

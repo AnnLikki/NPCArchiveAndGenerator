@@ -137,8 +137,23 @@ namespace NPCArchiveAndGenerator
         {
             AgesIC.ItemsSource = null;
             AgesIC.ItemsSource = archetype.Ages.GetRanges();
+            EmptyAgeRangesImg.Visibility = (archetype.Ages.Count == 0) ? Visibility.Visible : Visibility.Collapsed;
+            unhighlightAgeRangeBecauseSaved();
         }
 
+        private void agerange_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            highlightAgeRangeNotSaved();
+        }
+
+        void highlightAgeRangeNotSaved()
+        {
+            SaveRangesBtn.Background = Brushes.Orange;
+        }
+        void unhighlightAgeRangeBecauseSaved()
+        {
+            SaveRangesBtn.Background = Brushes.LightGray;
+        }
 
 
 
@@ -167,6 +182,7 @@ namespace NPCArchiveAndGenerator
         {
             RacesIC.ItemsSource = null;
             RacesIC.ItemsSource = archetype.Races;
+            EmptyRacesImg.Visibility = (archetype.Races.Count == 0) ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void Update_Races(object sender, EventArgs e)
@@ -389,6 +405,8 @@ namespace NPCArchiveAndGenerator
             archetype.SetGender(Gender.Neutral, ParseCarefully(NeutralWeightTB.Text));
             recalcPercent();
         }
+
+
 
 
         /// <summary>

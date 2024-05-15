@@ -54,11 +54,18 @@ namespace Archives
                 }
                 Genders.DefaultValue = genders.DefaultValue;
             }
+            else
+            {
+                Genders.AddElement(Gender.Neutral);
+                Genders.AddElement(Gender.Male);
+                Genders.AddElement(Gender.Female);
+            }
 
             Ages = new AgeDistribution();
             if (ages != null)
                 foreach (WeightedElement e in ages)
                     Ages.AddAge(int.Parse(e.Value.ToString()), e.Weight);
+            else Ages.AddRange(20, 50);
 
             CompatableBundles = new Kit();
             if (compatableBundles != null)

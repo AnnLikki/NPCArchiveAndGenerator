@@ -6,12 +6,12 @@ using System.Windows;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набор атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("NPCArchiveAndGenerator")]
-[assembly: AssemblyDescription("An app for managing and stroing TTRPG NPCs' information.")]
+[assembly: AssemblyTitle("NPC Archive and Generator")]
+[assembly: AssemblyDescription("An app for stroing and generating TTRPG NPCs' information.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Green Cat Studio")]
 [assembly: AssemblyProduct("NPCArchiveAndGenerator")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyCopyright("Copyright © 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -50,6 +50,6 @@ using System.Windows;
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.3.2.0")]
-[assembly: AssemblyFileVersion("0.3.2.0")]
+[assembly: AssemblyVersion("0.3.2.2")]
+[assembly: AssemblyFileVersion("0.3.2.2")]
 [assembly: NeutralResourcesLanguage("en-US")]

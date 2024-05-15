@@ -52,7 +52,7 @@ namespace Archives
                 {
                     name.Add(npc);
                 }
-                else if (npc.RaceID != null && ArchiveHandler.raceStorage.FindRace(npc.RaceID).Name.ToLower().Contains(keyword.ToLower()))
+                else if (npc.RaceID != System.Guid.Empty && ArchiveHandler.raceStorage.FindRace(npc.RaceID).Name.ToLower().Contains(keyword.ToLower()))
                 {
                     race.Add(npc);
                 }

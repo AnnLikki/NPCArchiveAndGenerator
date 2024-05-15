@@ -3,13 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" Width="550">
+             mc:Ignorable="d" MinWidth="500">
     <UserControl.Resources>
         <SolidColorBrush x:Key="VeryLightColor" Color="#D9EEFF" />
         <SolidColorBrush x:Key="LightColor" Color="#B0DDFF" />
         <SolidColorBrush x:Key="BrightColor" Color="#7EC7FF" />
         <SolidColorBrush x:Key="DarkColor" Color="#7DBEF0" />
         <SolidColorBrush x:Key="VeryDarkColor" Color="#66B1EB" />
+
+        <!-- Style for ToggleButtons -->
+        <Style x:Key="LockToggleButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="border" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" BorderBrush="Black" BorderThickness="0.5">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="Gold"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </UserControl.Resources>
 
     <ScrollViewer Background="{StaticResource LightColor}">
@@ -40,19 +59,19 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="20" />
-                        <RowDefinition Height="20" />
+                        <RowDefinition Height="22" />
+                        <RowDefinition Height="22" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="20" />
-                        <RowDefinition Height="20" />
+                        <RowDefinition Height="22" />
+                        <RowDefinition Height="25" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="20" />
+                        <RowDefinition Height="25" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="20" />
+                        <RowDefinition Height="22" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="20" />
+                        <RowDefinition Height="22" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
@@ -90,64 +109,64 @@
                     <Grid Grid.Row="1" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="1*" />
                             <ColumnDefinition Width="20" />
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Name" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <TextBox x:Name="nameTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled"/>
-                        <ToggleButton x:Name="lockNameBtn" Grid.Column="2" >
+                        <Label Content="Name" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="nameTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled" TextChanged="field_TextChanged" VerticalContentAlignment="Center"/>
+                        <ToggleButton x:Name="lockNameBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="2" >
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <Button x:Name="randNameBtn" Grid.Column="3" Click="randNameBtn_Click" >
+                            <Image Source="/Images/random.png"/>
+                        </Button>
+                        <Label Content="Race" Margin="2,0,2,0" Grid.Column="4" Padding="0,0,0,0" VerticalContentAlignment="Center"/>
+                        <ComboBox x:Name="raceCmb" DisplayMemberPath="Name" Margin="2,0,0,0" Grid.Column="5" SelectionChanged="field_SelectionChanged" VerticalContentAlignment="Center"/>
+                        <ToggleButton x:Name="lockRaceBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="6" >
+                            <Image Source="/Images/lock.png"/>
+                        </ToggleButton>
+                        <Button x:Name="randRaceBtn" Grid.Column="7" Click="randRaceBtn_Click">
                             <Image Source="/Images/random.png"/>
                         </Button>
                     </Grid>
                     <Grid Grid.Row="2" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
                             <ColumnDefinition Width="20" />
                             <ColumnDefinition Width="20" />
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="1*" />
                             <ColumnDefinition Width="20" />
                             <ColumnDefinition Width="20" />
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="20" />
-                            <ColumnDefinition Width="20" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="1*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Race" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <ComboBox x:Name="raceCmb" DisplayMemberPath="Name" Margin="2,0,0,0" Grid.Column="1"/>
-                        <ToggleButton x:Name="lockRaceBtn" Grid.Column="2" >
-                            <Image Source="/Images/lock.png"/>
-                        </ToggleButton>
-                        <Button x:Name="randRaceBtn" Grid.Column="3" Click="randRaceBtn_Click">
-                            <Image Source="/Images/random.png"/>
-                        </Button>
-                        <Label Content="Gender" Margin="2,0,2,0" Grid.Column="4" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
+                        <Label Content="Gender" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Center"/>
 
-                        <ComboBox x:Name="genderCmb" Margin="2,0,0,0" Grid.Column="5"/>
-                        
-                        <ToggleButton x:Name="lockGenderBtn" Grid.Column="6" >
+                        <ComboBox x:Name="genderCmb" Margin="2,0,0,0" Grid.Column="1" SelectionChanged="field_SelectionChanged" VerticalContentAlignment="Center"/>
+
+                        <ToggleButton x:Name="lockGenderBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="2" >
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
-                        <Button x:Name="randGenderBtn" Grid.Column="7" Click="randGenderBtn_Click">
+                        <Button x:Name="randGenderBtn" Grid.Column="3" Click="randGenderBtn_Click">
                             <Image Source="/Images/random.png"/>
                         </Button>
-                        <Label Content="Age" Margin="2,0,2,0" Grid.Column="8" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <TextBox x:Name="ageChronoTB" Margin="2,0,0,0" Grid.Column="9" VerticalScrollBarVisibility="Disabled" TextChanged="ageChronoTB_TextChanged" PreviewTextInput="numeric_PreviewTextInput"/>
-                        <ToggleButton x:Name="lockAgeBtn" Grid.Column="10">
+                        <Label Content="Age (chrono)" Margin="2,0,2,0" Grid.Column="4" Padding="0,0,0,0" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="ageChronoTB" Margin="2,0,0,0" Grid.Column="5" VerticalScrollBarVisibility="Disabled" TextChanged="ageChronoTB_TextChanged" PreviewTextInput="numeric_PreviewTextInput" VerticalContentAlignment="Center"/>
+                        <ToggleButton x:Name="lockAgeBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="6">
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
-                        <Button x:Name="randAgeBtn" Grid.Column="11" Click="randAgeBtn_Click" >
+                        <Button x:Name="randAgeBtn" Grid.Column="7" Click="randAgeBtn_Click" >
                             <Image Source="/Images/random.png"/>
                         </Button>
-                        <Label Content="/" Margin="2,0,2,0" Grid.Column="12" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <TextBox x:Name="ageBioTB" Margin="2,0,0,0" Grid.Column="13" VerticalScrollBarVisibility="Disabled" TextChanged="ageBioTB_TextChanged" PreviewTextInput="numeric_PreviewTextInput"/>
+                        <Label Content="/ (bio)" Margin="2,0,2,0" Grid.Column="8" Padding="0,0,0,0" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="ageBioTB" Margin="2,0,0,0" Grid.Column="9" VerticalScrollBarVisibility="Disabled" TextChanged="ageBioTB_TextChanged" PreviewTextInput="numeric_PreviewTextInput" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
@@ -158,16 +177,16 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Content="Occupation" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <TextBox x:Name="occupationTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled"/>
-                        <ToggleButton x:Name="lockOccupationBtn" Grid.Column="2" >
+                        <Label Content="Occupation" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="occupationTB" Margin="2,0,0,0" Grid.Column="1" VerticalScrollBarVisibility="Disabled" TextChanged="field_TextChanged" VerticalContentAlignment="Center"/>
+                        <ToggleButton x:Name="lockOccupationBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="2" >
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <Button x:Name="randOccupationBtn" Grid.Column="3" Click="randOccupationBtn_Click" >
                             <Image Source="/Images/random.png"/>
                         </Button>
-                        <Label Content="Place" Margin="2,0,2,0" Grid.Column="4" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <TextBox x:Name="placeTB" Margin="2,0,0,0" Grid.Column="5" VerticalScrollBarVisibility="Disabled"/>
+                        <Label Content="Place" Margin="2,0,2,0" Grid.Column="4" Padding="0,0,0,0" VerticalContentAlignment="Center"/>
+                        <TextBox x:Name="placeTB" Margin="2,0,0,0" Grid.Column="5" VerticalScrollBarVisibility="Disabled" TextChanged="field_TextChanged" VerticalContentAlignment="Center"/>
                     </Grid>
                     <!--#endregion-->
 
@@ -185,7 +204,7 @@
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Character" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <ToggleButton x:Name="lockCharacterBtn" Grid.Column="1" >
+                        <ToggleButton x:Name="lockCharacterBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="1" >
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <Button x:Name="randCharacterBtn" Grid.Column="2" Click="randCharacterBtn_Click" >
@@ -196,7 +215,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="characterTB" Margin="2,0,0,0" Grid.Column="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" TextWrapping="Wrap"/>
+                        <TextBox x:Name="characterTB" Margin="2,0,0,0" Grid.Column="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" TextWrapping="Wrap" TextChanged="field_TextChanged"/>
                     </Grid>
                     <Grid Grid.Row="7" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
@@ -208,7 +227,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="backstoryTB" Margin="2,0,0,0" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled"/>
+                        <TextBox x:Name="backstoryTB" Margin="2,0,0,0" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" TextChanged="field_TextChanged"/>
                     </Grid>
                     <!--#endregion-->
 
@@ -232,21 +251,21 @@
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Height" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <ToggleButton x:Name="lockHeightBtn" Grid.Column="1"  VerticalAlignment="Top" MinHeight="20">
+                        <ToggleButton x:Name="lockHeightBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="1"  VerticalAlignment="Top" MinHeight="20">
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <Button x:Name="randHeightBtn" Grid.Column="2"  MinHeight="20" VerticalAlignment="Top" Click="randHeightBtn_Click">
                             <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Physique" Margin="2,0,2,0" Grid.Column="3" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <ToggleButton x:Name="lockPhysiqueBtn" Grid.Column="4"  MinHeight="20" VerticalAlignment="Top">
+                        <ToggleButton x:Name="lockPhysiqueBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="4"  MinHeight="20" VerticalAlignment="Top">
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <Button x:Name="randPhysiqueBtn" Grid.Column="5"  MinHeight="20" VerticalAlignment="Top" Click="randPhysiqueBtn_Click">
                             <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Skin Colour" Margin="2,0,2,0" Grid.Column="6" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <ToggleButton x:Name="lockSkincolourBtn" Grid.Column="7"  MinHeight="20" VerticalAlignment="Top">
+                        <ToggleButton x:Name="lockSkincolourBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="7"  MinHeight="20" VerticalAlignment="Top">
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <Button x:Name="randSkincolourBtn" Grid.Column="8"  MinHeight="20" VerticalAlignment="Top" Click="randSkinColourBtn_Click">
@@ -260,9 +279,9 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="heightTB" Margin="2,0,0,0" Grid.Column="0" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-                        <TextBox x:Name="physiqueTB" Margin="2,0,0,0" Grid.Column="1" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap"/>
-                        <TextBox x:Name="skincolourTB" Margin="2,0,0,0" Grid.Column="2" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap"/>
+                        <TextBox x:Name="heightTB" Margin="2,0,0,0" Grid.Column="0" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" TextChanged="field_TextChanged"/>
+                        <TextBox x:Name="physiqueTB" Margin="2,0,0,0" Grid.Column="1" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="field_TextChanged"/>
+                        <TextBox x:Name="skincolourTB" Margin="2,0,0,0" Grid.Column="2" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="field_TextChanged"/>
                     </Grid>
                     <Grid Grid.Row="12" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
@@ -277,21 +296,21 @@
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Hair/other" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <ToggleButton x:Name="lockHairBtn" Grid.Column="1"  MinHeight="20" VerticalAlignment="Top">
+                        <ToggleButton x:Name="lockHairBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="1"  MinHeight="20" VerticalAlignment="Top">
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <ToggleButton x:Name="randHairBtn" Grid.Column="2"  MinHeight="20" VerticalAlignment="Top" Click="randHairBtn_Click">
                             <Image Source="/Images/random.png"/>
                         </ToggleButton>
                         <Label Content="Face" Margin="2,0,2,0" Grid.Column="3" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <ToggleButton x:Name="lockFaceBtn" Grid.Column="4"  MinHeight="20" VerticalAlignment="Top">
+                        <ToggleButton x:Name="lockFaceBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="4"  MinHeight="20" VerticalAlignment="Top">
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <Button x:Name="randFaceBtn" Grid.Column="5"  MinHeight="20" VerticalAlignment="Top" Click="randFaceBtn_Click">
                             <Image Source="/Images/random.png"/>
                         </Button>
                         <Label Content="Eyes" Margin="2,0,2,0" Grid.Column="6" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <ToggleButton x:Name="lockEyesBtn" Grid.Column="7"  MinHeight="20" VerticalAlignment="Top">
+                        <ToggleButton x:Name="lockEyesBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="7"  MinHeight="20" VerticalAlignment="Top">
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <Button x:Name="randEyesBtn" Grid.Column="8"  MinHeight="20" VerticalAlignment="Top" Click="randEyesBtn_Click">
@@ -304,9 +323,9 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="hairTB" Margin="2,0,0,0" Grid.Column="0" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap"/>
-                        <TextBox x:Name="faceTB" Margin="2,0,0,0" Grid.Column="1" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap"/>
-                        <TextBox x:Name="eyesTB" Margin="2,0,0,0" Grid.Column="2" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap"/>
+                        <TextBox x:Name="hairTB" Margin="2,0,0,0" Grid.Column="0" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="field_TextChanged"/>
+                        <TextBox x:Name="faceTB" Margin="2,0,0,0" Grid.Column="1" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="field_TextChanged"/>
+                        <TextBox x:Name="eyesTB" Margin="2,0,0,0" Grid.Column="2" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="field_TextChanged"/>
                     </Grid>
                     <Grid Grid.Row="14" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
@@ -315,7 +334,7 @@
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Clothes" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <ToggleButton x:Name="lockClothesBtn" Grid.Column="1" >
+                        <ToggleButton x:Name="lockClothesBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="1" >
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <Button x:Name="randClothesBtn" Grid.Column="2" Click="randClothesBtn_Click">
@@ -326,7 +345,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="clothesTB" Margin="2,0,0,0" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled"/>
+                        <TextBox x:Name="clothesTB" Margin="2,0,0,0" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" TextChanged="field_TextChanged"/>
                     </Grid>
                     <Grid Grid.Row="16" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>
@@ -335,7 +354,7 @@
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Features" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom"/>
-                        <ToggleButton x:Name="lockFeaturesBtn" Grid.Column="1">
+                        <ToggleButton x:Name="lockFeaturesBtn" Style="{StaticResource LockToggleButtonStyle}" Grid.Column="1">
                             <Image Source="/Images/lock.png"/>
                         </ToggleButton>
                         <Button x:Name="randFeaturesBtn" Grid.Column="2" Click="randFeaturesBtn_Click">
@@ -346,7 +365,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="featuresTB" Margin="2,0,0,2" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" AcceptsTab="True"/>
+                        <TextBox x:Name="featuresTB" Margin="2,0,0,2" Grid.Column="0" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" AcceptsReturn="True" AcceptsTab="True" TextChanged="field_TextChanged"/>
                     </Grid>
                     <!--#endregion-->
 
@@ -363,7 +382,7 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label x:Name="strModLbl" FontSize="16" Content="+1" Grid.Row="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
-                            <TextBox x:Name="strTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                            <TextBox x:Name="strTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="field_TextChanged"/>
                             <Label Content="STR" Grid.Row="2" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
                         </Grid>
                     </Border>
@@ -375,7 +394,7 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label x:Name="dexModLbl" FontSize="16" Content="+1" Grid.Row="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
-                            <TextBox x:Name="dexTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                            <TextBox x:Name="dexTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="field_TextChanged"/>
                             <Label Content="DEX" Grid.Row="2" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
                         </Grid>
                     </Border>
@@ -387,7 +406,7 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label x:Name="conModLbl" FontSize="16" Content="+1" Grid.Row="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
-                            <TextBox x:Name="conTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                            <TextBox x:Name="conTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="field_TextChanged"/>
                             <Label Content="CON" Grid.Row="2" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
                         </Grid>
                     </Border>
@@ -399,7 +418,7 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label x:Name="intModLbl" FontSize="16" Content="+1" Grid.Row="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
-                            <TextBox x:Name="intTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                            <TextBox x:Name="intTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="field_TextChanged"/>
                             <Label Content="INT" Grid.Row="2" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
                         </Grid>
                     </Border>
@@ -411,7 +430,7 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label x:Name="wisModLbl" FontSize="16" Content="+1" Grid.Row="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
-                            <TextBox x:Name="wisTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                            <TextBox x:Name="wisTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="field_TextChanged"/>
                             <Label Content="WIS" Grid.Row="2" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
                         </Grid>
                     </Border>
@@ -423,7 +442,7 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label x:Name="chaModLbl" FontSize="16" Content="+1" Grid.Row="0" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
-                            <TextBox x:Name="chaTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput"/>
+                            <TextBox x:Name="chaTB" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" PreviewTextInput="numeric_PreviewTextInput" TextChanged="field_TextChanged"/>
                             <Label Content="CHA" Grid.Row="2" Padding="0,0,0,0" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"/>
                         </Grid>
                     </Border>
@@ -441,7 +460,7 @@
                 </Grid.RowDefinitions>
 
                 <Label Grid.Row="0" Content="Notes"/>
-                <TextBox x:Name="notesTB" Grid.Row="1" Margin="2,2,2,2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"/>
+                <TextBox x:Name="notesTB" Grid.Row="1" Margin="2,2,2,2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap" TextChanged="field_TextChanged"/>
 
             </Grid>
             <!--#endregion-->

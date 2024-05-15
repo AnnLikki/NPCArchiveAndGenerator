@@ -55,8 +55,14 @@ namespace Archives
             MaturityAge = maturityAge;
             LifeExpectancy = lifeExpectancy;
             Genders = new WeightedArchive();
+            Genders.AddElement(Gender.Male);
+            Genders.AddElement(Gender.Female);
+            Genders.AddElement(Gender.Neutral);
             Genders.DefaultValue = Gender.Neutral;
             Ages = new AgeDistribution();
+            Ages.AddRange(1, 60, 15);
+            Ages.AddRange(61, 80, 5);
+            Ages.AddRange(81, 90, 1);
             CompatableBundles = new Kit();
 
         }
