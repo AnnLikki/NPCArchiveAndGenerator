@@ -1,4 +1,6 @@
 ﻿using Archives;
+using FileManager;
+using NPCArchiveAndGenerator;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -76,6 +78,22 @@ namespace NPCGenerator
         private void clearFilterBtn_Click(object sender, RoutedEventArgs e)
         {
             filterTB.Clear();
+        }
+
+        private void closeArchviveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Controller.safeMode)
+            {
+                MessageBoxResult result = MessageBox.Show("Close without saving?", "Saving",
+                   MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    SnL.RacesSavePath = null;
+                    ArchiveHandler.raceStorage.Clear();
+                }
+            }
+            Controller.UpdateFileName();
         }
 
     }

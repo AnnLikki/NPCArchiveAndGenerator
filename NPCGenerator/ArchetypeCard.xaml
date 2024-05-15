@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NPCArchiveAndGenerator"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="500">
+             d:DesignHeight="450"  MinWidth="520">
     <UserControl.Resources>
         <SolidColorBrush x:Key="VeryLightColor" Color="#C0FFDF" />
         <SolidColorBrush x:Key="LightColor" Color="#9EFFCE" />
@@ -134,16 +134,16 @@
                 <ItemsControl x:Name="AgesIC" Grid.Row="1" >
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Height="25" Background="{StaticResource DarkColor}" Margin="2">
+                            <StackPanel Orientation="Horizontal" Height="25" Background="{StaticResource DarkColor}" Margin="2" HorizontalAlignment="Left" Width="300">
                                 <Button x:Name="DeleteRangeBtn" Click="DeleteRangeBtn_Click" Margin="2">
                                     <Image Source="/Images/delete.png" />
                                 </Button>
                                 <Label Content="from"/>
-                                <TextBox x:Name="FromTB" Text="{Binding Value.Item1, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged" />
+                                <TextBox x:Name="FromTB" Text="{Binding Value.Item1, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged" PreviewTextInput="numeric_PreviewTextInput" />
                                 <Label Content="to"/>
-                                <TextBox x:Name="ToTB" Text="{Binding Value.Item2, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged"/>
+                                <TextBox x:Name="ToTB" Text="{Binding Value.Item2, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged" PreviewTextInput="numeric_PreviewTextInput"/>
                                 <Label Content="weight"/>
-                                <TextBox x:Name="RangeWeightTB" Text="{Binding Weight, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged"/>
+                                <TextBox x:Name="RangeWeightTB" Text="{Binding Weight, Mode=OneWay}" Width="45" Margin="0,3,0,3" TextChanged="agerange_TextChanged" PreviewTextInput="numeric_PreviewTextInput"/>
                                 <Label Content="{Binding Converter={StaticResource AgesPercentageConverter}}" />
                             </StackPanel>
                         </DataTemplate>

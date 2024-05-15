@@ -38,13 +38,14 @@
         </Style>
     </UserControl.Resources>
 
+
+
     <Grid Background="{StaticResource VeryLightColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
         <!--#region Left Categories Grid-->
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" >
             <Grid>
@@ -77,82 +78,88 @@
         </ScrollViewer>
         <!--#endregion-->
 
-        <!--#region Bundles list -->
+        <!--#region Main region-->
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="25"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
-            <!--#region Top row - search+add-->
-            <Grid Grid.Row="0" Background="{StaticResource VeryDarkColor}">
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource VeryDarkColor}" >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="25"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-
-                <Button x:Name="AddBundleBtn" Grid.Column="0" Click="AddBundleBtn_Click">
-                    <Image Source="/Images/add.png" />
+                <Label x:Name="fileNameLbl" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="14" Foreground="White"/>
+                <Button x:Name="closeArchviveBtn" Grid.Column="1" Height="25" Width="25" Margin="5" Click="closeArchviveBtn_Click">
+                    <Image Source="/Images/close2.png" />
                 </Button>
-                <Image Source="/Images/search.png" Grid.Column="1" />
-                <TextBox x:Name="BundleSearchTB" Grid.Column="2"  TextWrapping="NoWrap" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="BundleSearchTB_TextChanged" />
-                <Button x:Name="clearFilterBtn"  Grid.Column="3" HorizontalContentAlignment="Center" Click="clearFilterBtn_Click" Padding="1,1,3,1">
+
+            </Grid>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent">
+                <Button x:Name="AddBundleBtn" Content="Add Bundle" Height="30" Width="92" HorizontalContentAlignment="Center" Margin="15,0,0,0" Click="AddBundleBtn_Click"/>
+                <Image Source="/Images/search.png" Height="30" Width="30" Margin="15,0,0,0"/>
+                <TextBox x:Name="BundleSearchTB" TextWrapping="NoWrap" Height="30" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" Width="200" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="BundleSearchTB_TextChanged"/>
+                <Button x:Name="clearFilterBtn" Height="30" Width="30" HorizontalContentAlignment="Center" Click="clearFilterBtn_Click" Padding="1,1,3,1">
                     <Image Source="/Images/clear.png" />
                 </Button>
-            </Grid>
-            <!--#endregion-->
+            </StackPanel>
 
-            <!--#region Bundles datagrid-->
-            <DataGrid x:Name="BundlesDG"  Grid.Row="1" Background="{StaticResource VeryLightColor}" 
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*" MinWidth="500"/>
+                </Grid.ColumnDefinitions>
+
+                <!--#region Bundles datagrid-->
+                <DataGrid x:Name="BundlesDG" Grid.Column="0" Background="{StaticResource VeryLightColor}" 
                       VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
                       CanUserResizeColumns="False" CanUserResizeRows="False"
                       SelectionMode="Single" CanUserReorderColumns="False"
                       AutoGenerateColumns="False" IsReadOnly="True"
                       SelectionChanged="BundlesDG_SelectionChanged">
-                <!--#region Styles -->
-                <DataGrid.Resources>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="Foreground" Value="Black"/>
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Setter Property="BorderBrush" Value="Transparent"/>
-                    </Style>
-                    <Style TargetType="DataGridRow">
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="{StaticResource VeryDarkColor}"/>
-                                <Setter Property="BorderThickness" Value="0"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </DataGrid.Resources>
+                    <!--#region Styles -->
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                        </Style>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource VeryDarkColor}"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <!--#endregion-->
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Bundle Name" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" Padding="2,0,0,0"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Gender" Width="Auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Center" Text="{Binding Gender}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
                 <!--#endregion-->
-                
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Bundle Name" Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}" Padding="2,0,0,0"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Gender" Width="Auto">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock HorizontalAlignment="Center" Text="{Binding Gender}"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+
+                <ScrollViewer Grid.Column="1">
+                    <ContentControl x:Name="BundleView"/>
+                </ScrollViewer>
+            </Grid>
             <!--#endregion-->
         </Grid>
-        <!--#endregion-->
-
-        <ScrollViewer Grid.Column="2">
-            <ContentControl x:Name="BundleView"/>
-        </ScrollViewer>
     </Grid>
 </UserControl>

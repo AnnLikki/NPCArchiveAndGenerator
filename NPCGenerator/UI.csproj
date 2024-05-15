@@ -313,5 +313,8 @@
   <ItemGroup>
     <Resource Include="Images\exclamation_mark.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\close2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

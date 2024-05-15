@@ -1,0 +1,30 @@
+NPC
+[
+  {
+    "Name": "Мэдисон",
+    "RaceID": "c6ea0276-6a3d-4f1a-bd6e-202ecea59ca9",
+    "RaceName": "Человек",
+    "Gender": 1,
+    "AgeChrono": 46,
+    "AgeBio": 46,
+    "Occupation": "",
+    "Place": "",
+    "Character": "",
+    "Backstory": "",
+    "Height": "",
+    "Physique": "",
+    "Skin": "",
+    "Hair": "Шатен по плечи",
+    "Face": "",
+    "Eyes": "",
+    "Clothes": "",
+    "Features": "",
+    "Str": 10,
+    "Dex": 10,
+    "Con": 10,
+    "Int": 10,
+    "Wis": 10,
+    "Cha": 10,
+    "Notes": ""
+  }
+]

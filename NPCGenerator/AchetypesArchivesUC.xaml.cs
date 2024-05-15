@@ -1,4 +1,5 @@
 ﻿using Archives;
+using FileManager;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -90,6 +91,22 @@ namespace NPCArchiveAndGenerator
         private void clearFilterBtn_Click(object sender, RoutedEventArgs e)
         {
             SearchTB.Text = "";
+        }
+        private void closeArchviveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Controller.safeMode)
+            {
+                MessageBoxResult result = MessageBox.Show("Close without saving?", "Saving",
+                   MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    SnL.ArchetypesSavePath = null;
+                    ArchiveHandler.archetypeStorage.Clear();
+                }
+            }
+            updateFilterable();
+            Controller.UpdateFileName();
         }
     }
 }

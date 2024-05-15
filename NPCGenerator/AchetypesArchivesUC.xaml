@@ -13,7 +13,7 @@
         <SolidColorBrush x:Key="DarkColor" Color="#75FFB9" />
         <SolidColorBrush x:Key="VeryDarkColor" Color="#66F1AA" />
 
-            <!-- Custom style for RadioButton to mimic ToggleButton -->
+        <!-- Custom style for RadioButton to mimic ToggleButton -->
         <Style x:Key="ToggleButtonStyle" TargetType="RadioButton">
             <Setter Property="Template">
                 <Setter.Value>
@@ -38,90 +38,99 @@
 
     </UserControl.Resources>
 
-    <Grid Background="{StaticResource VeryLightColor}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource VeryDarkColor}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="fileNameLbl" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" FontSize="14" Foreground="White"/>
+            <Button x:Name="closeArchviveBtn" Grid.Column="1" Height="25" Width="25" Margin="5" Click="closeArchviveBtn_Click">
+                <Image Source="/Images/close2.png" />
+            </Button>
 
-        <!--#region List of archetypes -->
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <!--#region Search panel -->
-            <Grid Grid.Row="0" Background="{StaticResource VeryDarkColor}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="25"/>
-                </Grid.ColumnDefinitions>
-
-                <Button x:Name="AddBtn" Grid.Column="0" Click="AddBtn_Click">
-                    <Image Source="/Images/add.png" />
-                </Button>
-                <Image Source="/Images/search.png" Grid.Column="1" />
-                <TextBox x:Name="SearchTB" Grid.Column="2"  TextWrapping="NoWrap" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="SearchTB_TextChanged" />
-                <Button x:Name="clearFilterBtn"  Grid.Column="3" HorizontalContentAlignment="Center" Click="clearFilterBtn_Click" Padding="1,1,3,1">
-                    <Image Source="/Images/clear.png" />
-                </Button>
-            </Grid>
-            <!--#endregion-->
-
-            <!--#region Default archive -->
-            <Grid Grid.Row="1">
-
-                <RadioButton x:Name="DefaultArchetypeBtn" Style="{StaticResource ToggleButtonStyle}" Checked="DefaultArchiveBtn_Checked" />
-
-            </Grid>
-            <!--#endregion-->
-                
-            <!--#region Archetype datagrid -->
-            <DataGrid x:Name="ArchetypesDG"  Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" 
-                      CanUserResizeRows="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                      ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single" Background="{StaticResource VeryLightColor}" 
-                      CanUserSortColumns="False" CanUserReorderColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" 
-                      SelectionChanged="ArchetypesDG_SelectionChanged">
-                <!--#region Styles -->
-                <DataGrid.Resources>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="Foreground" Value="Black"/>
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Setter Property="BorderBrush" Value="Transparent"/>
-                    </Style>
-                    <Style TargetType="DataGridRow">
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="{StaticResource VeryDarkColor}"/>
-                                <Setter Property="BorderThickness" Value="0"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </DataGrid.Resources>
-                <!--#endregion-->
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Archetype" Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}" Padding="2,0,0,0"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-            <!--#endregion-->
-            
         </Grid>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent">
+            <Button x:Name="AddBtn" Content="Add Archetype" Padding="5" Height="30" HorizontalContentAlignment="Center" Margin="15,0,0,0" Click="AddBtn_Click"/>
+            <Image Source="/Images/search.png" Height="30" Width="30" Margin="15,0,0,0"/>
+            <TextBox x:Name="SearchTB" TextWrapping="NoWrap" Height="30" HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center" Width="200" VerticalScrollBarVisibility="Disabled" AcceptsReturn="False" AcceptsTab="False" TextChanged="SearchTB_TextChanged"/>
+            <Button x:Name="clearFilterBtn" Height="30" Width="30" HorizontalContentAlignment="Center" Click="clearFilterBtn_Click" Padding="1,1,3,1">
+                <Image Source="/Images/clear.png" />
+            </Button>
+        </StackPanel>
         <!--#endregion-->
 
-        <ScrollViewer Grid.Column="2">
-            <ContentControl x:Name="ArchetypeView"/>
-        </ScrollViewer>
+        <Grid Grid.Row="1" Background="{StaticResource VeryLightColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*" MinWidth="545"/>
+            </Grid.ColumnDefinitions>
 
+            <!--#region List of archetypes -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--#region Default archive -->
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="Default" FontWeight="DemiBold"/>
+                    <RadioButton x:Name="DefaultArchetypeBtn" Grid.Column="1" Style="{StaticResource ToggleButtonStyle}" Checked="DefaultArchiveBtn_Checked" />
+                </Grid>
+                <!--#endregion-->
+
+                <!--#region Archetype datagrid -->
+                <DataGrid x:Name="ArchetypesDG"  Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" 
+                      CanUserResizeRows="False" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                      ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionMode="Single" Background="{StaticResource VeryLightColor}" 
+                      CanUserSortColumns="False" CanUserReorderColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" 
+                      SelectionChanged="ArchetypesDG_SelectionChanged">
+                    <!--#region Styles -->
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                        </Style>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource VeryDarkColor}"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <!--#endregion-->
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Archetype" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" Padding="2,0,0,0"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <!--#endregion-->
+
+            </Grid>
+            <!--#endregion-->
+
+            <ScrollViewer Grid.Column="2">
+                <ContentControl x:Name="ArchetypeView"/>
+            </ScrollViewer>
+
+        </Grid>
     </Grid>
 </UserControl>

@@ -1,0 +1,4379 @@
+Bundles
+{
+  "Name": [
+    {
+      "Id": "8803289a-cadc-49e9-97ec-cf83370368b5",
+      "Name": "Английские имена 1",
+      "Gender": 2,
+      "LowerAgeLimit": 0,
+      "UpperAgeLimit": 2147483647,
+      "IndependentLayers": true,
+      "DefaultValue": "No suitable layers",
+      "Layers": [
+        {
+          "DefaultValue": "",
+          "Chance": 1,
+          "Gender": 2,
+          "LowerAgeLimit": 0,
+          "UpperAgeLimit": 2147483647,
+          "Elements": [
+            {
+              "Value": "Абби",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Абигейл",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Абресса",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Абрия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Авелина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Авелия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Аверра",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Адрия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Азалия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Азлена",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Алекса",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Алессана",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Аливия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Алина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Алинея",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Алиса",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Алисия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Алия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Амелия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Амия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Андреа",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Аника",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ариана",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ариэлл",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ария",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Арьяна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Аэлина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Белла",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Бетта",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Брайанна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Брайя",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Бри",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Брианна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Вала",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Валеа",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Валентина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Валери",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Валия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Виктория",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Вилеттия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Виолетта",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Виттора",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Виттория",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Грация",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Грейс",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Далила",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Далилия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Далия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Делайла",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Джанна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Джемина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Дженесса",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Джоселина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Дри",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Дрия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ева",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Жанна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Жасмин",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Жасмина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Зои",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ивелин",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Изабелла",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Изабель",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Имаэна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Имина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Йемина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Йенеса",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Кайла",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Камила",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Камилия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Карлотта",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Катерина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Катрина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Каэлия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ким",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Клара",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Клейр",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Клейра",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Клоя",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Клэр",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Кэрлотта",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Кэтрин",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лайлана",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лана",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лейла",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лейланна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лея",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лизабет",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лили",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лилия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лисса",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лисси",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Луна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Маджика",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Мадиса",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Мадисин",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Майла",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Майя",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Мелани",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Мелания",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Мила",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Мия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Мэа",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Наоми",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Натали",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Натта",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Никола",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Номи",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Обри",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Обрия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Одри",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Одрия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Оливия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Пенелопа",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Пенни",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Райанна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Райла",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Райли",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Риана",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Руби",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Рьянна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Саванна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Саманта",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Сара",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Селин",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Селина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Скарлетт",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Софи",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "София",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Стелла",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Талея",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Тилла",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Фалиния",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ферия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ферра",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Хазелия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Халия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ханна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Хейзил",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Хейли",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Химена",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Хлоя",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Шарла",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Шарлотта",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эбигейл",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эвери",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эйвелин",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эйвери",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элиана",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элизабет",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элина",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элис",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элли",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эллисон",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эмили",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эмилия",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эмма",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Яна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ясмин",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Аарон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Абелан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Абрам",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Авель",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Адам",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Адриан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Айдо",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Айзек",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Аксель",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Алван",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Алекс",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Аливир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Анджело",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Андро",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Анжель",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Арос",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Астин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Бенджен",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Брайан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Бруно",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Виктор",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Викторан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Виллем",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Вильгельм",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Винс",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Винсент",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Винченсо",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Габриэль",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Гайель",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Гейл",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Грейсен",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Дамиан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Даниэль",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Дейл",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джакс",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джейден",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джейкоб",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джейми",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джеймс",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джейсон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джек",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джексон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джереми",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джозеф",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джонатан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джулиан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джулио",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Дилан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Доминик",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Дэвид",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Дэн",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Дэнни",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Иан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ивано",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Илай",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Итан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Йован",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Йозеф",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Калеб",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Карл",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Карлос",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Кевин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Келеб",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Коннер",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Кристиан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Кристофер",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ксавьер",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ксандер",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ксандир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Кэролан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Леви",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лео",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Леон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лиам",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Линкон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Логан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лукас",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Льюис",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лэндон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Люк",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Люциус",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Майкл",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Макс",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Матео",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Мейсон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Мигель",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Милиано",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Митро",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Мэтт",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Мэтью",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Натаниэль",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Натео",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Натьян",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Наэмо",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ник",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Николас",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ноам",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Нолан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Оливер",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Оскар",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Отио",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Оуэн",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Райан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Райдер",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Риано",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ридир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Римо",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Рин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Робб",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Роберт",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ромин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Саккоро",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Самуил",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Санто",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Сантьего",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Себастио",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Себастьян",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Сэм",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Сэмвелл",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Сэмюэл",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Таго",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Тайлор",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Тахо",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Теодор",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Тиагон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Тилир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Тило",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Том",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Томас",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Уайетт",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Уиллам",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Уитт",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Уэнио",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Хаддей",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Хаддео",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Хадсин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Хандир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Хано",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Харильд",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Хассело",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Хелиан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Хенрик",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Хенро",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Чарли",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эван",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эвин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эдам",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эдин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эдриан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эйван",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эйден",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эйрин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эйтан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элиан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элиас",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элио",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элиян",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эммин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эрик",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Юлиан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Яден",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Якоб",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Яксен",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ян",
+              "Weight": 1,
+              "Gender": 0
+            }
+          ],
+          "Count": 327,
+          "TotalWeight": 327
+        }
+      ],
+      "Count": 1
+    },
+    {
+      "Id": "e1da636f-f473-4cba-b8d1-bf1d916cbe38",
+      "Name": "Английские имена 2",
+      "Gender": 2,
+      "LowerAgeLimit": 0,
+      "UpperAgeLimit": 2147483647,
+      "IndependentLayers": true,
+      "DefaultValue": "No suitable layers",
+      "Layers": [
+        {
+          "DefaultValue": "",
+          "Chance": 1,
+          "Gender": 2,
+          "LowerAgeLimit": 0,
+          "UpperAgeLimit": 2147483647,
+          "Elements": [
+            {
+              "Value": "Азари",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Азария",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Азура",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Айо",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Айри",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Акари",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Алекс",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Али",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Амани",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Амари",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Арден",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ария",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Аса",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Асани",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Аспен",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ашер",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Бейли",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Билли",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Блайт",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Блэйк",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Блэр",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Бобби",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Боуи",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Брайар",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Брин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Вален",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Веспер",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Винн",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Гатри",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Грей",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Дакота",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Даллас",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Дарби",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Девон",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Денали",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Дерин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Джейд",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Джейден",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Джейми",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Джеймс",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джеки",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Джесси",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Джо",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Джоди",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Джордан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Джуди",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Дилан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Домино",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Дрю",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Зейн",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Зен",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Зерен",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Зив",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Индиго",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Истон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Казуми",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кай",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кайл",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Кайра",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Карден",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кари",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Картер",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кейл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кейси",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Келси",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Кендри",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кипра",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Киран",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Кода",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кои",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кона",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Косма",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кри",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кэллауэй",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Кэмерон",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лазули",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лайл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лакота",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ларами",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лесли",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лиор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Логан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лоури",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лэнгли",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Майкл",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Мейпл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Мерфи",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Мик",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Мика",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Микки",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Морган",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Мэдисон",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Мэйви",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Найроби",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Найт",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Нейви",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ники",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Нико",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ноа",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Нова",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Олли",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Оникс",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Орион",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Остэн",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Оуэн",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Паркер",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Пейтон",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Перри",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Перрин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Пим",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "По",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Райан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Райлан",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Райли",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Рейли",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Рейн",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ривен",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ривер",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ридли",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Рикки",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Рио",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Робби",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ромилли",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Рори",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Роуен",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ру",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Руми",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Саша",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сейдж",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Селин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сенека",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Сенна",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Сидней",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сидни",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сион",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Скай",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Скайлер",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тави",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тай",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тайлен",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тайлер",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тамари",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тариан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Тейлор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тиган",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Томми",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тэй",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Уайет",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Уоллис",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Фаррелл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Феникс",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Финли",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Флориан",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Форест",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фрэнки",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фрэнсис",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фэллон",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Харли",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Харпер",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Хаскелл",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Хейден",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Хейзен",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Хейл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Холлис",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Хоппер",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Хэйвен",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Чарли",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Чейс",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Шай",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Шайло",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Шей",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Шеннон",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эван",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эвелин",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эвери",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эверилл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эддисон",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эден",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эдер",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эдера",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эзра",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эйдан",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эйден",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эйнджел",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эйнсли",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эйс",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эллиот",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эллис",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эмери",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Энделлион",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Энди",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эш",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эшли",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эштон",
+              "Weight": 1,
+              "Gender": 0
+            }
+          ],
+          "Count": 195,
+          "TotalWeight": 195
+        }
+      ],
+      "Count": 1
+    },
+    {
+      "Id": "6f75b52d-1d00-4637-abee-0f344ada04f9",
+      "Name": "Эльфиские имена (ChatGPT)",
+      "Gender": 2,
+      "LowerAgeLimit": 0,
+      "UpperAgeLimit": 2147483647,
+      "IndependentLayers": true,
+      "DefaultValue": "No suitable layers",
+      "Layers": [
+        {
+          "DefaultValue": "",
+          "Chance": 1,
+          "Gender": 2,
+          "LowerAgeLimit": 0,
+          "UpperAgeLimit": 2147483647,
+          "Elements": [
+            {
+              "Value": "Аланорен \u0027Алан\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Селлиора \u0027Лиора\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эландир",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фалин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лиралэн \u0027Лира\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Таэларан \u0027Таэ\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эленвиэль \u0027Эленви\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Исилмайр \u0027Майр\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ниривэн \u0027Нири\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Тариэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элессар",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Мирдэйн",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Валанар",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лилориэль \u0027Лила\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эрандур \u0027Эран\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Фиалэн",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Галиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ариэлинд \u0027Элинд\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эларион",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Сильмэриэль \u0027Сильма\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лианнон \u0027Лиа\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элроссайр \u0027Элрос\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Финдэрэль \u0027Рэль\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ариандир \u0027Арин\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эленвэл \u0027Элен\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Сириндэль \u0027Сирин\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эранос",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Тинувиэль \u0027Тин\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Арвандил \u0027Арван\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лириндор \u0027Лирина\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эленор",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Найарэн \u0027Найя\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Финродор \u0027Фин\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лаймира",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элестор",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ирисэль",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Синдарион \u0027Дарион\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элериэль \u0027Элли\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Гилиэндор \u0027Гил\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Танувиэль \u0027Таня\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Араниэль \u0027Арани\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Фалассир \u0027Фалс\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элориан",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Мириэль",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элроссир \u0027Элросс\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ариэнэль \u0027Ариэн\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Леолин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эленвэйра \u0027Вейра\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Таэндил \u0027Таэн\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лириссэ",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Гилгалад",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ариэль",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Фаэрион",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элевил",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лауриндэль \u0027Лаури\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сильвирэль \u0027Сильви\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эриндэль",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Тиандор",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элорион",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Имрэдил \u0027Имрэ\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элариэль \u0027Элара\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Симира",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Галирон",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Арэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Феалион",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эледар",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лирингор \u0027Лирин\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элиэль",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Сианнор",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Алэндэль \u0027Алли\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Финдир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эллиэль",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Тиндэлор \u0027Дэлор\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элувиэль \u0027Элу\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Гаэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ариндор \u0027Арин\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лириэль \u0027Лири\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эльронд",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Фалариэль \u0027Фалари\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Фираниэль \u0027Фира\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элариэн",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сильвандор \u0027Сильван\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Арандэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элирэль",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лириэль",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Араниор",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элоривэль \u0027Элори\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элендил",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элриан \u0027Элри\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элерас",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лириндил",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Аралорэ \u0027Лорэ\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лауреннэ \u0027Лаура\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Сиданэл",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эленвинд \u0027Элен\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Тариэлас \u0027Тари\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Аранир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эрендор",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Галамайр",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лирувэл",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эльдорэ",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Фаларинд",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элиндэ",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Наилорэ",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эларинд",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Тивирэ",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Арэнил",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элессир",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сильмэринд \u0027Мэринд\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эранвир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Арилорэ",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фаэриндор \u0027Фаэри\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эларэл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тандорин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лириэллэ \u0027Риэлла\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эленэ",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Иноринд \u0027Инор\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эланирэ \u0027Лани\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Синдорэ \u0027Синди\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Арэлин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Линдайр",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эллэриэл \u0027Эри\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элсирин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Нирэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эраллайр \u0027Лайр\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Твелиэн",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Аранилор \u0027Арани\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эриэлли",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Ариндайр \u0027Арин\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лирингал",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элессинда \u0027Элесс\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Сирандорин \u0027Дорин\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элорэлэн \u0027Элора\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Лаймирин \u0027Мирин\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эллинда",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Иландир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элмарэ",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Наир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эринайр \u0027Найр\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Аринайр \u0027Ари\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Линдэлль",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элариндар \u0027Рин\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Фаэринд",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элессэль \u0027Селли\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Элерина \u0027Лери\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Танорин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Линорайр \u0027Линор\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эланари",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Индорин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элайринд \u0027Элай\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Найалар \u0027Ялар\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эриндэлли \u0027Дэлли\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Фиалайр \u0027Фиал\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лорэлай",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Тарилай",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Ариндайл \u0027Аринда\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эларэли \u0027Элара\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Налани",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эллириндэль \u0027Эллир\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Симайрин \u0027Сим\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Симайрина \u0027Сима\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эриндорин \u0027Эрин\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Таринайр",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лирдайн",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Иланирин \u0027Илани\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эйрэлир \u0027Эйри\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Флайр",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Эллайрин \u0027Эллай\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Гэлайрин \u0027Айрин\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Линорайн \u0027Лин\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эрэлин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фаннилайр \u0027Фанни\u0027",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элирин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Силамрина \u0027Ламри\u0027",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эландайл \u0027Элан\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лириаль",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Элэрил",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Галлэндор \u0027Галлэн\u0027",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Арианэль",
+              "Weight": 1,
+              "Gender": 1
+            },
+            {
+              "Value": "Эдорин",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Таланир",
+              "Weight": 1,
+              "Gender": 0
+            },
+            {
+              "Value": "Лиэн",
+              "Weight": 1,
+              "Gender": 2
+            }
+          ],
+          "Count": 182,
+          "TotalWeight": 182
+        },
+        {
+          "DefaultValue": "",
+          "Chance": 0.5,
+          "Gender": 2,
+          "LowerAgeLimit": 0,
+          "UpperAgeLimit": 2147483647,
+          "Elements": [
+            {
+              "Value": "Сильваниас",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элариандор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лианарель",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фелалиондэ",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тинувэйр",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ариэльсиль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элендариэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Галиндориэн",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лирингале",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элориндайл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сиранвиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Наилорэн",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фаланиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элесариэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Араниэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лириндоринд",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тиндувэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ариндэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элувэндэ",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сиринвэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Финдирэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эландор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Галианиль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лирингалэ",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элессиринд",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Таланиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ариэлэндэ",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Финдориэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элендэйл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Галиэльдор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лириндэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элессирэнд",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Тариэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Араниндор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Филаниэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эландуил",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Галисиринд",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лирингаэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эланиор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Силамирэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фаралион",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элессаринд",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ариэндорин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лирингил",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сиринвинд",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Филанисиль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эландорин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Галиариэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лириэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элессиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Араниндэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лириндэйл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эларион",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Силамайрин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фалиэн",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элэссирин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лирингуэл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элэриндэ",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сиринвал",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Финдор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эландорил",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Галиарин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лириндур",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элессирэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лириндаль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элессириндайл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сиринвиндэ",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фианир",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эландэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Галианар",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лириндальдэ",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элиэрин",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Силаниэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Финдоринд",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элэлиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Араниль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лириндан",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сиранвиэн",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фиариэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элэвэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лирингор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элариэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Силамир",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фараниэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элессириндор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Ариэндор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лирингилдор",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Эланиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Сиринвиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Фираниэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элэлиэн",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Галианиэль",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Лириндайл",
+              "Weight": 1,
+              "Gender": 2
+            },
+            {
+              "Value": "Элессириндэ",
+              "Weight": 1,
+              "Gender": 2
+            }
+          ],
+          "Count": 95,
+          "TotalWeight": 95
+        }
+      ],
+      "Count": 2
+    }
+  ],
+  "Occupation": [],
+  "Character": [],
+  "Height": [],
+  "Physique": [],
+  "Skin": [],
+  "Hair": [
+    {
+      "Id": "f45ac947-45c5-413f-9e46-4c788def256b",
+      "Name": "Обычные женские волосы",
+      "Gender": 1,
+      "LowerAgeLimit": 0,
+      "UpperAgeLimit": 2147483647,
+      "IndependentLayers": true,
+      "DefaultValue": "No suitable layers",
+      "Layers": [
+        {
+          "DefaultValue": "",
+          "Chance": 1,
+          "Gender": 2,
+          "LowerAgeLimit": 0,
+          "UpperAgeLimit": 2147483647,
+          "Elements": [
+            {
+              "Value": "Черные волосы",
+              "Weight": 100,
+              "Gender": 2
+            },
+            {
+              "Value": "Темно-каштановые волосы",
+              "Weight": 90,
+              "Gender": 2
+            },
+            {
+              "Value": "Каштановые волосы",
+              "Weight": 85,
+              "Gender": 2
+            },
+            {
+              "Value": "Светло-каштановые волосы",
+              "Weight": 75,
+              "Gender": 2
+            },
+            {
+              "Value": "Темно-русые волосы",
+              "Weight": 70,
+              "Gender": 2
+            },
+            {
+              "Value": "Светло-русые волосы",
+              "Weight": 60,
+              "Gender": 2
+            },
+            {
+              "Value": "Светлый шатен",
+              "Weight": 55,
+              "Gender": 2
+            },
+            {
+              "Value": "Шатен",
+              "Weight": 55,
+              "Gender": 2
+            },
+            {
+              "Value": "Темный шатен",
+              "Weight": 55,
+              "Gender": 2
+            },
+            {
+              "Value": "Темный блонд",
+              "Weight": 50,
+              "Gender": 2
+            },
+            {
+              "Value": "Русые волосы",
+              "Weight": 45,
+              "Gender": 2
+            },
+            {
+              "Value": "Блонд",
+              "Weight": 40,
+              "Gender": 2
+            },
+            {
+              "Value": "Светлый блонд",
+              "Weight": 35,
+              "Gender": 2
+            },
+            {
+              "Value": "Платиновый блонд",
+              "Weight": 30,
+              "Gender": 2
+            },
+            {
+              "Value": "Темно-рыжие волосы",
+              "Weight": 25,
+              "Gender": 2
+            },
+            {
+              "Value": "Рыжие волосы",
+              "Weight": 20,
+              "Gender": 2
+            },
+            {
+              "Value": "Светло-рыжие волосы",
+              "Weight": 15,
+              "Gender": 2
+            }
+          ],
+          "Count": 17,
+          "TotalWeight": 905
+        },
+        {
+          "DefaultValue": "лысая",
+          "Chance": 0.94999999999999996,
+          "Gender": 2,
+          "LowerAgeLimit": 0,
+          "UpperAgeLimit": 2147483647,
+          "Elements": [
+            {
+              "Value": "короткой длины",
+              "Weight": 100,
+              "Gender": 2
+            },
+            {
+              "Value": "средней длины",
+              "Weight": 70,
+              "Gender": 2
+            },
+            {
+              "Value": "по плечи",
+              "Weight": 50,
+              "Gender": 2
+            },
+            {
+              "Value": "длинные",
+              "Weight": 30,
+              "Gender": 2
+            },
+            {
+              "Value": "очень короткой длины",
+              "Weight": 20,
+              "Gender": 2
+            }
+          ],
+          "Count": 5,
+          "TotalWeight": 270
+        }
+      ],
+      "Count": 2
+    },
+    {
+      "Id": "e219b5a4-93a0-4239-8483-ab215fd316ae",
+      "Name": "Обычные мужские волосы",
+      "Gender": 0,
+      "LowerAgeLimit": 0,
+      "UpperAgeLimit": 2147483647,
+      "IndependentLayers": true,
+      "DefaultValue": "No suitable layers",
+      "Layers": [
+        {
+          "DefaultValue": "",
+          "Chance": 1,
+          "Gender": 2,
+          "LowerAgeLimit": 0,
+          "UpperAgeLimit": 2147483647,
+          "Elements": [
+            {
+              "Value": "Черные волосы",
+              "Weight": 100,
+              "Gender": 2
+            },
+            {
+              "Value": "Темно-каштановые волосы",
+              "Weight": 90,
+              "Gender": 2
+            },
+            {
+              "Value": "Каштановые волосы",
+              "Weight": 85,
+              "Gender": 2
+            },
+            {
+              "Value": "Светло-каштановые волосы",
+              "Weight": 75,
+              "Gender": 2
+            },
+            {
+              "Value": "Темно-русые волосы",
+              "Weight": 70,
+              "Gender": 2
+            },
+            {
+              "Value": "Светло-русые волосы",
+              "Weight": 60,
+              "Gender": 2
+            },
+            {
+              "Value": "Светлый шатен",
+              "Weight": 55,
+              "Gender": 2
+            },
+            {
+              "Value": "Шатен",
+              "Weight": 55,
+              "Gender": 2
+            },
+            {
+              "Value": "Темный шатен",
+              "Weight": 55,
+              "Gender": 2
+            },
+            {
+              "Value": "Темный блонд",
+              "Weight": 50,
+              "Gender": 2
+            },
+            {
+              "Value": "Русые волосы",
+              "Weight": 45,
+              "Gender": 2
+            },
+            {
+              "Value": "Блонд",
+              "Weight": 40,
+              "Gender": 2
+            },
+            {
+              "Value": "Светлый блонд",
+              "Weight": 35,
+              "Gender": 2
+            },
+            {
+              "Value": "Платиновый блонд",
+              "Weight": 30,
+              "Gender": 2
+            },
+            {
+              "Value": "Темно-рыжие волосы",
+              "Weight": 25,
+              "Gender": 2
+            },
+            {
+              "Value": "Рыжие волосы",
+              "Weight": 20,
+              "Gender": 2
+            },
+            {
+              "Value": "Светло-рыжие волосы",
+              "Weight": 15,
+              "Gender": 2
+            }
+          ],
+          "Count": 17,
+          "TotalWeight": 905
+        },
+        {
+          "DefaultValue": "лысый",
+          "Chance": 0.84999999999999998,
+          "Gender": 2,
+          "LowerAgeLimit": 0,
+          "UpperAgeLimit": 2147483647,
+          "Elements": [
+            {
+              "Value": "короткой длины",
+              "Weight": 100,
+              "Gender": 2
+            },
+            {
+              "Value": "средней длины",
+              "Weight": 70,
+              "Gender": 2
+            },
+            {
+              "Value": "по плечи",
+              "Weight": 50,
+              "Gender": 2
+            },
+            {
+              "Value": "длинные",
+              "Weight": 30,
+              "Gender": 2
+            },
+            {
+              "Value": "очень короткой длины",
+              "Weight": 20,
+              "Gender": 2
+            }
+          ],
+          "Count": 5,
+          "TotalWeight": 270
+        }
+      ],
+      "Count": 2
+    }
+  ],
+  "Face": [],
+  "Eyes": [],
+  "Clothes": [],
+  "Features": []
+}

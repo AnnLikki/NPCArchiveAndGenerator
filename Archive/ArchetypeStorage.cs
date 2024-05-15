@@ -24,6 +24,8 @@ namespace Archives
             return Items.Remove(item);
         }
 
+        public void Clear() { Items.Clear(); DefaultArchetype = null; }
+
         public override string ToString()
         {
             string res = "";
