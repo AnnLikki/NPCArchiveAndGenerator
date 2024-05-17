@@ -1,6 +1,5 @@
 ﻿using FileManager;
 using NPCGenerator;
-using System.Windows.Documents;
 
 namespace NPCArchiveAndGenerator
 {

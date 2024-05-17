@@ -36,8 +36,23 @@ namespace NPCArchiveAndGenerator
         {
             displayedBundles = ArchiveHandler.bundleStorage.filterByKey(state, BundleSearchTB.Text);
             BundlesDG.ItemsSource = displayedBundles;
+            updateCatgoriesCount();
         }
 
+        private void updateCatgoriesCount()
+        {
+            NamesBtn.Content = "Names (" + ArchiveHandler.bundleStorage[BundleType.Name].Count + ")";
+            OccupationsBtn.Content = "Occupations (" + ArchiveHandler.bundleStorage[BundleType.Occupation].Count + ")";
+            CharactersBtn.Content = "Characters (" + ArchiveHandler.bundleStorage[BundleType.Character].Count + ")";
+            HeightsBtn.Content = "Heights (" + ArchiveHandler.bundleStorage[BundleType.Height].Count + ")";
+            PhysiquesBtn.Content = "Physiques (" + ArchiveHandler.bundleStorage[BundleType.Physique].Count + ")";
+            SkinsBtn.Content = "Skins (" + ArchiveHandler.bundleStorage[BundleType.Skin].Count + ")";
+            HairsBtn.Content = "Hairs (" + ArchiveHandler.bundleStorage[BundleType.Hair].Count + ")";
+            FacesBtn.Content = "Faces (" + ArchiveHandler.bundleStorage[BundleType.Face].Count + ")";
+            EyesBtn.Content = "Eyes (" + ArchiveHandler.bundleStorage[BundleType.Eyes].Count + ")";
+            ClothesBtn.Content = "Clothes (" + ArchiveHandler.bundleStorage[BundleType.Clothes].Count + ")";
+            FeaturesBtn.Content = "Features (" + ArchiveHandler.bundleStorage[BundleType.Features].Count + ")";
+        }
 
         private void CategoryBtn_Pressed(object sender, RoutedEventArgs e)
         {

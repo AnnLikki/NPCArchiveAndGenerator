@@ -60,6 +60,10 @@ namespace NPCArchiveAndGenerator
             FemalePercentLbl.Content = archetype.Genders.GetPercentage(Gender.Female) + "%";
             NeutralPercentLbl.Content = archetype.Genders.GetPercentage(Gender.Neutral) + "%";
         }
+        private void cloneBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ArchiveHandler.archetypeStorage.Duplicate(archetype);
+        }
 
         private void closeBtn_Click(object sender, RoutedEventArgs e) { }
 

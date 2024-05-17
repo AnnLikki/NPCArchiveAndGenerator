@@ -1,12 +1,12 @@
 NPC
 [
   {
-    "Name": "Мэдисон",
-    "RaceID": "c6ea0276-6a3d-4f1a-bd6e-202ecea59ca9",
-    "RaceName": "Человек",
-    "Gender": 1,
-    "AgeChrono": 46,
-    "AgeBio": 46,
+    "Name": "Лирдайн Элессаринд",
+    "RaceID": "5fa12848-fb43-4be7-b9d4-06f2bc6fe0f6",
+    "RaceName": "Эльф",
+    "Gender": 0,
+    "AgeChrono": 98,
+    "AgeBio": 27,
     "Occupation": "",
     "Place": "",
     "Character": "",
@@ -14,7 +14,7 @@ NPC
     "Height": "",
     "Physique": "",
     "Skin": "",
-    "Hair": "Шатен по плечи",
+    "Hair": "",
     "Face": "",
     "Eyes": "",
     "Clothes": "",

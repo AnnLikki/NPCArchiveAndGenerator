@@ -5,11 +5,6 @@ Archetypes
       "Name": "Гражданин эльфийского города",
       "Races": [
         {
-          "Value": "c6ea0276-6a3d-4f1a-bd6e-202ecea59ca9",
-          "Weight": 4,
-          "Gender": 2
-        },
-        {
           "Value": "5fa12848-fb43-4be7-b9d4-06f2bc6fe0f6",
           "Weight": 10,
           "Gender": 2
@@ -18,22 +13,27 @@ Archetypes
           "Value": "83f6f2a5-9de9-40b7-af23-8c717bbd957e",
           "Weight": 2,
           "Gender": 2
+        },
+        {
+          "Value": "f7a4828d-6d86-40c4-9e64-0052fe823455",
+          "Weight": 5,
+          "Gender": 2
         }
       ],
       "Genders": [
         {
           "Value": 2,
-          "Weight": 2,
+          "Weight": 1,
           "Gender": 2
         },
         {
           "Value": 0,
-          "Weight": 5,
+          "Weight": 1,
           "Gender": 2
         },
         {
           "Value": 1,
-          "Weight": 5,
+          "Weight": 1,
           "Gender": 2
         }
       ],
@@ -458,11 +458,6 @@ Archetypes
     "Name": "Обычный архетип",
     "Races": [
       {
-        "Value": "c6ea0276-6a3d-4f1a-bd6e-202ecea59ca9",
-        "Weight": 20,
-        "Gender": 2
-      },
-      {
         "Value": "83f6f2a5-9de9-40b7-af23-8c717bbd957e",
         "Weight": 5,
         "Gender": 2
@@ -480,6 +475,11 @@ Archetypes
       {
         "Value": "5fa12848-fb43-4be7-b9d4-06f2bc6fe0f6",
         "Weight": 5,
+        "Gender": 2
+      },
+      {
+        "Value": "f7a4828d-6d86-40c4-9e64-0052fe823455",
+        "Weight": 1,
         "Gender": 2
       }
     ],

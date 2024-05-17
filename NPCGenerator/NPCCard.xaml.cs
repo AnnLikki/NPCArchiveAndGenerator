@@ -305,6 +305,7 @@ namespace NPCGenerator
                     int ageBio = race.calculateBioAge(ageChrono);
 
                     nameTB.Text = archetype.GetRandomFromBundle(BundleType.Name, race, gender, ageBio);
+
                 }
             }
         }

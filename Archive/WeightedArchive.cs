@@ -143,7 +143,7 @@ namespace Archives
             {
                 Bundle found = ArchiveHandler.bundleStorage.FindBundle(type, (Guid)we.Value);
                 if (found != null)
-                    if (we.Gender == Gender.Neutral || we.Gender == gender)
+                    if (found.Gender == Gender.Neutral || found.Gender == gender)
                     {
                         if (ageBio == -1 || (found.LowerAgeLimit <= ageBio && found.UpperAgeLimit >= ageBio))
                             compatableBundleIDs.Add(we);

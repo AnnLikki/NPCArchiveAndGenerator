@@ -44,6 +44,12 @@ namespace Archives
             this[type].Remove(bundle);
         }
 
+        public void Duplicate(BundleType type, Bundle bundle)
+        {
+            Bundle bundle1 = new Bundle(bundle.Name, bundle.IndependentLayers, bundle.Gender, bundle.LowerAgeLimit, bundle.UpperAgeLimit, bundle.DefaultValue, bundle.Layers);
+            this[type].Insert(this[type].IndexOf(bundle), bundle1);
+        }
+
         public void Clear(BundleType type)
         {
             if (ContainsKey(type))

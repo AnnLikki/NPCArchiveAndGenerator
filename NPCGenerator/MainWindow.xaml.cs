@@ -1,8 +1,6 @@
-﻿using Archives;
-using FileManager;
+﻿using FileManager;
 using NPCArchiveAndGenerator;
 using System.Windows;
-using static Archives.Enums;
 using static NPCArchiveAndGenerator.Controller;
 
 
@@ -208,7 +206,7 @@ namespace NPCGenerator
         }
 
 
-        
+
 
     }
 }

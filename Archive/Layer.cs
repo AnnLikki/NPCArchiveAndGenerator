@@ -9,6 +9,9 @@ namespace Archives
 {
     public class Layer
     {
+
+
+        public string After { get; set; }
         /// <summary>
         /// If Layer wasn't picked (applies only if it failed the check regarging the Chance), 
         /// this value will be returned as the result of picking.
@@ -43,22 +46,21 @@ namespace Archives
         /// </summary>
         public int Count { get { return Elements.Count; } }
 
-        public int TotalWeight
+
+        public int TotalWeight(Gender gender)
         {
-            get
-            {
-                int totalSum = 0;
-                foreach (WeightedElement we in Elements)
-                    totalSum += we.Weight;
-                return totalSum;
-            }
+            int totalSum = 0;
+            foreach (WeightedElement we in Elements.Where(e => e.Gender == gender || e.Gender == Gender.Neutral))
+                totalSum += we.Weight;
+            return totalSum;
         }
 
         private Random random = new Random();
 
 
-        public Layer(double chance = 1.0, string defaultValue = "", Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
+        public Layer(double chance = 1.0, string after = "", string defaultValue = "", Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
         {
+            After = after;
             DefaultValue = defaultValue;
             Chance = chance;
             Gender = gender;
@@ -73,10 +75,12 @@ namespace Archives
             }
         }
 
-        public double GetPercentage(object value)
+        public double GetPercentage(WeightedElement element, Gender gender)
         {
-            if (Elements.Any(e => e.Value.Equals(value)) && TotalWeight != 0) return Math.Round((double)Elements.First(e => e.Value.Equals(value)).Weight * 100 / TotalWeight, 2);
-            else return 0;
+            if (Elements.Contains(element) && TotalWeight(gender) != 0)
+                if (element.Gender == gender || element.Gender == Gender.Neutral)
+                    return Math.Round((double)element.Weight * 100 / TotalWeight(gender), 2);
+            return 0;
         }
 
 
@@ -215,10 +219,10 @@ namespace Archives
             {
                 sum += we.Weight;
                 if (sum >= r)
-                    return we.Value.ToString();
+                    return we.Value.ToString() + After;
             }
             // If there are no elements on this layer
-            return DefaultValue;
+            return DefaultValue + After;
         }
 
 
