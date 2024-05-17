@@ -48,6 +48,10 @@ namespace NPCArchiveAndGenerator
 
         }
 
+        private void cloneBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ArchiveHandler.bundleStorage.Duplicate(type, bundle);
+        }
         private void closeBtn_Click(object sender, RoutedEventArgs e)
         {
             grid.SelectedItem = null;
@@ -190,6 +194,7 @@ namespace NPCArchiveAndGenerator
         {
             bundle.IndependentLayers = IndependentLayersChb.IsChecked == true ? true : false;
         }
+
     }
 
     public class EnumToImageConverter : IValueConverter
@@ -264,10 +269,24 @@ namespace NPCArchiveAndGenerator
 
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            if (values != null && values.Length == 2 && values[0] is Layer layer && values[1] is WeightedElement element)
+            if (values != null && values.Length == 2 && values[0] is Layer layer && values[1] is WeightedElement element && parameter is string gender)
             {
                 string percent;
-                percent = layer.GetPercentage(element.Value) + "%";
+                switch (gender)
+                {
+                    case "Male":
+                        percent = layer.GetPercentage(element, Gender.Male) + "%";
+                        break;
+                    case "Female":
+                        percent = layer.GetPercentage(element, Gender.Female) + "%";
+                        break;
+                    case "Neutral":
+                        percent = layer.GetPercentage(element, Gender.Neutral) + "%";
+                        break;
+                    default:
+                        percent = "N/A%";
+                        break;
+                }
                 return percent;
             }
 

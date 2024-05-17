@@ -1,7 +1,7 @@
 Races
 [
   {
-    "Id": "c6ea0276-6a3d-4f1a-bd6e-202ecea59ca9",
+    "Id": "f7a4828d-6d86-40c4-9e64-0052fe823455",
     "Name": "Человек",
     "Description": "",
     "MaturityAge": 18,
@@ -546,12 +546,17 @@ Races
       "Hair": [
         {
           "Value": "f45ac947-45c5-413f-9e46-4c788def256b",
+          "Weight": 999,
+          "Gender": 2
+        },
+        {
+          "Value": "5535a16e-f7ae-4b4e-9e37-aa6a01fac62e",
           "Weight": 1,
           "Gender": 2
         },
         {
-          "Value": "e219b5a4-93a0-4239-8483-ab215fd316ae",
-          "Weight": 1,
+          "Value": "c719fb7a-1fe4-44b7-8054-74eee2195dc6",
+          "Weight": 999,
           "Gender": 2
         }
       ],
@@ -1107,12 +1112,17 @@ Races
       "Hair": [
         {
           "Value": "f45ac947-45c5-413f-9e46-4c788def256b",
+          "Weight": 999,
+          "Gender": 2
+        },
+        {
+          "Value": "c719fb7a-1fe4-44b7-8054-74eee2195dc6",
           "Weight": 1,
           "Gender": 2
         },
         {
-          "Value": "e219b5a4-93a0-4239-8483-ab215fd316ae",
-          "Weight": 1,
+          "Value": "5535a16e-f7ae-4b4e-9e37-aa6a01fac62e",
+          "Weight": 999,
           "Gender": 2
         }
       ],
@@ -1568,12 +1578,17 @@ Races
       "Hair": [
         {
           "Value": "f45ac947-45c5-413f-9e46-4c788def256b",
+          "Weight": 999,
+          "Gender": 2
+        },
+        {
+          "Value": "c719fb7a-1fe4-44b7-8054-74eee2195dc6",
           "Weight": 1,
           "Gender": 2
         },
         {
-          "Value": "e219b5a4-93a0-4239-8483-ab215fd316ae",
-          "Weight": 1,
+          "Value": "5535a16e-f7ae-4b4e-9e37-aa6a01fac62e",
+          "Weight": 999,
           "Gender": 2
         }
       ],
@@ -2054,11 +2069,16 @@ Races
       "Hair": [
         {
           "Value": "f45ac947-45c5-413f-9e46-4c788def256b",
-          "Weight": 1,
+          "Weight": 999,
           "Gender": 2
         },
         {
-          "Value": "e219b5a4-93a0-4239-8483-ab215fd316ae",
+          "Value": "5535a16e-f7ae-4b4e-9e37-aa6a01fac62e",
+          "Weight": 999,
+          "Gender": 2
+        },
+        {
+          "Value": "c719fb7a-1fe4-44b7-8054-74eee2195dc6",
           "Weight": 1,
           "Gender": 2
         }
@@ -2520,12 +2540,17 @@ Races
       "Hair": [
         {
           "Value": "f45ac947-45c5-413f-9e46-4c788def256b",
+          "Weight": 999,
+          "Gender": 2
+        },
+        {
+          "Value": "c719fb7a-1fe4-44b7-8054-74eee2195dc6",
           "Weight": 1,
           "Gender": 2
         },
         {
-          "Value": "e219b5a4-93a0-4239-8483-ab215fd316ae",
-          "Weight": 1,
+          "Value": "5535a16e-f7ae-4b4e-9e37-aa6a01fac62e",
+          "Weight": 999,
           "Gender": 2
         }
       ],

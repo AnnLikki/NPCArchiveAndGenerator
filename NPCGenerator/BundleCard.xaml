@@ -63,14 +63,18 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Bundle name" Margin="5"/>
             <TextBox x:Name="BundleNameTB" Grid.Column="1" Margin="5" VerticalContentAlignment="Center" TextChanged="BundleNameTB_TextChanged"/>
 
-            <Button x:Name="closeBtn" Grid.Column="2" Margin="1,5,1,5" Click="closeBtn_Click">
+            <Button x:Name="cloneBtn"  Margin="1,5,1,5"  Grid.Column="2" Click="cloneBtn_Click">
+                <Image Source="/Images/duplicate.png"/>
+            </Button>
+            <Button x:Name="closeBtn" Grid.Column="3" Margin="1,5,1,5" Click="closeBtn_Click">
                 <Image Source="/Images/close.png"/>
             </Button>
-            <Button x:Name="deleteBtn" Grid.Column="3" Margin="1,5,1,5" Click="deleteBtn_Click">
+            <Button x:Name="deleteBtn" Grid.Column="4" Margin="1,5,1,5" Click="deleteBtn_Click">
                 <Image Source="/Images/delete.png"/>
             </Button>
         </Grid>
@@ -174,6 +178,8 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     <WrapPanel Grid.Column="0" Orientation="Horizontal">
+                                        <Label Content="Elements" />
+                                        <Label Content="{Binding Count}" />
                                         <Label Content="Chance" />
                                         <Label Content="{Binding Chance}" />
                                         <Label Content="Gender" />
@@ -184,8 +190,11 @@
                                         <Label Content="-"  Visibility="{Binding LowerAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
                                         <Label Content="{Binding UpperAgeLimit}"  Visibility="{Binding UpperAgeLimit, Converter={StaticResource AgeLimitVisibilityConverter}}"/>
 
-                                        <Label Content="Default Value"  Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
-                                        <Label Content="{Binding DefaultValue}"  Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
+                                        <Label Content="After Text"  Visibility="{Binding After, Converter={StaticResource StringLengthVisibilityConverter}}"/>
+                                        <Label Content="{Binding After}" ContentStringFormat="'{0}'"  Visibility="{Binding After, Converter={StaticResource StringLengthVisibilityConverter}}"/>
+
+                                        <Label Content="Default Value" Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
+                                        <Label Content="{Binding DefaultValue}" ContentStringFormat="'{0}'"  Visibility="{Binding DefaultValue, Converter={StaticResource StringLengthVisibilityConverter}}"/>
 
                                     </WrapPanel>
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" Height="30">
@@ -230,6 +239,7 @@
 
 
                                     <DataGrid.Columns>
+                                        
                                         <DataGridTemplateColumn Header="Value" Width="*">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
@@ -237,6 +247,7 @@
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
+                                        
                                         <DataGridTemplateColumn Header="Gender" Width="Auto">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
@@ -244,6 +255,7 @@
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
+                                        
                                         <DataGridTemplateColumn Header="Weight" Width="Auto">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
@@ -251,12 +263,13 @@
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
-                                        <DataGridTemplateColumn Header="Percentage" Width="Auto">
+
+                                        <DataGridTemplateColumn Header="M%" Width="40">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <TextBlock HorizontalAlignment="Center">
                                                         <TextBlock.Text>
-                                                            <MultiBinding Converter="{StaticResource ElemsPercentageConverter}">
+                                                            <MultiBinding Converter="{StaticResource ElemsPercentageConverter}" ConverterParameter="Male">
                                                                 <Binding Path="DataContext" RelativeSource="{RelativeSource AncestorType={x:Type DataGrid}}" />
                                                                 <Binding />
                                                             </MultiBinding>
@@ -265,6 +278,38 @@
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn Header="F%" Width="40">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock HorizontalAlignment="Center">
+                                                        <TextBlock.Text>
+                                                            <MultiBinding Converter="{StaticResource ElemsPercentageConverter}" ConverterParameter="Female">
+                                                                <Binding Path="DataContext" RelativeSource="{RelativeSource AncestorType={x:Type DataGrid}}" />
+                                                                <Binding />
+                                                            </MultiBinding>
+                                                        </TextBlock.Text>
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTemplateColumn Header="N%" Width="40">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock HorizontalAlignment="Center">
+                                                        <TextBlock.Text>
+                                                            <MultiBinding Converter="{StaticResource ElemsPercentageConverter}" ConverterParameter="Neutral">
+                                                                <Binding Path="DataContext" RelativeSource="{RelativeSource AncestorType={x:Type DataGrid}}" />
+                                                                <Binding />
+                                                            </MultiBinding>
+                                                        </TextBlock.Text>
+                                                    </TextBlock>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>

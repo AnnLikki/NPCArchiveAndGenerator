@@ -49,8 +49,7 @@ namespace Archives
 
         private Random random = new Random();
 
-
-        public Bundle(string name, bool independentLayers = true, Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, string defaultValue = "No suitable layers")
+        public Bundle(string name, bool independentLayers = true, Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, string defaultValue = "No suitable layers", Collection<Layer> layers = null)
         {
             Id = Guid.NewGuid();
             Name = name;
@@ -60,6 +59,9 @@ namespace Archives
             UpperAgeLimit = upperAgeLimit;
             DefaultValue = defaultValue;
             Layers = new Collection<Layer>();
+            if (layers != null)
+                foreach (Layer layer in layers)
+                    Layers.Add(new Layer(layer.Chance, layer.After, layer.DefaultValue, layer.Gender, layer.LowerAgeLimit, layer.UpperAgeLimit, layer.Elements));
         }
 
         /// <summary>
@@ -68,11 +70,11 @@ namespace Archives
         /// <exception cref="ArgumentOutOfRangeException">
         /// Throws ArgumentOutOfRangeException if index is out of bounds [0, Count].
         /// </exception>
-        public void InsertNewLayer(int index, double chance = 1.0, string defaultValue = "", Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
+        public void InsertNewLayer(int index, double chance = 1.0, string after = " ", string defaultValue = "", Gender gender = Gender.Neutral, int lowerAgeLimit = 0, int upperAgeLimit = int.MaxValue, Collection<WeightedElement> elements = null)
         {
             if (index < 0 || index > Layers.Count)
                 throw new ArgumentOutOfRangeException("index");
-            Layers.Insert(index, new Layer(chance, defaultValue, gender, lowerAgeLimit, upperAgeLimit, elements));
+            Layers.Insert(index, new Layer(chance, after, defaultValue, gender, lowerAgeLimit, upperAgeLimit, elements));
         }
         public void InsertNewLayer(int index, Layer layer)
         {
@@ -83,7 +85,7 @@ namespace Archives
 
         public void Duplicate(Layer layer)
         {
-            Layer layer1 = new Layer(layer.Chance, layer.DefaultValue, layer.Gender, layer.LowerAgeLimit, layer.UpperAgeLimit, layer.Elements);
+            Layer layer1 = new Layer(layer.Chance, layer.After, layer.DefaultValue, layer.Gender, layer.LowerAgeLimit, layer.UpperAgeLimit, layer.Elements);
 
             InsertNewLayer(Layers.IndexOf(layer), layer1);
         }
@@ -192,11 +194,11 @@ namespace Archives
             {
                 double chance = random.NextDouble();
                 if (chance <= layer.Chance) // Layer is picked
-                    result += layer.GetRandom(gender) + " "; // SPACE ADDED
+                    result += layer.GetRandom(gender);
                 else // Layer isn't picked
                 {
                     if (layer.DefaultValue.Length > 0)
-                        result += layer.DefaultValue + " "; // SPACE ADDED
+                        result += layer.DefaultValue;
                     if (!IndependentLayers)
                         break;
                 }

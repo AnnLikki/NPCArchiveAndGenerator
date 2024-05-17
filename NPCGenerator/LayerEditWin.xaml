@@ -50,29 +50,39 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="Edit Layer" Margin="5" FontWeight="SemiBold"/>
-
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
-            <Label Grid.Column="0" Content="🛈 Chance" Margin="5"
+            <Label Grid.Column="0" Content="Edit Layer" Margin="5" FontWeight="SemiBold"/>
+            
+            <Label Grid.Column="1" Content="🛈 Chance" Margin="5"
                    ToolTip="A 0.0 - 1.0 (0% - 100%) chance that this layer will participate in generation."/>
 
-            <Button Grid.Column="1" Width="15" Height="20" Content="-" Click="ChanceDecrement_Click" />
-            <TextBox x:Name="ChanceTB" Grid.Column="2" Margin="5" VerticalContentAlignment="Center" IsReadOnly="True"/>
-            <Button  Grid.Column="3" Width="15" Height="20" Content="+" Click="ChanceIncrement_Click" />
+            <Button Grid.Column="2" Width="15" Height="20" Content="-" Click="ChanceDecrement_Click" />
+            <TextBox x:Name="ChanceTB" Grid.Column="3" Margin="5" VerticalContentAlignment="Center" IsReadOnly="True"/>
+            <Button  Grid.Column="4" Width="15" Height="20" Content="+" Click="ChanceIncrement_Click" Margin="0,0,5,0"/>
 
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="4" Content="🛈 Default Value" Margin="5"
+            <Label Grid.Column="0" Content="🛈 After layer text" Margin="5" 
+                   ToolTip="This text will be placed after the generated result and after Default Value."/>
+            <TextBox x:Name="AfterTB" Grid.Column="1" Margin="5" VerticalContentAlignment="Center" TextChanged="AfterTB_TextChanged"/>
+
+            <Label Grid.Column="2" Content="🛈 Default Value" Margin="5"
                    ToolTip="This value will be used in generation if the layer didn't pass the Chance."/>
-            <TextBox x:Name="DefaultTB" Grid.Column="5" Margin="5" VerticalContentAlignment="Center" TextChanged="DefaultTB_TextChanged"/>
+            <TextBox x:Name="DefaultTB" Grid.Column="3" Margin="5" VerticalContentAlignment="Center" TextChanged="DefaultTB_TextChanged"/>
             
         </Grid>
 
@@ -121,6 +131,7 @@
                 <ColumnDefinition Width="35"/>
                 <ColumnDefinition Width="35"/>
                 <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="35"/>
             </Grid.ColumnDefinitions>
@@ -134,8 +145,9 @@
                 <Image Source="/Images/add.png" />
             </Button>
             <Label Grid.Column="3" Content="Elements" VerticalContentAlignment="Center" FontSize="14" />
+            <Label x:Name="ElemsCountLbl" Grid.Column="4" VerticalContentAlignment="Center" FontSize="14" />
 
-            <Button x:Name="RefreshBtn" Grid.Column="4" Margin="5" Click="RefreshBtn_Click" ToolTip="Update percentage">
+            <Button x:Name="RefreshBtn" Grid.Column="5" Margin="5" Click="RefreshBtn_Click" ToolTip="Update percentage">
                 <Image Source="/Images/refresh.png" />
             </Button>
         </Grid>
@@ -210,14 +222,33 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn Header="Percentage" Width="Auto">
+
+                <DataGridTemplateColumn Header="M%" Width="40">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding Converter={StaticResource LayerElemsPercentageConverter}}" />
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding Converter={StaticResource LayerElemsPercentageConverter}, ConverterParameter=0}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="F%" Width="40">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding Converter={StaticResource LayerElemsPercentageConverter}, ConverterParameter=1}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="N%" Width="40">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Center" Text="{Binding Converter={StaticResource LayerElemsPercentageConverter}, ConverterParameter=2}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+
             </DataGrid.Columns>
         </DataGrid>
 

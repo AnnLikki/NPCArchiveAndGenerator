@@ -11,6 +11,7 @@ Bundles
       "DefaultValue": "No suitable layers",
       "Layers": [
         {
+          "After": "",
           "DefaultValue": "",
           "Chance": 1,
           "Gender": 2,
@@ -1653,8 +1654,7 @@ Bundles
               "Gender": 0
             }
           ],
-          "Count": 327,
-          "TotalWeight": 327
+          "Count": 327
         }
       ],
       "Count": 1
@@ -1669,6 +1669,7 @@ Bundles
       "DefaultValue": "No suitable layers",
       "Layers": [
         {
+          "After": "",
           "DefaultValue": "",
           "Chance": 1,
           "Gender": 2,
@@ -2651,8 +2652,7 @@ Bundles
               "Gender": 0
             }
           ],
-          "Count": 195,
-          "TotalWeight": 195
+          "Count": 195
         }
       ],
       "Count": 1
@@ -2667,6 +2667,7 @@ Bundles
       "DefaultValue": "No suitable layers",
       "Layers": [
         {
+          "After": " ",
           "DefaultValue": "",
           "Chance": 1,
           "Gender": 2,
@@ -3584,10 +3585,10 @@ Bundles
               "Gender": 2
             }
           ],
-          "Count": 182,
-          "TotalWeight": 182
+          "Count": 182
         },
         {
+          "After": "",
           "DefaultValue": "",
           "Chance": 0.5,
           "Gender": 2,
@@ -4070,8 +4071,7 @@ Bundles
               "Gender": 2
             }
           ],
-          "Count": 95,
-          "TotalWeight": 95
+          "Count": 95
         }
       ],
       "Count": 2
@@ -4093,6 +4093,7 @@ Bundles
       "DefaultValue": "No suitable layers",
       "Layers": [
         {
+          "After": "",
           "DefaultValue": "",
           "Chance": 1,
           "Gender": 2,
@@ -4185,10 +4186,10 @@ Bundles
               "Gender": 2
             }
           ],
-          "Count": 17,
-          "TotalWeight": 905
+          "Count": 17
         },
         {
+          "After": "",
           "DefaultValue": "лысая",
           "Chance": 0.94999999999999996,
           "Gender": 2,
@@ -4221,8 +4222,7 @@ Bundles
               "Gender": 2
             }
           ],
-          "Count": 5,
-          "TotalWeight": 270
+          "Count": 5
         }
       ],
       "Count": 2
@@ -4237,6 +4237,7 @@ Bundles
       "DefaultValue": "No suitable layers",
       "Layers": [
         {
+          "After": "",
           "DefaultValue": "",
           "Chance": 1,
           "Gender": 2,
@@ -4329,10 +4330,10 @@ Bundles
               "Gender": 2
             }
           ],
-          "Count": 17,
-          "TotalWeight": 905
+          "Count": 17
         },
         {
+          "After": "",
           "DefaultValue": "лысый",
           "Chance": 0.84999999999999998,
           "Gender": 2,
@@ -4365,8 +4366,7 @@ Bundles
               "Gender": 2
             }
           ],
-          "Count": 5,
-          "TotalWeight": 270
+          "Count": 5
         }
       ],
       "Count": 2

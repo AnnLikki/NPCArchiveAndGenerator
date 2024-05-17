@@ -14,14 +14,20 @@ namespace Archives
         public Archetype DefaultArchetype { get; set; }
 
 
-        public void Add(Archetype item)
+        public void Add(Archetype archetype)
         {
-            Items.Add(item);
+            Items.Add(archetype);
         }
 
-        public bool Remove(Archetype item)
+        public bool Remove(Archetype archetype)
         {
-            return Items.Remove(item);
+            return Items.Remove(archetype);
+        }
+
+        public void Duplicate(Archetype archetype)
+        {
+            Archetype archetype1 = new Archetype(archetype.Name, archetype.Races, archetype.Genders, archetype.Ages, archetype.CompatableBundles);
+            Items.Insert(Items.IndexOf(archetype), archetype1);
         }
 
         public void Clear() { Items.Clear(); DefaultArchetype = null; }

@@ -27,6 +27,7 @@ namespace NPCArchiveAndGenerator
             InitializeComponent();
 
             ChanceTB.Text = layer.Chance.ToString();
+            AfterTB.Text = layer.After;
             DefaultTB.Text = layer.DefaultValue;
 
             if (layer.Gender == Gender.Male)
@@ -63,7 +64,12 @@ namespace NPCArchiveAndGenerator
             ChanceTB.Text = layer.Chance.ToString();
         }
 
-        private void DefaultTB_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void AfterTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            layer.After = AfterTB.Text;
+        }
+
+        private void DefaultTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             layer.DefaultValue = DefaultTB.Text;
         }
@@ -119,13 +125,11 @@ namespace NPCArchiveAndGenerator
             return result;
         }
 
-
-
-
         public void updateElems()
         {
             ElemsDG.ItemsSource = null;
             ElemsDG.ItemsSource = layer.Elements;
+            ElemsCountLbl.Content = layer.Count;
         }
 
         private void AddElementBtn_Click(object sender, RoutedEventArgs e)
@@ -240,10 +244,25 @@ namespace NPCArchiveAndGenerator
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is WeightedElement item && Layer != null)
+            int i = int.Parse(parameter.ToString());
+            if (value is WeightedElement item && Layer != null && i is int gender)
             {
                 string percent;
-                percent = Layer.GetPercentage(item.Value) + "%";
+                switch (gender)
+                {
+                    case 0:
+                        percent = Layer.GetPercentage(item, Gender.Male) + "%";
+                        break;
+                    case 1:
+                        percent = Layer.GetPercentage(item, Gender.Female) + "%";
+                        break;
+                    case 2:
+                        percent = Layer.GetPercentage(item, Gender.Neutral) + "%";
+                        break;
+                    default:
+                        percent = "N/A%";
+                        break;
+                }
                 return percent;
             }
             return string.Empty;
