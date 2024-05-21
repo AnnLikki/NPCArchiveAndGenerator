@@ -316,5 +316,9 @@
   <ItemGroup>
     <Resource Include="Images\close2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\abacus_no.png" />
+    <Resource Include="Images\abacus_yes.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
