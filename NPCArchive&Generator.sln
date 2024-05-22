@@ -30,7 +30,6 @@ Global
 		{078FB7EC-60AA-41FA-A432-95CE6F0EE4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{078FB7EC-60AA-41FA-A432-95CE6F0EE4AE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{110F140F-1920-406A-8B09-D89CBB5D9601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{110F140F-1920-406A-8B09-D89CBB5D9601}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{110F140F-1920-406A-8B09-D89CBB5D9601}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution

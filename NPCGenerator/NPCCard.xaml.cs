@@ -1,6 +1,8 @@
 ﻿using Archives;
 using NPCArchiveAndGenerator;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -174,7 +176,7 @@ namespace NPCGenerator
 
         private void updateAgeOnBio()
         {
-            if (((Race)raceCmb.SelectedValue) != null)
+            if (((Race)raceCmb.SelectedValue) != null && autoCalcAgeBtn.IsChecked==true)
                 if (ageBioTB.Text.Length == 0)
                     ageChronoTB.Text = "0";
                 else
@@ -190,7 +192,7 @@ namespace NPCGenerator
 
         private void updateAgeOnChrono()
         {
-            if (((Race)raceCmb.SelectedValue) != null)
+            if (((Race)raceCmb.SelectedValue) != null && autoCalcAgeBtn.IsChecked == true)
                 if (ageChronoTB.Text.Length == 0)
                     ageBioTB.Text = "0";
                 else

@@ -22,7 +22,7 @@ namespace FileManager
             }
             catch (Exception e)
             {
-                ErrorHandler.collectError("Could not export to file " + path);
+                ErrorHandler.collectError("Could not export to file " + path, e);
                 Console.WriteLine($"Error exporting data: {e.Message}");
                 return false;
             }
@@ -57,7 +57,7 @@ namespace FileManager
             }
             catch (Exception e)
             {
-                ErrorHandler.collectError("Could not import file " + path);
+                ErrorHandler.collectError("Could not import file " + path, e);
                 Console.WriteLine($"Error importing data: {e.Message}");
                 return Enumerable.Empty<WeightedElement>();
             }

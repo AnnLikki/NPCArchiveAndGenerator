@@ -29,6 +29,25 @@
             </Setter>
         </Style>
 
+        <Style x:Key="autoCalcAgeToggleButtonStyle" TargetType="ToggleButton">
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Image Source="/Images/abacus_yes.png" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Image Source="/Images/abacus_no.png" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </UserControl.Resources>
 
     <ScrollViewer Background="{StaticResource LightColor}">
@@ -146,6 +165,7 @@
                             <ColumnDefinition Width="20" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="22" />
                         </Grid.ColumnDefinitions>
                         <Label Content="Gender" Margin="2,0,2,0" Grid.Column="0" Padding="0,0,0,0" VerticalContentAlignment="Center"/>
 
@@ -167,6 +187,9 @@
                         </Button>
                         <Label Content="/ (bio)" Margin="2,0,2,0" Grid.Column="8" Padding="0,0,0,0" VerticalContentAlignment="Center"/>
                         <TextBox x:Name="ageBioTB" Margin="2,0,0,0" Grid.Column="9" VerticalScrollBarVisibility="Disabled" TextChanged="ageBioTB_TextChanged" PreviewTextInput="numeric_PreviewTextInput" VerticalContentAlignment="Center"/>
+
+                        <ToggleButton x:Name="autoCalcAgeBtn" Grid.Column="10" IsChecked="True" Style="{StaticResource autoCalcAgeToggleButtonStyle}" Margin="2,0,0,0"/>
+
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="0" Margin="2">
                         <Grid.ColumnDefinitions>

@@ -26,7 +26,6 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
@@ -39,7 +38,7 @@
             <Button x:Name="openBtn" ToolTip="Open archive" Grid.Column="2" Width="30" Height="30" Margin="5" Click="openBtn_Click">
                 <Image Source="/Images/open.png"/>
             </Button>
-            <CheckBox x:Name="safeModeChkBx" Content="🛈 Safe mode" ToolTip="Enable/disable warnings" Click="safeModeChkBx_Click" Height="Auto" Grid.Column="3" Margin="5" Foreground="White" IsChecked="True" FontSize="14" VerticalContentAlignment="Center"/>
+            <CheckBox x:Name="safeModeChkBx" Content="🛈 Safe mode" ToolTip="Enable/disable warnings" Click="safeModeChkBx_Click" Height="Auto" Grid.Column="4" Margin="5,5,15,5" Foreground="White" IsChecked="True" FontSize="14" VerticalContentAlignment="Center"/>
             <WrapPanel x:Name="bottomWrpPnl" Grid.Column="0" Grid.ColumnSpan="6" Height="30" HorizontalAlignment="Center">
                 <Button x:Name="NPCsArchiveBtn" Margin="5,0,5,0" MinHeight="30" Padding="5" Content="NPCs" Click="NPCsArchiveBtn_Click" Width="71"/>
                 <Button x:Name="RacesArchiveBtn" Margin="5,0,5,0" MinHeight="30"  Padding="5" Content="Races" Click="RacesArchiveBtn_Click" Width="71"/>
