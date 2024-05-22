@@ -26,5 +26,32 @@ NPC
     "Wis": 10,
     "Cha": 10,
     "Notes": ""
+  },
+  {
+    "Name": "No Name",
+    "RaceID": "00000000-0000-0000-0000-000000000000",
+    "RaceName": "No Race",
+    "Gender": 2,
+    "AgeChrono": 0,
+    "AgeBio": 0,
+    "Occupation": "",
+    "Place": "",
+    "Character": "",
+    "Backstory": "",
+    "Height": "",
+    "Physique": "",
+    "Skin": "",
+    "Hair": "",
+    "Face": "",
+    "Eyes": "",
+    "Clothes": "",
+    "Features": "",
+    "Str": 10,
+    "Dex": 10,
+    "Con": 10,
+    "Int": 10,
+    "Wis": 10,
+    "Cha": 10,
+    "Notes": ""
   }
 ]

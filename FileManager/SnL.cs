@@ -56,7 +56,7 @@ namespace FileManager
             }
             catch (Exception e)
             {
-                ErrorHandler.collectError("Could not save file " + path);
+                ErrorHandler.collectError("Could not save file " + path, e);
                 Console.WriteLine(e);
                 return false;
             }
@@ -84,12 +84,12 @@ namespace FileManager
             }
             catch (FormatException e)
             {
-                ErrorHandler.collectError("Wrong or missing format descriptor " + path);
+                ErrorHandler.collectError("Wrong or missing format descriptor " + path, e);
                 Console.WriteLine(e);
             }
             catch (Exception e)
             {
-                ErrorHandler.collectError("Could not load file " + path);
+                ErrorHandler.collectError("Could not load file " + path, e);
                 Console.WriteLine(e);
             }
             return false;
@@ -142,7 +142,7 @@ namespace FileManager
             }
             catch (Exception e)
             {
-                ErrorHandler.collectError("Could not save file " + path);
+                ErrorHandler.collectError("Could not save file " + path, e);
                 Console.WriteLine(e);
                 return false;
             }
@@ -186,12 +186,12 @@ namespace FileManager
             }
             catch (FormatException e)
             {
-                ErrorHandler.collectError("Wrong or missing format descriptor " + path);
+                ErrorHandler.collectError("Wrong or missing format descriptor " + path, e);
                 Console.WriteLine(e);
             }
             catch (Exception e)
             {
-                ErrorHandler.collectError("Could not load file " + path);
+                ErrorHandler.collectError("Could not load file " + path, e);
                 Console.WriteLine(e);
             }
             return false;

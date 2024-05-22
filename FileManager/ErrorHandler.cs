@@ -1,10 +1,12 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using NLog;
 
 namespace FileManager
 {
     /// <summary>
     /// This static class is responsible for collecting and
-    /// displaying errors. 
+    /// displaying errors.
     /// </summary>
     /// <remarks>
     /// Instead of printing the errors in the console
@@ -16,13 +18,16 @@ namespace FileManager
     public static class ErrorHandler
     {
         private static string log = "";
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         /// <summary>
         /// Adds the error message to the log variable.
         /// </summary>
-        public static void collectError(string error)
+        public static void collectError(string message, Exception error)
         {
-            log += "\n" + error;
+            log += "\n" + message;
+            logger.Info("-----------------------------------------------------------");
+            logger.Error(error);
         }
 
         /// <summary>
@@ -34,13 +39,12 @@ namespace FileManager
         {
             if (log.Length > 0)
             {
-                MessageBox.Show(log, "Errors!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(log, "Errors", MessageBoxButton.OK, MessageBoxImage.Warning);
                 log = "";
                 return true;
             }
             log = "";
             return false;
         }
-
     }
 }
